@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/engineer_ship_wall_2_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/engineer_ship_wall_2"
+    },
+    "type=top": {
+      "model": "avpr:block/engineer_ship_wall_2_slab_top"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron_panel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:iron_panel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:iron_panel_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_iron_panel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:iron_panel_slab"
+    ]
+  }
+}

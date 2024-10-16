@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "avpr:blueprint_m56_smartgun"
+    },
+    {
+      "item": "avpr:weapon_part_barrel_smart"
+    },
+    {
+      "item": "avpr:weapon_part_grip"
+    },
+    {
+      "item": "avpr:weapon_part_receiver_smart"
+    }
+  ],
+  "result": {
+    "item": "avpr:weapon_m56_smartgun"
+  }
+}

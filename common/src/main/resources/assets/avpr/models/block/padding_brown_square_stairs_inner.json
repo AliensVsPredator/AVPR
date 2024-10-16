@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "avpr:block/padding_brown_square",
+    "side": "avpr:block/padding_brown_square",
+    "top": "avpr:block/padding_brown_square"
+  }
+}

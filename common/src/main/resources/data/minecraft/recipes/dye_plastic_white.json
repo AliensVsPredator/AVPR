@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:white_dye"
+    },
+    [
+      {
+        "item": "avpr:plastic_yellow"
+      },
+      {
+        "item": "avpr:plastic_pink"
+      },
+      {
+        "item": "avpr:plastic_purple"
+      },
+      {
+        "item": "avpr:plastic_brown"
+      },
+      {
+        "item": "avpr:plastic_cyan"
+      },
+      {
+        "item": "avpr:plastic_orange"
+      },
+      {
+        "item": "avpr:plastic_lime"
+      },
+      {
+        "item": "avpr:plastic_blue"
+      },
+      {
+        "item": "avpr:plastic_light_blue"
+      },
+      {
+        "item": "avpr:plastic_light_gray"
+      },
+      {
+        "item": "avpr:plastic_gray"
+      },
+      {
+        "item": "avpr:plastic_red"
+      },
+      {
+        "item": "avpr:plastic_magenta"
+      },
+      {
+        "item": "avpr:plastic_black"
+      },
+      {
+        "item": "avpr:plastic_green"
+      }
+    ]
+  ],
+  "result": {
+    "item": "avpr:plastic_white"
+  }
+}

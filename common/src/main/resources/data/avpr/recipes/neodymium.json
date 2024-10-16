@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "avpr:neodymium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "avpr:neodymium"
+  }
+}

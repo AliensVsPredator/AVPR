@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:ovamorph_draco",
+    "avpr:praetorian",
+    "avpr:facehugger",
+    "avpr:chestburster_draco",
+    "avpr:queen",
+    "avpr:warrior",
+    "avpr:belugamorph",
+    "avpr:chestburster_runner",
+    "avpr:dracomorph",
+    "avpr:belugaburster",
+    "avpr:chestburster",
+    "avpr:facehugger_royal",
+    "avpr:spitter",
+    "avpr:ovamorph",
+    "avpr:warrior_runner",
+    "avpr:boiler",
+    "avpr:deacon_adult_engineer",
+    "avpr:drone_runner",
+    "avpr:crusher",
+    "avpr:deacon_adult",
+    "avpr:deacon",
+    "avpr:trilobite_baby",
+    "avpr:ultramorph",
+    "avpr:trilobite",
+    "avpr:octohugger",
+    "avpr:drone",
+    "avpr:chestburster_queen",
+    "avpr:nauticomorph"
+  ]
+}

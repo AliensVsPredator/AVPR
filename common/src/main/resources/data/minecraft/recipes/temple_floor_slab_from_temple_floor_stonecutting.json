@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:temple_floor"
+  },
+  "result": "avpr:temple_floor_slab"
+}

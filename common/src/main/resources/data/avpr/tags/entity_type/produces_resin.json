@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:praetorian",
+    "avpr:queen",
+    "avpr:warrior",
+    "avpr:dracomorph",
+    "avpr:spitter",
+    "avpr:warrior_runner",
+    "avpr:drone_runner",
+    "avpr:crusher",
+    "avpr:ultramorph",
+    "avpr:drone",
+    "avpr:nauticomorph"
+  ]
+}

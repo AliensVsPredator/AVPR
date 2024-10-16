@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "avpr:blueprint_old_painless"
+    },
+    {
+      "item": "avpr:weapon_part_barrel_minigun"
+    },
+    {
+      "item": "avpr:weapon_part_grip"
+    },
+    {
+      "item": "avpr:weapon_part_grip"
+    },
+    {
+      "item": "avpr:weapon_part_receiver"
+    }
+  ],
+  "result": {
+    "item": "avpr:weapon_old_painless"
+  }
+}

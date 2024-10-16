@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "avpr:block/paradise_log_small_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "avpr:block/paradise_log_small"
+    },
+    "axis=z": {
+      "model": "avpr:block/paradise_log_small_horizontal",
+      "x": 90
+    }
+  }
+}

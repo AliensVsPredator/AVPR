@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "avpr:block/yautja_ship_decor_3",
+    "side": "avpr:block/yautja_ship_decor_3",
+    "top": "avpr:block/yautja_ship_decor_3"
+  }
+}

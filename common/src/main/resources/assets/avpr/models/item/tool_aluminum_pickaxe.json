@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "avpr:item/tool_aluminum_pickaxe"
+  }
+}

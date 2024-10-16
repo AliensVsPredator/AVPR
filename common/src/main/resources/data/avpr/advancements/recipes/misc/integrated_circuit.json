@@ -1,0 +1,112 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_A": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:polycarbonate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_B": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:ingot_aluminum"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_C": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:copper_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_D": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:transistor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_E": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:resistor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_F": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:regulator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_G": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:diode"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:integrated_circuit"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_A",
+      "has_B",
+      "has_C",
+      "has_D",
+      "has_E",
+      "has_F",
+      "has_G"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:integrated_circuit"
+    ]
+  }
+}

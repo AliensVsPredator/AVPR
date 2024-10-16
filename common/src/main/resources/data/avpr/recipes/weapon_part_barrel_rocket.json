@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:ingot_steel"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "   ",
+    "AAA"
+  ],
+  "result": {
+    "item": "avpr:weapon_part_barrel_rocket"
+  }
+}

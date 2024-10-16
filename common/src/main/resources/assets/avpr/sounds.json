@@ -1,0 +1,774 @@
+{
+  "block.acid.burn": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lava.extinguish",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.block.acid.burn"
+  },
+  "entity.boiler.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.boiler.ambient"
+  },
+  "entity.boiler.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.boiler.death"
+  },
+  "entity.boiler.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.boiler.hurt"
+  },
+  "entity.chestburster.death": {
+    "sounds": [
+      "avpr:entity/chestburster/death/death"
+    ],
+    "subtitle": "subtitles.entity.chestburster.death"
+  },
+  "entity.chestburster.hurt": {
+    "sounds": [
+      "avpr:entity/chestburster/hurt/hurt"
+    ],
+    "subtitle": "subtitles.entity.chestburster.hurt"
+  },
+  "entity.chestburster_draco.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.chestburster.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.chestburster_draco.death"
+  },
+  "entity.chestburster_draco.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.chestburster.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.chestburster_draco.hurt"
+  },
+  "entity.chestburster_queen.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.chestburster.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.chestburster_queen.death"
+  },
+  "entity.chestburster_queen.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.chestburster.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.chestburster_queen.hurt"
+  },
+  "entity.chestburster_runner.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.chestburster.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.chestburster_runner.death"
+  },
+  "entity.chestburster_runner.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.chestburster.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.chestburster_runner.hurt"
+  },
+  "entity.crusher.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.praetorian.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.crusher.ambient"
+  },
+  "entity.crusher.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.praetorian.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.crusher.death"
+  },
+  "entity.crusher.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.praetorian.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.crusher.hurt"
+  },
+  "entity.dracomorph.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.queen.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.dracomorph.ambient"
+  },
+  "entity.dracomorph.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.queen.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.dracomorph.death"
+  },
+  "entity.dracomorph.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.queen.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.dracomorph.hurt"
+  },
+  "entity.drone.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.drone.ambient"
+  },
+  "entity.drone.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.drone.death"
+  },
+  "entity.drone.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.drone.hurt"
+  },
+  "entity.drone_runner.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.drone_runner.ambient"
+  },
+  "entity.drone_runner.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.drone_runner.death"
+  },
+  "entity.drone_runner.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.drone_runner.hurt"
+  },
+  "entity.nauticomorph.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.nauticomorph.ambient"
+  },
+  "entity.nauticomorph.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.nauticomorph.death"
+  },
+  "entity.nauticomorph.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.nauticomorph.hurt"
+  },
+  "entity.ovamorph.open": {
+    "sounds": [
+      "avpr:entity/ovamorph/open/open0",
+      "avpr:entity/ovamorph/open/open1"
+    ],
+    "subtitle": "subtitles.entity.ovamorph.open"
+  },
+  "entity.parasite.impregnate": {
+    "sounds": [
+      "avpr:entity/parasite/impregnate/impregnate0",
+      "avpr:entity/parasite/impregnate/impregnate1",
+      "avpr:entity/parasite/impregnate/impregnate2"
+    ],
+    "subtitle": "subtitles.entity.parasite.impregnate"
+  },
+  "entity.praetorian.ambient": {
+    "sounds": [
+      "avpr:entity/praetorian/ambient/living0",
+      "avpr:entity/praetorian/ambient/living1",
+      "avpr:entity/praetorian/ambient/living2"
+    ],
+    "subtitle": "subtitles.entity.praetorian.ambient"
+  },
+  "entity.praetorian.death": {
+    "sounds": [
+      "avpr:entity/praetorian/death/death0",
+      "avpr:entity/praetorian/death/death1"
+    ],
+    "subtitle": "subtitles.entity.praetorian.death"
+  },
+  "entity.praetorian.hurt": {
+    "sounds": [
+      "avpr:entity/praetorian/hurt/hurt0",
+      "avpr:entity/praetorian/hurt/hurt1",
+      "avpr:entity/praetorian/hurt/hurt2"
+    ],
+    "subtitle": "subtitles.entity.praetorian.hurt"
+  },
+  "entity.queen.ambient": {
+    "sounds": [
+      "avpr:entity/queen/ambient/living0",
+      "avpr:entity/queen/ambient/living1",
+      "avpr:entity/queen/ambient/living2",
+      "avpr:entity/queen/ambient/living3"
+    ],
+    "subtitle": "subtitles.entity.queen.ambient"
+  },
+  "entity.queen.ambient.loop": {
+    "sounds": [
+      "avpr:entity/queen/ambient/loop/living-loop"
+    ],
+    "subtitle": "subtitles.entity.queen.ambient.loop"
+  },
+  "entity.queen.death": {
+    "sounds": [
+      "avpr:entity/queen/hurt/hurt0",
+      "avpr:entity/queen/hurt/hurt1",
+      "avpr:entity/queen/hurt/hurt2",
+      "avpr:entity/queen/hurt/hurt3"
+    ],
+    "subtitle": "subtitles.entity.queen.death"
+  },
+  "entity.queen.hurt": {
+    "sounds": [
+      "avpr:entity/queen/hurt/hurt0",
+      "avpr:entity/queen/hurt/hurt1",
+      "avpr:entity/queen/hurt/hurt2",
+      "avpr:entity/queen/hurt/hurt3"
+    ],
+    "subtitle": "subtitles.entity.queen.hurt"
+  },
+  "entity.spitter.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.spitter.ambient"
+  },
+  "entity.spitter.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.spitter.death"
+  },
+  "entity.spitter.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.spitter.hurt"
+  },
+  "entity.ultramorph.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.ultramorph.ambient"
+  },
+  "entity.ultramorph.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.ultramorph.death"
+  },
+  "entity.ultramorph.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.ultramorph.hurt"
+  },
+  "entity.warrior.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.warrior.ambient"
+  },
+  "entity.warrior.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.warrior.death"
+  },
+  "entity.warrior.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.warrior.hurt"
+  },
+  "entity.warrior_runner.ambient": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.warrior_runner.ambient"
+  },
+  "entity.warrior_runner.death": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.death",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.warrior_runner.death"
+  },
+  "entity.warrior_runner.hurt": {
+    "sounds": [
+      {
+        "name": "avpr:entity.xenomorph.hurt",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.entity.warrior_runner.hurt"
+  },
+  "entity.xenomorph.ambient": {
+    "sounds": [
+      "avpr:entity/xenomorph/ambient/living0",
+      "avpr:entity/xenomorph/ambient/living1",
+      "avpr:entity/xenomorph/ambient/living2",
+      "avpr:entity/xenomorph/ambient/living3"
+    ],
+    "subtitle": "subtitles.entity.xenomorph.ambient"
+  },
+  "entity.xenomorph.attack": {
+    "sounds": [
+      "avpr:entity/xenomorph/attack/attack0",
+      "avpr:entity/xenomorph/attack/attack1",
+      "avpr:entity/xenomorph/attack/attack2",
+      "avpr:entity/xenomorph/attack/attack3"
+    ],
+    "subtitle": "subtitles.entity.xenomorph.attack"
+  },
+  "entity.xenomorph.death": {
+    "sounds": [
+      "avpr:entity/xenomorph/death/death0",
+      "avpr:entity/xenomorph/death/death1"
+    ],
+    "subtitle": "subtitles.entity.xenomorph.death"
+  },
+  "entity.xenomorph.eat": {
+    "sounds": [
+      "avpr:entity/xenomorph/eat/eat0",
+      "avpr:entity/xenomorph/eat/eat1"
+    ],
+    "subtitle": "subtitles.entity.xenomorph.eat"
+  },
+  "entity.xenomorph.hurt": {
+    "sounds": [
+      "avpr:entity/xenomorph/hurt/hurt0",
+      "avpr:entity/xenomorph/hurt/hurt1"
+    ],
+    "subtitle": "subtitles.entity.xenomorph.hurt"
+  },
+  "entity.xenomorph.hurt.screech": {
+    "sounds": [
+      "avpr:entity/xenomorph/hurt/screech/screech0",
+      "avpr:entity/xenomorph/hurt/screech/screech1",
+      "avpr:entity/xenomorph/hurt/screech/screech2"
+    ],
+    "subtitle": "subtitles.entity.xenomorph.hurt.screech"
+  },
+  "entity.yautja.ambient": {
+    "sounds": [
+      "avpr:entity/yautja/ambient/living0",
+      "avpr:entity/yautja/ambient/living1",
+      "avpr:entity/yautja/ambient/living2",
+      "avpr:entity/yautja/ambient/living3"
+    ],
+    "subtitle": "subtitles.entity.yautja.ambient"
+  },
+  "entity.yautja.cloak": {
+    "sounds": [
+      "avpr:entity/yautja/cloak/cloaking"
+    ],
+    "subtitle": "subtitles.entity.yautja.cloak"
+  },
+  "entity.yautja.decloak": {
+    "sounds": [
+      "avpr:entity/yautja/cloak/decloaking"
+    ],
+    "subtitle": "subtitles.entity.yautja.decloak"
+  },
+  "entity.yautja.death": {
+    "sounds": [
+      "avpr:entity/yautja/death/death0",
+      "avpr:entity/yautja/death/death1"
+    ],
+    "subtitle": "subtitles.entity.yautja.death"
+  },
+  "entity.yautja.hurt": {
+    "sounds": [
+      "avpr:entity/yautja/hurt/hurt0",
+      "avpr:entity/yautja/hurt/hurt1"
+    ],
+    "subtitle": "subtitles.entity.yautja.hurt"
+  },
+  "entity.yautja.intimidate": {
+    "sounds": [
+      "avpr:entity/yautja/intimidate/intimidate0",
+      "avpr:entity/yautja/intimidate/intimidate1"
+    ],
+    "subtitle": "subtitles.entity.yautja.intimidate"
+  },
+  "item.armor.equip_aluminum": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_aluminum"
+  },
+  "item.armor.equip_mk50": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_chain",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_mk50"
+  },
+  "item.armor.equip_orionite": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_diamond",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_orionite"
+  },
+  "item.armor.equip_pressure": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_chain",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_pressure"
+  },
+  "item.armor.equip_tactical": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_chain",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_tactical"
+  },
+  "item.armor.equip_titanium": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_titanium"
+  },
+  "item.armor.equip_veritanium": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_veritanium"
+  },
+  "item.armor.equip_xenomorph_chitin": {
+    "sounds": [
+      {
+        "name": "minecraft:block.honey_block.step",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_xenomorph_chitin"
+  },
+  "item.weapon.ak_47.shoot": {
+    "sounds": [
+      "avpr:item/weapon/ak_47/shoot"
+    ],
+    "subtitle": "subtitles.item.weapon.ak_47.shoot"
+  },
+  "item.weapon.combat_pistol.reload": {
+    "sounds": [
+      "avpr:item/weapon/combat_pistol/reload"
+    ],
+    "subtitle": "subtitles.item.weapon.combat_pistol.reload"
+  },
+  "item.weapon.combat_pistol.shoot": {
+    "sounds": [
+      "avpr:item/weapon/combat_pistol/shoot0",
+      "avpr:item/weapon/combat_pistol/shoot1"
+    ],
+    "subtitle": "subtitles.item.weapon.combat_pistol.shoot"
+  },
+  "item.weapon.flamethrower.reload_start": {
+    "sounds": [
+      "avpr:item/weapon/flamethrower/reload_start"
+    ],
+    "subtitle": "subtitles.item.weapon.flamethrower.reload_start"
+  },
+  "item.weapon.flamethrower.reload_finish": {
+    "sounds": [
+      "avpr:item/weapon/flamethrower/reload_finish"
+    ],
+    "subtitle": "subtitles.item.weapon.flamethrower.reload_finish"
+  },
+  "item.weapon.flamethrower.shoot": {
+    "sounds": [
+      "avpr:item/weapon/flamethrower/shoot"
+    ],
+    "subtitle": "subtitles.item.weapon.flamethrower.shoot"
+  },
+  "item.weapon.fx.ricochet.dirt": {
+    "sounds": [
+      "avpr:item/weapon/fx/ricochet/dirt/impact0",
+      "avpr:item/weapon/fx/ricochet/dirt/impact1",
+      "avpr:item/weapon/fx/ricochet/dirt/impact2",
+      "avpr:item/weapon/fx/ricochet/dirt/impact3",
+      "avpr:item/weapon/fx/ricochet/dirt/impact4",
+      "avpr:item/weapon/fx/ricochet/dirt/impact5",
+      "avpr:item/weapon/fx/ricochet/dirt/impact6",
+      "avpr:item/weapon/fx/ricochet/dirt/impact7",
+      "avpr:item/weapon/fx/ricochet/dirt/impact8",
+      "avpr:item/weapon/fx/ricochet/dirt/impact9",
+      "avpr:item/weapon/fx/ricochet/dirt/impact10",
+      "avpr:item/weapon/fx/ricochet/dirt/impact11",
+      "avpr:item/weapon/fx/ricochet/dirt/impact12",
+      "avpr:item/weapon/fx/ricochet/dirt/impact13",
+      "avpr:item/weapon/fx/ricochet/dirt/impact14"
+    ],
+    "subtitle": "subtitles.item.weapon.fx.ricochet.dirt"
+  },
+  "item.weapon.fx.ricochet.generic": {
+    "sounds": [
+      "avpr:item/weapon/fx/ricochet/generic/impact0",
+      "avpr:item/weapon/fx/ricochet/generic/impact1",
+      "avpr:item/weapon/fx/ricochet/generic/impact2",
+      "avpr:item/weapon/fx/ricochet/generic/impact3",
+      "avpr:item/weapon/fx/ricochet/generic/impact4",
+      "avpr:item/weapon/fx/ricochet/generic/impact5",
+      "avpr:item/weapon/fx/ricochet/generic/impact6",
+      "avpr:item/weapon/fx/ricochet/generic/impact7",
+      "avpr:item/weapon/fx/ricochet/generic/impact8",
+      "avpr:item/weapon/fx/ricochet/generic/impact9",
+      "avpr:item/weapon/fx/ricochet/generic/impact10",
+      "avpr:item/weapon/fx/ricochet/generic/impact11"
+    ],
+    "subtitle": "subtitles.item.weapon.fx.ricochet.generic"
+  },
+  "item.weapon.fx.ricochet.glass": {
+    "sounds": [
+      "avpr:item/weapon/fx/ricochet/glass/impact0",
+      "avpr:item/weapon/fx/ricochet/glass/impact1",
+      "avpr:item/weapon/fx/ricochet/glass/impact2",
+      "avpr:item/weapon/fx/ricochet/glass/impact3"
+    ],
+    "subtitle": "subtitles.item.weapon.fx.ricochet.glass"
+  },
+  "item.weapon.fx.ricochet.metal": {
+    "sounds": [
+      "avpr:item/weapon/fx/ricochet/metal/impact0",
+      "avpr:item/weapon/fx/ricochet/metal/impact1",
+      "avpr:item/weapon/fx/ricochet/metal/impact2",
+      "avpr:item/weapon/fx/ricochet/metal/impact3",
+      "avpr:item/weapon/fx/ricochet/metal/impact4",
+      "avpr:item/weapon/fx/ricochet/metal/impact5"
+    ],
+    "subtitle": "subtitles.item.weapon.fx.ricochet.metal"
+  },
+  "item.weapon.fx.rocket_explosion": {
+    "sounds": [
+      "avpr:item/weapon/fx/rocket_explosion"
+    ],
+    "subtitle": "subtitles.item.weapon.fx.rocket_explosion"
+  },
+  "item.weapon.generic.reload": {
+    "sounds": [
+      "avpr:item/weapon/generic/reload"
+    ],
+    "subtitle": "subtitles.item.weapon.generic.reload"
+  },
+  "item.weapon.generic.shoot": {
+    "sounds": [
+      "avpr:item/weapon/generic/shoot"
+    ],
+    "subtitle": "subtitles.item.weapon.generic.shoot"
+  },
+  "item.weapon.generic.shoot_fail": {
+    "sounds": [
+      "avpr:item/weapon/generic/shoot_fail"
+    ],
+    "subtitle": "subtitles.item.weapon.generic.shoot_fail"
+  },
+  "item.weapon.old_painless.shoot_loop": {
+    "sounds": [
+      "avpr:item/weapon/old_painless/shoot_loop"
+    ],
+    "subtitle": "subtitles.item.weapon.old_painless.shoot_loop"
+  },
+  "item.weapon.old_painless.shoot_spinning": {
+    "sounds": [
+      "avpr:item/weapon/old_painless/shoot_spinning"
+    ],
+    "subtitle": "subtitles.item.weapon.old_painless.shoot_spinning"
+  },
+  "item.weapon.old_painless.shoot_start": {
+    "sounds": [
+      "avpr:item/weapon/old_painless/shoot_start"
+    ],
+    "subtitle": "subtitles.item.weapon.old_painless.shoot_start"
+  },
+  "item.weapon.old_painless.shoot_stop": {
+    "sounds": [
+      "avpr:item/weapon/old_painless/shoot_stop"
+    ],
+    "subtitle": "subtitles.item.weapon.old_painless.shoot_stop"
+  },
+  "item.weapon.pulse_rifle.shoot": {
+    "sounds": [
+      "avpr:item/weapon/pulse_rifle/shoot0",
+      "avpr:item/weapon/pulse_rifle/shoot1",
+      "avpr:item/weapon/pulse_rifle/shoot2",
+      "avpr:item/weapon/pulse_rifle/shoot3",
+      "avpr:item/weapon/pulse_rifle/shoot4"
+    ],
+    "subtitle": "subtitles.item.weapon.pulse_rifle.shoot"
+  },
+  "item.weapon.rocket_launcher.reload_finish": {
+    "sounds": [
+      "avpr:item/weapon/rocket_launcher/reload_finish"
+    ],
+    "subtitle": "subtitles.item.weapon.rocket_launcher.reload_finish"
+  },
+  "item.weapon.rocket_launcher.reload_start": {
+    "sounds": [
+      "avpr:item/weapon/rocket_launcher/reload_start"
+    ],
+    "subtitle": "subtitles.item.weapon.rocket_launcher.reload_start"
+  },
+  "item.weapon.rocket_launcher.shoot": {
+    "sounds": [
+      "avpr:item/weapon/rocket_launcher/shoot"
+    ],
+    "subtitle": "subtitles.item.weapon.rocket_launcher.shoot"
+  },
+  "item.weapon.shotgun.shoot": {
+    "sounds": [
+      "avpr:item/weapon/shotgun/shoot0",
+      "avpr:item/weapon/shotgun/shoot1"
+    ],
+    "subtitle": "subtitles.item.weapon.shotgun.shoot"
+  },
+  "item.weapon.sniper_rifle.shoot": {
+    "sounds": [
+      "avpr:item/weapon/sniper_rifle/shoot"
+    ],
+    "subtitle": "subtitles.item.weapon.sniper_rifle.shoot"
+  },
+  "item.weapon.wristblade.close": {
+    "sounds": [
+      "avpr:item/weapon/wristblade/close"
+    ],
+    "subtitle": "subtitles.item.weapon.wristblade.close"
+  },
+  "item.weapon.wristblade.open": {
+    "sounds": [
+      "avpr:item/weapon/wristblade/open"
+    ],
+    "subtitle": "subtitles.item.weapon.wristblade.open"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:tool_aluminum_pickaxe",
+    "avpr:tool_orionite_pickaxe",
+    "avpr:tool_titanium_pickaxe",
+    "avpr:tool_veritanium_pickaxe"
+  ]
+}

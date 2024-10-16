@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/aluminum_cut_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/aluminum_cut"
+    },
+    "type=top": {
+      "model": "avpr:block/aluminum_cut_slab_top"
+    }
+  }
+}

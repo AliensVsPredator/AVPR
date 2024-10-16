@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:weapon_part_receiver"
+    },
+    "B": {
+      "item": "avpr:cpu"
+    },
+    "C": {
+      "item": "avpr:led_display"
+    },
+    "D": {
+      "item": "avpr:battery"
+    },
+    "E": {
+      "item": "avpr:polymer"
+    },
+    "F": {
+      "item": "avpr:capacitor"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BCD",
+    "EFE"
+  ],
+  "result": {
+    "item": "avpr:weapon_part_receiver_smart"
+  }
+}

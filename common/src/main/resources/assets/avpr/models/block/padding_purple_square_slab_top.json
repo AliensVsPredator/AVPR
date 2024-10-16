@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "avpr:block/padding_purple_square",
+    "side": "avpr:block/padding_purple_square",
+    "top": "avpr:block/padding_purple_square"
+  }
+}

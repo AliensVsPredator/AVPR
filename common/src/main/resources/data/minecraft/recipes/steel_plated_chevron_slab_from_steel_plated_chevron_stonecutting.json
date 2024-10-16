@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:steel_plated_chevron"
+  },
+  "result": "avpr:steel_plated_chevron_slab"
+}

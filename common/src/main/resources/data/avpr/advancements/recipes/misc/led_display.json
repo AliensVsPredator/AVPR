@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_A": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:integrated_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_B": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:led"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_C": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:polycarbonate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_D": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:dust_lithium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:led_display"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_A",
+      "has_B",
+      "has_C",
+      "has_D"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:led_display"
+    ]
+  }
+}

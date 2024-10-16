@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "tag": "avpr:industrial_glass"
+    }
+  },
+  "pattern": [
+    "B B",
+    "ABA",
+    "BAB"
+  ],
+  "result": {
+    "item": "avpr:armor_mk50_body"
+  }
+}

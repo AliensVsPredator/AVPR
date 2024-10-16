@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:titanium_plated_slab_from_titanium_plated_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titanium_plated": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:titanium_plated"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_titanium_plated"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:titanium_plated_slab_from_titanium_plated_stonecutting"
+    ]
+  }
+}

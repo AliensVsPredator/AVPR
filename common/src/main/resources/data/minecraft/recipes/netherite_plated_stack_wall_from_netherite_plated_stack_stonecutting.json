@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:netherite_plated_stack"
+  },
+  "result": "avpr:netherite_plated_stack_wall"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "avpr:block/paradise_dirt",
+    "particle": "avpr:block/paradise_dirt",
+    "side": "avpr:block/paradise_dirt_podzol_snow",
+    "top": "avpr:block/paradise_dirt_podzol_top"
+  }
+}

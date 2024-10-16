@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:slime_ball"
+    },
+    "B": {
+      "item": "avpr:ingot_aluminum"
+    },
+    "C": {
+      "item": "minecraft:blaze_powder"
+    },
+    "D": {
+      "item": "avpr:polycarbonate"
+    }
+  },
+  "pattern": [
+    "DAD",
+    "BCB",
+    "BBB"
+  ],
+  "result": {
+    "item": "avpr:ammo_flamethrower"
+  }
+}

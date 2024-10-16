@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:bullet_tip"
+    },
+    "B": {
+      "item": "avpr:casing_rifle"
+    },
+    "C": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "pattern": [
+    "AC",
+    "B "
+  ],
+  "result": {
+    "count": 16,
+    "item": "avpr:bullet_rifle_incendiary"
+  }
+}

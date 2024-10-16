@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "avpr:block/silica_block"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "avpr:block/resin"
+      },
+      {
+        "model": "avpr:block/resin",
+        "y": 90
+      },
+      {
+        "model": "avpr:block/resin",
+        "y": 180
+      },
+      {
+        "model": "avpr:block/resin",
+        "y": 270
+      }
+    ]
+  }
+}

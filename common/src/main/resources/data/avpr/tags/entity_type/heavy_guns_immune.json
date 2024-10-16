@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:queen",
+    "avpr:dracomorph",
+    "avpr:boiler",
+    {
+      "id": "#avpr:uber_guns_immune",
+      "required": false
+    }
+  ]
+}

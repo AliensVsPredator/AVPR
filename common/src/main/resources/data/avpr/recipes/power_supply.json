@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:diode"
+    },
+    "B": {
+      "item": "avpr:regulator"
+    },
+    "C": {
+      "item": "avpr:ingot_aluminum"
+    },
+    "D": {
+      "item": "avpr:capacitor"
+    },
+    "E": {
+      "item": "minecraft:bedrock"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DEC",
+    "ABC"
+  ],
+  "result": {
+    "item": "avpr:power_supply"
+  }
+}

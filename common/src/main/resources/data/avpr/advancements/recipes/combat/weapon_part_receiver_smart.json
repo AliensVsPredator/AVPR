@@ -1,0 +1,99 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_A": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:weapon_part_receiver"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_B": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:cpu"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_C": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:led_display"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_D": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:battery"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_E": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:polymer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_F": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:capacitor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:weapon_part_receiver_smart"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_A",
+      "has_B",
+      "has_C",
+      "has_D",
+      "has_E",
+      "has_F"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:weapon_part_receiver_smart"
+    ]
+  }
+}

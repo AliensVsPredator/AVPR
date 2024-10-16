@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/plastic_red_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/plastic_red"
+    },
+    "type=top": {
+      "model": "avpr:block/plastic_red_slab_top"
+    }
+  }
+}

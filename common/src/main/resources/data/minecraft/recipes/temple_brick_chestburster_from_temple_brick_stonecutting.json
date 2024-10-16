@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:temple_brick"
+  },
+  "result": "avpr:temple_brick_chestburster"
+}

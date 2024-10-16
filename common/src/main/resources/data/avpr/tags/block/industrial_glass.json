@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:industrial_glass_lime",
+    "avpr:industrial_glass_light_gray",
+    "avpr:industrial_glass_green",
+    "avpr:industrial_glass_orange",
+    "avpr:industrial_glass_magenta",
+    "avpr:industrial_glass_yellow",
+    "avpr:industrial_glass_red",
+    "avpr:industrial_glass_gray",
+    "avpr:industrial_glass_white",
+    "avpr:industrial_glass",
+    "avpr:industrial_glass_cyan",
+    "avpr:industrial_glass_blue",
+    "avpr:industrial_glass_black",
+    "avpr:industrial_glass_purple",
+    "avpr:industrial_glass_pink",
+    "avpr:industrial_glass_light_blue",
+    "avpr:industrial_glass_brown"
+  ]
+}

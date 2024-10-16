@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/gold_plated_chevron_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/gold_plated_chevron"
+    },
+    "type=top": {
+      "model": "avpr:block/gold_plated_chevron_slab_top"
+    }
+  }
+}

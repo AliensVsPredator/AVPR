@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/ferroaluminum_cut_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/ferroaluminum_cut"
+    },
+    "type=top": {
+      "model": "avpr:block/ferroaluminum_cut_slab_top"
+    }
+  }
+}

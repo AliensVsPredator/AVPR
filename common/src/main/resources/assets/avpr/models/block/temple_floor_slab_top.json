@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "avpr:block/temple_floor",
+    "side": "avpr:block/temple_floor",
+    "top": "avpr:block/temple_floor"
+  }
+}

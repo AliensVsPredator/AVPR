@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:temple_tile"
+  },
+  "result": "avpr:temple_tile_wall"
+}

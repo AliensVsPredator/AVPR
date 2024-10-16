@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:praetorian",
+    "avpr:yautja",
+    "avpr:deacon_adult_engineer",
+    "avpr:crusher",
+    "avpr:ultramorph",
+    {
+      "id": "#avpr:heavy_guns_immune",
+      "required": false
+    },
+    {
+      "id": "#avpr:uber_guns_immune",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "avpr:sheet_orionite"
+  },
+  "result": "avpr:ingot_orionite"
+}

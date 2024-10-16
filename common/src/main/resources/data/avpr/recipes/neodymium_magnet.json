@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "avpr:neodymium"
+    },
+    {
+      "item": "avpr:cobalt"
+    },
+    {
+      "item": "avpr:cobalt"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "avpr:neodymium_magnet"
+  }
+}

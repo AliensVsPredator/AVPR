@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:integrated_circuit"
+    },
+    "B": {
+      "item": "avpr:polycarbonate"
+    },
+    "C": {
+      "item": "avpr:silica"
+    },
+    "D": {
+      "item": "minecraft:copper_ingot"
+    },
+    "E": {
+      "item": "avpr:transistor"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "CEC",
+    "DBD"
+  ],
+  "result": {
+    "item": "avpr:ram"
+  }
+}

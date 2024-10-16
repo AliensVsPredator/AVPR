@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:titanium_cut_stairs_from_titanium_cut_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titanium_cut": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:titanium_cut"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_titanium_cut"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:titanium_cut_stairs_from_titanium_cut_stonecutting"
+    ]
+  }
+}

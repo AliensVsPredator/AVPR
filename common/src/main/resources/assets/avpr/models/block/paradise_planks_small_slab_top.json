@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "avpr:block/paradise_planks_small",
+    "side": "avpr:block/paradise_planks_small",
+    "top": "avpr:block/paradise_planks_small"
+  }
+}

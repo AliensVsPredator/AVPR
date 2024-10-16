@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:padding_green_square"
+  },
+  "result": "avpr:padding_green_square_slab"
+}

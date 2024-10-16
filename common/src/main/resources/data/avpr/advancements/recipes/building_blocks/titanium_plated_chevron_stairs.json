@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:titanium_plated_chevron_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titanium_plated_chevron": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:titanium_plated_chevron"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_titanium_plated_chevron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:titanium_plated_chevron_stairs"
+    ]
+  }
+}

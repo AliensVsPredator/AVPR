@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:padding_red_tiles"
+  },
+  "result": "avpr:padding_red_tiles_stairs"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:titanium_cut"
+  },
+  "result": "avpr:titanium_cut_slab"
+}

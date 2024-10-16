@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:raw_titanium"
+    },
+    "B": {
+      "item": "avpr:veritanium_shard"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABB",
+    "BB "
+  ],
+  "result": {
+    "item": "avpr:sheet_orionite"
+  }
+}

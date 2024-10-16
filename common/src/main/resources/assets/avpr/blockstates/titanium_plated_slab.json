@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/titanium_plated_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/titanium_plated"
+    },
+    "type=top": {
+      "model": "avpr:block/titanium_plated_slab_top"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "avpr:industrial_glass_green"
+  },
+  "result": "avpr:industrial_glass"
+}

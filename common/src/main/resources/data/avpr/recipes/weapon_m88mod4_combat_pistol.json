@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "avpr:blueprint_m88mod4_combat_pistol"
+    },
+    {
+      "item": "avpr:weapon_part_barrel"
+    },
+    {
+      "item": "avpr:weapon_part_grip"
+    },
+    {
+      "item": "avpr:weapon_part_receiver"
+    }
+  ],
+  "result": {
+    "item": "avpr:weapon_m88mod4_combat_pistol"
+  }
+}

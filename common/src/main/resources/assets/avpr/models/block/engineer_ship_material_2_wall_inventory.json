@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "avpr:block/engineer_ship_material_2"
+  }
+}

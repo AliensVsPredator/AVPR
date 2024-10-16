@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "avpr:block/paradise_planks_medium",
+    "side": "avpr:block/paradise_planks_medium",
+    "top": "avpr:block/paradise_planks_medium"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "avpr:block/steel_plated",
+    "side": "avpr:block/steel_plated",
+    "top": "avpr:block/steel_plated"
+  }
+}

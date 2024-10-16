@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "org.avpr.common.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "renameme.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+  ]
+}

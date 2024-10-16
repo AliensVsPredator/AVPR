@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/aluminum_panel_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/aluminum_panel"
+    },
+    "type=top": {
+      "model": "avpr:block/aluminum_panel_slab_top"
+    }
+  }
+}

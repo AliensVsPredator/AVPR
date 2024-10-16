@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:polymer"
+    },
+    "B": {
+      "item": "avpr:ingot_steel"
+    }
+  },
+  "pattern": [
+    "  A",
+    "BAA",
+    "  A"
+  ],
+  "result": {
+    "item": "avpr:weapon_part_stock"
+  }
+}

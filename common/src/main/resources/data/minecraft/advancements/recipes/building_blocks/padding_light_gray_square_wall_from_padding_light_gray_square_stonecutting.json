@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_padding_light_gray_square": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:padding_light_gray_square"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:padding_light_gray_square_wall_from_padding_light_gray_square_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_padding_light_gray_square"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:padding_light_gray_square_wall_from_padding_light_gray_square_stonecutting"
+    ]
+  }
+}

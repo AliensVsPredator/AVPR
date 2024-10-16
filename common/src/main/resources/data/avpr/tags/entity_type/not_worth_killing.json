@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:allay",
+    "minecraft:axolotl",
+    "minecraft:bat",
+    "minecraft:bee",
+    "minecraft:cat",
+    "minecraft:chicken",
+    "minecraft:cod",
+    "minecraft:creeper",
+    "minecraft:glow_squid",
+    "minecraft:parrot",
+    "minecraft:pufferfish",
+    "minecraft:salmon",
+    "minecraft:squid",
+    "minecraft:tadpole",
+    "minecraft:tropical_fish"
+  ]
+}

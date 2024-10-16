@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "avpr:block/copper_panel",
+    "side": "avpr:block/copper_panel",
+    "top": "avpr:block/copper_panel"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#minecraft:is_explosion",
+      "required": false
+    },
+    {
+      "id": "#minecraft:is_projectile",
+      "required": false
+    },
+    {
+      "id": "#avpr:is_bullet_projectile",
+      "required": false
+    },
+    "minecraft:arrow",
+    "minecraft:cactus",
+    "minecraft:explosion",
+    "minecraft:falling_anvil",
+    "minecraft:falling_block",
+    "minecraft:falling_stalactite",
+    "minecraft:mob_projectile",
+    "minecraft:stalagmite",
+    "minecraft:thorns",
+    "minecraft:trident"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "avpr:item/blueprint_m41a_pulse_rifle"
+  }
+}

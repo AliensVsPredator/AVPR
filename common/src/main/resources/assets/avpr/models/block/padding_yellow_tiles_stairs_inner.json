@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "avpr:block/padding_yellow_tiles",
+    "side": "avpr:block/padding_yellow_tiles",
+    "top": "avpr:block/padding_yellow_tiles"
+  }
+}

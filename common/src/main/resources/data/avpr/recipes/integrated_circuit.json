@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:polycarbonate"
+    },
+    "B": {
+      "item": "avpr:ingot_aluminum"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "avpr:transistor"
+    },
+    "E": {
+      "item": "avpr:resistor"
+    },
+    "F": {
+      "item": "avpr:regulator"
+    },
+    "G": {
+      "item": "avpr:diode"
+    }
+  },
+  "pattern": [
+    "DBE",
+    "CAC",
+    "FBG"
+  ],
+  "result": {
+    "item": "avpr:integrated_circuit"
+  }
+}

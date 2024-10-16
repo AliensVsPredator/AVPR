@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:resin_ball",
+    "avpr:royal_jelly",
+    "avpr:xenomorph_chitin",
+    "avpr:armor_xenomorph_chitin_helmet",
+    "avpr:armor_xenomorph_chitin_body",
+    "avpr:armor_xenomorph_chitin_leggings",
+    "avpr:armor_xenomorph_chitin_boots"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/padding_red_tiles_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/padding_red_tiles"
+    },
+    "type=top": {
+      "model": "avpr:block/padding_red_tiles_slab_top"
+    }
+  }
+}

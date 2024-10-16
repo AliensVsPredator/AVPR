@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:netherite_plated_chevron"
+  },
+  "result": "avpr:netherite_plated_chevron_stairs"
+}

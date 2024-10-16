@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_engineer_ship_material_0": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:engineer_ship_material_0"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:engineer_ship_material_0_wall_from_engineer_ship_material_0_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_engineer_ship_material_0"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:engineer_ship_material_0_wall_from_engineer_ship_material_0_stonecutting"
+    ]
+  }
+}

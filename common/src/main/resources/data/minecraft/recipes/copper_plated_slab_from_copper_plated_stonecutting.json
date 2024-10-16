@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:copper_plated"
+  },
+  "result": "avpr:copper_plated_slab"
+}

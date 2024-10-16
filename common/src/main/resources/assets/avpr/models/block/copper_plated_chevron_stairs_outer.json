@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "avpr:block/copper_plated_chevron",
+    "side": "avpr:block/copper_plated_chevron",
+    "top": "avpr:block/copper_plated_chevron"
+  }
+}

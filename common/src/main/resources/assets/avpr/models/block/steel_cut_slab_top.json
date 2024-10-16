@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "avpr:block/steel_cut",
+    "side": "avpr:block/steel_cut",
+    "top": "avpr:block/steel_cut"
+  }
+}

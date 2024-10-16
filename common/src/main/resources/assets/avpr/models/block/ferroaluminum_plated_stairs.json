@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "avpr:block/ferroaluminum_plated",
+    "side": "avpr:block/ferroaluminum_plated",
+    "top": "avpr:block/ferroaluminum_plated"
+  }
+}

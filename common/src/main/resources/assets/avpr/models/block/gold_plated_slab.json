@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "avpr:block/gold_plated",
+    "side": "avpr:block/gold_plated",
+    "top": "avpr:block/gold_plated"
+  }
+}

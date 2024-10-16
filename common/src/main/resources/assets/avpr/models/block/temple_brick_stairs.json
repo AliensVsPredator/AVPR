@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "avpr:block/temple_brick",
+    "side": "avpr:block/temple_brick",
+    "top": "avpr:block/temple_brick"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:tool_aluminum_axe",
+    "avpr:tool_orionite_axe",
+    "avpr:tool_titanium_axe",
+    "avpr:tool_veritanium_axe"
+  ]
+}

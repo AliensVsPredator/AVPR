@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "#avpr:guns",
+    {
+      "id": "#minecraft:swords",
+      "required": false
+    },
+    {
+      "id": "#minecraft:axes",
+      "required": false
+    },
+    "minecraft:trident"
+  ]
+}

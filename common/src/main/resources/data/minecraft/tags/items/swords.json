@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:tool_aluminum_sword",
+    "avpr:tool_orionite_sword",
+    "avpr:tool_titanium_sword",
+    "avpr:tool_veritanium_sword"
+  ]
+}

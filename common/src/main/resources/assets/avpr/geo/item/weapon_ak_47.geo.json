@@ -1,0 +1,79 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 2, 7],
+					"rotation": [0, 180, 0]
+				},
+				{
+					"name": "gGun",
+					"parent": "root",
+					"pivot": [1.5, -18.08676, -0.31844]
+				},
+				{
+					"name": "gStock",
+					"parent": "gGun",
+					"pivot": [1.5, -21, 7],
+					"cubes": [
+						{"origin": [-0.5, 0.97889, 9.92486], "size": [1, 1, 4], "inflate": -0.01, "pivot": [1.5, -20.82111, 9.92486], "rotation": [7, 0, 0], "uv": [14, 12]},
+						{"origin": [-0.5, 1.9, 8], "size": [1, 1, 3], "uv": [0, 7]},
+						{"origin": [-0.5, 0.2, 7], "size": [1, 3, 1], "uv": [9, 0]}
+					]
+				},
+				{
+					"name": "gBarrel",
+					"parent": "gGun",
+					"pivot": [0, 2.3542, 19.94129],
+					"cubes": [
+						{"origin": [-0.7, 1.16259, 15.92388], "size": [1, 1, 4], "pivot": [0, 1.66259, 17.92388], "rotation": [2.5, 0, 0], "uv": [14, 6]},
+						{"origin": [-0.3, 1.16259, 15.92388], "size": [1, 1, 4], "pivot": [0, 1.66259, 17.92388], "rotation": [2.5, 0, 0], "uv": [14, 0]},
+						{"origin": [-0.5, 1.7, 16], "size": [1, 1, 4], "inflate": 0.1, "uv": [25, 10]}
+					]
+				},
+				{
+					"name": "gBarrelEnd",
+					"parent": "gBarrel",
+					"pivot": [1.5, -21, 7],
+					"cubes": [
+						{"origin": [-0.5, 1.7, 15.5], "size": [1, 1, 8], "uv": [25, 0]},
+						{"origin": [-0.5, 2.7, 23.3], "size": [1, 1, 0], "uv": [44, 6]},
+						{"origin": [0, 2.7, 22.5], "size": [0, 1, 1], "uv": [11, 10]}
+					]
+				},
+				{
+					"name": "gReceiver",
+					"parent": "gGun",
+					"pivot": [1.5, -18.08676, -0.31844],
+					"cubes": [
+						{"origin": [-0.5, 2.3, 11.5], "size": [1, 1, 4], "uv": [0, 12]},
+						{"origin": [-0.2, 1, 11], "size": [1, 2, 5], "uv": [13, 18]},
+						{"origin": [-0.8, 1, 11], "size": [1, 2, 5], "uv": [0, 18]},
+						{"origin": [-0.5, 3.3, 12], "size": [1, 1, 0], "uv": [44, 4]},
+						{"origin": [-0.5, 0.3, 11], "size": [1, 0, 3], "uv": [44, 0]},
+						{"origin": [0, 0.3, 11.8], "size": [0, 1, 1], "uv": [11, 14]},
+						{"origin": [-0.5, 1.21324, 3.48156], "size": [1, 3, 1], "pivot": [1.5, -18.08676, -0.31844], "rotation": [-21, 0, 0], "uv": [9, 5]}
+					]
+				},
+				{
+					"name": "gMagazine",
+					"parent": "gGun",
+					"pivot": [0, 1.56288, 14.33703],
+					"cubes": [
+						{"origin": [-0.5, -3.86816, 22.01582], "size": [1, 4, 2], "pivot": [1.5, -21.86816, 15.31582], "rotation": [21, 0, 0], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

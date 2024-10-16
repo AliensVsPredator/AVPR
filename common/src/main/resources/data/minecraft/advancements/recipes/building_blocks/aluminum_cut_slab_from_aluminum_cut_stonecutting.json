@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aluminum_cut": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:aluminum_cut"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:aluminum_cut_slab_from_aluminum_cut_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aluminum_cut"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:aluminum_cut_slab_from_aluminum_cut_stonecutting"
+    ]
+  }
+}

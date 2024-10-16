@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:ingot_steel"
+    }
+  },
+  "pattern": [
+    "A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "avpr:bullet_tip"
+  }
+}

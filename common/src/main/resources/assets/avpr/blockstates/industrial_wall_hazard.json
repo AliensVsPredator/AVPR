@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "avpr:block/industrial_wall_hazard_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "avpr:block/industrial_wall_hazard"
+    },
+    "axis=z": {
+      "model": "avpr:block/industrial_wall_hazard_horizontal",
+      "x": 90
+    }
+  }
+}

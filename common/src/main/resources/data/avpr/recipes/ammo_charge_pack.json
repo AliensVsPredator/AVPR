@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:gold_nugget"
+    },
+    "B": {
+      "item": "avpr:capacitor"
+    },
+    "C": {
+      "item": "avpr:resistor"
+    },
+    "D": {
+      "item": "avpr:polycarbonate"
+    },
+    "E": {
+      "item": "avpr:dust_lithium"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "DED"
+  ],
+  "result": {
+    "item": "avpr:ammo_charge_pack"
+  }
+}

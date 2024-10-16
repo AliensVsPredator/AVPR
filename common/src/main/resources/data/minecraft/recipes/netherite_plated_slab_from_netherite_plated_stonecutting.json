@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:netherite_plated"
+  },
+  "result": "avpr:netherite_plated_slab"
+}

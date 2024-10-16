@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "avpr:paradise_planks_medium"
+  },
+  "result": "avpr:paradise_planks_medium_slab"
+}

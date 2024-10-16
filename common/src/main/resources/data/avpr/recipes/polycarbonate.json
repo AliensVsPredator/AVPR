@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:silica"
+    },
+    "B": {
+      "item": "avpr:carbon"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BBB",
+    "BBB"
+  ],
+  "result": {
+    "count": 4,
+    "item": "avpr:polycarbonate"
+  }
+}

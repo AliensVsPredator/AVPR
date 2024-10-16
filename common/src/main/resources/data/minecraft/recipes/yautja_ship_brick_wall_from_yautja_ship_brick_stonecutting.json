@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:yautja_ship_brick"
+  },
+  "result": "avpr:yautja_ship_brick_wall"
+}

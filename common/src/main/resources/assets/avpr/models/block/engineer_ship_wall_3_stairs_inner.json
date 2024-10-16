@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "avpr:block/engineer_ship_wall_3",
+    "side": "avpr:block/engineer_ship_wall_3",
+    "top": "avpr:block/engineer_ship_wall_3"
+  }
+}

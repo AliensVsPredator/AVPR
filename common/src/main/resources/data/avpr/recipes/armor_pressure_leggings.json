@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:ingot_aluminum"
+    },
+    "B": {
+      "tag": "avpr:industrial_glass"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "B B",
+    "A A"
+  ],
+  "result": {
+    "item": "avpr:armor_pressure_leggings"
+  }
+}

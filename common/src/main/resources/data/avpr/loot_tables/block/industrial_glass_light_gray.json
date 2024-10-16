@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "avpr:industrial_glass_light_gray"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "avpr:blocks/industrial_glass_light_gray"
+}

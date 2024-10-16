@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:titanium_cut_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titanium_cut": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:titanium_cut"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_titanium_cut"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:titanium_cut_slab"
+    ]
+  }
+}

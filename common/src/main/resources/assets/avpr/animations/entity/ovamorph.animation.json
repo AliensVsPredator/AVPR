@@ -1,0 +1,138 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.egg.open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.875,
+			"override_previous_animation": true,
+			"bones": {
+				"gFrontLeftFlap": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [45, 0, 0]
+						}
+					}
+				},
+				"gFrontLeftFlapEnd": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [22, 0, 0]
+						}
+					}
+				},
+				"gFrontRightFlap": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [0, 0, -45]
+						}
+					}
+				},
+				"gFrontRightFlapEnd": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [0, 0, -22]
+						}
+					}
+				},
+				"gBackRightFlap": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [-45, 0, 0]
+						}
+					}
+				},
+				"gBackRightFlapEnd": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [-22, 0, 0]
+						}
+					}
+				},
+				"gBackLeftFlap": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [0, 0, 45]
+						}
+					}
+				},
+				"gBackLeftFlapEnd": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.875": {
+							"vector": [0, 0, 22]
+						}
+					}
+				}
+			}
+		},
+		"egg.open_loop": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"bones": {
+				"gFrontRightFlap": {
+					"rotation": {
+						"vector": [0, 0, -45]
+					}
+				},
+				"gFrontRightFlapEnd": {
+					"rotation": {
+						"vector": [0, 0, -22]
+					}
+				},
+				"gFrontLeftFlap": {
+					"rotation": {
+						"vector": [45, 0, 0]
+					}
+				},
+				"gFrontLeftFlapEnd": {
+					"rotation": {
+						"vector": [22, 0, 0]
+					}
+				},
+				"gBackRightFlap": {
+					"rotation": {
+						"vector": [-45, 0, 0]
+					}
+				},
+				"gBackRightFlapEnd": {
+					"rotation": {
+						"vector": [-22, 0, 0]
+					}
+				},
+				"gBackLeftFlap": {
+					"rotation": {
+						"vector": [0, 0, 45]
+					}
+				},
+				"gBackLeftFlapEnd": {
+					"rotation": {
+						"vector": [0, 0, 22]
+					}
+				}
+			}
+		}
+	}
+}

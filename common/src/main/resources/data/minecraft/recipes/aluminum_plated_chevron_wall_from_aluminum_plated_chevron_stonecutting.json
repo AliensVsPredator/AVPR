@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:aluminum_plated_chevron"
+  },
+  "result": "avpr:aluminum_plated_chevron_wall"
+}

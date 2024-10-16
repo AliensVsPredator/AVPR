@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:iron_plated_stack"
+  },
+  "result": "avpr:iron_plated_stack_stairs"
+}

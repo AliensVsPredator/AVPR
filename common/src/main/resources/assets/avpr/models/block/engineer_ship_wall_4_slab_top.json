@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "avpr:block/engineer_ship_wall_4",
+    "side": "avpr:block/engineer_ship_wall_4",
+    "top": "avpr:block/engineer_ship_wall_4"
+  }
+}

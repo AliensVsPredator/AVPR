@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BAB",
+    " B "
+  ],
+  "result": {
+    "item": "avpr:casing_caseless"
+  }
+}

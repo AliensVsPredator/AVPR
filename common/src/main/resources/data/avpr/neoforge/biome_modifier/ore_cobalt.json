@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "features": "avpr:ore_cobalt",
+  "biomes": "#minecraft:is_jungle",
+  "step": "underground_ores"
+}

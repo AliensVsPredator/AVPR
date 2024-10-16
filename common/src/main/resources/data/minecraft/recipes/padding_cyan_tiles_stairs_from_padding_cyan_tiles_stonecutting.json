@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:padding_cyan_tiles"
+  },
+  "result": "avpr:padding_cyan_tiles_stairs"
+}

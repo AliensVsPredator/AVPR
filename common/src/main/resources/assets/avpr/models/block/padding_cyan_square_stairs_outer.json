@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "avpr:block/padding_cyan_square",
+    "side": "avpr:block/padding_cyan_square",
+    "top": "avpr:block/padding_cyan_square"
+  }
+}

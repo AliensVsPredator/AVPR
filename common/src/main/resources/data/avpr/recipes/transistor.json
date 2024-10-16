@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:polycarbonate"
+    },
+    "B": {
+      "item": "avpr:ingot_aluminum"
+    },
+    "C": {
+      "item": "minecraft:lever"
+    }
+  },
+  "pattern": [
+    "  A",
+    "BC ",
+    "  A"
+  ],
+  "result": {
+    "item": "avpr:transistor"
+  }
+}

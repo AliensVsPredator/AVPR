@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:integrated_circuit"
+    },
+    "B": {
+      "item": "avpr:led"
+    },
+    "C": {
+      "item": "avpr:polycarbonate"
+    },
+    "D": {
+      "item": "avpr:dust_lithium"
+    }
+  },
+  "pattern": [
+    "BDB",
+    "BCB",
+    "BAB"
+  ],
+  "result": {
+    "item": "avpr:led_display"
+  }
+}

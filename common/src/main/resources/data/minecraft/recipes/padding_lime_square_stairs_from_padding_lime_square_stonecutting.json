@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:padding_lime_square"
+  },
+  "result": "avpr:padding_lime_square_stairs"
+}

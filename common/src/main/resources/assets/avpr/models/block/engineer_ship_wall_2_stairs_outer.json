@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "avpr:block/engineer_ship_wall_2",
+    "side": "avpr:block/engineer_ship_wall_2",
+    "top": "avpr:block/engineer_ship_wall_2"
+  }
+}

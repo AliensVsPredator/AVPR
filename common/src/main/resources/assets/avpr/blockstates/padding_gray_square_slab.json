@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/padding_gray_square_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/padding_gray_square"
+    },
+    "type=top": {
+      "model": "avpr:block/padding_gray_square_slab_top"
+    }
+  }
+}

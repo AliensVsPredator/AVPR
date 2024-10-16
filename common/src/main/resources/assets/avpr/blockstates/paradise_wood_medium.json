@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "avpr:block/paradise_wood_medium",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "avpr:block/paradise_wood_medium"
+    },
+    "axis=z": {
+      "model": "avpr:block/paradise_wood_medium",
+      "x": 90
+    }
+  }
+}

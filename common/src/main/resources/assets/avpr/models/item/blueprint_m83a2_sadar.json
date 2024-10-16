@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "avpr:item/blueprint_m83a2_sadar"
+  }
+}

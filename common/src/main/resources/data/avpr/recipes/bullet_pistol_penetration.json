@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "avpr:bullet_tip"
+    },
+    "B": {
+      "item": "avpr:casing_pistol"
+    },
+    "C": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "AC",
+    "B "
+  ],
+  "result": {
+    "count": 16,
+    "item": "avpr:bullet_pistol_penetration"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:plastic_red"
+  },
+  "result": "avpr:plastic_red_wall"
+}

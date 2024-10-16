@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:titanium_panel_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titanium_panel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:titanium_panel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_titanium_panel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:titanium_panel_slab"
+    ]
+  }
+}

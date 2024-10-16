@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "avpr:blueprint_sniper_rifle"
+    },
+    {
+      "item": "avpr:weapon_part_barrel"
+    },
+    {
+      "item": "avpr:weapon_part_grip"
+    },
+    {
+      "item": "avpr:weapon_part_receiver"
+    },
+    {
+      "item": "avpr:weapon_part_stock"
+    }
+  ],
+  "result": {
+    "item": "avpr:weapon_sniper_rifle"
+  }
+}

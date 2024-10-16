@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "avpr:block/plastic_purple",
+    "side": "avpr:block/plastic_purple",
+    "top": "avpr:block/plastic_purple"
+  }
+}

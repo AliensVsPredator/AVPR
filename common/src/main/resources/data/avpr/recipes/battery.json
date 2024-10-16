@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:ingot_aluminum"
+    },
+    "B": {
+      "item": "avpr:dust_lithium"
+    },
+    "C": {
+      "item": "avpr:capacitor"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "BBB",
+    "ACA"
+  ],
+  "result": {
+    "item": "avpr:battery"
+  }
+}

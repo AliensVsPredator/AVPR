@@ -1,0 +1,147 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "avp:veritanium_shard"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "chance": 0.1,
+          "condition": "minecraft:random_chance_with_looting",
+          "looting_multiplier": 0.033
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "avp:armor_veritanium_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:armor_veritanium_body"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:armor_veritanium_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:armor_veritanium_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:tool_veritanium_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:tool_veritanium_hoe"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:tool_veritanium_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:tool_veritanium_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:tool_veritanium_sword"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "avp:laser_mine"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "avp:shuriken"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:smart_disc"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "avp:yautja_artifact"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "avp:entities/yautja"
+}

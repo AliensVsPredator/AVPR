@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "BBB"
+  ],
+  "result": {
+    "item": "avpr:casing_heavy"
+  }
+}

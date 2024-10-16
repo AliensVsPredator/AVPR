@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:yautja_ship_brick_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yautja_ship_brick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:yautja_ship_brick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yautja_ship_brick"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:yautja_ship_brick_wall"
+    ]
+  }
+}

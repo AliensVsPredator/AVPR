@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:yautja_ship_decor_3_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yautja_ship_decor_3": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:yautja_ship_decor_3"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yautja_ship_decor_3"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:yautja_ship_decor_3_wall"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "avpr:block/temple_floor_slab"
+    },
+    "type=double": {
+      "model": "avpr:block/temple_floor"
+    },
+    "type=top": {
+      "model": "avpr:block/temple_floor_slab_top"
+    }
+  }
+}

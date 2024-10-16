@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "avpr:paradise_planks_large"
+  },
+  "result": "avpr:paradise_planks_large_stairs"
+}

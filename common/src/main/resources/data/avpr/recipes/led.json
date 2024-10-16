@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "avpr:diode"
+    },
+    "B": {
+      "item": "avpr:polycarbonate"
+    },
+    "C": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "C",
+    "B",
+    "A"
+  ],
+  "result": {
+    "item": "avpr:led"
+  }
+}

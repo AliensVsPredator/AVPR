@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gold_plated_stack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:gold_plated_stack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gold_plated_stack_stairs_from_gold_plated_stack_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gold_plated_stack"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gold_plated_stack_stairs_from_gold_plated_stack_stonecutting"
+    ]
+  }
+}

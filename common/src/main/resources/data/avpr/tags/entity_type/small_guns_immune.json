@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:warrior",
+    "avpr:belugamorph",
+    "avpr:spitter",
+    "avpr:warrior_runner",
+    "avpr:drone_runner",
+    "avpr:deacon_adult",
+    "avpr:trilobite",
+    "avpr:engineer",
+    "avpr:drone",
+    "avpr:nauticomorph",
+    {
+      "id": "#avpr:medium_guns_immune",
+      "required": false
+    },
+    {
+      "id": "#avpr:heavy_guns_immune",
+      "required": false
+    },
+    {
+      "id": "#avpr:uber_guns_immune",
+      "required": false
+    }
+  ]
+}

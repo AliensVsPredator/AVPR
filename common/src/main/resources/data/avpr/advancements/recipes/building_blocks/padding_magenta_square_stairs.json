@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_padding_magenta_square": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "avpr:padding_magenta_square"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "avpr:padding_magenta_square_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_padding_magenta_square"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "avpr:padding_magenta_square_stairs"
+    ]
+  }
+}
