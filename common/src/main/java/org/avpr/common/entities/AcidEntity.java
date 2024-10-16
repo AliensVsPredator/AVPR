@@ -11,6 +11,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.Vec3;
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.server.BlockBreakProgressManager;
 import org.avpr.common.api.util.DamageUtil;
@@ -46,8 +47,14 @@ public class AcidEntity extends Entity {
 
     public AcidEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
+        this.setDeltaMovement(Vec3.ZERO);
         this.setNoGravity(false);
         this.refreshDimensions();
+    }
+
+    @Override
+    protected double getDefaultGravity() {
+        return 0.04;
     }
 
     @Override
@@ -74,9 +81,11 @@ public class AcidEntity extends Entity {
         /*
             Sim gravity
          */
-        this.setDeltaMovement(0, this.getDeltaMovement().y - 0.03999999910593033D, 0);
+        this.applyGravity();
         this.move(MoverType.SELF, this.getDeltaMovement());
-        this.setDeltaMovement(0, this.getDeltaMovement().y * 0.9800000190734863D, 0);
+        this.setDeltaMovement(this.getDeltaMovement().scale(0.98));
+        if (tickCount == 1)
+            this.moveTo(this.blockPosition().offset(0, 0, 0), this.getYRot(), this.getXRot());
         this.damageBlock(this.level());
         this.damageEntities(this.level());
         // Ensures it always plays a sound when first placed
@@ -202,16 +211,12 @@ public class AcidEntity extends Entity {
     }
 
     @Override
-    public @NotNull EntityDimensions getDimensions(@NotNull Pose pose) {
-        var originalDimensions = super.getDimensions(pose);
-        var originalWidth = originalDimensions.width();
-        var maxScale = 1F / originalWidth;
-        var scaleStep = Mth.map(getMultiplier(), 0, MAX_MULTIPLIER, 1F, maxScale);
-        return originalDimensions.scale(scaleStep, 1);
+    public boolean fireImmune() {
+        return true;
     }
 
     @Override
-    public boolean fireImmune() {
-        return true;
+    public boolean isPushedByFluid() {
+        return false;
     }
 }
