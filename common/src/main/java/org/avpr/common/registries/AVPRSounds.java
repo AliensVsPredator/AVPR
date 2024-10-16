@@ -11,6 +11,9 @@ public class AVPRSounds {
 
     public static Supplier<SoundEvent> BLOCK_ACID_BURN = AVPRSounds.registerSound("block.acid.burn", () -> SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(CommonMod.MOD_ID, "block.acid.burn")));
+
+    public static Supplier<SoundEvent> OVAMORPH_OPEN = AVPRSounds.registerSound("entity.ovamorph.open", () -> SoundEvent.createVariableRangeEvent(
+            ResourceLocation.fromNamespaceAndPath(CommonMod.MOD_ID, "entity.ovamorph.open")));
     /**
      * Example of using this method to create a new SoundEvent:
      * <p>

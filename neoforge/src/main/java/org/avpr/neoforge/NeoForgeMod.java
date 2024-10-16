@@ -6,13 +6,14 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -22,6 +23,8 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.avpr.common.CommonMod;
+import org.avpr.common.entities.alien.base_line.OvamorphEntity;
+import org.avpr.common.registries.AVPREntities;
 
 @Mod(CommonMod.MOD_ID)
 public final class NeoForgeMod {
@@ -65,13 +68,17 @@ public final class NeoForgeMod {
             NeoForgeMod.fluidDeferredRegister.register(modEventBus);
         if (NeoForgeMod.fluidTypeDeferredRegister != null)
             NeoForgeMod.fluidTypeDeferredRegister.register(modEventBus);
-//        modEventBus.addListener(this::createEntityAttributes);
+        modEventBus.addListener(this::createEntityAttributes);
 //        modEventBus.addListener(this::onRegisterEvent);
     }
 
     public void onRegisterEvent(RegisterSpawnPlacementsEvent event) {
+        event.register(AVPREntities.OVAMORPH.get(), SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, OvamorphEntity::checkMonsterSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.AND);
     }
 
     public void createEntityAttributes(final EntityAttributeCreationEvent event) {
+        event.put(AVPREntities.OVAMORPH.get(), OvamorphEntity.createAttributes().build());
     }
 }

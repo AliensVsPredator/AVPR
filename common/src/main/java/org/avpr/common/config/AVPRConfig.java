@@ -26,6 +26,19 @@ public class AVPRConfig {
 
     @Configurable
     @Configurable.Synchronized
+    public ovamorphConfigs ovamorphConfigs = new ovamorphConfigs();
+
+    public static class ovamorphConfigs {
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float OVAMORPH_HEALTH = 8F;
+
+    }
+
+    @Configurable
+    @Configurable.Synchronized
     public FacehuggerConfigs facehuggerConfigs = new FacehuggerConfigs();
 
     public static class FacehuggerConfigs {

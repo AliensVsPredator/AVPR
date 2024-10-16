@@ -9,6 +9,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.avpr.common.CommonMod;
+import org.avpr.common.client.entities.renders.OvamorphRenderer;
 import org.avpr.common.client.misc.AcidEntityRender;
 import org.avpr.common.particles.AcidParticleProvider;
 import org.avpr.common.registries.AVPRBlocks;
@@ -33,6 +34,7 @@ public class NeoForgeClientMod {
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(AVPREntities.ACID.get(), AcidEntityRender::new);
+        event.registerEntityRenderer(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
     }
 
     @SubscribeEvent

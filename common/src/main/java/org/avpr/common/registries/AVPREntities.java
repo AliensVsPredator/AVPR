@@ -5,6 +5,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import org.avpr.common.CommonMod;
 import org.avpr.common.entities.AcidEntity;
+import org.avpr.common.entities.alien.base_line.OvamorphEntity;
 import org.avpr.common.platform.AVPRServices;
 
 import java.util.function.Supplier;
@@ -12,6 +13,7 @@ import java.util.function.Supplier;
 public class AVPREntities {
 
     public static final Supplier<EntityType<AcidEntity>> ACID = AVPREntities.registerEntity("acid", AcidEntity::new, MobCategory.MISC, 0.66F, 0.05F);
+    public static final Supplier<EntityType<OvamorphEntity>> OVAMORPH = AVPREntities.registerEntity("ovamorph", OvamorphEntity::new, MobCategory.MONSTER, 0.88F, 0.98F);
 
     /**
      * Example of using this method to create a new Entity:
