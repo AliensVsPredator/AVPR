@@ -12,10 +12,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import org.avpr.common.CommonMod;
-import org.avpr.common.api.common.MetalType;
-import org.avpr.common.api.common.OreProperties;
-import org.avpr.common.api.common.OreType;
-import org.avpr.common.api.common.RawBlockType;
+import org.avpr.common.api.common.*;
 import org.avpr.common.blocks.AVPRStairBlock;
 import org.avpr.common.blocks.ColoredTransparentBlock;
 import org.avpr.common.blocks.ResinVeinBlock;
@@ -78,18 +75,18 @@ public class AVPRBlocks {
     private static final Map<OreType, Item> ORE_ITEMS = new EnumMap<>(OreType.class);
     private static final Map<RawBlockType, Block> RAW_BLOCKS = new EnumMap<>(RawBlockType.class);
     private static final Map<RawBlockType, Item> RAW_ITEMS = new EnumMap<>(RawBlockType.class);
-    private static final Map<RawBlockType, Block> NORMAL_BLOCKS = new EnumMap<>(RawBlockType.class);
-    private static final Map<RawBlockType, Item> NORMAL_ITEMS = new EnumMap<>(RawBlockType.class);
+    private static final Map<NormalBlockType, Block> NORMAL_BLOCKS = new EnumMap<>(NormalBlockType.class);
+    private static final Map<NormalBlockType, Item> NORMAL_ITEMS = new EnumMap<>(NormalBlockType.class);
     private static final Map<RawBlockType, OreProperties> RAW_PROPERTIES = Map.of(
             RawBlockType.BAUXITE, new OreProperties("bauxite", 3.2F, 2.6F),
             RawBlockType.TITANIUM, new OreProperties("titanium", 4.0F, 4.0F)
     );
-    private static final Map<RawBlockType, OreProperties> NORMAL_PROPERTIES = Map.of(
-            RawBlockType.NEODYMIUM, new OreProperties("neodymium", 3.2F, 2.6F),
-            RawBlockType.COBALT, new OreProperties("cobalt", 3.2F, 2.6F),
-            RawBlockType.TITANIUM, new OreProperties("titanium", 4.0F, 4.0F),
-            RawBlockType.LITHIUM, new OreProperties("lithium", 4.0F, 4.0F),
-            RawBlockType.SILICA, new OreProperties("silica", 2.2F, 1.4F)
+    private static final Map<NormalBlockType, OreProperties> NORMAL_PROPERTIES = Map.of(
+            NormalBlockType.NEODYMIUM, new OreProperties("neodymium", 3.2F, 2.6F),
+            NormalBlockType.COBALT, new OreProperties("cobalt", 3.2F, 2.6F),
+            NormalBlockType.TITANIUM, new OreProperties("titanium", 4.0F, 4.0F),
+            NormalBlockType.LITHIUM, new OreProperties("lithium", 4.0F, 4.0F),
+            NormalBlockType.SILICA, new OreProperties("silica", 2.2F, 1.4F)
     );
     private static final Map<OreType, OreProperties> ORE_PROPERTIES = Map.of(
             OreType.BAUXITE, new OreProperties("ore_bauxite", 3.2F, 2.6F),
@@ -135,6 +132,7 @@ public class AVPRBlocks {
                                             .mapColor(MapColor.COLOR_LIGHT_GRAY)
                                             .requiresCorrectToolForDrops()
                                             .sound(SoundType.COPPER)
+                                            .noOcclusion()
                                             .strength(4, 6))
                             );
                         } else {
@@ -159,6 +157,7 @@ public class AVPRBlocks {
                                                     .mapColor(MapColor.COLOR_LIGHT_GRAY)
                                                     .requiresCorrectToolForDrops()
                                                     .sound(SoundType.COPPER)
+                                                    .noOcclusion()
                                                     .strength(4, 6))
                             );
                         } else {
@@ -182,6 +181,7 @@ public class AVPRBlocks {
                                             .mapColor(MapColor.COLOR_LIGHT_GRAY)
                                             .requiresCorrectToolForDrops()
                                             .sound(SoundType.COPPER)
+                                            .noOcclusion()
                                             .strength(4, 6))
                             );
                         }
@@ -196,6 +196,7 @@ public class AVPRBlocks {
                                 .mapColor(MapColor.COLOR_LIGHT_GRAY)
                                 .requiresCorrectToolForDrops()
                                 .sound(SoundType.COPPER)
+                                .noOcclusion()
                                 .strength(4, 6))
                 );
             }
@@ -218,6 +219,7 @@ public class AVPRBlocks {
             Supplier<Block> blockSupplier = AVPRBlocks.registerBlock(
                     properties.name().toLowerCase(Locale.ROOT),
                     () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                            .noOcclusion()
                             .strength(properties.hardness(), properties.resistance()))
             );
             ORE_BLOCKS.put(oreType, blockSupplier.get());
@@ -257,6 +259,7 @@ public class AVPRBlocks {
                                                 .mapColor(dyeColor)
                                                 .requiresCorrectToolForDrops()
                                                 .sound(SoundType.STONE)
+                                                .noOcclusion()
                                                 .strength(9, 10))
                                 );
                                 case "stairs" -> {
@@ -267,6 +270,7 @@ public class AVPRBlocks {
                                                 .mapColor(dyeColor)
                                                 .requiresCorrectToolForDrops()
                                                 .sound(SoundType.STONE)
+                                                .noOcclusion()
                                                 .strength(9, 10))
                                 );
                                 }
@@ -276,6 +280,7 @@ public class AVPRBlocks {
                                                 .mapColor(dyeColor)
                                                 .requiresCorrectToolForDrops()
                                                 .sound(SoundType.STONE)
+                                                .noOcclusion()
                                                 .strength(9, 10))
                                 );
                                 default -> blockSupplier = AVPRBlocks.registerBlock(
@@ -284,6 +289,7 @@ public class AVPRBlocks {
                                                 .mapColor(dyeColor)
                                                 .requiresCorrectToolForDrops()
                                                 .sound(SoundType.STONE)
+                                                .noOcclusion()
                                                 .strength(9, 10))
                                 );
                             }
@@ -363,38 +369,38 @@ public class AVPRBlocks {
     }
 
     public static void registerNormalBlocks() {
-        NORMAL_PROPERTIES.forEach((rawBlockType, properties) -> {
+        NORMAL_PROPERTIES.forEach((normalBlockType, properties) -> {
             Supplier<Block> blockSupplier = AVPRBlocks.registerBlock(
                     properties.name().toLowerCase(Locale.ROOT) + "_block",
                     () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                             .strength(properties.hardness(), properties.resistance()))
             );
-            NORMAL_BLOCKS.put(rawBlockType, blockSupplier.get());
+            NORMAL_BLOCKS.put(normalBlockType, blockSupplier.get());
 
             Supplier<Item> itemSupplier = AVPRItems.registerItem(
                     properties.name().toLowerCase(Locale.ROOT) + "_block",
                     () -> new BlockItem(blockSupplier.get(), new Item.Properties())
             );
-            NORMAL_ITEMS.put(rawBlockType, itemSupplier.get());
+            NORMAL_ITEMS.put(normalBlockType, itemSupplier.get());
         });
     }
 
-    public static Block getNormalBlock(RawBlockType rawBlockType) {
+    public static Block getNormalBlock(NormalBlockType rawBlockType) {
         return NORMAL_BLOCKS.get(rawBlockType);
     }
 
-    public static Item getNormalItem(RawBlockType rawBlockType) {
+    public static Item getNormalItem(NormalBlockType rawBlockType) {
         return NORMAL_ITEMS.get(rawBlockType);
     }
 
     public static List<Item> getAllNormalItems() {
-        return Arrays.stream(RawBlockType.values())
+        return Arrays.stream(NormalBlockType.values())
                 .map(AVPRBlocks::getNormalItem)
                 .toList();
     }
 
     public static List<Block> getAllNormalBlocks() {
-        return Arrays.stream(RawBlockType.values())
+        return Arrays.stream(NormalBlockType.values())
                 .map(AVPRBlocks::getNormalBlock)
                 .toList();
     }
