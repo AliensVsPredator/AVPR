@@ -3,6 +3,7 @@ package org.avpr.common.api.server;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import org.avpr.common.api.util.Tick;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,22 +40,23 @@ public class BlockBreakProgressManager {
     }
 
     public static void damage(Level level, BlockPos blockPos, float damage) {
-        BlockBreakProgressManager.BLOCK_BREAK_PROGRESS_MAP.compute(blockPos, (key, entry) -> {
-            var blockState = level.getBlockState(blockPos);
-            var block = blockState.getBlock();
-            var cachedValue = entry == null ? 0 : entry.getValue();
-            var newValue = cachedValue + (damage / (2F + block.defaultDestroyTime() / 2F));
-            var progress = (int) Mth.clamp(newValue, 0F, 9F);
+        if (!level.isClientSide())
+            BlockBreakProgressManager.BLOCK_BREAK_PROGRESS_MAP.compute(blockPos, (key, entry) -> {
+                var blockState = level.getBlockState(blockPos);
+                var block = blockState.getBlock();
+                var cachedValue = entry == null ? 0 : entry.getValue();
+                var newValue = cachedValue + (damage / (2F + block.defaultDestroyTime() / 2F));
+                var progress = (int) Mth.clamp(newValue, 0F, 9F);
 
-            if (progress >= 9) {
-                level.destroyBlockProgress(Objects.hash(blockPos), blockPos, -1);
-                level.destroyBlock(blockPos, false);
-                return null;
-            } else {
-                level.destroyBlockProgress(Objects.hash(blockPos), blockPos, progress);
-            }
-            return Map.entry(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5), newValue);
-        });
+                if (progress >= 9) {
+                    level.destroyBlockProgress(level.getRandom().nextInt(), blockPos, -1);
+                    level.setBlockAndUpdate(blockPos, Blocks.AIR.defaultBlockState());
+                    return null;
+                } else {
+                    level.destroyBlockProgress(level.getRandom().nextInt(), blockPos, progress);
+                }
+                return Map.entry(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5), newValue);
+            });
     }
 
     private BlockBreakProgressManager() {
