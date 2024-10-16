@@ -34,6 +34,16 @@ import java.util.function.Supplier;
  * </p>
  */
 public class AVPRCreativeTabs {
+    public static final Supplier<CreativeModeTab> SPAWN_EGG_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "entities",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".entities"))
+                    .icon(() -> new ItemStack(AVPRItems.OVAMORPH_SPAWN_EGG.get()))
+                    .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.OVAMORPH_SPAWN_EGG.get());
+                    })
+                    .build());
+
     public static final Supplier<CreativeModeTab> BLOCKS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
             "blocks",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()

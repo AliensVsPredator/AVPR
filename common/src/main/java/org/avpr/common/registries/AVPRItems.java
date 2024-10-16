@@ -2,6 +2,7 @@ package org.avpr.common.registries;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import org.avpr.common.CommonMod;
 import org.avpr.common.platform.AVPRServices;
 
@@ -35,6 +36,15 @@ public class AVPRItems {
 
     public static final Supplier<BlockItem> SOLAR_PANEL_ITEM = AVPRItems.registerItem(
             "solar_panel", () -> new BlockItem(AVPRBlocks.SOLAR_PANEL.get(), new Item.Properties()));
+
+
+    public static final Supplier<SpawnEggItem> OVAMORPH_SPAWN_EGG = AVPRItems.registerItem(
+            "spawn_egg_ovamorph",
+            AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+                    AVPREntities.OVAMORPH,
+                    0x615B45,
+                    0xBF7872,
+                    new Item.Properties()));
 
     /**
      * Example of using this Interface to create a new Item:
