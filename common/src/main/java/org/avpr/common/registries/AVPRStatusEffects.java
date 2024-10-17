@@ -4,10 +4,13 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import org.avpr.common.CommonMod;
 import org.avpr.common.platform.AVPRServices;
+import org.avpr.common.status_effects.ImpregnationStatusEffect;
 
 import java.util.function.Supplier;
 
 public class AVPRStatusEffects {
+
+     public static final Holder<MobEffect> IMPREGNATION = AVPRStatusEffects.registerStatusEffect("impregnation", ImpregnationStatusEffect::new);
 
     /**
      * Example of using this method to create a new Status Effect:
@@ -15,8 +18,7 @@ public class AVPRStatusEffects {
      * The following code demonstrates how to register a new Status Effect in the game:
      * </p>
      * <pre>{@code
-     * public static final Holder<MobEffect> TEST_EFFECT = AVPRStatusEffects.registerStatusEffect("effectName", () -> new CustomMobEffect(
-     *             MobEffectCategory.HARMFUL, Color.BLACK.getColor()));
+     * public static final Holder<MobEffect> TEST_EFFECT = AVPRStatusEffects.registerStatusEffect("effectName", () -> new CustomMobEffect(MobEffectCategory.HARMFUL, Color.BLACK.getColor()));
      * }</pre>
      * <p>
      * In this example:

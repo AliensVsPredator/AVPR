@@ -39,9 +39,19 @@ public class AVPRConfig {
 
     @Configurable
     @Configurable.Synchronized
-    public FacehuggerConfigs facehuggerConfigs = new FacehuggerConfigs();
+    public facehuggerConfigs facehuggerConfigs = new facehuggerConfigs();
 
-    public static class FacehuggerConfigs {
+    public static class facehuggerConfigs {
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float FACEHUGGER_HEALTH = 5F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public boolean FACEHUGGER_GIVE_BLINDNESS = true;
 
     }
 }

@@ -14,4 +14,9 @@ public class EntityUtil {
             entity.level().addFreshEntity(acidEntity);
         }
     }
+
+    public static LivingEntity spawnBurster(LivingEntity entity) {
+//        var defaultBurster = AVPREntities.CHESTBURSTER.get().create(entity.level());
+        return null;
+    }
 }

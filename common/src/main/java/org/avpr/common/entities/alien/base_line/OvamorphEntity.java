@@ -1,5 +1,6 @@
 package org.avpr.common.entities.alien.base_line;
 
+import mod.azure.azurelib.common.api.common.entities.AzureVibrationUser;
 import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
@@ -11,6 +12,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -24,6 +26,7 @@ import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.api.util.Tick;
 import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 import org.jetbrains.annotations.NotNull;
@@ -42,8 +45,9 @@ public class OvamorphEntity extends AlienEntity {
     private long ticksOpen = 0L;
     private int hatchCheckTimer = 0;
 
-    public OvamorphEntity(EntityType<? extends Monster> entityType, Level level) {
+    public OvamorphEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        this.vibrationUser = new AzureVibrationUser(this, 0.0F, 0);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -227,13 +231,14 @@ public class OvamorphEntity extends AlienEntity {
         if (isHatched() && hasFacehugger()) this.ticksOpen++;
 
         if (this.ticksOpen >= 3L * Tick.PER_SECOND && hasFacehugger() && !level().isClientSide && !this.isDeadOrDying()) {
-//            var facehugger = AVPREntities.FACEHUGGER.get().create(level());
-//            if (facehugger != null) {
-//                facehugger.setPos(this.position().x, this.position().y + 1, this.position().z);
-//                facehugger.setDeltaMovement(Mth.nextFloat(facehugger.getRandom(), -0.5f, 0.5f), 0.7,
-//                        Mth.nextFloat(facehugger.getRandom(), -0.5f, 0.5f));
-//                level().addFreshEntity(facehugger);
-//            }
+            var facehugger = AVPREntities.FACEHUGGER.get().create(level());
+            if (facehugger != null) {
+                facehugger.setPos(this.position().x, this.position().y + 1, this.position().z);
+                facehugger.setDeltaMovement(Mth.nextFloat(facehugger.getRandom(), -0.5f, 0.5f), 0.7,
+                        Mth.nextFloat(facehugger.getRandom(), -0.5f, 0.5f));
+                facehugger.setEggSpawnState(true);
+                level().addFreshEntity(facehugger);
+            }
             this.setHasFacehugger(false);
         }
     }

@@ -41,6 +41,7 @@ public class AVPRCreativeTabs {
                     .icon(() -> new ItemStack(AVPRItems.OVAMORPH_SPAWN_EGG.get()))
                     .displayItems((enabledFeatures, entries) -> {
                         entries.accept(AVPRItems.OVAMORPH_SPAWN_EGG.get());
+                        entries.accept(AVPRItems.FACEHUGGER_SPAWN_EGG.get());
                     })
                     .build());
 

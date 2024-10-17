@@ -7,6 +7,8 @@ import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.avpr.common.CommonMod;
+import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 import org.avpr.common.entities.alien.base_line.OvamorphEntity;
 import org.avpr.common.registries.AVPREntities;
 
@@ -17,10 +19,16 @@ public final class FabricLibMod implements ModInitializer {
         AzureLib.initialize();
         CommonMod.initRegistries();
         FabricDefaultAttributeRegistry.register(AVPREntities.OVAMORPH.get(), OvamorphEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(AVPREntities.FACEHUGGER.get(), FacehuggerEntity.createAttributes());
         SpawnPlacements.register(
                 AVPREntities.OVAMORPH.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                OvamorphEntity::checkMonsterSpawnRules);
+                AlienEntity::checkMonsterSpawnRules);
+        SpawnPlacements.register(
+                AVPREntities.FACEHUGGER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                AlienEntity::checkMonsterSpawnRules);
     }
 }

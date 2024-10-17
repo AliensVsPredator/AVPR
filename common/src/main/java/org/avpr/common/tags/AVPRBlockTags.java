@@ -9,4 +9,6 @@ import org.avpr.common.CommonMod;
 public class AVPRBlockTags {
 
     public static final TagKey<Block> ACID_IMMUNE = CommonMod.create(Registries.BLOCK, "acid_immune");
+    public static final TagKey<Block> ALIEN_REPELLENTS = CommonMod.create(Registries.BLOCK, "alien_repellents");
+
 }

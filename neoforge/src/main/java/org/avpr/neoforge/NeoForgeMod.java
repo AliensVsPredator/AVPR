@@ -23,6 +23,8 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.avpr.common.CommonMod;
+import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 import org.avpr.common.entities.alien.base_line.OvamorphEntity;
 import org.avpr.common.registries.AVPREntities;
 
@@ -69,16 +71,20 @@ public final class NeoForgeMod {
         if (NeoForgeMod.fluidTypeDeferredRegister != null)
             NeoForgeMod.fluidTypeDeferredRegister.register(modEventBus);
         modEventBus.addListener(this::createEntityAttributes);
-//        modEventBus.addListener(this::onRegisterEvent);
+        modEventBus.addListener(this::onRegisterEvent);
     }
 
     public void onRegisterEvent(RegisterSpawnPlacementsEvent event) {
         event.register(AVPREntities.OVAMORPH.get(), SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, OvamorphEntity::checkMonsterSpawnRules,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AlienEntity::checkMonsterSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.AND);
+        event.register(AVPREntities.FACEHUGGER.get(), SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AlienEntity::checkMonsterSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.AND);
     }
 
     public void createEntityAttributes(final EntityAttributeCreationEvent event) {
         event.put(AVPREntities.OVAMORPH.get(), OvamorphEntity.createAttributes().build());
+        event.put(AVPREntities.FACEHUGGER.get(), FacehuggerEntity.createAttributes().build());
     }
 }

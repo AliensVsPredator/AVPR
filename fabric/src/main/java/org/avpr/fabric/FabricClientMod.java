@@ -9,6 +9,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import org.avpr.common.CommonMod;
+import org.avpr.common.client.entities.renders.FacehuggerRenderer;
 import org.avpr.common.client.entities.renders.OvamorphRenderer;
 import org.avpr.common.client.misc.AcidEntityRender;
 import org.avpr.common.particles.AcidParticleProvider;
@@ -23,6 +24,7 @@ public class FabricClientMod implements ClientModInitializer {
         registerParticle("acid", AVPRParticles.ACID.get(), AcidParticleProvider::new);
         EntityRenderers.register(AVPREntities.ACID.get(), AcidEntityRender::new);
         EntityRenderers.register(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
+        EntityRenderers.register(AVPREntities.FACEHUGGER.get(), FacehuggerRenderer::new);
         AVPRBlocks.getAllGlassBlocks().forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent()));
         AVPRBlocks.getAllMetalBlocks().forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent()));
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.RESIN_VEIN_BLOCK.get(), RenderType.translucent());

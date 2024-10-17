@@ -14,6 +14,9 @@ public class AVPRSounds {
 
     public static Supplier<SoundEvent> OVAMORPH_OPEN = AVPRSounds.registerSound("entity.ovamorph.open", () -> SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(CommonMod.MOD_ID, "entity.ovamorph.open")));
+
+    public static Supplier<SoundEvent> IMPREGNATE = AVPRSounds.registerSound("entity.parasite.impregnate", () -> SoundEvent.createVariableRangeEvent(
+            ResourceLocation.fromNamespaceAndPath(CommonMod.MOD_ID, "entity.parasite.impregnate")));
     /**
      * Example of using this method to create a new SoundEvent:
      * <p>

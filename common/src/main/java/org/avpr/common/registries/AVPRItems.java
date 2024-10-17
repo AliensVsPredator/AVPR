@@ -46,6 +46,15 @@ public class AVPRItems {
                     0xBF7872,
                     new Item.Properties()));
 
+
+    public static final Supplier<SpawnEggItem> FACEHUGGER_SPAWN_EGG = AVPRItems.registerItem(
+            "spawn_egg_facehugger",
+            AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+                    AVPREntities.FACEHUGGER,
+                    0xE4D597,
+                    0xA55863,
+                    new Item.Properties()));
+
     /**
      * Example of using this Interface to create a new Item:
      * <p>
