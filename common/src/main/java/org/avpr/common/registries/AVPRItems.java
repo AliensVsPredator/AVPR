@@ -537,7 +537,7 @@ public class AVPRItems {
             "bullet_shotgun",
             () -> new Item(new Item.Properties())
     );
-    
+
     public static final Supplier<Item> BULLET_SHOTGUN_ACID = AVPRItems.registerItem(
             "bullet_shotgun_acid",
             () -> new Item(new Item.Properties())
