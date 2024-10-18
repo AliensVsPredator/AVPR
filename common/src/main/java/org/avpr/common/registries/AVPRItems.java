@@ -252,6 +252,62 @@ public class AVPRItems {
             "trilo_bite",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(7).saturationModifier(0.7F).build())));
 
+    public static final Supplier<Item> BATTERY = AVPRItems.registerItem(
+            "battery",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CAPACITOR = AVPRItems.registerItem(
+            "capacitor",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CPU = AVPRItems.registerItem(
+            "cpu",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> DIODE = AVPRItems.registerItem(
+            "diode",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> INTERGRATED_CIRCUIT = AVPRItems.registerItem(
+            "integrated_circuit",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> LED = AVPRItems.registerItem(
+            "led",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> LED_DISPLAY = AVPRItems.registerItem(
+            "led_display",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> MOTHERBOARD = AVPRItems.registerItem(
+            "motherboard",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> POWER_SUPPLY = AVPRItems.registerItem(
+            "power_supply",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> RAM = AVPRItems.registerItem(
+            "ram",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> REGULATOR = AVPRItems.registerItem(
+            "regulator",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> RESISTOR = AVPRItems.registerItem(
+            "resistor",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> SSD = AVPRItems.registerItem(
+            "ssd",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> TRANSISTOR = AVPRItems.registerItem(
+            "transistor",
+            () -> new Item(new Item.Properties()));
+
     private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
             AVPRArmorMaterials.ALUMINUM, new ArmorProperties("aluminum", 14),
             AVPRArmorMaterials.MK50, new ArmorProperties("mk50", 24),

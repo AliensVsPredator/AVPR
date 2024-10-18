@@ -148,9 +148,22 @@ public class AVPRCreativeTabs {
             "electronics",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
                     .title(Component.translatable("tab." + CommonMod.MOD_ID + ".electronics"))
-                    .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
+                    .icon(() -> new ItemStack(AVPRItems.CPU.get()))
                     .displayItems((enabledFeatures, entries) -> {
-                        entries.accept(AVPRItems.COLBALT.get());
+                        entries.accept(AVPRItems.BATTERY.get());
+                        entries.accept(AVPRItems.CAPACITOR.get());
+                        entries.accept(AVPRItems.CPU.get());
+                        entries.accept(AVPRItems.DIODE.get());
+                        entries.accept(AVPRItems.INTERGRATED_CIRCUIT.get());
+                        entries.accept(AVPRItems.LED.get());
+                        entries.accept(AVPRItems.LED_DISPLAY.get());
+                        entries.accept(AVPRItems.MOTHERBOARD.get());
+                        entries.accept(AVPRItems.POWER_SUPPLY.get());
+                        entries.accept(AVPRItems.RAM.get());
+                        entries.accept(AVPRItems.REGULATOR.get());
+                        entries.accept(AVPRItems.RESISTOR.get());
+                        entries.accept(AVPRItems.SSD.get());
+                        entries.accept(AVPRItems.TRANSISTOR.get());
                     })
                     .build());
 
