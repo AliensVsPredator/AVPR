@@ -171,9 +171,83 @@ public class AVPRCreativeTabs {
             "weapons",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
                     .title(Component.translatable("tab." + CommonMod.MOD_ID + ".weapons"))
-                    .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
+                    .icon(() -> new ItemStack(AVPRItems.WEAPON_GRENADE_M40.get()))
                     .displayItems((enabledFeatures, entries) -> {
-                        entries.accept(AVPRItems.COLBALT.get());
+                        entries.accept(AVPRItems.AMMO_CHARGE_PACK.get());
+                        entries.accept(AVPRItems.AMMO_FLAMETHROWER.get());
+                        entries.accept(AVPRItems.BULLET_TIP.get());
+                        entries.accept(AVPRItems.CASING_CASELESS.get());
+                        entries.accept(AVPRItems.CASING_HEAVY.get());
+                        entries.accept(AVPRItems.CASTING_PISTOL.get());
+                        entries.accept(AVPRItems.CASING_RIFLE.get());
+                        entries.accept(AVPRItems.CASING_SHOTGUN.get());
+                        entries.accept(AVPRItems.BULLET_CASELESS.get());
+                        entries.accept(AVPRItems.BULLET_CASELESS_ACID.get());
+                        entries.accept(AVPRItems.BULLET_CASELESS_ELECTRIC.get());
+                        entries.accept(AVPRItems.BULLET_CASELESS_EXPLOSIVE.get());
+                        entries.accept(AVPRItems.BULLET_CASELESS_INCENDIARY.get());
+                        entries.accept(AVPRItems.BULLET_CASELESS_PENETRATION.get());
+                        entries.accept(AVPRItems.BULLET_HEAVY.get());
+                        entries.accept(AVPRItems.BULLET_HEAVY_ACID.get());
+                        entries.accept(AVPRItems.BULLET_HEAVY_ELECTRIC.get());
+                        entries.accept(AVPRItems.BULLET_HEAVY_EXPLOSIVE.get());
+                        entries.accept(AVPRItems.BULLET_HEAVY_INCENDIARY.get());
+                        entries.accept(AVPRItems.BULLET_HEAVY_PENETRATION.get());
+                        entries.accept(AVPRItems.BULLET_PISTOL.get());
+                        entries.accept(AVPRItems.BULLET_PISTOL_ACID.get());
+                        entries.accept(AVPRItems.BULLET_PISTOL_ELECTRIC.get());
+                        entries.accept(AVPRItems.BULLET_PISTOL_EXPLOSIVE.get());
+                        entries.accept(AVPRItems.BULLET_PISTOL_INCENDIARY.get());
+                        entries.accept(AVPRItems.BULLET_PISTOL_PENETRATION.get());
+                        entries.accept(AVPRItems.BULLET_RIFLE.get());
+                        entries.accept(AVPRItems.BULLET_RIFLE_ACID.get());
+                        entries.accept(AVPRItems.BULLET_RIFLE_ELECTRIC.get());
+                        entries.accept(AVPRItems.BULLET_RIFLE_EXPLOSIVE.get());
+                        entries.accept(AVPRItems.BULLET_RIFLE_INCENDIARY.get());
+                        entries.accept(AVPRItems.BULLET_RIFLE_PENETRATION.get());
+                        entries.accept(AVPRItems.BULLET_SHOTGUN.get());
+                        entries.accept(AVPRItems.BULLET_SHOTGUN_ACID.get());
+                        entries.accept(AVPRItems.BULLET_SHOTGUN_ELECTRIC.get());
+                        entries.accept(AVPRItems.BULLET_SHOTGUN_EXPLOSIVE.get());
+                        entries.accept(AVPRItems.BULLET_SHOTGUN_INCENDIARY.get());
+                        entries.accept(AVPRItems.BULLET_SHOTGUN_PENETRATION.get());
+                        entries.accept(AVPRItems.ROCKET.get());
+                        entries.accept(AVPRItems.ROCKET_ELECTRIC.get());
+                        entries.accept(AVPRItems.ROCKET_INCENDIARY.get());
+                        entries.accept(AVPRItems.ROCKET_PENETRATION.get());
+                        entries.accept(AVPRItems.WEAPON_PART_BARREL.get());
+                        entries.accept(AVPRItems.WEAPON_PART_BARREL_MINIGUN.get());
+                        entries.accept(AVPRItems.WEAPON_PART_BARREL_ROCKET.get());
+                        entries.accept(AVPRItems.WEAPON_PART_BARREL_SMART.get());
+                        entries.accept(AVPRItems.WEAPON_PART_GRIP.get());
+                        entries.accept(AVPRItems.WEAPON_PART_RECEIVER.get());
+                        entries.accept(AVPRItems.WEAPON_PART_RECEIVER_SMART.get());
+                        entries.accept(AVPRItems.WEAPON_PART_STOCK.get());
+                        entries.accept(AVPRItems.BLUEPRINT_37_12_SHOTGUN.get());
+                        entries.accept(AVPRItems.BLUEPRINT_AK_47.get());
+                        entries.accept(AVPRItems.BLUEPRINT_F90_RIFLE.get());
+                        entries.accept(AVPRItems.BLUEPRINT_SEVASTOPOL.get());
+                        entries.accept(AVPRItems.BLUEPRINT_M4_CARBINE.get());
+                        entries.accept(AVPRItems.BLUEPRINT_M41A_PULSE_RIFLE.get());
+                        entries.accept(AVPRItems.BLUEPRINT_M56_SMARTGUN.get());
+                        entries.accept(AVPRItems.BLUEPRINT_M83A2_SADAR.get());
+                        entries.accept(AVPRItems.BLUEPRINT_M88MOD4_COMBAT_PISTOL.get());
+                        entries.accept(AVPRItems.BLUEPRINT_OLD_PAINLESS.get());
+                        entries.accept(AVPRItems.BLUEPRINT_SNIPER_RIFLE.get());
+
+                        entries.accept(AVPRItems.WEAPON_GRENADE_INCENDIARY.get());
+                        entries.accept(AVPRItems.WEAPON_GRENADE_M40.get());
+                        entries.accept(AVPRItems.WEAPON_FLAMETHROWER_SEVASTOPOL.get());
+                        entries.accept(AVPRItems.WEAPON_M88MOD4_COMBAT_PISTOL.get());
+                        entries.accept(AVPRItems.WEAPON_37_12_SHOTGUN.get());
+                        entries.accept(AVPRItems.WEAPON_AK_47.get());
+                        entries.accept(AVPRItems.WEAPON_F90_RIFLE.get());
+                        entries.accept(AVPRItems.WEAPON_M4_CARBINE.get());
+                        entries.accept(AVPRItems.WEAPON_M41A_PULSE_RIFLE.get());
+                        entries.accept(AVPRItems.WEAPON_SNIPER_RIFLE.get());
+                        entries.accept(AVPRItems.WEAPON_M56_SMARTGUN.get());
+                        entries.accept(AVPRItems.WEAPON_M83A2_SADAR.get());
+                        entries.accept(AVPRItems.WEAPON_OLD_PAINLESS.get());
                     })
                     .build());
 

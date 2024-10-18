@@ -7,6 +7,7 @@ import org.avpr.common.CommonMod;
 import org.avpr.common.api.common.ArmorProperties;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.armor.AVPRArmorMaterials;
+import org.avpr.common.items.guns.BaseGunItem;
 import org.avpr.common.items.tools.AVPRToolMaterials;
 import org.avpr.common.platform.AVPRServices;
 
@@ -307,6 +308,325 @@ public class AVPRItems {
     public static final Supplier<Item> TRANSISTOR = AVPRItems.registerItem(
             "transistor",
             () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> AMMO_CHARGE_PACK = AVPRItems.registerItem(
+            "ammo_charge_pack",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> AMMO_FLAMETHROWER = AVPRItems.registerItem(
+            "ammo_flamethrower",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BULLET_TIP = AVPRItems.registerItem(
+            "bullet_tip",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CASING_CASELESS = AVPRItems.registerItem(
+            "casing_caseless",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CASING_HEAVY = AVPRItems.registerItem(
+            "casing_heavy",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CASTING_PISTOL = AVPRItems.registerItem(
+            "casing_pistol",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CASING_RIFLE = AVPRItems.registerItem(
+            "casing_rifle",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CASING_SHOTGUN = AVPRItems.registerItem(
+            "casing_shotgun",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> ROCKET = AVPRItems.registerItem(
+            "rocket",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> ROCKET_ELECTRIC = AVPRItems.registerItem(
+            "rocket_electric",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> ROCKET_INCENDIARY = AVPRItems.registerItem(
+            "rocket_incendiary",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> ROCKET_PENETRATION = AVPRItems.registerItem(
+            "rocket_penetration",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_BARREL = AVPRItems.registerItem(
+            "weapon_part_barrel",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_BARREL_MINIGUN = AVPRItems.registerItem(
+            "weapon_part_barrel_minigun",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_BARREL_ROCKET = AVPRItems.registerItem(
+            "weapon_part_barrel_rocket",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_BARREL_SMART = AVPRItems.registerItem(
+            "weapon_part_barrel_smart",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_GRIP = AVPRItems.registerItem(
+            "weapon_part_grip",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_RECEIVER = AVPRItems.registerItem(
+            "weapon_part_receiver",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_RECEIVER_SMART = AVPRItems.registerItem(
+            "weapon_part_receiver_smart",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> WEAPON_PART_STOCK = AVPRItems.registerItem(
+            "weapon_part_stock",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_37_12_SHOTGUN = AVPRItems.registerItem(
+            "blueprint_37_12_shotgun",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_AK_47 = AVPRItems.registerItem(
+            "blueprint_ak_47",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_F90_RIFLE = AVPRItems.registerItem(
+            "blueprint_f90_rifle",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_SEVASTOPOL = AVPRItems.registerItem(
+            "blueprint_flamethrower_sevastopol",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_M4_CARBINE = AVPRItems.registerItem(
+            "blueprint_m4_carbine",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_M41A_PULSE_RIFLE = AVPRItems.registerItem(
+            "blueprint_m41a_pulse_rifle",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_M56_SMARTGUN = AVPRItems.registerItem(
+            "blueprint_m56_smartgun",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_M83A2_SADAR = AVPRItems.registerItem(
+            "blueprint_m83a2_sadar",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_M88MOD4_COMBAT_PISTOL = AVPRItems.registerItem(
+            "blueprint_m88mod4_combat_pistol",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_OLD_PAINLESS = AVPRItems.registerItem(
+            "blueprint_old_painless",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BLUEPRINT_SNIPER_RIFLE = AVPRItems.registerItem(
+            "blueprint_sniper_rifle",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BULLET_CASELESS = AVPRItems.registerItem(
+            "bullet_caseless",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_CASELESS_ACID = AVPRItems.registerItem(
+            "bullet_caseless_acid",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_CASELESS_ELECTRIC = AVPRItems.registerItem(
+            "bullet_caseless_electric",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_CASELESS_EXPLOSIVE = AVPRItems.registerItem(
+            "bullet_caseless_explosive",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_CASELESS_INCENDIARY = AVPRItems.registerItem(
+            "bullet_caseless_incendiary",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_CASELESS_PENETRATION = AVPRItems.registerItem(
+            "bullet_caseless_penetration",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_HEAVY = AVPRItems.registerItem(
+            "bullet_heavy",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_HEAVY_ACID = AVPRItems.registerItem(
+            "bullet_heavy_acid",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_HEAVY_ELECTRIC = AVPRItems.registerItem(
+            "bullet_heavy_electric",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_HEAVY_EXPLOSIVE = AVPRItems.registerItem(
+            "bullet_heavy_explosive",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_HEAVY_INCENDIARY = AVPRItems.registerItem(
+            "bullet_heavy_incendiary",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_HEAVY_PENETRATION = AVPRItems.registerItem(
+            "bullet_heavy_penetration",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_PISTOL = AVPRItems.registerItem(
+            "bullet_pistol",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_PISTOL_ACID = AVPRItems.registerItem(
+            "bullet_pistol_acid",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_PISTOL_ELECTRIC = AVPRItems.registerItem(
+            "bullet_pistol_electric",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_PISTOL_EXPLOSIVE = AVPRItems.registerItem(
+            "bullet_pistol_explosive",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_PISTOL_INCENDIARY = AVPRItems.registerItem(
+            "bullet_pistol_incendiary",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_PISTOL_PENETRATION = AVPRItems.registerItem(
+            "bullet_pistol_penetration",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_RIFLE = AVPRItems.registerItem(
+            "bullet_rifle",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_RIFLE_ACID = AVPRItems.registerItem(
+            "bullet_rifle_acid",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_RIFLE_ELECTRIC = AVPRItems.registerItem(
+            "bullet_rifle_electric",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_RIFLE_EXPLOSIVE = AVPRItems.registerItem(
+            "bullet_rifle_explosive",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_RIFLE_INCENDIARY = AVPRItems.registerItem(
+            "bullet_rifle_incendiary",
+            () -> new Item(new Item.Properties())
+    );
+    public static final Supplier<Item> BULLET_RIFLE_PENETRATION = AVPRItems.registerItem(
+            "bullet_rifle_penetration",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_SHOTGUN = AVPRItems.registerItem(
+            "bullet_shotgun",
+            () -> new Item(new Item.Properties())
+    );
+    
+    public static final Supplier<Item> BULLET_SHOTGUN_ACID = AVPRItems.registerItem(
+            "bullet_shotgun_acid",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_SHOTGUN_ELECTRIC = AVPRItems.registerItem(
+            "bullet_shotgun_electric",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_SHOTGUN_EXPLOSIVE = AVPRItems.registerItem(
+            "bullet_shotgun_explosive",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_SHOTGUN_INCENDIARY = AVPRItems.registerItem(
+            "bullet_shotgun_incendiary",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> BULLET_SHOTGUN_PENETRATION = AVPRItems.registerItem(
+            "bullet_shotgun_penetration",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_GRENADE_INCENDIARY = AVPRItems.registerItem(
+            "grenade_incendiary",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_GRENADE_M40 = AVPRItems.registerItem(
+            "grenade_m40",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_FLAMETHROWER_SEVASTOPOL = AVPRItems.registerItem(
+            "weapon_flamethrower_sevastopol",
+            () -> new BaseGunItem("weapon_flamethrower_sevastopol", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_M88MOD4_COMBAT_PISTOL = AVPRItems.registerItem(
+            "weapon_m88mod4_combat_pistol",
+            () -> new BaseGunItem("weapon_m88mod4_combat_pistol", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_37_12_SHOTGUN = AVPRItems.registerItem(
+            "weapon_37_12_shotgun",
+            () -> new BaseGunItem("weapon_37_12_shotgun", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_AK_47 = AVPRItems.registerItem(
+            "weapon_ak_47",
+            () -> new BaseGunItem("weapon_ak_47", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_F90_RIFLE = AVPRItems.registerItem(
+            "weapon_f90_rifle",
+            () -> new BaseGunItem("weapon_f90_rifle", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_M4_CARBINE = AVPRItems.registerItem(
+            "weapon_m4_carbine",
+            () -> new BaseGunItem("weapon_m4_carbine", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_M41A_PULSE_RIFLE = AVPRItems.registerItem(
+            "weapon_m41a_pulse_rifle",
+            () -> new BaseGunItem("weapon_m41a_pulse_rifle", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_SNIPER_RIFLE = AVPRItems.registerItem(
+            "weapon_sniper_rifle",
+            () -> new BaseGunItem("weapon_sniper_rifle", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_M56_SMARTGUN = AVPRItems.registerItem(
+            "weapon_m56_smartgun",
+            () -> new BaseGunItem("weapon_m56_smartgun", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_M83A2_SADAR = AVPRItems.registerItem(
+            "weapon_m83a2_sadar",
+            () -> new BaseGunItem("weapon_m83a2_sadar", new Item.Properties())
+    );
+
+    public static final Supplier<Item> WEAPON_OLD_PAINLESS = AVPRItems.registerItem(
+            "weapon_old_painless",
+            () -> new BaseGunItem("weapon_old_painless", new Item.Properties())
+    );
 
     private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
             AVPRArmorMaterials.ALUMINUM, new ArmorProperties("aluminum", 14),
