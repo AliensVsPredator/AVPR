@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -24,6 +25,8 @@ public interface CommonRegistry {
     <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String modID, String blockEntityName, Supplier<BlockEntityType<T>> blockEntityType);
 
     <T extends Block> Supplier<T> registerBlock(String modID, String blockName, Supplier<T> block);
+
+    <T extends ArmorMaterial> Holder<T> registerArmorMaterial(String modID, String armorMaterialName, Supplier<T> armorMaterial);
 
     <T extends Entity> Supplier<EntityType<T>> registerEntity(String modID, String entityName, Supplier<EntityType<T>> entity);
 

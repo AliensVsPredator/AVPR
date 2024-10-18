@@ -1,11 +1,14 @@
 package org.avpr.common.registries;
 
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.core.Holder;
+import net.minecraft.world.item.*;
 import org.avpr.common.CommonMod;
+import org.avpr.common.api.common.ArmorProperties;
+import org.avpr.common.items.armor.AVPRArmorItem;
+import org.avpr.common.items.armor.AVPRArmorMaterials;
 import org.avpr.common.platform.AVPRServices;
 
+import java.util.*;
 import java.util.function.Supplier;
 
 public class AVPRItems {
@@ -55,6 +58,78 @@ public class AVPRItems {
                     0xA55863,
                     new Item.Properties()));
 
+    private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
+            AVPRArmorMaterials.ALUMINUM, new ArmorProperties("aluminum", 14),
+            AVPRArmorMaterials.MK50, new ArmorProperties("mk50", 24),
+            AVPRArmorMaterials.ORIONITE, new ArmorProperties("orionite", 35),
+            AVPRArmorMaterials.PRESSURE, new ArmorProperties("pressure", 22),
+            AVPRArmorMaterials.TACTICAL, new ArmorProperties("tactical", 26),
+            AVPRArmorMaterials.TITANIUM, new ArmorProperties("titanium", 24),
+            AVPRArmorMaterials.VERITANIUM, new ArmorProperties("veritanium", 34),
+            AVPRArmorMaterials.XENOMORPH_CHITIN, new ArmorProperties("xenomorph_chitin", 30)
+    );
+    private static final Map<Holder<ArmorMaterial>, EnumMap<ArmorItem.Type, Item>> ARMOR_ITEMS = new HashMap<>();
+
+    public static void registerArmorSets() {
+        ARMOR_PROPERTIES.forEach((armorMaterialHolder, properties) -> {
+            EnumMap<ArmorItem.Type, Item> items = new EnumMap<>(ArmorItem.Type.class);
+
+            Supplier<Item> helmetSupplier = AVPRItems.registerItem(
+                    "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_helmet",
+                    () -> new AVPRArmorItem(
+                            armorMaterialHolder,
+                            ArmorItem.Type.HELMET,
+                            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(properties.durabilityFactor()))
+                    )
+            );
+            items.put(ArmorItem.Type.HELMET, helmetSupplier.get());
+
+            Supplier<Item> chestplateSupplier = AVPRItems.registerItem(
+                    "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_body",
+                    () -> new AVPRArmorItem(
+                            armorMaterialHolder,
+                            ArmorItem.Type.CHESTPLATE,
+                            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(properties.durabilityFactor()))
+                    )
+            );
+            items.put(ArmorItem.Type.CHESTPLATE, chestplateSupplier.get());
+
+            Supplier<Item> leggingsSupplier = AVPRItems.registerItem(
+                    "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_leggings",
+                    () -> new AVPRArmorItem(
+                            armorMaterialHolder,
+                            ArmorItem.Type.LEGGINGS,
+                            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(properties.durabilityFactor()))
+                    )
+            );
+            items.put(ArmorItem.Type.LEGGINGS, leggingsSupplier.get());
+
+            Supplier<Item> bootsSupplier = AVPRItems.registerItem(
+                    "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_boots",
+                    () -> new AVPRArmorItem(
+                            armorMaterialHolder,
+                            ArmorItem.Type.BOOTS,
+                            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(properties.durabilityFactor()))
+                    )
+            );
+            items.put(ArmorItem.Type.BOOTS, bootsSupplier.get());
+
+            ARMOR_ITEMS.put(armorMaterialHolder, items);
+        });
+    }
+
+    public static Item getArmorItem(Holder<ArmorMaterial> armorMaterialHolder, ArmorItem.Type type) {
+        EnumMap<ArmorItem.Type, Item> items = ARMOR_ITEMS.get(armorMaterialHolder);
+        return items != null ? items.get(type) : null;
+    }
+
+    public static List<Item> getAllArmorItems() {
+        return ARMOR_ITEMS.values().stream()
+                .flatMap(enumMap -> enumMap.values().stream())
+                .filter(Objects::nonNull)
+                .toList();
+    }
+
     /**
      * Example of using this Interface to create a new Item:
      * <p>
@@ -91,5 +166,6 @@ public class AVPRItems {
     }
 
     public static void initialize() {
+        AVPRItems.registerArmorSets();
     }
 }

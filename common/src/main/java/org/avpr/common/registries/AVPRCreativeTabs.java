@@ -1,11 +1,14 @@
 package org.avpr.common.registries;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import org.avpr.common.CommonMod;
+import org.avpr.common.items.armor.AVPRArmorMaterials;
 import org.avpr.common.platform.AVPRServices;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
@@ -43,6 +46,15 @@ public class AVPRCreativeTabs {
                         entries.accept(AVPRItems.OVAMORPH_SPAWN_EGG.get());
                         entries.accept(AVPRItems.FACEHUGGER_SPAWN_EGG.get());
                     })
+                    .build());
+
+    public static final Supplier<CreativeModeTab> ARMOR_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "armor",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".armor"))
+                    .icon(() -> new ItemStack(Objects.requireNonNull(
+                            AVPRItems.getArmorItem(AVPRArmorMaterials.VERITANIUM, ArmorItem.Type.HELMET))))
+                    .displayItems((enabledFeatures, entries) -> AVPRItems.getAllArmorItems().forEach(entries::accept))
                     .build());
 
     public static final Supplier<CreativeModeTab> BLOCKS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
