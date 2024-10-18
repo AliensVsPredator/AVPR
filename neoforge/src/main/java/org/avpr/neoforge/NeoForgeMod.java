@@ -52,8 +52,6 @@ public final class NeoForgeMod {
             NeoForgeMod.armorMaterialDeferredRegister.register(modEventBus);
         if (NeoForgeMod.entityTypeDeferredRegister != null)
             NeoForgeMod.entityTypeDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.armorMaterialDeferredRegister != null)
-            NeoForgeMod.armorMaterialDeferredRegister.register(modEventBus);
         if (NeoForgeMod.itemDeferredRegister != null)
             NeoForgeMod.itemDeferredRegister.register(modEventBus);
         if (NeoForgeMod.soundEventDeferredRegister != null)
