@@ -60,7 +60,7 @@ public class AVPRCreativeTabs {
     public static final Supplier<CreativeModeTab> ITEMS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
             "items",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
-                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".blocks"))
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".items"))
                     .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
                     .displayItems((enabledFeatures, entries) -> {
                         entries.accept(AVPRItems.COLBALT.get());
@@ -144,7 +144,27 @@ public class AVPRCreativeTabs {
                     })
                     .build());
 
+    public static final Supplier<CreativeModeTab> ELECTRONICS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "electronics",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".electronics"))
+                    .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
+                    .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.COLBALT.get());
+                    })
+                    .build());
+
     public static final Supplier<CreativeModeTab> WEAPONS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "weapons",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".weapons"))
+                    .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
+                    .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.COLBALT.get());
+                    })
+                    .build());
+
+    public static final Supplier<CreativeModeTab> FOOD_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
             "food",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
                     .title(Component.translatable("tab." + CommonMod.MOD_ID + ".food"))
