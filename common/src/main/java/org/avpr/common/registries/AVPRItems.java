@@ -58,6 +58,102 @@ public class AVPRItems {
                     0xA55863,
                     new Item.Properties()));
 
+    public static final Supplier<Item> XENO_CHITIN = AVPRItems.registerItem(
+            "xenomorph_chitin",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> VERITANIUM_SHARD = AVPRItems.registerItem(
+            "veritanium_shard",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> INGOT_ALUMINUM = AVPRItems.registerItem(
+            "ingot_aluminum",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> INGOT_ORIONITE = AVPRItems.registerItem(
+            "ingot_orionite",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> INGOT_STEEL = AVPRItems.registerItem(
+            "ingot_steel",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> INGOT_TITANIUM = AVPRItems.registerItem(
+            "ingot_titanium",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> DUST_LITHIUM = AVPRItems.registerItem(
+            "dust_lithium",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> COLBALT = AVPRItems.registerItem(
+            "cobalt",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> CARBON = AVPRItems.registerItem(
+            "carbon",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> LASER_MINE = AVPRItems.registerItem(
+            "laser_mine",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> NBT_DRIVE = AVPRItems.registerItem(
+            "nbt_drive",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> NEODYMIUM = AVPRItems.registerItem(
+            "neodymium",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> NEODYMIUM_MAGENT = AVPRItems.registerItem(
+            "neodymium_magnet",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> POLYCARBONATE = AVPRItems.registerItem(
+            "polycarbonate",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> POLYMER = AVPRItems.registerItem(
+            "polymer",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> RAW_BAUXITE = AVPRItems.registerItem(
+            "raw_bauxite",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> RAW_TITANIUM = AVPRItems.registerItem(
+            "raw_titanium",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> RESIN_BALL = AVPRItems.registerItem(
+            "resin_ball",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> ROYAL_JELLY = AVPRItems.registerItem(
+            "royal_jelly",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> SHEET_ORIONITE = AVPRItems.registerItem(
+            "sheet_orionite",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> SHURIKEN = AVPRItems.registerItem(
+            "shuriken",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> SILICA = AVPRItems.registerItem(
+            "silica",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> SMART_DISC = AVPRItems.registerItem(
+            "smart_disc",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> YAUTJA_ARTIFCAT = AVPRItems.registerItem(
+            "yautja_artifact",
+            () -> new Item(new Item.Properties()));
+
     private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
             AVPRArmorMaterials.ALUMINUM, new ArmorProperties("aluminum", 14),
             AVPRArmorMaterials.MK50, new ArmorProperties("mk50", 24),

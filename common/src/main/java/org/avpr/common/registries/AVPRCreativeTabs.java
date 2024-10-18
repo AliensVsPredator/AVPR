@@ -57,6 +57,39 @@ public class AVPRCreativeTabs {
                     .displayItems((enabledFeatures, entries) -> AVPRItems.getAllArmorItems().forEach(entries::accept))
                     .build());
 
+    public static final Supplier<CreativeModeTab> ITEMS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "items",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".blocks"))
+                    .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
+                    .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.COLBALT.get());
+                        entries.accept(AVPRItems.CARBON.get());
+                        entries.accept(AVPRItems.DUST_LITHIUM.get());
+                        entries.accept(AVPRItems.XENO_CHITIN.get());
+                        entries.accept(AVPRItems.VERITANIUM_SHARD.get());
+                        entries.accept(AVPRItems.INGOT_ALUMINUM.get());
+                        entries.accept(AVPRItems.INGOT_ORIONITE.get());
+                        entries.accept(AVPRItems.INGOT_STEEL.get());
+                        entries.accept(AVPRItems.INGOT_TITANIUM.get());
+                        entries.accept(AVPRItems.LASER_MINE.get());
+                        entries.accept(AVPRItems.NBT_DRIVE.get());
+                        entries.accept(AVPRItems.NEODYMIUM.get());
+                        entries.accept(AVPRItems.NEODYMIUM_MAGENT.get());
+                        entries.accept(AVPRItems.POLYCARBONATE.get());
+                        entries.accept(AVPRItems.POLYMER.get());
+                        entries.accept(AVPRItems.RAW_BAUXITE.get());
+                        entries.accept(AVPRItems.RAW_TITANIUM.get());
+                        entries.accept(AVPRItems.RESIN_BALL.get());
+                        entries.accept(AVPRItems.ROYAL_JELLY.get());
+                        entries.accept(AVPRItems.SHEET_ORIONITE.get());
+                        entries.accept(AVPRItems.SHURIKEN.get());
+                        entries.accept(AVPRItems.SILICA.get());
+                        entries.accept(AVPRItems.SMART_DISC.get());
+                        entries.accept(AVPRItems.YAUTJA_ARTIFCAT.get());
+                    })
+                    .build());
+
     public static final Supplier<CreativeModeTab> BLOCKS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
             "blocks",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
