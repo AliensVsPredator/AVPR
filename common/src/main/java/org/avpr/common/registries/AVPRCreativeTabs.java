@@ -90,6 +90,35 @@ public class AVPRCreativeTabs {
                     })
                     .build());
 
+    public static final Supplier<CreativeModeTab> TOOLS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "tools",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".tools"))
+                    .icon(() -> new ItemStack(AVPRItems.VERITANIUM_PICKAXE.get()))
+                    .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.ALUMINUM_AXE.get());
+                        entries.accept(AVPRItems.ALUMINUM_HOE.get());
+                        entries.accept(AVPRItems.ALUMINUM_PICKAXE.get());
+                        entries.accept(AVPRItems.ALUMINUM_SHOVEL.get());
+                        entries.accept(AVPRItems.ALUMINUM_SWORD.get());
+                        entries.accept(AVPRItems.ORIONITE_AXE.get());
+                        entries.accept(AVPRItems.ORIONITE_HOE.get());
+                        entries.accept(AVPRItems.ORIONITE_PICKAXE.get());
+                        entries.accept(AVPRItems.ORIONITE_SHOVEL.get());
+                        entries.accept(AVPRItems.ORIONITE_SWORD.get());
+                        entries.accept(AVPRItems.TITANIUM_AXE.get());
+                        entries.accept(AVPRItems.TITANIUM_HOE.get());
+                        entries.accept(AVPRItems.TITANIUM_PICKAXE.get());
+                        entries.accept(AVPRItems.TITANIUM_SHOVEL.get());
+                        entries.accept(AVPRItems.TITANIUM_SWORD.get());
+                        entries.accept(AVPRItems.VERITANIUM_AXE.get());
+                        entries.accept(AVPRItems.VERITANIUM_HOE.get());
+                        entries.accept(AVPRItems.VERITANIUM_PICKAXE.get());
+                        entries.accept(AVPRItems.VERITANIUM_SHOVEL.get());
+                        entries.accept(AVPRItems.VERITANIUM_SWORD.get());
+                    })
+                    .build());
+
     public static final Supplier<CreativeModeTab> BLOCKS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
             "blocks",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()

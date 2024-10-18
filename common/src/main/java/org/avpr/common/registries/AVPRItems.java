@@ -6,6 +6,7 @@ import org.avpr.common.CommonMod;
 import org.avpr.common.api.common.ArmorProperties;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.armor.AVPRArmorMaterials;
+import org.avpr.common.items.tools.AVPRToolMaterials;
 import org.avpr.common.platform.AVPRServices;
 
 import java.util.*;
@@ -153,6 +154,86 @@ public class AVPRItems {
     public static final Supplier<Item> YAUTJA_ARTIFCAT = AVPRItems.registerItem(
             "yautja_artifact",
             () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> ALUMINUM_AXE = AVPRItems.registerItem(
+            "tool_aluminum_axe",
+            () -> new AxeItem(AVPRToolMaterials.ALUMINUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 5.0F, -3.0F))));
+
+    public static final Supplier<Item> ALUMINUM_HOE = AVPRItems.registerItem(
+            "tool_aluminum_hoe",
+            () -> new HoeItem(AVPRToolMaterials.ALUMINUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, -3.0F, 0.0F))));
+
+    public static final Supplier<Item> ALUMINUM_PICKAXE = AVPRItems.registerItem(
+            "tool_aluminum_pickaxe",
+            () -> new PickaxeItem(AVPRToolMaterials.ALUMINUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.0F, -2.8F))));
+
+    public static final Supplier<Item> ALUMINUM_SHOVEL = AVPRItems.registerItem(
+            "tool_aluminum_shovel",
+            () -> new ShovelItem(AVPRToolMaterials.ALUMINUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))));
+
+    public static final Supplier<Item> ALUMINUM_SWORD = AVPRItems.registerItem(
+            "tool_aluminum_sword",
+            () -> new SwordItem(AVPRToolMaterials.ALUMINUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))));
+
+    public static final Supplier<Item> ORIONITE_AXE = AVPRItems.registerItem(
+            "tool_orionite_axe",
+            () -> new AxeItem(AVPRToolMaterials.ORIONITE, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, 5.0F, -3.0F))));
+
+    public static final Supplier<Item> ORIONITE_HOE = AVPRItems.registerItem(
+            "tool_orionite_hoe",
+            () -> new HoeItem(AVPRToolMaterials.ORIONITE, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, -3.0F, 0.0F))));
+
+    public static final Supplier<Item> ORIONITE_PICKAXE = AVPRItems.registerItem(
+            "tool_orionite_pickaxe",
+            () -> new PickaxeItem(AVPRToolMaterials.ORIONITE, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, 1.0F, -2.8F))));
+
+    public static final Supplier<Item> ORIONITE_SHOVEL = AVPRItems.registerItem(
+            "tool_orionite_shovel",
+            () -> new ShovelItem(AVPRToolMaterials.ORIONITE, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))));
+
+    public static final Supplier<Item> ORIONITE_SWORD = AVPRItems.registerItem(
+            "tool_orionite_sword",
+            () -> new SwordItem(AVPRToolMaterials.ORIONITE, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))));
+
+    public static final Supplier<Item> TITANIUM_AXE = AVPRItems.registerItem(
+            "tool_titanium_axe",
+            () -> new AxeItem(AVPRToolMaterials.TITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 5.0F, -3.0F))));
+
+    public static final Supplier<Item> TITANIUM_HOE = AVPRItems.registerItem(
+            "tool_titanium_hoe",
+            () -> new HoeItem(AVPRToolMaterials.TITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, -3.0F, 0.0F))));
+
+    public static final Supplier<Item> TITANIUM_PICKAXE = AVPRItems.registerItem(
+            "tool_titanium_pickaxe",
+            () -> new PickaxeItem(AVPRToolMaterials.TITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 1.0F, -2.8F))));
+
+    public static final Supplier<Item> TITANIUM_SHOVEL = AVPRItems.registerItem(
+            "tool_titanium_shovel",
+            () -> new ShovelItem(AVPRToolMaterials.TITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))));
+
+    public static final Supplier<Item> TITANIUM_SWORD = AVPRItems.registerItem(
+            "tool_titanium_sword",
+            () -> new SwordItem(AVPRToolMaterials.TITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))));
+
+    public static final Supplier<Item> VERITANIUM_AXE = AVPRItems.registerItem(
+            "tool_veritanium_axe",
+            () -> new AxeItem(AVPRToolMaterials.VERITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, 5.0F, -3.0F))));
+
+    public static final Supplier<Item> VERITANIUM_HOE = AVPRItems.registerItem(
+            "tool_veritanium_hoe",
+            () -> new HoeItem(AVPRToolMaterials.VERITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, -3.0F, 0.0F))));
+
+    public static final Supplier<Item> VERITANIUM_PICKAXE = AVPRItems.registerItem(
+            "tool_veritanium_pickaxe",
+            () -> new PickaxeItem(AVPRToolMaterials.VERITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, 1.0F, -2.8F))));
+
+    public static final Supplier<Item> VERITANIUM_SHOVEL = AVPRItems.registerItem(
+            "tool_veritanium_shovel",
+            () -> new ShovelItem(AVPRToolMaterials.VERITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))));
+
+    public static final Supplier<Item> VERITANIUM_SWORD = AVPRItems.registerItem(
+            "tool_veritanium_sword",
+            () -> new SwordItem(AVPRToolMaterials.VERITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))));
 
     private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
             AVPRArmorMaterials.ALUMINUM, new ArmorProperties("aluminum", 14),
