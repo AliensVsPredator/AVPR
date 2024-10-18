@@ -1,6 +1,7 @@
 package org.avpr.common.registries;
 
 import net.minecraft.core.Holder;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.common.ArmorProperties;
@@ -234,6 +235,22 @@ public class AVPRItems {
     public static final Supplier<Item> VERITANIUM_SWORD = AVPRItems.registerItem(
             "tool_veritanium_sword",
             () -> new SwordItem(AVPRToolMaterials.VERITANIUM, new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))));
+
+    public static final Supplier<Item> DORITOS = AVPRItems.registerItem(
+            "doritos",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(2).saturationModifier(0.2F).build())));
+
+    public static final Supplier<Item> DORITOS_COOL_RANCH = AVPRItems.registerItem(
+            "doritos_cool_ranch",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(4).saturationModifier(0.2F).build())));
+
+    public static final Supplier<Item> RAW_TENTACLE = AVPRItems.registerItem(
+            "raw_tentacle",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(2).saturationModifier(0.2F).build())));
+
+    public static final Supplier<Item> TRILO_BITE = AVPRItems.registerItem(
+            "trilo_bite",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(7).saturationModifier(0.7F).build())));
 
     private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
             AVPRArmorMaterials.ALUMINUM, new ArmorProperties("aluminum", 14),

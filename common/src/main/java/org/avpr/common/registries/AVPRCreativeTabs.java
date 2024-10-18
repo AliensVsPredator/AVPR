@@ -144,6 +144,19 @@ public class AVPRCreativeTabs {
                     })
                     .build());
 
+    public static final Supplier<CreativeModeTab> WEAPONS_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
+            "food",
+            () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()
+                    .title(Component.translatable("tab." + CommonMod.MOD_ID + ".food"))
+                    .icon(() -> new ItemStack(AVPRItems.DORITOS.get()))
+                    .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.DORITOS.get());
+                        entries.accept(AVPRItems.DORITOS_COOL_RANCH.get());
+                        entries.accept(AVPRItems.RAW_TENTACLE.get());
+                        entries.accept(AVPRItems.TRILO_BITE.get());
+                    })
+                    .build());
+
     public static void initialize() {
     }
 }
