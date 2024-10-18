@@ -141,6 +141,24 @@ public class AVPRCreativeTabs {
                         entries.accept(AVPRItems.INDUSTRIAL_WALL_STAIRS_ITEM.get());
                         entries.accept(AVPRItems.INDUSTRIAL_WALL_WALL_ITEM.get());
                         entries.accept(AVPRItems.SOLAR_PANEL_ITEM.get());
+                        entries.accept(AVPRItems.UNIDENTIFIED_DIRT_ITEM.get());
+                        entries.accept(AVPRItems.UNIDENTIFIED_GRAVEL_ITEM.get());
+                        entries.accept(AVPRItems.UNIDENTIFIED_ROCK_ITEM.get());
+                        entries.accept(AVPRItems.UNIDENTIFIED_SAND_ITEM.get());
+                        entries.accept(AVPRItems.UNIDENTIFIED_STONE_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_BRICK_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_BRICK_SLAB_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_BRICK_STAIRS_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_BRICK_WALL_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_DECOR_1_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_DECOR_2_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_DECOR_3_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_DECOR_3_SLAB_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_DECOR_3_STAIRS_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_DECOR_3_WALL_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_PANEL_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_SUPPORT_PILLAR_ITEM.get());
+                        entries.accept(AVPRItems.YAUTJA_SHIP_WALL_BASE_ITEM.get());
                     })
                     .build());
 

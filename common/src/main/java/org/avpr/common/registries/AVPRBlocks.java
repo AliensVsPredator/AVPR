@@ -69,6 +69,95 @@ public class AVPRBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .mapColor(MapColor.COLOR_GRAY)));
 
+    public static final Supplier<Block> UNIDENTIFIED_DIRT = AVPRBlocks.registerBlock("unidentified_dirt",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> UNIDENTIFIED_GRAVEL = AVPRBlocks.registerBlock("unidentified_gravel",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> UNIDENTIFIED_ROCK = AVPRBlocks.registerBlock("unidentified_rock",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> UNIDENTIFIED_SAND = AVPRBlocks.registerBlock("unidentified_sand",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> UNIDENTIFIED_STONE = AVPRBlocks.registerBlock("unidentified_stone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_BRICK = AVPRBlocks.registerBlock("yautja_ship_brick",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_BRICK_SLAB = AVPRBlocks.registerBlock("yautja_ship_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_BRICK_STAIRS = AVPRBlocks.registerBlock("yautja_ship_brick_stairs",
+            () -> new AVPRStairBlock(YAUTJA_SHIP_BRICK.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_BRICK_WALL = AVPRBlocks.registerBlock("yautja_ship_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.COLOR_GRAY)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_DECOR_1 = AVPRBlocks.registerBlock("yautja_ship_decor_1",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_DECOR_2 = AVPRBlocks.registerBlock("yautja_ship_decor_2",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel($0 -> 10)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_DECOR_3 = AVPRBlocks.registerBlock("yautja_ship_decor_3",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 8)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_DECOR_3_SLAB = AVPRBlocks.registerBlock("yautja_ship_decor_3_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 8)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_DECOR_3_STAIRS = AVPRBlocks.registerBlock("yautja_ship_decor_3_stairs",
+            () -> new AVPRStairBlock(YAUTJA_SHIP_DECOR_3.get().defaultBlockState(), BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 8)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_DECOR_3_WALL = AVPRBlocks.registerBlock("yautja_ship_decor_3_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 8)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_PANEL = AVPRBlocks.registerBlock("yautja_ship_panel",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 6)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_SUPPORT_PILLAR = AVPRBlocks.registerBlock("yautja_ship_support_pillar",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 8)));
+
+    public static final Supplier<Block> YAUTJA_SHIP_WALL_BASE = AVPRBlocks.registerBlock("yautja_ship_wall_base",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(75, 1500)
+                    .lightLevel(($0) -> 4)));
+
     private static final Map<DyeColor, Block> INDUSTRIAL_GLASS_BLOCKS = new EnumMap<>(DyeColor.class);
     private static final Map<DyeColor, Item> INDUSTRIAL_GLASS_ITEMS = new EnumMap<>(DyeColor.class);
     private static final Map<OreType, Block> ORE_BLOCKS = new EnumMap<>(OreType.class);
@@ -596,7 +685,7 @@ public class AVPRBlocks {
         AVPRBlocks.registerPlasticBlocks();
         AVPRBlocks.registerPaddingBlocks();
         /*
-            TODO: Paradise Blocks, Temple, Unidentified, Yautja Ship, Engineer Ship
+            TODO: Paradise Blocks, Temple, Engineer Ship
          */
     }
 }

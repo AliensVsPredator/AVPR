@@ -43,6 +43,59 @@ public class AVPRItems {
     public static final Supplier<BlockItem> SOLAR_PANEL_ITEM = AVPRItems.registerItem(
             "solar_panel", () -> new BlockItem(AVPRBlocks.SOLAR_PANEL.get(), new Item.Properties()));
 
+    public static final Supplier<BlockItem> UNIDENTIFIED_DIRT_ITEM = AVPRItems.registerItem(
+            "solar_panel", () -> new BlockItem(AVPRBlocks.UNIDENTIFIED_DIRT.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_GRAVEL_ITEM = AVPRItems.registerItem(
+            "solar_panel", () -> new BlockItem(AVPRBlocks.UNIDENTIFIED_GRAVEL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_ROCK_ITEM = AVPRItems.registerItem(
+            "solar_panel", () -> new BlockItem(AVPRBlocks.UNIDENTIFIED_ROCK.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_SAND_ITEM = AVPRItems.registerItem(
+            "solar_panel", () -> new BlockItem(AVPRBlocks.UNIDENTIFIED_SAND.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_STONE_ITEM = AVPRItems.registerItem(
+            "solar_panel", () -> new BlockItem(AVPRBlocks.UNIDENTIFIED_STONE.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_ITEM = AVPRItems.registerItem(
+            "yautja_ship_brick", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_SLAB_ITEM = AVPRItems.registerItem(
+            "yautja_ship_brick_slab", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
+            "yautja_ship_brick_stairs", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_WALL_ITEM = AVPRItems.registerItem(
+            "yautja_ship_brick_wall", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_1_ITEM = AVPRItems.registerItem(
+            "yautja_ship_decor_1", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_2_ITEM = AVPRItems.registerItem(
+            "yautja_ship_decor_2", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_1.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_ITEM = AVPRItems.registerItem(
+            "yautja_ship_decor_3", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_3.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_SLAB_ITEM = AVPRItems.registerItem(
+            "yautja_ship_decor_3_slab", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_3_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_STAIRS_ITEM = AVPRItems.registerItem(
+            "yautja_ship_decor_3_stairs", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_3_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_WALL_ITEM = AVPRItems.registerItem(
+            "yautja_ship_decor_3_wall", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_3_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_PANEL_ITEM = AVPRItems.registerItem(
+            "yautja_ship_panel", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_PANEL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_SUPPORT_PILLAR_ITEM = AVPRItems.registerItem(
+            "yautja_ship_support_pillar", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_SUPPORT_PILLAR.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_WALL_BASE_ITEM = AVPRItems.registerItem(
+            "yautja_ship_wall_base", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_WALL_BASE.get(), new Item.Properties()));
 
     public static final Supplier<SpawnEggItem> OVAMORPH_SPAWN_EGG = AVPRItems.registerItem(
             "spawn_egg_ovamorph",
