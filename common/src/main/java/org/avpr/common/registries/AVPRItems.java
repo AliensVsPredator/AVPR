@@ -4,7 +4,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import org.avpr.common.CommonMod;
-import org.avpr.common.api.common.ArmorProperties;
+import org.avpr.common.api.common.items.ArmorProperties;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.armor.AVPRArmorMaterials;
 import org.avpr.common.items.guns.BaseGunItem;
@@ -14,7 +14,7 @@ import org.avpr.common.platform.AVPRServices;
 import java.util.*;
 import java.util.function.Supplier;
 
-public class AVPRItems {
+public record AVPRItems() {
 
     public static final Supplier<BlockItem> RESIN_BLOCK_ITEM = AVPRItems.registerItem(
             "resin", () -> new BlockItem(AVPRBlocks.RESIN_BLOCK.get(), new Item.Properties()));

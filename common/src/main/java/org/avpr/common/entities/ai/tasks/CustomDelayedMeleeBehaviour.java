@@ -2,7 +2,7 @@ package org.avpr.common.entities.ai.tasks;
 
 import mod.azure.azurelib.sblforked.api.core.behaviour.ExtendedBehaviour;
 import net.minecraft.server.level.ServerLevel;
-import org.avpr.common.api.common.AnimationSelector;
+import org.avpr.common.api.common.animation.AnimationSelector;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.jetbrains.annotations.NotNull;
 

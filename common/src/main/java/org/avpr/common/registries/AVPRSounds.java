@@ -7,7 +7,7 @@ import org.avpr.common.platform.AVPRServices;
 
 import java.util.function.Supplier;
 
-public class AVPRSounds {
+public record AVPRSounds() {
 
     public static Supplier<SoundEvent> BLOCK_ACID_BURN = AVPRSounds.registerSound("block.acid.burn", () -> SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(CommonMod.MOD_ID, "block.acid.burn")));

@@ -6,7 +6,7 @@ import org.avpr.common.platform.AVPRServices;
 
 import java.util.function.Supplier;
 
-public class AVPRFluids {
+public record AVPRFluids() {
 
     /**
      * Example of using this method to create a new Fluid:

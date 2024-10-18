@@ -1,4 +1,4 @@
-package org.avpr.common.api.common;
+package org.avpr.common.api.common.animation;
 
 import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
 import net.minecraft.world.entity.PathfinderMob;

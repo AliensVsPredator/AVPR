@@ -8,7 +8,7 @@ import org.avpr.common.platform.AVPRServices;
 
 import java.util.function.Supplier;
 
-public class AVPRParticles {
+public record AVPRParticles() {
 
     public static final Supplier<SimpleParticleType> ACID = AVPRParticles.registerParticle("acid", () -> new AVPRPaticleType(true));
 

@@ -36,7 +36,7 @@ import java.util.function.Supplier;
  * The {@link net.minecraft.world.item.CreativeModeTab CreativeModeTab} class represents a tab in the creative inventory menu.
  * </p>
  */
-public class AVPRCreativeTabs {
+public record AVPRCreativeTabs() {
     public static final Supplier<CreativeModeTab> SPAWN_EGG_TAB = AVPRServices.COMMON_REGISTRY.registerCreativeModeTab(
             "entities",
             () -> AVPRServices.COMMON_REGISTRY.newCreativeTabBuilder()

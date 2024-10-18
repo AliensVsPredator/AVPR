@@ -8,7 +8,7 @@ import org.avpr.common.status_effects.ImpregnationStatusEffect;
 
 import java.util.function.Supplier;
 
-public class AVPRStatusEffects {
+public record AVPRStatusEffects() {
 
      public static final Holder<MobEffect> IMPREGNATION = AVPRStatusEffects.registerStatusEffect("impregnation", ImpregnationStatusEffect::new);
 

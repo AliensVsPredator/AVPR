@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import org.avpr.common.CommonMod;
-import org.avpr.common.api.common.*;
+import org.avpr.common.api.common.blocks.*;
 import org.avpr.common.blocks.AVPRStairBlock;
 import org.avpr.common.blocks.ColoredTransparentBlock;
 import org.avpr.common.blocks.ResinVeinBlock;
@@ -22,7 +22,7 @@ import org.avpr.common.platform.AVPRServices;
 import java.util.*;
 import java.util.function.Supplier;
 
-public class AVPRBlocks {
+public record AVPRBlocks() {
 
     public static final Supplier<Block> RESIN_BLOCK = AVPRBlocks.registerBlock("resin",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(
@@ -120,43 +120,43 @@ public class AVPRBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 8)));
+                    .lightLevel(lightLevel -> 8)));
 
     public static final Supplier<Block> YAUTJA_SHIP_DECOR_3_SLAB = AVPRBlocks.registerBlock("yautja_ship_decor_3_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 8)));
+                    .lightLevel(lightLevel -> 8)));
 
     public static final Supplier<Block> YAUTJA_SHIP_DECOR_3_STAIRS = AVPRBlocks.registerBlock("yautja_ship_decor_3_stairs",
             () -> new AVPRStairBlock(YAUTJA_SHIP_DECOR_3.get().defaultBlockState(), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 8)));
+                    .lightLevel(lightLevel -> 8)));
 
     public static final Supplier<Block> YAUTJA_SHIP_DECOR_3_WALL = AVPRBlocks.registerBlock("yautja_ship_decor_3_wall",
             () -> new WallBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 8)));
+                    .lightLevel(lightLevel -> 8)));
 
     public static final Supplier<Block> YAUTJA_SHIP_PANEL = AVPRBlocks.registerBlock("yautja_ship_panel",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 6)));
+                    .lightLevel(lightLevel -> 6)));
 
     public static final Supplier<Block> YAUTJA_SHIP_SUPPORT_PILLAR = AVPRBlocks.registerBlock("yautja_ship_support_pillar",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 8)));
+                    .lightLevel(lightLevel -> 8)));
 
     public static final Supplier<Block> YAUTJA_SHIP_WALL_BASE = AVPRBlocks.registerBlock("yautja_ship_wall_base",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
                     .strength(75, 1500)
-                    .lightLevel(($0) -> 4)));
+                    .lightLevel(lightLevel -> 4)));
 
     private static final Map<DyeColor, Block> INDUSTRIAL_GLASS_BLOCKS = new EnumMap<>(DyeColor.class);
     private static final Map<DyeColor, Item> INDUSTRIAL_GLASS_ITEMS = new EnumMap<>(DyeColor.class);

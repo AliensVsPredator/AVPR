@@ -11,7 +11,7 @@ import org.avpr.common.platform.AVPRServices;
 
 import java.util.function.Supplier;
 
-public class AVPREntities {
+public record AVPREntities() {
 
     public static final Supplier<EntityType<AcidEntity>> ACID = AVPREntities.registerEntity("acid", AcidEntity::new, MobCategory.MISC, 0.66F, 0.05F);
     public static final Supplier<EntityType<OvamorphEntity>> OVAMORPH = AVPREntities.registerEntity("ovamorph", OvamorphEntity::new, MobCategory.MONSTER, 0.88F, 0.98F);

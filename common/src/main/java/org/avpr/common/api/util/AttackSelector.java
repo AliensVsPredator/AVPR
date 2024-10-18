@@ -1,7 +1,7 @@
 package org.avpr.common.api.util;
 
 import net.minecraft.world.phys.Vec3;
-import org.avpr.common.api.common.AnimationSelector;
+import org.avpr.common.api.common.animation.AnimationSelector;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 
 public record AttackSelector() {
