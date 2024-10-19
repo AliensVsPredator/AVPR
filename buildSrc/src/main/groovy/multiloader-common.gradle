@@ -2,6 +2,7 @@ import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
 plugins {
+    id 'com.diffplug.spotless'
     id 'java-library'
     id 'maven-publish'
     id 'idea'
@@ -145,4 +146,19 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+}
+
+spotless {
+    java {
+        eclipse().configFile("$rootDir/eclipse-formatter.xml")
+        endWithNewline()
+        importOrder("", "java", group.toString(), "\\#")
+        indentWithSpaces(4)
+        removeUnusedImports()
+        trimTrailingWhitespace()
+    }
+}
+
+tasks.build {
+    dependsOn("spotlessApply")
 }
