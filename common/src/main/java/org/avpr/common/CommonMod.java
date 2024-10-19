@@ -3,9 +3,11 @@ package org.avpr.common;
 import mod.azure.azurelib.common.internal.common.AzureLibMod;
 import mod.azure.azurelib.common.internal.common.config.format.ConfigFormats;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import org.avpr.common.config.AVPRConfig;
 import org.avpr.common.registries.*;
@@ -31,28 +33,33 @@ public class CommonMod {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }
 
-    public static <T> TagKey<T> create(ResourceKey<? extends Registry<T>> registries, String registryName) {
+    /**
+     * Creates a {@link TagKey} for the specified registry and registry name.
+     *
+     * @param registries   The {@link ResourceKey} representing a specific registry within which the tag is to be
+     *                     created.
+     * @param registryName A string representing the name of the registry for which the tag is created.
+     * @return A {@link TagKey} representing the created tag within the specified registry.
+     */
+    public static <T> TagKey<T> createTag(ResourceKey<? extends Registry<T>> registries, String registryName) {
         return TagKey.create(registries, CommonMod.modResource(registryName));
     }
 
     /**
-     * Initializes all the necessary registries for the AVPR mod. This method is responsible for registering items,
-     * entities, blocks, sounds, particles, creative tabs, status effects, and fluids required by the mod.
-     * <p>
-     * It should be called during the mod's initialization phase to ensure that all components are properly registered
-     * and available for use in the game.
-     * </p>
-     * The following components are initialized:
-     * <ul>
-     * <li>{@code AVPRItems} - Registers all custom items.</li>
-     * <li>{@code AVPREntities} - Registers all custom entities.</li>
-     * <li>{@code AVPRBlocks} - Registers all custom blocks.</li>
-     * <li>{@code AVPRSounds} - Registers custom sound effects.</li>
-     * <li>{@code AVPRParticles} - Registers custom particles.</li>
-     * <li>{@code AVPRCreativeTabs} - Registers custom creative inventory tabs.</li>
-     * <li>{@code AVPRStatusEffects} - Registers custom status effects.</li>
-     * <li>{@code AVPRFluids} - Registers custom fluid types.</li>
-     * </ul>
+     * Registers a key for a placed feature within the mod's registry namespace.
+     *
+     * @param registryName The name of the registry key to be created.
+     * @return A {@link ResourceKey} for the placed feature with the specified registry name.
+     */
+    public static ResourceKey<PlacedFeature> registerKey(String registryName) {
+        return ResourceKey.create(Registries.PLACED_FEATURE, CommonMod.modResource(registryName));
+    }
+
+    /**
+     * Initializes all the core registries for the mod. This includes configuration settings, items, entities, blocks,
+     * sounds, particles, creative tabs, status effects, fluids, and ore features. This method is typically called
+     * during the mod's startup sequence to ensure that all necessary resources and definitions are properly registered
+     * and available for use within the mod.
      */
     public static void initRegistries() {
         config = AzureLibMod.registerConfig(AVPRConfig.class, ConfigFormats.json()).getConfigInstance();
