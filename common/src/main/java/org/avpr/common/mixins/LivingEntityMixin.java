@@ -47,12 +47,25 @@ public abstract class LivingEntityMixin extends Entity {
             callbackInfo.setReturnValue(false);
     }
 
+    /**
+     * Injected method that triggers on each tick for the living entity. It applies chest burst damage to the entity if
+     * specific conditions are met.
+     *
+     * @param callbackInfo The callback information.
+     */
     @Inject(method = { "tick" }, at = { @At("HEAD") })
     void tick(CallbackInfo callbackInfo) {
         if (!this.level().isClientSide && PredicatesUtil.shouldApplyImpEffects.test(this))
             this.hurt(DamageUtil.of(this.level(), AVPRDamageSources.CHESTBURST), 0.2f);
     }
 
+    /**
+     * Invoked when a MobEffectInstance is removed from an entity. This method triggers specific logic related to the
+     * ImpregnationStatusEffect.
+     *
+     * @param mobEffectInstance The MobEffectInstance that has been removed from the entity.
+     * @param ci                The callback info.
+     */
     @Inject(method = "onEffectRemoved(Lnet/minecraft/world/effect/MobEffectInstance;)V", at = @At(value = "TAIL"))
     private void runAtEffectRemoval(MobEffectInstance mobEffectInstance, CallbackInfo ci) {
         ImpregnationStatusEffect.effectRemoval(Constants.<LivingEntity>self(this), mobEffectInstance);

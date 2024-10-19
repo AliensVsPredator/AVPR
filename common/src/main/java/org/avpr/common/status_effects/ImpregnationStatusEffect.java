@@ -28,6 +28,13 @@ public class ImpregnationStatusEffect extends MobEffect {
         return true;
     }
 
+    /**
+     * Applies a series of status effects to a LivingEntity if it does not already have those effects.
+     *
+     * @param livingEntity  The LivingEntity to which the status effects will be applied.
+     * @param ticks         The duration in ticks for which the status effects will last.
+     * @param statusEffects A variable number of Holder<MobEffect> representing the status effects to be applied.
+     */
     @SafeVarargs
     private void handleStatusEffects(@NotNull LivingEntity livingEntity, int ticks, Holder<MobEffect>... statusEffects) {
         for (Holder<MobEffect> effect : statusEffects)
@@ -35,6 +42,22 @@ public class ImpregnationStatusEffect extends MobEffect {
                 livingEntity.addEffect(new MobEffectInstance(effect, ticks, 3, true, true));
     }
 
+    /**
+     * Handles the removal of the {@code ImpregnationStatusEffect} from a {@code LivingEntity}. This method checks
+     * various conditions to ensure the effect removal process is valid and allowed.
+     * <ul>
+     * <li>If the entity is in creative mode or spectator mode, the process will be terminated.</li>
+     * <li>If the entity type is not categorized under hosts, the process will be terminated.</li>
+     * <li>If the method is called on the client-side or the {@code MobEffectInstance} effect is not an instance of
+     * {@code ImpregnationStatusEffect}, the process will be terminated.</li>
+     * <li>If the entity is a mob and its AI is disabled, the process will be terminated.</li>
+     * <li>Upon validation, the method handles spawning a burster entity, setting its properties, and damaging the armor
+     * and health of the original entity.</li>
+     * </ul>
+     *
+     * @param entity            The {@code LivingEntity} from which the effect is being removed.
+     * @param mobEffectInstance The {@code MobEffectInstance} being removed.
+     */
     public static void effectRemoval(LivingEntity entity, MobEffectInstance mobEffectInstance) {
         if (PredicatesUtil.IS_CREATIVEorSPECTATOR.test(entity))
             return;
@@ -56,6 +79,12 @@ public class ImpregnationStatusEffect extends MobEffect {
         }
     }
 
+    /**
+     * Sets the properties of a burster entity based on an existing entity.
+     *
+     * @param entity  The original {@code LivingEntity} from which the burster entity is derived.
+     * @param burster The burster {@code LivingEntity} that will have properties set.
+     */
     private static void setBursterProperties(LivingEntity entity, LivingEntity burster) {
         if (entity.hasCustomName())
             burster.setCustomName(entity.getCustomName());

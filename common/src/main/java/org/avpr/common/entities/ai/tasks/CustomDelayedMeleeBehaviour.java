@@ -9,6 +9,12 @@ import java.util.function.Consumer;
 import org.avpr.common.api.common.animation.AnimationSelector;
 import org.avpr.common.entities.alien.AlienEntity;
 
+/**
+ * CustomDelayedMeleeBehaviour is an abstract class that defines a behavior for entities to perform a delayed melee
+ * action. The action is executed after a specified delay, during which an animation can be played.
+ *
+ * @param <E> the type of AlienEntity this behavior is assigned to
+ */
 public abstract class CustomDelayedMeleeBehaviour<E extends AlienEntity> extends ExtendedBehaviour<E> {
 
     protected final int delayTime;

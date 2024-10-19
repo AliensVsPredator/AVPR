@@ -15,6 +15,13 @@ import org.avpr.common.registries.AVPRItems;
 @Mixin(ServerLevel.class)
 public abstract class MixinServerLevel {
 
+    /**
+     * Tick method injected at the start of the ServerLevel's tick method. This method handles
+     * periodic tasks such as updating the block break progress and replenishing the air supply
+     * for players wearing a full set of pressure armor.
+     *
+     * @param callbackInfo The CallbackInfo object provided by the Mixin, used for additional callback information.
+     */
     @Inject(at = @At("HEAD"), method = "tick")
     public void tick(CallbackInfo callbackInfo) {
         var serverLevel = ServerLevel.class.cast(this);

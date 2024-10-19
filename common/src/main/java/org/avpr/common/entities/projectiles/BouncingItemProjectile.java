@@ -58,6 +58,13 @@ public abstract class BouncingItemProjectile extends ThrowableItemProjectile {
         }
     }
 
+    /**
+     * Handles the behavior when the projectile hits an entity. If the projectile is set to bounce, it will inflict
+     * damage to the entity and bounce off in the opposite direction. If not, the projectile will be removed and trigger
+     * the death behavior.
+     *
+     * @param result The result of the entity hit, providing details about the entity hit.
+     */
     private void handleEntityHit(EntityHitResult result) {
         var entity = result.getEntity();
 
@@ -107,6 +114,12 @@ public abstract class BouncingItemProjectile extends ThrowableItemProjectile {
         this.bounce(blockResult.getDirection());
     }
 
+    /**
+     * Alters the direction and magnitude of the projectile's movement based on the specified direction of impact.
+     *
+     * @param direction The direction in which the projectile should bounce, influencing how its movement vector will be
+     *                  modified.
+     */
     private void bounce(Direction direction) {
         switch (direction.getAxis()) {
             case X -> this.setDeltaMovement(this.getDeltaMovement().multiply(-0.5, 0.75, 0.75));

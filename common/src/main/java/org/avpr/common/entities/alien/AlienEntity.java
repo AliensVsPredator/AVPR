@@ -48,6 +48,11 @@ import org.avpr.common.api.util.EntityUtil;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPREntityTags;
 
+/**
+ * Abstract class representing an alien entity that extends WaterAnimal and implements various interfaces such as Enemy,
+ * VibrationSystem, GeoEntity, and GrowableInterface. This class includes methods for handling data registration, growth
+ * management, dynamic game event listening, AI behavior, vibration handling, and custom entity-specific mechanics.
+ */
 public abstract class AlienEntity extends WaterAnimal implements Enemy, VibrationSystem, GeoEntity, GrowableInterface {
 
     protected static final EntityDataAccessor<Float> GROWTH = SynchedEntityData.defineId(
@@ -89,6 +94,16 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     @Override
     protected void registerGoals() {}
 
+    /**
+     * Checks whether various conditions are met for a monster to spawn in the given level.
+     *
+     * @param type      The type of water animal entity to spawn.
+     * @param level     The server level accessor providing the environment context.
+     * @param spawnType The type of spawning being attempted.
+     * @param pos       The block position where the monster is attempting to spawn.
+     * @param random    A source of randomness for checking spawn conditions.
+     * @return true if the monster can spawn, false otherwise.
+     */
     public static boolean checkMonsterSpawnRules(
         EntityType<? extends WaterAnimal> type,
         ServerLevelAccessor level,
@@ -101,6 +116,15 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
             && checkMobSpawnRules(type, level, spawnType, pos, random);
     }
 
+    /**
+     * Determines if the lighting conditions at a specified position in the given level are dark enough for a monster to
+     * spawn.
+     *
+     * @param level  The server level accessor providing the environment context.
+     * @param pos    The block position where the monster is attempting to spawn.
+     * @param random A source of randomness for checking light conditions.
+     * @return true if the lighting conditions are dark enough for a monster to spawn, false otherwise.
+     */
     public static boolean isDarkEnoughToSpawn(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
         if (level.getBrightness(LightLayer.SKY, pos) > random.nextInt(32)) {
             return false;
@@ -129,6 +153,9 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return 2.5f;
     }
 
+    /**
+     * Always has full air
+     */
     @Override
     protected void handleAirSupply(int airSupply) {}
 
@@ -142,6 +169,13 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return false;
     }
 
+    /**
+     * Executes custom AI logic for the AlienEntity on the server side. This method performs the following actions every
+     * tick: 1. Obtains the current level as a `ServerLevel` instance. 2. Calls the superclass method to ensure base AI
+     * logic is executed. 3. Every 20 ticks: - Manages the entity's anger state using `angerManagement` with the current
+     * `ServerLevel` and the entity's targeting logic. - Syncs the entity's anger level with the client using
+     * `syncClientAngerLevel`.
+     */
     @Override
     protected void customServerAiStep() {
         var serverLevel = (ServerLevel) this.level();
@@ -152,6 +186,13 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         }
     }
 
+    /**
+     * Performs the per-tick update for the `AlienEntity`. This method accomplishes the following tasks: 1. Calls the
+     * `super.tick()` method to ensure the base class tick behavior is executed. 2. Resets the entity's air supply to
+     * its maximum value. 3. If the current level is a `ServerLevel` instance: - Increases the entity's growth by its
+     * growth multiplier if it is alive. - Sets the entity's aggressive state to false if it is a vehicle. - Updates the
+     * vibration data and user via `AzureTicker`. 4. Refreshes the entity's dimensions every 10 ticks.
+     */
     @Override
     public void tick() {
         super.tick();
@@ -188,11 +229,22 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return this.vibrationUser;
     }
 
+    /**
+     * Determines if the AlienEntity can dampen vibrations.
+     *
+     * @return true if the AlienEntity can dampen vibrations, false otherwise
+     */
     @Override
     public boolean dampensVibrations() {
         return true;
     }
 
+    /**
+     * Handles the movement logic for the AlienEntity, modifying its travel behavior based on whether it is in water and
+     * has effective AI.
+     *
+     * @param travelVector The vector representing the direction and magnitude of travel.
+     */
     @Override
     public void travel(@NotNull Vec3 travelVector) {
         if (this.isEffectiveAi() && this.isInWater()) {
@@ -217,7 +269,6 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     /**
      * Data handling
      */
-
     public float getGrowth() {
         return entityData.get(GROWTH);
     }
@@ -294,6 +345,13 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
                 .ifPresent(data -> this.vibrationData = data);
     }
 
+    /**
+     * Calculates the fall damage based on fall distance and a damage multiplier.
+     *
+     * @param fallDistance     the distance the entity has fallen, in blocks
+     * @param damageMultiplier the multiplier to apply to the fall damage calculation
+     * @return the amount of damage to apply as a result of the fall
+     */
     @Override
     public int calculateFallDamage(float fallDistance, float damageMultiplier) {
         if (fallDistance <= 15)
@@ -301,6 +359,11 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return super.calculateFallDamage(fallDistance, damageMultiplier);
     }
 
+    /**
+     * Retrieves the maximum fall distance the AlienEntity can fall without taking damage.
+     *
+     * @return the maximum fall distance in blocks
+     */
     @Override
     public int getMaxFallDistance() {
         return 9;
@@ -330,6 +393,10 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return true;
     }
 
+    /**
+     * Checks and handles the conditions under which the AlienEntity should be despawned. This method overrides the base
+     * entity's despawn logic and performs custom checks related to the AlienEntity's specific behaviors and states.
+     */
     @Override
     public void checkDespawn() {}
 
@@ -368,11 +435,22 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return this.isAlive();
     }
 
+    /**
+     * Determines if the AlienEntity is pushable.
+     *
+     * @return false, indicating that the AlienEntity is not pushable.
+     */
     @Override
     public boolean isPushable() {
         return false;
     }
 
+    /**
+     * Determines whether the AlienEntity can target a given entity based on various conditions.
+     *
+     * @param entity The entity to be evaluated as a potential target. This can be null.
+     * @return true if the entity meets the criteria to be targeted, false otherwise.
+     */
     @Contract(value = "null->false")
     public boolean canTargetEntity(@Nullable Entity entity) {
         if (!(entity instanceof LivingEntity livingEntity))

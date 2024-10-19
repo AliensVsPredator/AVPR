@@ -36,6 +36,13 @@ public class InGameOverlayRendererMixin {
         }
     }
 
+    /**
+     * Renders an overlay over the screen effect with specified texture.
+     *
+     * @param client           The Minecraft client instance.
+     * @param matrices         The PoseStack for GUI rendering transformations.
+     * @param resourceLocation The ResourceLocation of the texture to be used as the overlay.
+     */
     @Unique
     private static void avpr$renderOverlay(Minecraft client, PoseStack matrices, ResourceLocation resourceLocation) {
         RenderSystem.disableDepthTest();

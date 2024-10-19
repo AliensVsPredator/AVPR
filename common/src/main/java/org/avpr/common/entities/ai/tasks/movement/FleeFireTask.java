@@ -17,6 +17,12 @@ import java.util.List;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.tags.AVPRBlockTags;
 
+/**
+ * FleeFireTask is a custom task for AlienEntity that makes the entity flee from nearby lava blocks. The task will make
+ * the entity move away from detected lava by setting appropriate walk targets.
+ *
+ * @param <E> the type of AlienEntity this task applies to
+ */
 public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
@@ -56,6 +62,14 @@ public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
         return true;
     }
 
+    /**
+     * Determines if the AlienEntity should flee from nearby lava blocks and sets the appropriate walk target to move
+     * the entity away from the detected lava.
+     *
+     * @param level    the server level in which the entity resides
+     * @param owner    the AlienEntity for which the task is being executed
+     * @param gameTime the current game time
+     */
     @Override
     protected void tick(@NotNull ServerLevel level, AlienEntity owner, long gameTime) {
         if (owner.level().dimensionType().piglinSafe())

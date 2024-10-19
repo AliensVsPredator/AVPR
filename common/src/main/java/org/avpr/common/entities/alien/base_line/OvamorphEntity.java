@@ -31,6 +31,10 @@ import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 
+/**
+ * The OvamorphEntity class represents an entity in the game that simulates an ovamorph (egg) from the Alien franchise.
+ * This entity is responsible for hatching and potentially spawning a Facehugger entity.
+ */
 public class OvamorphEntity extends AlienEntity {
 
     private static final EntityDataAccessor<Boolean> IS_HATCHING = SynchedEntityData.defineId(
@@ -63,6 +67,13 @@ public class OvamorphEntity extends AlienEntity {
         this.vibrationUser = new AzureVibrationUser(this, 0.0F, 0);
     }
 
+    /**
+     * Creates and returns a builder for the attributes of the `OvamorphEntity`. This builder initializes the following
+     * attributes for the entity: - Maximum Health - Armor - Armor Toughness - Knockback Resistance - Follow Range -
+     * Movement Speed
+     *
+     * @return A builder object for defining the attributes of the `OvamorphEntity`.
+     */
     public static AttributeSupplier.Builder createAttributes() {
         return LivingEntity.createLivingAttributes()
             .add(
@@ -82,6 +93,12 @@ public class OvamorphEntity extends AlienEntity {
             .add(Attributes.MOVEMENT_SPEED, 0.0);
     }
 
+    /**
+     * Registers the animation controllers for the `OvamorphEntity`. This method defines the behavior of the animation
+     * based on the state of the entity, such as whether it is hatching or already hatched.
+     *
+     * @param controllers the controller registrar that manages the registration of animation controllers
+     */
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, Constants.LIVING_CONTROLLER, event -> {
@@ -101,6 +118,9 @@ public class OvamorphEntity extends AlienEntity {
         return cache;
     }
 
+    /**
+     * Growth handling
+     */
     @Override
     public int getAcidDiameter() {
         return 1;
@@ -119,7 +139,6 @@ public class OvamorphEntity extends AlienEntity {
     /**
      * Egg data handling
      */
-
     public boolean isHatching() {
         return entityData.get(IS_HATCHING);
     }
@@ -216,6 +235,13 @@ public class OvamorphEntity extends AlienEntity {
     @Override
     public void knockback(double strength, double x, double z) {}
 
+    /**
+     * Handles the entity receiving damage, triggering hatching if certain conditions are met.
+     *
+     * @param source The source of the damage being inflicted.
+     * @param amount The amount of damage being inflicted.
+     * @return A boolean indicating whether the damage was successfully inflicted.
+     */
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
         if (source != damageSources().genericKill() && source.getDirectEntity() != null && !this.isHatched())
@@ -242,6 +268,17 @@ public class OvamorphEntity extends AlienEntity {
         return false;
     }
 
+    /**
+     * Handles the per-tick behavior of the `OvamorphEntity`. This includes managing the hatching process, playing
+     * specific sounds when hatching, and spawning a facehugger once hatched. The method extends its parent `tick`
+     * method and introduces additional logic specific to the `OvamorphEntity`: - Increments hatch progress if the
+     * entity is in the hatching state. - Plays a sound when hatch progress reaches a specific point. - Updates the
+     * hatching and hatched states based on progress. - Manages the spawning and movement of a facehugger if the entity
+     * has hatched. Exit conditions in the method: - Returns immediately if the entity has no AI. - Progress updates and
+     * related actions occur only if the entity is hatching and hatch progress has not yet reached the maximum. -
+     * Facehugger spawning logic executes only if the entity is on the server side, has a facehugger, and is not dead or
+     * dying.
+     */
     @Override
     public void tick() {
         super.tick();
@@ -285,6 +322,12 @@ public class OvamorphEntity extends AlienEntity {
         }
     }
 
+    /**
+     * Handles the base tick behavior of the `OvamorphEntity`. This method manages the following tasks: - Increments the
+     * hatch check timer on each tick. - Initiates the hatching process if the entity has recently hurt another mob. -
+     * Performs hatching checks every second (20 ticks), analyzing nearby entities to determine if hatching conditions
+     * are met. - Checks blocks in the immediate vicinity and modifies the hatching state based on their properties.
+     */
     @Override
     public void baseTick() {
         super.baseTick();

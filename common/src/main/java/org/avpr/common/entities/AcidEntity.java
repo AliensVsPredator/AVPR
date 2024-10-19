@@ -25,6 +25,11 @@ import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
 import org.avpr.common.tags.AVPRItemTags;
 
+/**
+ * The AcidEntity class represents an entity that simulates the behavior of acid within the game world. It extends the
+ * basic Entity class and adds functionality specific to the acid entity, such as applying gravity, damaging blocks and
+ * entities, creating particles and sounds, and managing its lifespan and multiplier.
+ */
 public class AcidEntity extends Entity {
 
     private static final int DEFAULT_MAX_LIFE_IN_TICKS = 20 * 20; // 10 seconds.
@@ -75,6 +80,17 @@ public class AcidEntity extends Entity {
         compoundTag.putInt(TICK_COUNT_FOR_CURRENT_MULTIPLIER, tickCountForCurrentMultiplier);
     }
 
+    /**
+     * Updates the state of the AcidEntity each tick. This method performs several tasks including: - Increasing the
+     * particle tick counter based on the current multiplier. - Applying gravity to the entity and moving it. - Scaling
+     * down the entity's delta movement. - Initializing position and orientation on the first tick. - Inflicting damage
+     * to blocks and entities. - Creating particles and sounds. - Managing the lifecycle and multiplier of the entity,
+     * especially when it's in water. Specific tasks performed by this method: - Applies gravity using the
+     * {@code applyGravity()} method. - Moves the entity using {@code move(MoverType, Vec3)}. - Damages blocks and
+     * entities using the {@code damageBlock(Level)} and {@code damageEntities(Level)} methods. - Creates particles and
+     * sounds client-side using {@code createParticlesAndSounds(Level)} method. - Adjusts the lifecycle of the entity,
+     * especially if it's in water. - Reduces the entity's multiplier and resets related counters as needed.
+     */
     @Override
     public void tick() {
         super.tick();
@@ -111,6 +127,13 @@ public class AcidEntity extends Entity {
         this.setMultiplier(this.getMultiplier() - 1);
     }
 
+    /**
+     * Damages a block in the game world if the conditions are met, such as not being client-side, not being in water,
+     * and being on the ground. This method checks the block at the entity's position and below it to account for being
+     * in the air. It will only damage blocks that are not immune to acid.
+     *
+     * @param level The Level object representing the game world.
+     */
     private void damageBlock(Level level) {
         if (level.isClientSide || isInWater() || !onGround())
             return;
@@ -131,6 +154,14 @@ public class AcidEntity extends Entity {
             );
     }
 
+    /**
+     * Creates visual and auditory effects for the AcidEntity. This method is responsible for adding smoke and acid
+     * particles as well as playing fizzing sounds. These effects are generated only on the client-side to enhance
+     * visual feedback.
+     *
+     * @param level The level object representing the game world. It is used to determine client-side execution and to
+     *              add particles and sounds to the world.
+     */
     private void createParticlesAndSounds(Level level) {
         // Both particles and fizzing sounds should only play client-side.
         if (!level.isClientSide)
@@ -157,6 +188,14 @@ public class AcidEntity extends Entity {
         }
     }
 
+    /**
+     * Inflicts damage on all entities within the bounding box of the AcidEntity, excluding client-side levels. This
+     * method filters entities to include only living entities and other AcidEntity instances. It then applies
+     * appropriate damages through the `damageEntity` method.
+     *
+     * @param level The level object representing the game world. It is used to determine whether the method is executed
+     *              on the server side and to fetch entities within the bounding box of the AcidEntity.
+     */
     private void damageEntities(Level level) {
         // Entity damage should only be done server-side.
         if (level.isClientSide)
@@ -170,6 +209,13 @@ public class AcidEntity extends Entity {
         entities.forEach(this::damageEntity);
     }
 
+    /**
+     * Inflicts damage to an entity based on specific conditions. This method takes into account various factors such as
+     * the type of entity, whether it is in water, if it is a player in creative or spectator mode, and if the entity
+     * has acid-immune equipment or status.
+     *
+     * @param entity The target entity to be damaged.
+     */
     private void damageEntity(Entity entity) {
         if (entity instanceof AcidEntity otherAcid) {
             if (otherAcid.isAlive()) {
@@ -208,6 +254,12 @@ public class AcidEntity extends Entity {
         return entityData.get(MULTIPLIER);
     }
 
+    /**
+     * Sets the multiplier value for the AcidEntity, ensuring the value is within acceptable bounds. This method also
+     * resets the tick count for the current multiplier to zero and refreshes the entity's dimensions.
+     *
+     * @param multiplier The desired multiplier value. It will be clamped between 0 and MAX_MULTIPLIER.
+     */
     public void setMultiplier(int multiplier) {
         entityData.set(MULTIPLIER, Mth.clamp(multiplier, 0, MAX_MULTIPLIER));
         tickCountForCurrentMultiplier = 0;

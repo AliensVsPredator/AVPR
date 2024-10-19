@@ -19,6 +19,12 @@ public class BlockBreakProgressManager {
 
     private static final Map<BlockPos, Map.Entry<Long, Float>> BLOCK_BREAK_PROGRESS_MAP = new HashMap<>();
 
+    /**
+     * Executes periodic tasks related to block break progress management in the game world. This method is intended to
+     * be called every game tick and will perform cleanup operations on the block break progress map.
+     *
+     * @param level The Level object representing the game world, to obtain the current game time.
+     */
     public static void tick(Level level) {
         var gameTime = level.getGameTime();
         if (gameTime % Tick.PER_MINUTE != 0) {
@@ -39,6 +45,13 @@ public class BlockBreakProgressManager {
         );
     }
 
+    /**
+     * Applies damage to a block at the specified position and updates its break progress.
+     *
+     * @param level    The Level object representing the game world.
+     * @param blockPos The position of the block to apply damage to.
+     * @param damage   The amount of damage to apply to the block.
+     */
     public static void damage(Level level, BlockPos blockPos, float damage) {
         if (!level.isClientSide())
             BlockBreakProgressManager.BLOCK_BREAK_PROGRESS_MAP.compute(blockPos, (key, entry) -> {

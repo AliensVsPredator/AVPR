@@ -54,6 +54,13 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
         return MEMORY_REQUIREMENTS;
     }
 
+    /**
+     * Checks additional conditions before the entity can start an action.
+     *
+     * @param level  The server level in which the entity exists.
+     * @param entity The entity performing the task.
+     * @return true if all extra start conditions are met; false otherwise.
+     */
     @Override
     protected boolean checkExtraStartConditions(ServerLevel level, E entity) {
         this.target = BrainUtils.getTargetOfEntity(entity);
@@ -78,6 +85,12 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
         this.target = null;
     }
 
+    /**
+     * Performs a delayed action on the entity, setting a memory state and attempting to grab the target entity if
+     * conditions are met.
+     *
+     * @param entity The entity performing the delayed action.
+     */
     @Override
     protected void doDelayedAction(E entity) {
         BrainUtils.setForgettableMemory(
