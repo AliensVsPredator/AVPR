@@ -8,6 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.client.entities.renders.FacehuggerRenderer;
 import org.avpr.common.client.entities.renders.OvamorphRenderer;
@@ -20,9 +21,9 @@ import org.avpr.common.registries.AVPRParticles;
 @EventBusSubscriber(modid = CommonMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class NeoForgeClientMod {
 
-//    @SubscribeEvent
-//    public static void fluidReg(final RegisterClientExtensionsEvent event) {
-//    }
+    // @SubscribeEvent
+    // public static void fluidReg(final RegisterClientExtensionsEvent event) {
+    // }
 
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {

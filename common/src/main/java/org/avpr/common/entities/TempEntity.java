@@ -7,22 +7,17 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 public class TempEntity extends Entity {
+
     public TempEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-
-    }
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {}
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag compoundTag) {
-
-    }
+    protected void readAdditionalSaveData(CompoundTag compoundTag) {}
 
     @Override
-    protected void addAdditionalSaveData(CompoundTag compoundTag) {
-
-    }
+    protected void addAdditionalSaveData(CompoundTag compoundTag) {}
 }

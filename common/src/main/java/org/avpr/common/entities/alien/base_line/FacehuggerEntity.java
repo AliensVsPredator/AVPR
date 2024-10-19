@@ -42,9 +42,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
@@ -54,17 +57,21 @@ import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.registries.AVPRStatusEffects;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<FacehuggerEntity> {
 
-public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<FacehuggerEntity>  {
+    public static final EntityDataAccessor<Boolean> EGGSPAWN = SynchedEntityData.defineId(
+        FacehuggerEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
 
-    public static final EntityDataAccessor<Boolean> EGGSPAWN = SynchedEntityData.defineId(FacehuggerEntity.class,
-            EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> IS_INFERTILE = SynchedEntityData.defineId(FacehuggerEntity.class,
-            EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IS_INFERTILE = SynchedEntityData.defineId(
+        FacehuggerEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
+
     public float ticksAttachedToHost = -1.0f;
 
     public FacehuggerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
@@ -73,10 +80,24 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return LivingEntity.createLivingAttributes().add(Attributes.MAX_HEALTH, CommonMod.config.facehuggerConfigs.FACEHUGGER_HEALTH).add(
-                Attributes.ARMOR, 1.0).add(Attributes.ARMOR_TOUGHNESS, 0.0).add(Attributes.KNOCKBACK_RESISTANCE,
-                1.0).add(Attributes.ATTACK_KNOCKBACK, 0.0).add(Attributes.ATTACK_DAMAGE, 0.0).add(
-                Attributes.FOLLOW_RANGE, 32.0).add(Attributes.MOVEMENT_SPEED, 0.3300000041723251);
+        return LivingEntity.createLivingAttributes()
+            .add(Attributes.MAX_HEALTH, CommonMod.config.facehuggerConfigs.FACEHUGGER_HEALTH)
+            .add(
+                Attributes.ARMOR,
+                1.0
+            )
+            .add(Attributes.ARMOR_TOUGHNESS, 0.0)
+            .add(
+                Attributes.KNOCKBACK_RESISTANCE,
+                1.0
+            )
+            .add(Attributes.ATTACK_KNOCKBACK, 0.0)
+            .add(Attributes.ATTACK_DAMAGE, 0.0)
+            .add(
+                Attributes.FOLLOW_RANGE,
+                32.0
+            )
+            .add(Attributes.MOVEMENT_SPEED, 0.3300000041723251);
     }
 
     @Override
@@ -117,8 +138,10 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
     @Override
     public void readAdditionalSaveData(@NotNull CompoundTag nbt) {
         super.readAdditionalSaveData(nbt);
-        if (nbt.contains("isInfertile")) setIsInfertile(nbt.getBoolean("isInfertile"));
-        if (nbt.contains("ticksAttachedToHost")) ticksAttachedToHost = nbt.getFloat("ticksAttachedToHost");
+        if (nbt.contains("isInfertile"))
+            setIsInfertile(nbt.getBoolean("isInfertile"));
+        if (nbt.contains("ticksAttachedToHost"))
+            ticksAttachedToHost = nbt.getFloat("ticksAttachedToHost");
     }
 
     public void detachFromHost() {
@@ -134,21 +157,24 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
         if (isAttachedToHost()) {
             ticksAttachedToHost += 1;
 
-            if (!(this.getVehicle() instanceof LivingEntity livingEntity)) return;
+            if (!(this.getVehicle() instanceof LivingEntity livingEntity))
+                return;
 
             livingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 1000, 10, false, false));
-            if (livingEntity.getHealth() > livingEntity.getMaxHealth()) livingEntity.heal(6);
+            if (livingEntity.getHealth() > livingEntity.getMaxHealth())
+                livingEntity.heal(6);
             if (getVehicle() instanceof Player player && player.getFoodData().needsFood())
                 player.getFoodData().setFoodLevel(20);
             if (ticksAttachedToHost > 1200) {
-//                if (getVehicle() instanceof Player player && player instanceof ServerPlayer serverPlayer) {
-//                    var advancement = serverPlayer.server.getAdvancements().get(CommonMod.modResource("facehugged"));
-//                    if (advancement != null && !serverPlayer.getAdvancements().getOrStartProgress(advancement).isDone()) {
-//                        for (var s : serverPlayer.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) {
-//                            serverPlayer.getAdvancements().award(advancement, s);
-//                        }
-//                    }
-//                }
+                // if (getVehicle() instanceof Player player && player instanceof ServerPlayer serverPlayer) {
+                // var advancement = serverPlayer.server.getAdvancements().get(CommonMod.modResource("facehugged"));
+                // if (advancement != null && !serverPlayer.getAdvancements().getOrStartProgress(advancement).isDone())
+                // {
+                // for (var s : serverPlayer.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) {
+                // serverPlayer.getAdvancements().award(advancement, s);
+                // }
+                // }
+                // }
                 if (livingEntity.hasEffect(MobEffects.BLINDNESS))
                     livingEntity.removeEffect(MobEffects.BLINDNESS);
                 if (!livingEntity.hasEffect(AVPRStatusEffects.IMPREGNATION))
@@ -161,7 +187,8 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
             }
 
             if (livingEntity.hasEffect(AVPRStatusEffects.IMPREGNATION)) {
-                if (livingEntity.hasEffect(MobEffects.BLINDNESS)) livingEntity.removeEffect(MobEffects.BLINDNESS);
+                if (livingEntity.hasEffect(MobEffects.BLINDNESS))
+                    livingEntity.removeEffect(MobEffects.BLINDNESS);
                 detachFromHost();
                 setIsInfertile(true);
                 this.kill();
@@ -172,12 +199,16 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                 setIsInfertile(true);
                 this.kill();
             }
-        } else ticksAttachedToHost = -1.0f;
+        } else
+            ticksAttachedToHost = -1.0f;
     }
 
     @Override
     public void stopRiding() {
-        if (this.getVehicle() != null && this.getVehicle() instanceof LivingEntity livingEntity && livingEntity.isAlive() && ticksAttachedToHost < Tick.PER_MINUTE * 5 && isInWater())
+        if (
+            this.getVehicle() != null && this.getVehicle() instanceof LivingEntity livingEntity && livingEntity.isAlive()
+                && ticksAttachedToHost < Tick.PER_MINUTE * 5 && isInWater()
+        )
             return;
         super.stopRiding();
     }
@@ -190,15 +221,18 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
         entity.yya = 0;
         entity.yBodyRot = 0;
         entity.setSpeed(0.0f);
-        if (CommonMod.config.facehuggerConfigs.FACEHUGGER_GIVE_BLINDNESS) entity.addEffect(
-                new MobEffectInstance(MobEffects.BLINDNESS, 1200, 0));
+        if (CommonMod.config.facehuggerConfigs.FACEHUGGER_GIVE_BLINDNESS)
+            entity.addEffect(
+                new MobEffectInstance(MobEffects.BLINDNESS, 1200, 0)
+            );
         if (entity instanceof ServerPlayer player && (!player.isCreative() || !player.isSpectator()))
             player.connection.send(new ClientboundSetPassengersPacket(entity));
     }
 
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
-        if ((isAttachedToHost() || isInfertile()) && (source == damageSources().drown())) return false;
+        if ((isAttachedToHost() || isInfertile()) && (source == damageSources().drown()))
+            return false;
 
         if (!this.level().isClientSide && source.getEntity() != null && source.getEntity() instanceof LivingEntity livingEntity)
             this.brain.setMemory(MemoryModuleType.ATTACK_TARGET, livingEntity);
@@ -208,7 +242,8 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
 
     @Override
     public void knockback(double strength, double x, double z) {
-        if (!isInfertile()) super.knockback(strength, x, z);
+        if (!isInfertile())
+            super.knockback(strength, x, z);
     }
 
     @Override
@@ -238,48 +273,58 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
 
     @Override
     public List<ExtendedSensor<FacehuggerEntity>> getSensors() {
-        return ObjectArrayList.of(new NearbyPlayersSensor<>(),
-                new NearbyLivingEntitySensor<>(),
-                new NearbyBlocksSensor<FacehuggerEntity>().setRadius(7),
-                new UnreachableTargetSensor<>(),
-                new HurtBySensor<>());
+        return ObjectArrayList.of(
+            new NearbyPlayersSensor<>(),
+            new NearbyLivingEntitySensor<>(),
+            new NearbyBlocksSensor<FacehuggerEntity>().setRadius(7),
+            new UnreachableTargetSensor<>(),
+            new HurtBySensor<>()
+        );
     }
 
     @Override
     public BrainActivityGroup<FacehuggerEntity> getCoreTasks() {
         return BrainActivityGroup.coreTasks(
-                new FleeFireTask<>(2.2F),
-                new LookAtTarget<>(),
-                new MoveToWalkTarget<>().stopIf(entity -> this.isFleeing()));
+            new FleeFireTask<>(2.2F),
+            new LookAtTarget<>(),
+            new MoveToWalkTarget<>().stopIf(entity -> this.isFleeing())
+        );
     }
 
     @Override
     public BrainActivityGroup<FacehuggerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(
-                new FirstApplicableBehaviour<FacehuggerEntity>(
-                        new TargetOrRetaliate<>().stopIf(entity -> this.isFleeing()),
-                        new SetPlayerLookTarget<>().predicate(
-                                target -> target.isAlive() && (!target.isCreative() || !target.isSpectator())),
-                        new SetRandomLookTarget<>()),
-                new OneRandomBehaviour<>(
-                        new SetRandomWalkTarget<>().dontAvoidWater().setRadius(20).speedModifier(0.65f),
-                        new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 60))));
+            new FirstApplicableBehaviour<FacehuggerEntity>(
+                new TargetOrRetaliate<>().stopIf(entity -> this.isFleeing()),
+                new SetPlayerLookTarget<>().predicate(
+                    target -> target.isAlive() && (!target.isCreative() || !target.isSpectator())
+                ),
+                new SetRandomLookTarget<>()
+            ),
+            new OneRandomBehaviour<>(
+                new SetRandomWalkTarget<>().dontAvoidWater().setRadius(20).speedModifier(0.65f),
+                new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 60))
+            )
+        );
     }
 
     @Override
     public BrainActivityGroup<FacehuggerEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
-                new InvalidateAttackTarget<>().invalidateIf((entity, target) -> PredicatesUtil.removeFaceHuggerTarget(target) || this.isFleeing()),
-                new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F),
-                new FacePounceTask<>(6));
+            new InvalidateAttackTarget<>().invalidateIf(
+                (entity, target) -> PredicatesUtil.removeFaceHuggerTarget(target) || this.isFleeing()
+            ),
+            new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F),
+            new FacePounceTask<>(6)
+        );
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, Constants.LIVING_CONTROLLER, event -> {
-            if(event.isMoving())
+            if (event.isMoving())
                 return event.setAndContinue(Constants.WALK);
-            if(this.isPassenger())
+            if (this.isPassenger())
                 return event.setAndContinue(Constants.FACEHUG);
             return event.setAndContinue(Constants.TAIL_SWAY);
         }));

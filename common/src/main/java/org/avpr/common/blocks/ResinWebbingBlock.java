@@ -10,25 +10,30 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
+
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.tags.AVPREntityTags;
-import org.jetbrains.annotations.NotNull;
 
 public class ResinWebbingBlock extends Block {
 
     private int standingTick = 0;
 
     public ResinWebbingBlock() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+        super(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                 .mapColor(MapColor.COLOR_GRAY)
                 .noCollission()
-                .noOcclusion());
+                .noOcclusion()
+        );
     }
 
     @Override
     public void entityInside(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Entity entity) {
-        if (entity.getType().is(AVPREntityTags.ALIENS)) return;
-        if (entity instanceof LivingEntity livingEntity && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity)) return;
+        if (entity.getType().is(AVPREntityTags.ALIENS))
+            return;
+        if (entity instanceof LivingEntity livingEntity && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity))
+            return;
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.makeStuckInBlock(state, new Vec3(0.25, 0.05F, 0.25));
             if (!world.isClientSide())

@@ -10,16 +10,19 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
 import net.minecraft.world.phys.Vec3;
-import org.avpr.common.entities.alien.AlienEntity;
-import org.avpr.common.tags.AVPRBlockTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.tags.AVPRBlockTags;
+
 public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
-            Pair.of(SBLMemoryTypes.NEARBY_BLOCKS.get(), MemoryStatus.VALUE_PRESENT));
+        Pair.of(SBLMemoryTypes.NEARBY_BLOCKS.get(), MemoryStatus.VALUE_PRESENT)
+    );
+
     protected final float speed;
 
     public FleeFireTask(float speed) {
@@ -63,7 +66,9 @@ public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
         var runAwayDirection = new Vec3(0, 0, 0);
 
         // Iterate through blocks around the mob to detect lava
-        for (var pos : BlockPos.betweenClosed(mobPos.offset(-searchRadius, -1, -searchRadius), mobPos.offset(searchRadius, 1, searchRadius))) {
+        for (
+            var pos : BlockPos.betweenClosed(mobPos.offset(-searchRadius, -1, -searchRadius), mobPos.offset(searchRadius, 1, searchRadius))
+        ) {
             if (level.getBlockState(pos).is(AVPRBlockTags.ALIEN_REPELLENTS)) {
                 isLavaNearby = true;
                 // Calculate a direction away from the lava block

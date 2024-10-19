@@ -3,6 +3,7 @@ package org.avpr.common.worldgen.features;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+
 import org.avpr.common.CommonMod;
 
 public class AVPROreFeatures {

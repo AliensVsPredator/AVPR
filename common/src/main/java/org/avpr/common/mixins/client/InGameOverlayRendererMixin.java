@@ -8,26 +8,30 @@ import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.ScreenEffectRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import org.avpr.common.api.util.PredicatesUtil;
-import org.avpr.common.registries.AVPRBlocks;
 import org.joml.Matrix4f;
-import org.avpr.common.CommonMod;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import org.avpr.common.CommonMod;
+import org.avpr.common.api.util.PredicatesUtil;
+import org.avpr.common.registries.AVPRBlocks;
+
 @Mixin(ScreenEffectRenderer.class)
 public class InGameOverlayRendererMixin {
 
     private static final ResourceLocation RESIN_OVERLAY_TEXTURE = CommonMod.modResource("textures/overlay/resin_webbing_gui.png");
 
-    @Inject(method = {"renderScreenEffect"}, at = {@At("RETURN")})
+    @Inject(method = { "renderScreenEffect" }, at = { @At("RETURN") })
     private static void renderOverlays(Minecraft client, PoseStack matrices, CallbackInfo ci) {
-        if (client.player != null && !client.player.isSpectator() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(client.player) && client.player.level()
-                .getBlockState(client.player.blockPosition())
-                .is(AVPRBlocks.RESIN_WEBBING_BLOCK.get())) {
+        if (
+            client.player != null && !client.player.isSpectator() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(client.player)
+                && client.player.level()
+                    .getBlockState(client.player.blockPosition())
+                    .is(AVPRBlocks.RESIN_WEBBING_BLOCK.get())
+        ) {
             avpr$renderOverlay(client, matrices, RESIN_OVERLAY_TEXTURE);
         }
     }
@@ -40,7 +44,10 @@ public class InGameOverlayRendererMixin {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, resourceLocation);
         BlockPos blockpos = BlockPos.containing(client.player.getX(), client.player.getEyeY(), client.player.getZ());
-        float f = LightTexture.getBrightness(client.player.level().dimensionType(), client.player.level().getMaxLocalRawBrightness(blockpos));
+        float f = LightTexture.getBrightness(
+            client.player.level().dimensionType(),
+            client.player.level().getMaxLocalRawBrightness(blockpos)
+        );
         RenderSystem.enableBlend();
         RenderSystem.setShaderColor(f, f, f, 1);
         float f7 = -client.player.getYRot() / 64.0F;

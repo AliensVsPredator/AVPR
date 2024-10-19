@@ -2,29 +2,39 @@ package org.avpr.common.registries;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
+
+import java.util.function.Supplier;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.platform.AVPRServices;
 import org.avpr.common.status_effects.ImpregnationStatusEffect;
 
-import java.util.function.Supplier;
-
 public record AVPRStatusEffects() {
 
-     public static final Holder<MobEffect> IMPREGNATION = AVPRStatusEffects.registerStatusEffect("impregnation", ImpregnationStatusEffect::new);
+    public static final Holder<MobEffect> IMPREGNATION = AVPRStatusEffects.registerStatusEffect(
+        "impregnation",
+        ImpregnationStatusEffect::new
+    );
 
     /**
      * Example of using this method to create a new Status Effect:
      * <p>
      * The following code demonstrates how to register a new Status Effect in the game:
      * </p>
+     *
      * <pre>{@code
-     * public static final Holder<MobEffect> TEST_EFFECT = AVPRStatusEffects.registerStatusEffect("effectName", () -> new CustomMobEffect(MobEffectCategory.HARMFUL, Color.BLACK.getColor()));
+     *
+     * public static final Holder<MobEffect> TEST_EFFECT = AVPRStatusEffects.registerStatusEffect(
+     *     "effectName",
+     *     () -> new CustomMobEffect(MobEffectCategory.HARMFUL, Color.BLACK.getColor())
+     * );
      * }</pre>
      * <p>
      * In this example:
      * </p>
      * <ul>
-     * <li><code>registerStatusEffect</code> is a method to register a new status effect with the specified effect name.</li>
+     * <li><code>registerStatusEffect</code> is a method to register a new status effect with the specified effect
+     * name.</li>
      * <li><code>MobEffect</code> is the base class for all status effects in the game.</li>
      * <li><code>CustomMobEffect</code> is a user-defined class extending <code>MobEffect</code>.</li>
      * <li><code>MobEffectCategory.HARMFUL</code> specifies the category of the status effect.</li>
@@ -34,9 +44,9 @@ public record AVPRStatusEffects() {
      * The {@link MobEffect MobEffect} class represents a status effect in the game.
      * </p>
      * <p>
-     * The {@link net.minecraft.world.effect.MobEffectCategory MobEffectCategory} class represents the category of a status effect in the game.
+     * The {@link net.minecraft.world.effect.MobEffectCategory MobEffectCategory} class represents the category of a
+     * status effect in the game.
      * </p>
-     *
      * Registers a new Status Effect.
      *
      * @param effectName   The name of the Status Effect.
@@ -48,6 +58,5 @@ public record AVPRStatusEffects() {
         return AVPRServices.COMMON_REGISTRY.registerStatusEffect(CommonMod.MOD_ID, effectName, statusEffect);
     }
 
-    public static void initialize() {
-    }
+    public static void initialize() {}
 }

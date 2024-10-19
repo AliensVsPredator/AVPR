@@ -7,6 +7,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.DamageUtil;
 import org.avpr.common.api.util.PredicatesUtil;
@@ -14,12 +21,6 @@ import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 import org.avpr.common.registries.AVPRDamageSources;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.status_effects.ImpregnationStatusEffect;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -34,19 +35,19 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     abstract boolean addEffect(MobEffectInstance effect);
 
-    @Inject(method = {"isUsingItem"}, at = {@At("RETURN")}, cancellable = true)
+    @Inject(method = { "isUsingItem" }, at = { @At("RETURN") }, cancellable = true)
     public void isUsingItem(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (this.getPassengers().stream().anyMatch(FacehuggerEntity.class::isInstance))
             callbackInfo.setReturnValue(false);
     }
 
-    @Inject(method = {"removeAllEffects"}, at = {@At("HEAD")}, cancellable = true)
+    @Inject(method = { "removeAllEffects" }, at = { @At("HEAD") }, cancellable = true)
     public void noMilkRemoval(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (this.hasEffect(AVPRStatusEffects.IMPREGNATION))
             callbackInfo.setReturnValue(false);
     }
 
-    @Inject(method = {"tick"}, at = {@At("HEAD")})
+    @Inject(method = { "tick" }, at = { @At("HEAD") })
     void tick(CallbackInfo callbackInfo) {
         if (!this.level().isClientSide && PredicatesUtil.shouldApplyImpEffects.test(this))
             this.hurt(DamageUtil.of(this.level(), AVPRDamageSources.CHESTBURST), 0.2f);

@@ -4,14 +4,17 @@ import mod.azure.azurelib.common.api.client.model.GeoModel;
 import mod.azure.azurelib.common.api.common.animatable.GeoItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+
 import org.avpr.common.CommonMod;
 
 public class GunModel<T extends Item & GeoItem> extends GeoModel<T> {
+
     String gunname;
 
     public GunModel(String gunName) {
         gunname = gunName;
     }
+
     @Override
     public ResourceLocation getModelResource(T animatable) {
         return CommonMod.modResource("geo/item/" + gunname + ".geo.json");

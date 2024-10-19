@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 
 public class DefaultEntityModel<T extends GeoAnimatable> extends DefaultedEntityGeoModel<T> {
+
     public DefaultEntityModel(ResourceLocation assetSubpath) {
         super(assetSubpath);
     }

@@ -22,6 +22,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
@@ -30,18 +31,54 @@ import org.avpr.common.registries.AVPREntities;
 
 @Mod(CommonMod.MOD_ID)
 public final class NeoForgeMod {
-    public static DeferredRegister<BlockEntityType<?>> blockEntityTypeDeferredRegister = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, CommonMod.MOD_ID);
+
+    public static DeferredRegister<BlockEntityType<?>> blockEntityTypeDeferredRegister = DeferredRegister.create(
+        Registries.BLOCK_ENTITY_TYPE,
+        CommonMod.MOD_ID
+    );
+
     public static DeferredRegister<Block> blockDeferredRegister = DeferredRegister.create(Registries.BLOCK, CommonMod.MOD_ID);
-    public static DeferredRegister<EntityType<?>> entityTypeDeferredRegister = DeferredRegister.create(Registries.ENTITY_TYPE, CommonMod.MOD_ID);
-    public static DeferredRegister<ArmorMaterial> armorMaterialDeferredRegister = DeferredRegister.create(Registries.ARMOR_MATERIAL, CommonMod.MOD_ID);
+
+    public static DeferredRegister<EntityType<?>> entityTypeDeferredRegister = DeferredRegister.create(
+        Registries.ENTITY_TYPE,
+        CommonMod.MOD_ID
+    );
+
+    public static DeferredRegister<ArmorMaterial> armorMaterialDeferredRegister = DeferredRegister.create(
+        Registries.ARMOR_MATERIAL,
+        CommonMod.MOD_ID
+    );
+
     public static DeferredRegister<Item> itemDeferredRegister = DeferredRegister.create(Registries.ITEM, CommonMod.MOD_ID);
-    public static DeferredRegister<SoundEvent> soundEventDeferredRegister= DeferredRegister.create(Registries.SOUND_EVENT, CommonMod.MOD_ID);
-    public static DeferredRegister<MenuType<?>> menuTypeDeferredRegister= DeferredRegister.create(Registries.MENU, CommonMod.MOD_ID);
-    public static DeferredRegister<ParticleType<?>> particleTypeDeferredRegister = DeferredRegister.create(Registries.PARTICLE_TYPE, CommonMod.MOD_ID);
-    public static DeferredRegister<CreativeModeTab> creativeModeTabDeferredRegister = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CommonMod.MOD_ID);
-    public static DeferredRegister<MobEffect> statusEffectDeferredRegister = DeferredRegister.create(Registries.MOB_EFFECT, CommonMod.MOD_ID);
+
+    public static DeferredRegister<SoundEvent> soundEventDeferredRegister = DeferredRegister.create(
+        Registries.SOUND_EVENT,
+        CommonMod.MOD_ID
+    );
+
+    public static DeferredRegister<MenuType<?>> menuTypeDeferredRegister = DeferredRegister.create(Registries.MENU, CommonMod.MOD_ID);
+
+    public static DeferredRegister<ParticleType<?>> particleTypeDeferredRegister = DeferredRegister.create(
+        Registries.PARTICLE_TYPE,
+        CommonMod.MOD_ID
+    );
+
+    public static DeferredRegister<CreativeModeTab> creativeModeTabDeferredRegister = DeferredRegister.create(
+        Registries.CREATIVE_MODE_TAB,
+        CommonMod.MOD_ID
+    );
+
+    public static DeferredRegister<MobEffect> statusEffectDeferredRegister = DeferredRegister.create(
+        Registries.MOB_EFFECT,
+        CommonMod.MOD_ID
+    );
+
     public static DeferredRegister<Fluid> fluidDeferredRegister = DeferredRegister.create(Registries.FLUID, CommonMod.MOD_ID);
-    public static final DeferredRegister<FluidType> fluidTypeDeferredRegister = DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, CommonMod.MOD_ID);
+
+    public static final DeferredRegister<FluidType> fluidTypeDeferredRegister = DeferredRegister.create(
+        NeoForgeRegistries.Keys.FLUID_TYPES,
+        CommonMod.MOD_ID
+    );
 
     public NeoForgeMod(IEventBus modEventBus) {
         AzureLib.initialize();
@@ -73,12 +110,20 @@ public final class NeoForgeMod {
     }
 
     public void onRegisterEvent(RegisterSpawnPlacementsEvent event) {
-        event.register(AVPREntities.OVAMORPH.get(), SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AlienEntity::checkMonsterSpawnRules,
-                RegisterSpawnPlacementsEvent.Operation.AND);
-        event.register(AVPREntities.FACEHUGGER.get(), SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AlienEntity::checkMonsterSpawnRules,
-                RegisterSpawnPlacementsEvent.Operation.AND);
+        event.register(
+            AVPREntities.OVAMORPH.get(),
+            SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            AlienEntity::checkMonsterSpawnRules,
+            RegisterSpawnPlacementsEvent.Operation.AND
+        );
+        event.register(
+            AVPREntities.FACEHUGGER.get(),
+            SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            AlienEntity::checkMonsterSpawnRules,
+            RegisterSpawnPlacementsEvent.Operation.AND
+        );
     }
 
     public void createEntityAttributes(final EntityAttributeCreationEvent event) {

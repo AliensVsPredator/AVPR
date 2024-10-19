@@ -16,11 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 public class AVPRArmorItem extends ArmorItem {
+
     private static final Map<Holder<ArmorMaterial>, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<Holder<ArmorMaterial>, List<MobEffectInstance>>())
-                    .put(AVPRArmorMaterials.PRESSURE,
-                            List.of(new MobEffectInstance(MobEffects.WATER_BREATHING, 200, 1, false, false)))
-                    .build();
+        (new ImmutableMap.Builder<Holder<ArmorMaterial>, List<MobEffectInstance>>())
+            .put(
+                AVPRArmorMaterials.PRESSURE,
+                List.of(new MobEffectInstance(MobEffects.WATER_BREATHING, 200, 1, false, false))
+            )
+            .build();
 
     public AVPRArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
@@ -28,16 +31,16 @@ public class AVPRArmorItem extends ArmorItem {
 
     @Override
     public void inventoryTick(@NotNull ItemStack stack, @NotNull Level level, @NotNull Entity entity, int slotId, boolean isSelected) {
-        if(entity instanceof Player player && !level.isClientSide() && hasFullSuitOfArmorOn(player))
+        if (entity instanceof Player player && !level.isClientSide() && hasFullSuitOfArmorOn(player))
             evaluateArmorEffects(player);
     }
 
     private void evaluateArmorEffects(Player player) {
-        for(var entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
+        for (var entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             var mapArmorMaterial = entry.getKey();
             var mapEffect = entry.getValue();
 
-            if(hasPlayerCorrectArmorOn(mapArmorMaterial, player))
+            if (hasPlayerCorrectArmorOn(mapArmorMaterial, player))
                 addEffectToPlayer(player, mapEffect);
         }
     }
@@ -45,15 +48,22 @@ public class AVPRArmorItem extends ArmorItem {
     private void addEffectToPlayer(Player player, List<MobEffectInstance> mapEffect) {
         var hasPlayerEffect = mapEffect.stream().allMatch(effect -> player.hasEffect(effect.getEffect()));
 
-        if(!hasPlayerEffect)
+        if (!hasPlayerEffect)
             for (MobEffectInstance effect : mapEffect)
-                player.addEffect(new MobEffectInstance(effect.getEffect(),
-                        effect.getDuration(), effect.getAmplifier(), effect.isAmbient(), effect.isVisible()));
+                player.addEffect(
+                    new MobEffectInstance(
+                        effect.getEffect(),
+                        effect.getDuration(),
+                        effect.getAmplifier(),
+                        effect.isAmbient(),
+                        effect.isVisible()
+                    )
+                );
     }
 
     private boolean hasPlayerCorrectArmorOn(Holder<ArmorMaterial> mapArmorMaterial, Player player) {
-        for(var armorStack : player.getArmorSlots())
-            if(!(armorStack.getItem() instanceof ArmorItem))
+        for (var armorStack : player.getArmorSlots())
+            if (!(armorStack.getItem() instanceof ArmorItem))
                 return false;
 
         var boots = ((ArmorItem) player.getInventory().getArmor(0).getItem());
@@ -62,7 +72,7 @@ public class AVPRArmorItem extends ArmorItem {
         var helmet = ((ArmorItem) player.getInventory().getArmor(3).getItem());
 
         return boots.getMaterial() == mapArmorMaterial && leggings.getMaterial() == mapArmorMaterial
-                && chestplate.getMaterial() == mapArmorMaterial && helmet.getMaterial() == mapArmorMaterial;
+            && chestplate.getMaterial() == mapArmorMaterial && helmet.getMaterial() == mapArmorMaterial;
     }
 
     private boolean hasFullSuitOfArmorOn(Player player) {

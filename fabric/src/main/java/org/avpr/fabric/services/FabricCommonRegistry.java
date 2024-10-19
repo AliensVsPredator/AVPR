@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
@@ -21,31 +20,48 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
-import org.avpr.common.CommonMod;
-import org.avpr.common.platform.CommonRegistry;
 
 import java.util.function.Supplier;
 
+import org.avpr.common.CommonMod;
+import org.avpr.common.platform.CommonRegistry;
+
 public class FabricCommonRegistry implements CommonRegistry {
+
     @Override
     public boolean isModLoaded(String modId) {
         return FabricLoader.getInstance().isModLoaded(modId);
     }
 
-    private static <T, R extends Registry<? super T>> Supplier<T> registerSupplier(R registry, String modID, String id, Supplier<T> object) {
-        final T registeredObject = Registry.register((Registry<T>) registry,
-                ResourceLocation.fromNamespaceAndPath(modID, id), object.get());
+    private static <T, R extends Registry<? super T>> Supplier<T> registerSupplier(
+        R registry,
+        String modID,
+        String id,
+        Supplier<T> object
+    ) {
+        final T registeredObject = Registry.register(
+            (Registry<T>) registry,
+            ResourceLocation.fromNamespaceAndPath(modID, id),
+            object.get()
+        );
 
         return () -> registeredObject;
     }
 
     private static <T, R extends Registry<? super T>> Holder<T> registerHolder(R registry, String modID, String id, Supplier<T> object) {
-        return Registry.registerForHolder((Registry<T>) registry, ResourceLocation.fromNamespaceAndPath(modID, id),
-                object.get());
+        return Registry.registerForHolder(
+            (Registry<T>) registry,
+            ResourceLocation.fromNamespaceAndPath(modID, id),
+            object.get()
+        );
     }
 
     @Override
-    public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String modID, String blockEntityName, Supplier<BlockEntityType<T>> blockEntityType) {
+    public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(
+        String modID,
+        String blockEntityName,
+        Supplier<BlockEntityType<T>> blockEntityType
+    ) {
         return registerSupplier(BuiltInRegistries.BLOCK_ENTITY_TYPE, modID, blockEntityName, blockEntityType);
     }
 
@@ -95,7 +111,12 @@ public class FabricCommonRegistry implements CommonRegistry {
     }
 
     @Override
-    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEggFor(Supplier<EntityType<E>> entityType, int primaryEggColour, int secondaryEggColour, Item.Properties itemProperties) {
+    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEggFor(
+        Supplier<EntityType<E>> entityType,
+        int primaryEggColour,
+        int secondaryEggColour,
+        Item.Properties itemProperties
+    ) {
         return () -> new SpawnEggItem(entityType.get(), primaryEggColour, secondaryEggColour, itemProperties);
     }
 

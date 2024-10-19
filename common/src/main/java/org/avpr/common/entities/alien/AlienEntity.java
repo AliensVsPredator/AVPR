@@ -35,10 +35,6 @@ import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import org.avpr.common.api.common.GrowableInterface;
-import org.avpr.common.api.util.EntityUtil;
-import org.avpr.common.registries.AVPRStatusEffects;
-import org.avpr.common.tags.AVPREntityTags;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,17 +43,36 @@ import org.slf4j.Logger;
 import java.util.Collections;
 import java.util.function.BiConsumer;
 
+import org.avpr.common.api.common.GrowableInterface;
+import org.avpr.common.api.util.EntityUtil;
+import org.avpr.common.registries.AVPRStatusEffects;
+import org.avpr.common.tags.AVPREntityTags;
+
 public abstract class AlienEntity extends WaterAnimal implements Enemy, VibrationSystem, GeoEntity, GrowableInterface {
-    protected static final EntityDataAccessor<Float> GROWTH = SynchedEntityData.defineId(AlienEntity.class,
-            EntityDataSerializers.FLOAT);
-    public static final EntityDataAccessor<Boolean> FLEEING_FIRE = SynchedEntityData.defineId(AlienEntity.class,
-            EntityDataSerializers.BOOLEAN);
+
+    protected static final EntityDataAccessor<Float> GROWTH = SynchedEntityData.defineId(
+        AlienEntity.class,
+        EntityDataSerializers.FLOAT
+    );
+
+    public static final EntityDataAccessor<Boolean> FLEEING_FIRE = SynchedEntityData.defineId(
+        AlienEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
     protected static final EntityDataAccessor<Integer> CLIENT_ANGER_LEVEL = SynchedEntityData.defineId(
-            AlienEntity.class, EntityDataSerializers.INT);
+        AlienEntity.class,
+        EntityDataSerializers.INT
+    );
+
     protected AngerManagement angerManagement = new AngerManagement(this::canTargetEntity, Collections.emptyList());
+
     private static final Logger LOGGER = LogUtils.getLogger();
+
     private final DynamicGameEventListener<Listener> dynamicGameEventListener;
+
     protected User vibrationUser;
+
     private Data vibrationData;
 
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
@@ -72,13 +87,18 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     }
 
     @Override
-    protected void registerGoals() {
-    }
+    protected void registerGoals() {}
 
-    public static boolean checkMonsterSpawnRules(EntityType<? extends WaterAnimal> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+    public static boolean checkMonsterSpawnRules(
+        EntityType<? extends WaterAnimal> type,
+        ServerLevelAccessor level,
+        MobSpawnType spawnType,
+        BlockPos pos,
+        RandomSource random
+    ) {
         return level.getDifficulty() != Difficulty.PEACEFUL
-                && (MobSpawnType.ignoresLightRequirements(spawnType) || isDarkEnoughToSpawn(level, pos, random))
-                && checkMobSpawnRules(type, level, spawnType, pos, random);
+            && (MobSpawnType.ignoresLightRequirements(spawnType) || isDarkEnoughToSpawn(level, pos, random))
+            && checkMobSpawnRules(type, level, spawnType, pos, random);
     }
 
     public static boolean isDarkEnoughToSpawn(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
@@ -90,16 +110,19 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
             if (i < 15 && level.getBrightness(LightLayer.BLOCK, pos) > i) {
                 return false;
             } else {
-                int j = level.getLevel().isThundering() ? level.getMaxLocalRawBrightness(pos,
-                        10) : level.getMaxLocalRawBrightness(pos);
+                int j = level.getLevel().isThundering()
+                    ? level.getMaxLocalRawBrightness(
+                        pos,
+                        10
+                    )
+                    : level.getMaxLocalRawBrightness(pos);
                 return j <= dimensiontype.monsterSpawnLightTest().sample(random);
             }
         }
     }
 
     @Override
-    protected void jumpInLiquid(@NotNull TagKey<Fluid> fluid) {
-    }
+    protected void jumpInLiquid(@NotNull TagKey<Fluid> fluid) {}
 
     @Override
     public float maxUpStep() {
@@ -107,8 +130,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     }
 
     @Override
-    protected void handleAirSupply(int airSupply) {
-    }
+    protected void handleAirSupply(int airSupply) {}
 
     @Override
     public int getMaxAirSupply() {
@@ -135,11 +157,14 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         super.tick();
         this.setAirSupply(this.getMaxAirSupply());
         if (level() instanceof ServerLevel serverLevel) {
-            if (this.isAlive()) this.grow(this, 1 * getGrowthMultiplier());
-            if (this.isVehicle()) this.setAggressive(false);
+            if (this.isAlive())
+                this.grow(this, 1 * getGrowthMultiplier());
+            if (this.isVehicle())
+                this.setAggressive(false);
             AzureTicker.tick(serverLevel, this.vibrationData, this.vibrationUser);
         }
-        if (this.tickCount % 10 == 0) this.refreshDimensions();
+        if (this.tickCount % 10 == 0)
+            this.refreshDimensions();
     }
 
     @Override
@@ -230,10 +255,17 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         super.addAdditionalSaveData(compound);
         compound.putFloat("growth", this.getGrowth());
         compound.putBoolean("isFleeing", this.isFleeing());
-        Data.CODEC.encodeStart(NbtOps.INSTANCE, this.vibrationData).resultOrPartial(
-                LOGGER::error).ifPresent(tag -> compound.put("listener", tag));
-        AngerManagement.codec(this::canTargetEntity).encodeStart(NbtOps.INSTANCE, this.angerManagement).resultOrPartial(
-                LOGGER::error).ifPresent(tag -> compound.put("anger", tag));
+        Data.CODEC.encodeStart(NbtOps.INSTANCE, this.vibrationData)
+            .resultOrPartial(
+                LOGGER::error
+            )
+            .ifPresent(tag -> compound.put("listener", tag));
+        AngerManagement.codec(this::canTargetEntity)
+            .encodeStart(NbtOps.INSTANCE, this.angerManagement)
+            .resultOrPartial(
+                LOGGER::error
+            )
+            .ifPresent(tag -> compound.put("anger", tag));
     }
 
     @Override
@@ -242,19 +274,30 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         this.setGrowth(compound.getFloat("growth"));
         this.setFleeingStatus(compound.getBoolean("growth"));
         if (compound.contains("anger")) {
-            AngerManagement.codec(this::canTargetEntity).parse(
-                    new Dynamic<>(NbtOps.INSTANCE, compound.get("anger"))).resultOrPartial(LOGGER::error).ifPresent(
-                    angerM -> this.angerManagement = angerM);
+            AngerManagement.codec(this::canTargetEntity)
+                .parse(
+                    new Dynamic<>(NbtOps.INSTANCE, compound.get("anger"))
+                )
+                .resultOrPartial(LOGGER::error)
+                .ifPresent(
+                    angerM -> this.angerManagement = angerM
+                );
             this.syncClientAngerLevel();
         }
-        if (compound.contains("listener", 10)) Data.CODEC.parse(
-                new Dynamic<>(NbtOps.INSTANCE, compound.getCompound("listener"))).resultOrPartial(
-                LOGGER::error).ifPresent(data -> this.vibrationData = data);
+        if (compound.contains("listener", 10))
+            Data.CODEC.parse(
+                new Dynamic<>(NbtOps.INSTANCE, compound.getCompound("listener"))
+            )
+                .resultOrPartial(
+                    LOGGER::error
+                )
+                .ifPresent(data -> this.vibrationData = data);
     }
 
     @Override
     public int calculateFallDamage(float fallDistance, float damageMultiplier) {
-        if (fallDistance <= 15) return 0;
+        if (fallDistance <= 15)
+            return 0;
         return super.calculateFallDamage(fallDistance, damageMultiplier);
     }
 
@@ -288,8 +331,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     }
 
     @Override
-    public void checkDespawn() {
-    }
+    public void checkDespawn() {}
 
     /**
      * Handle acid spawning on death
@@ -303,7 +345,8 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
 
         var damageCheck = !this.level().isClientSide && source != damageSources().genericKill() || source != damageSources().generic();
         if (damageCheck) {
-            if (getAcidDiameter() == 1) EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
+            if (getAcidDiameter() == 1)
+                EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
             else {
                 var radius = (getAcidDiameter() - 1) / 2;
                 for (int i = 0; i < getAcidDiameter(); i++) {
@@ -329,27 +372,54 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     public boolean isPushable() {
         return false;
     }
+
     @Contract(value = "null->false")
     public boolean canTargetEntity(@Nullable Entity entity) {
-        if (!(entity instanceof LivingEntity livingEntity)) return false;
-        if (this.level() != entity.level()) return false;
-        if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(entity)) return false;
-        if (livingEntity.hasEffect(AVPRStatusEffects.IMPREGNATION)) return false;
-        if (this.isVehicle()) return false;
-        if (this.isAlliedTo(entity)) return false;
-        if (!livingEntity.getType().is(AVPREntityTags.HOSTS)) return false;
-        if (livingEntity.getType().is(EntityTypeTags.UNDEAD)) return false;
-        if (livingEntity.getType() == EntityType.ARMOR_STAND) return false;
-        if (livingEntity.getType() == EntityType.WARDEN) return false;
-        if (livingEntity instanceof Bat) return false;
-        if (livingEntity.isInvulnerable()) return false;
-        if (livingEntity.isDeadOrDying()) return false;
-        if (!this.level().getWorldBorder().isWithinBounds(livingEntity.getBoundingBox())) return false;
-        if (livingEntity.getVehicle() != null && livingEntity.getVehicle().getSelfAndPassengers().anyMatch(
-                AlienEntity.class::isInstance)) return false;
-        if (livingEntity.getType().is(AVPREntityTags.ALIENS)) return false;
-        if (this.isAggressive()) return false;
-        return this.level().getBlockState(this.blockPosition().below()).isCollisionShapeFullBlock(level(),
-                this.blockPosition().below());
+        if (!(entity instanceof LivingEntity livingEntity))
+            return false;
+        if (this.level() != entity.level())
+            return false;
+        if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(entity))
+            return false;
+        if (livingEntity.hasEffect(AVPRStatusEffects.IMPREGNATION))
+            return false;
+        if (this.isVehicle())
+            return false;
+        if (this.isAlliedTo(entity))
+            return false;
+        if (!livingEntity.getType().is(AVPREntityTags.HOSTS))
+            return false;
+        if (livingEntity.getType().is(EntityTypeTags.UNDEAD))
+            return false;
+        if (livingEntity.getType() == EntityType.ARMOR_STAND)
+            return false;
+        if (livingEntity.getType() == EntityType.WARDEN)
+            return false;
+        if (livingEntity instanceof Bat)
+            return false;
+        if (livingEntity.isInvulnerable())
+            return false;
+        if (livingEntity.isDeadOrDying())
+            return false;
+        if (!this.level().getWorldBorder().isWithinBounds(livingEntity.getBoundingBox()))
+            return false;
+        if (
+            livingEntity.getVehicle() != null && livingEntity.getVehicle()
+                .getSelfAndPassengers()
+                .anyMatch(
+                    AlienEntity.class::isInstance
+                )
+        )
+            return false;
+        if (livingEntity.getType().is(AVPREntityTags.ALIENS))
+            return false;
+        if (this.isAggressive())
+            return false;
+        return this.level()
+            .getBlockState(this.blockPosition().below())
+            .isCollisionShapeFullBlock(
+                level(),
+                this.blockPosition().below()
+            );
     }
 }

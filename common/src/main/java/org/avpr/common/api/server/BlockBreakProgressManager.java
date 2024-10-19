@@ -4,14 +4,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import org.avpr.common.api.util.Tick;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+import org.avpr.common.api.util.Tick;
 
 public class BlockBreakProgressManager {
 

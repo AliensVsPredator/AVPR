@@ -2,6 +2,7 @@ package org.avpr.common.api.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
+
 import org.avpr.common.registries.AVPREntities;
 
 public class EntityUtil {
@@ -16,7 +17,7 @@ public class EntityUtil {
     }
 
     public static LivingEntity spawnBurster(LivingEntity entity) {
-//        var defaultBurster = AVPREntities.CHESTBURSTER.get().create(entity.level());
+        // var defaultBurster = AVPREntities.CHESTBURSTER.get().create(entity.level());
         return null;
     }
 }

@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
@@ -21,14 +22,16 @@ public final class FabricLibMod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(AVPREntities.OVAMORPH.get(), OvamorphEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.FACEHUGGER.get(), FacehuggerEntity.createAttributes());
         SpawnPlacements.register(
-                AVPREntities.OVAMORPH.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                AlienEntity::checkMonsterSpawnRules);
+            AVPREntities.OVAMORPH.get(),
+            SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            AlienEntity::checkMonsterSpawnRules
+        );
         SpawnPlacements.register(
-                AVPREntities.FACEHUGGER.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                AlienEntity::checkMonsterSpawnRules);
+            AVPREntities.FACEHUGGER.get(),
+            SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            AlienEntity::checkMonsterSpawnRules
+        );
     }
 }

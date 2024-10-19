@@ -12,6 +12,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.server.BlockBreakProgressManager;
 import org.avpr.common.api.util.DamageUtil;
@@ -22,7 +24,6 @@ import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
 import org.avpr.common.tags.AVPRItemTags;
-import org.jetbrains.annotations.NotNull;
 
 public class AcidEntity extends Entity {
 
@@ -37,8 +38,8 @@ public class AcidEntity extends Entity {
     private static final String TICK_COUNT_FOR_CURRENT_MULTIPLIER = "TickCountForMultiplier";
 
     private static final EntityDataAccessor<Integer> MULTIPLIER = SynchedEntityData.defineId(
-            AcidEntity.class,
-            EntityDataSerializers.INT
+        AcidEntity.class,
+        EntityDataSerializers.INT
     );
 
     private int particleTickCounter = 0;
@@ -79,7 +80,7 @@ public class AcidEntity extends Entity {
         super.tick();
         particleTickCounter += getMultiplier();
         /*
-            Sim gravity
+         * Sim gravity
          */
         this.applyGravity();
         this.move(MoverType.SELF, this.getDeltaMovement());
@@ -89,7 +90,8 @@ public class AcidEntity extends Entity {
         this.damageBlock(this.level());
         this.damageEntities(this.level());
         // Ensures it always plays a sound when first placed
-        if (this.tickCount == 1) this.createParticlesAndSounds(this.level());
+        if (this.tickCount == 1)
+            this.createParticlesAndSounds(this.level());
         this.createParticlesAndSounds(this.level());
 
         if (!this.level().isClientSide) {
@@ -122,13 +124,19 @@ public class AcidEntity extends Entity {
         }
 
         if (!blockState.is(AVPRBlockTags.ACID_IMMUNE))
-            BlockBreakProgressManager.damage(level(), blockPos, (2F * getMultiplier()) / CommonMod.config.acidConfigs.ACID_BREAKSPEED_MODIFIER);
+            BlockBreakProgressManager.damage(
+                level(),
+                blockPos,
+                (2F * getMultiplier()) / CommonMod.config.acidConfigs.ACID_BREAKSPEED_MODIFIER
+            );
     }
 
     private void createParticlesAndSounds(Level level) {
         // Both particles and fizzing sounds should only play client-side.
-        if (!level.isClientSide) return;
-        if (particleTickCounter < MIN_TICKS_UNTIL_PARTICLES) return;
+        if (!level.isClientSide)
+            return;
+        if (particleTickCounter < MIN_TICKS_UNTIL_PARTICLES)
+            return;
 
         if (tickCount % (random.nextInt(100) + 10) == 0)
             level.playLocalSound(this, AVPRSounds.BLOCK_ACID_BURN.get(), SoundSource.NEUTRAL, 1F, 1F);
@@ -138,25 +146,26 @@ public class AcidEntity extends Entity {
         for (var i = 0; i < getMultiplier(); i++) {
             level.addAlwaysVisibleParticle(ParticleTypes.SMOKE, getRandomX(0.5), getRandomY(), getRandomZ(0.5), 0, 0, 0);
             level.addAlwaysVisibleParticle(
-                    AVPRParticles.ACID.get(),
-                    getRandomX(0.5),
-                    getRandomY(),
-                    getRandomZ(0.5),
-                    0,
-                    0,
-                    0
+                AVPRParticles.ACID.get(),
+                getRandomX(0.5),
+                getRandomY(),
+                getRandomZ(0.5),
+                0,
+                0,
+                0
             );
         }
     }
 
     private void damageEntities(Level level) {
         // Entity damage should only be done server-side.
-        if (level.isClientSide) return;
+        if (level.isClientSide)
+            return;
 
         var entities = level.getEntities(
-                this,
-                getBoundingBox(),
-                entity -> PredicatesUtil.IS_LIVING.test(entity) || entity instanceof AcidEntity
+            this,
+            getBoundingBox(),
+            entity -> PredicatesUtil.IS_LIVING.test(entity) || entity instanceof AcidEntity
         );
         entities.forEach(this::damageEntity);
     }
@@ -170,8 +179,10 @@ public class AcidEntity extends Entity {
             return;
         }
 
-        if (isInWater() || tickCount % 10 != 0) return;
-        if (entity instanceof Player player && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(player)) return;
+        if (isInWater() || tickCount % 10 != 0)
+            return;
+        if (entity instanceof Player player && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(player))
+            return;
 
         if (entity instanceof LivingEntity livingEntity) {
             var itemStack = livingEntity.getItemBySlot(EquipmentSlot.FEET);
@@ -190,7 +201,7 @@ public class AcidEntity extends Entity {
         }
 
         if (!entity.getType().is(AVPREntityTags.ACID_IMMUNE))
-            entity.hurt(DamageUtil.of(entity.level(),AVPRDamageSources.ACID), CommonMod.config.acidConfigs.ACID_DAMAGE);
+            entity.hurt(DamageUtil.of(entity.level(), AVPRDamageSources.ACID), CommonMod.config.acidConfigs.ACID_DAMAGE);
     }
 
     private int getMultiplier() {
@@ -205,7 +216,8 @@ public class AcidEntity extends Entity {
 
     @Override
     public void onSyncedDataUpdated(@NotNull EntityDataAccessor<?> entityDataAccessor) {
-        if (MULTIPLIER.equals(entityDataAccessor)) refreshDimensions();
+        if (MULTIPLIER.equals(entityDataAccessor))
+            refreshDimensions();
 
         super.onSyncedDataUpdated(entityDataAccessor);
     }

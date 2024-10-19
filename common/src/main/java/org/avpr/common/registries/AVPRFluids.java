@@ -1,10 +1,11 @@
 package org.avpr.common.registries;
 
 import net.minecraft.world.level.material.Fluid;
-import org.avpr.common.CommonMod;
-import org.avpr.common.platform.AVPRServices;
 
 import java.util.function.Supplier;
+
+import org.avpr.common.CommonMod;
+import org.avpr.common.platform.AVPRServices;
 
 public record AVPRFluids() {
 
@@ -13,7 +14,9 @@ public record AVPRFluids() {
      * <p>
      * The following code demonstrates how to register a new Fluid in the game:
      * </p>
+     *
      * <pre>{@code
+     *
      * public static final Supplier<Fluid> TEST_FLUID = AVPRFluids.registerFluid("fluidName", () -> new CustomFluid());
      * }</pre>
      * <p>
@@ -27,7 +30,6 @@ public record AVPRFluids() {
      * <p>
      * The {@link Fluid Fluid} class represents a fluid in the game.
      * </p>
-     *
      * Registers a new fluid.
      *
      * @param itemName The name of the fluid.
@@ -39,6 +41,5 @@ public record AVPRFluids() {
         return AVPRServices.COMMON_REGISTRY.registerFluid(CommonMod.MOD_ID, itemName, fluid);
     }
 
-    public static void initialize() {
-    }
+    public static void initialize() {}
 }

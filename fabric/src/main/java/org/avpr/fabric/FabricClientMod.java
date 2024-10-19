@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.client.entities.renders.FacehuggerRenderer;
 import org.avpr.common.client.entities.renders.OvamorphRenderer;
@@ -37,7 +38,11 @@ public class FabricClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.RESIN_WEBBING_BLOCK.get(), RenderType.cutout());
     }
 
-    private void registerParticle(String path, SimpleParticleType type, ParticleFactoryRegistry.PendingParticleFactory<SimpleParticleType> factory) {
+    private void registerParticle(
+        String path,
+        SimpleParticleType type,
+        ParticleFactoryRegistry.PendingParticleFactory<SimpleParticleType> factory
+    ) {
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, CommonMod.modResource(path), type);
         ParticleFactoryRegistry.getInstance().register(type, factory);
     }

@@ -6,10 +6,11 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
-import org.avpr.common.registries.AVPRItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
+
+import org.avpr.common.registries.AVPRItems;
 
 public enum AVPRToolMaterials implements Tier {
 
@@ -19,14 +20,25 @@ public enum AVPRToolMaterials implements Tier {
     VERITANIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3000, 10.0F, 5.0F, 10, () -> Ingredient.of(AVPRItems.VERITANIUM_SHARD.get()));
 
     private final TagKey<Block> inverseTag;
+
     private final int itemDurability;
+
     private final float miningSpeed;
+
     private final float attackDamage;
+
     private final int enchantability;
+
     private final Supplier<Ingredient> repairIngredient;
 
-    AVPRToolMaterials(final TagKey<Block> inverseTag, final int itemDurability,final float miningSpeed,
-                     final float attackDamage, final int enchantability,final Supplier<Ingredient> repairIngredient) {
+    AVPRToolMaterials(
+        final TagKey<Block> inverseTag,
+        final int itemDurability,
+        final float miningSpeed,
+        final float attackDamage,
+        final int enchantability,
+        final Supplier<Ingredient> repairIngredient
+    ) {
         this.inverseTag = inverseTag;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
@@ -34,6 +46,7 @@ public enum AVPRToolMaterials implements Tier {
         this.enchantability = enchantability;
         this.repairIngredient = Suppliers.memoize(repairIngredient::get);
     }
+
     @Override
     public int getUses() {
         return this.itemDurability;

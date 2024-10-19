@@ -5,5 +5,6 @@ import net.minecraft.world.entity.PathfinderMob;
 
 @FunctionalInterface
 public interface AnimationSelector<T extends PathfinderMob & GeoEntity> {
+
     void select(T entity);
 }

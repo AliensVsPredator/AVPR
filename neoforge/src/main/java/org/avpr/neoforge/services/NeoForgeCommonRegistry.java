@@ -17,10 +17,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
-import org.avpr.common.platform.CommonRegistry;
-import org.avpr.neoforge.NeoForgeMod;
 
 import java.util.function.Supplier;
+
+import org.avpr.common.platform.CommonRegistry;
+import org.avpr.neoforge.NeoForgeMod;
 
 public class NeoForgeCommonRegistry implements CommonRegistry {
 
@@ -30,7 +31,11 @@ public class NeoForgeCommonRegistry implements CommonRegistry {
     }
 
     @Override
-    public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String modID, String blockEntityName, Supplier<BlockEntityType<T>> blockEntityType) {
+    public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(
+        String modID,
+        String blockEntityName,
+        Supplier<BlockEntityType<T>> blockEntityType
+    ) {
         return NeoForgeMod.blockEntityTypeDeferredRegister.register(blockEntityName, blockEntityType);
     }
 
@@ -80,7 +85,12 @@ public class NeoForgeCommonRegistry implements CommonRegistry {
     }
 
     @Override
-    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEggFor(Supplier<EntityType<E>> entityType, int primaryEggColour, int secondaryEggColour, Item.Properties itemProperties) {
+    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEggFor(
+        Supplier<EntityType<E>> entityType,
+        int primaryEggColour,
+        int secondaryEggColour,
+        Item.Properties itemProperties
+    ) {
         return () -> new DeferredSpawnEggItem(entityType, primaryEggColour, secondaryEggColour, itemProperties);
     }
 

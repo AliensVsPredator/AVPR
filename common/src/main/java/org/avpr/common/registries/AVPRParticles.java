@@ -2,11 +2,12 @@ package org.avpr.common.registries;
 
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
+
+import java.util.function.Supplier;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.particles.AVPRPaticleType;
 import org.avpr.common.platform.AVPRServices;
-
-import java.util.function.Supplier;
 
 public record AVPRParticles() {
 
@@ -17,8 +18,13 @@ public record AVPRParticles() {
      * <p>
      * The following code demonstrates how to register a new particle type in the game:
      * </p>
+     *
      * <pre>{@code
-     * public static final Supplier<SimpleParticleType> TEST = AVPRParticles.registerParticle("particlename", () -> new AVPRPaticleType(true));
+     *
+     * public static final Supplier<SimpleParticleType> TEST = AVPRParticles.registerParticle(
+     *     "particlename",
+     *     () -> new AVPRPaticleType(true)
+     * );
      * }</pre>
      * <p>
      * In this example:
@@ -28,9 +34,9 @@ public record AVPRParticles() {
      * <li><code>SimpleParticleType</code> is used to create a new particle type instance.</li>
      * </ul>
      * <p>
-     * The {@link net.minecraft.core.particles.SimpleParticleType SimpleParticleType} class represents a basic particle type in the game.
+     * The {@link net.minecraft.core.particles.SimpleParticleType SimpleParticleType} class represents a basic particle
+     * type in the game.
      * </p>
-     *
      * Registers a new Particle.
      *
      * @param particleName The ID of the particle.
@@ -42,6 +48,5 @@ public record AVPRParticles() {
         return AVPRServices.COMMON_REGISTRY.registerParticle(CommonMod.MOD_ID, particleName, particle);
     }
 
-    public static void initialize() {
-    }
+    public static void initialize() {}
 }

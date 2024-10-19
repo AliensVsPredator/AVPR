@@ -10,20 +10,24 @@ import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.item.Items;
-import org.avpr.common.api.util.AttackSelector;
-import org.avpr.common.entities.ai.tasks.CustomDelayedMeleeBehaviour;
-import org.avpr.common.entities.alien.AlienEntity;
-import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
-import org.avpr.common.tags.AVPREntityTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.ToIntFunction;
 
+import org.avpr.common.api.util.AttackSelector;
+import org.avpr.common.entities.ai.tasks.CustomDelayedMeleeBehaviour;
+import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
+import org.avpr.common.tags.AVPREntityTags;
+
 public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMeleeBehaviour<E> {
+
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
-            Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
-            Pair.of(MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT));
+        Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
+        Pair.of(MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT)
+    );
+
     protected ToIntFunction<E> attackIntervalSupplier = entity -> 80;
 
     @Nullable
@@ -54,9 +58,13 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
     protected boolean checkExtraStartConditions(ServerLevel level, E entity) {
         this.target = BrainUtils.getTargetOfEntity(entity);
         assert this.target != null;
-        return target.getType().is(AVPREntityTags.HOSTS) &&!target.getType().is(AVPREntityTags.ALIENS) && target.getVehicle().getSelfAndPassengers().noneMatch(
-                AlienEntity.class::isInstance) && entity.isWithinMeleeAttackRange(
-                this.target) && !entity.getType().is(EntityTypeTags.UNDEAD);
+        return target.getType().is(AVPREntityTags.HOSTS) && !target.getType().is(AVPREntityTags.ALIENS) && target.getVehicle()
+            .getSelfAndPassengers()
+            .noneMatch(
+                AlienEntity.class::isInstance
+            ) && entity.isWithinMeleeAttackRange(
+                this.target
+            ) && !entity.getType().is(EntityTypeTags.UNDEAD);
     }
 
     @Override
@@ -72,10 +80,15 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
 
     @Override
     protected void doDelayedAction(E entity) {
-        BrainUtils.setForgettableMemory(entity, MemoryModuleType.ATTACK_COOLING_DOWN, true,
-                this.attackIntervalSupplier.applyAsInt(entity));
+        BrainUtils.setForgettableMemory(
+            entity,
+            MemoryModuleType.ATTACK_COOLING_DOWN,
+            true,
+            this.attackIntervalSupplier.applyAsInt(entity)
+        );
 
-        if (this.target == null) return;
+        if (this.target == null)
+            return;
 
         // Check if the target is within the entity's view direction and reachable via pathfinding
         if (!this.target.getUseItem().is(Items.SHIELD))

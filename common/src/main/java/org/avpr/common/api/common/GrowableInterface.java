@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import static java.lang.Math.min;
 
 public interface GrowableInterface {
+
     float getGrowth();
 
     void setGrowth(float growth);
@@ -14,7 +15,8 @@ public interface GrowableInterface {
 
     default void grow(Entity entity, float amount) {
         setGrowth(min(getGrowth() + amount, getMaxGrowth()));
-        if (getGrowth() >= getMaxGrowth()) growUp(entity);
+        if (getGrowth() >= getMaxGrowth())
+            growUp(entity);
     }
 
     LivingEntity growInto();
@@ -23,10 +25,12 @@ public interface GrowableInterface {
         var world = entity.level();
         if (!world.isClientSide()) {
             var newEntity = growInto();
-            if (newEntity == null) return;
+            if (newEntity == null)
+                return;
             newEntity.moveTo(entity.blockPosition(), entity.getYRot(), entity.getXRot());
             world.addFreshEntity(newEntity);
-            if (entity.hasCustomName()) newEntity.setCustomName(entity.getCustomName());
+            if (entity.hasCustomName())
+                newEntity.setCustomName(entity.getCustomName());
             entity.remove(Entity.RemovalReason.DISCARDED);
         }
     }

@@ -2,6 +2,7 @@ package org.avpr.common.config;
 
 import mod.azure.azurelib.common.api.common.config.Config;
 import mod.azure.azurelib.common.internal.common.config.Configurable;
+
 import org.avpr.common.CommonMod;
 
 @Config(id = CommonMod.MOD_ID)

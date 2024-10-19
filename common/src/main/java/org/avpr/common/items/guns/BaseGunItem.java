@@ -7,12 +7,15 @@ import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;
-import org.avpr.common.client.items.renders.GunRender;
 
 import java.util.function.Consumer;
 
+import org.avpr.common.client.items.renders.GunRender;
+
 public class BaseGunItem extends Item implements GeoItem {
+
     protected final String id;
+
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
     public BaseGunItem(String id, Properties properties) {
@@ -27,13 +30,14 @@ public class BaseGunItem extends Item implements GeoItem {
     @Override
     public void createRenderer(Consumer<RenderProvider> consumer) {
         consumer.accept(new RenderProvider() {
-                private final GunRender<BaseGunItem> renderer = null;
 
-                @Override
-                public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                    return new GunRender<BaseGunItem>(getItemID());
-                }
-            });
+            private final GunRender<BaseGunItem> renderer = null;
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return new GunRender<BaseGunItem>(getItemID());
+            }
+        });
     }
 
     @Override

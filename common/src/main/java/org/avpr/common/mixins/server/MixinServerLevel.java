@@ -1,11 +1,12 @@
 package org.avpr.common.mixins.server;
 
 import net.minecraft.server.level.ServerLevel;
-import org.avpr.common.api.server.BlockBreakProgressManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import org.avpr.common.api.server.BlockBreakProgressManager;
 
 @Mixin(ServerLevel.class)
 public abstract class MixinServerLevel {
