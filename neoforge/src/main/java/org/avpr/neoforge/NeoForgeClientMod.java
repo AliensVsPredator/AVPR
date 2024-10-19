@@ -2,6 +2,7 @@ package org.avpr.neoforge;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -45,6 +46,7 @@ public class NeoForgeClientMod {
         event.registerEntityRenderer(AVPREntities.ACID.get(), AcidEntityRender::new);
         event.registerEntityRenderer(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
         event.registerEntityRenderer(AVPREntities.FACEHUGGER.get(), FacehuggerRenderer::new);
+        event.registerEntityRenderer(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
     }
 
     @SubscribeEvent

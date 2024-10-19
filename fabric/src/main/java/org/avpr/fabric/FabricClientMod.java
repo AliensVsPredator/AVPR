@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -23,6 +24,7 @@ public class FabricClientMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         registerParticle("acid", AVPRParticles.ACID.get(), AcidParticleProvider::new);
+        EntityRenderers.register(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
         EntityRenderers.register(AVPREntities.ACID.get(), AcidEntityRender::new);
         EntityRenderers.register(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
         EntityRenderers.register(AVPREntities.FACEHUGGER.get(), FacehuggerRenderer::new);

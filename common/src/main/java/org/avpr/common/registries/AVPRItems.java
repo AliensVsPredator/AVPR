@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.common.items.ArmorProperties;
+import org.avpr.common.items.GrenadeItem;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.armor.AVPRArmorMaterials;
 import org.avpr.common.items.guns.BaseGunItem;
@@ -3137,12 +3138,12 @@ public record AVPRItems() {
 
     public static final Supplier<Item> WEAPON_GRENADE_INCENDIARY = AVPRItems.registerItem(
         "grenade_incendiary",
-        () -> new Item(new Item.Properties())
+        () -> new GrenadeItem(new Item.Properties(), true)
     );
 
     public static final Supplier<Item> WEAPON_GRENADE_M40 = AVPRItems.registerItem(
         "grenade_m40",
-        () -> new Item(new Item.Properties())
+        () -> new GrenadeItem(new Item.Properties())
     );
 
     public static final Supplier<Item> WEAPON_FLAMETHROWER_SEVASTOPOL = AVPRItems.registerItem(

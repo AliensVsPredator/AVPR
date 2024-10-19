@@ -11,9 +11,18 @@ import org.avpr.common.entities.AcidEntity;
 import org.avpr.common.entities.TempEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 import org.avpr.common.entities.alien.base_line.OvamorphEntity;
+import org.avpr.common.entities.projectiles.ThrownGrenade;
 import org.avpr.common.platform.AVPRServices;
 
 public record AVPREntities() {
+
+    public static final Supplier<EntityType<ThrownGrenade>> GRENADE_THROWN = AVPREntities.registerEntity(
+        "grenade_thrown",
+        ThrownGrenade::new,
+        MobCategory.MISC,
+        0.25F,
+        0.25F
+    );
 
     public static final Supplier<EntityType<AcidEntity>> ACID = AVPREntities.registerEntity(
         "acid",
