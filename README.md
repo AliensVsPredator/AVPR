@@ -1,14 +1,8 @@
 [curse-downloads-shield]: https://img.shields.io/curseforge/dt/1005026
 [curse-files-url]: https://www.curseforge.com/minecraft/mc-mods/avp-regenesis/files
 
-[curse-versions-shield]: https://img.shields.io/curseforge/game-versions/1005026
-[curse-url]: https://www.curseforge.com/minecraft/mc-mods/avp-regenesis
-
 [modrinth-downloads-shield]: https://img.shields.io/modrinth/dt/Uqo0H9FX
 [modrinth-files-url]: https://modrinth.com/mod/avp-regenesis/versions/files
-
-[modrinth-versions-shield]: https://img.shields.io/modrinth/game-versions/Uqo0H9FX
-[modrinth-url]: https://modrinth.com/mod/avp-regenesis
 
 [discord-shield]: https://dcbadge.limes.pink/api/server/https://discord.gg/wp7mvmbkVb
 [discord-url]: https://discord.gg/wp7mvmbkVb
@@ -27,22 +21,34 @@
 [Java Development Kit 21]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [CurseForge]: https://preview.redd.it/i-heard-that-curseforge-rebranded-their-logo-is-it-good-or-v0-hualodaes7ka1.png?auto=webp&s=985d21b6461a7e0be2dfb5d4e3beb64401711c9e
 
+<br>
+<center>
+
 AVP: Regenesis
 =============
-[![github-build]][github-build-url]
-[![license-shield]][license-url]
-[![java-shield]][java-url]
+
+<img src="https://github.com/AliensVsPredator/AVP-Regenesis/blob/1.21.x/common/src/main/resources/icon.png?raw=true" alt="Gigeresque"/>
+<br><br>
+<a href="https://modrinth.com/mod/azurelib"> <img src="https://azuredoom.com/cozy_64h.png" alt="logo" height="64"  width="170" /> </a>
+<a href="https://modrinth.com/mod/fabric-api"> <img src="https://github.com/intergrav/devins-badges/blob/v2/assets/cozy/requires/fabric-api_64h.png?raw=true" alt="logo" height="64"  width="186"/> </a>
+<br><br>
+<a href="https://neoforged.net/"> <img src="https://i.imgur.com/TGnV6jv.png" alt="logo" height="64"  width="186"/> </a>
+<a href="https://fabricmc.net/"> <img src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/supported/fabric_64h.png?raw=true" alt="logo" height="64"  width="170" /> </a>
+
+
 [![discord-shield]][discord-url]
 
 <img src="https://i.imgur.com/L6vA521.png" alt="CurseForge" width="200"/>
-
-[![curse-versions-shield]][curse-url]
-[![curse-downloads-shield]][curse-files-url]
-
+<img src="https://img.shields.io/curseforge/dt/1005026" alt="CurseForge" width="200"/>
+<br>
 <img src="https://crowdin-static.downloads.crowdin.com/images/project-logo/518556/small/d0d0fa84ec9d7863f8ce01c6a4352272374.png" alt="Modrinth" width="200"/>
+<img src="https://img.shields.io/modrinth/dt/Uqo0H9FX" alt="Modrinth" width="200"/>
 
-[![modrinth-versions-shield]][modrinth-url]
-[![modrinth-downloads-shield]][modrinth-files-url]
+[![github-build]][github-build-url]
+[![license-shield]][license-url]
+[![java-shield]][java-url]
+
+</center>
 
 ## Prerequisites ##
 * [Java Development Kit 21]
