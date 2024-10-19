@@ -158,6 +158,234 @@ public record AVPRBlocks() {
                     .strength(75, 1500)
                     .lightLevel(lightLevel -> 4)));
 
+    public static final Supplier<Block> TEMPLE_WALL_BASE = AVPRBlocks.registerBlock("temple_wall_base",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(3, 6)));
+
+    public static final Supplier<Block> TEMPLE_BRICK_CHESTBURSTER = AVPRBlocks.registerBlock("temple_brick_chestburster",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_FACEHUGGER = AVPRBlocks.registerBlock("temple_brick_facehugger",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_SKULL = AVPRBlocks.registerBlock("temple_skulls",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK = AVPRBlocks.registerBlock("temple_brick",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_SLAB = AVPRBlocks.registerBlock("temple_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_STAIRS = AVPRBlocks.registerBlock("temple_brick_stairs",
+            () -> new AVPRStairBlock(TEMPLE_WALL_BASE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_WALL = AVPRBlocks.registerBlock("temple_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_SINGLE = AVPRBlocks.registerBlock("temple_brick_single",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_SINGLE_SLAB = AVPRBlocks.registerBlock("temple_brick_single_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_SIMPLE_STAIRS = AVPRBlocks.registerBlock("temple_brick_single_stairs",
+            () -> new AVPRStairBlock(TEMPLE_WALL_BASE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_BRICK_SIMPLE_WALL = AVPRBlocks.registerBlock("temple_brick_single_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_FLOOR = AVPRBlocks.registerBlock("temple_floor",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_FLOOR_SLAB = AVPRBlocks.registerBlock("temple_floor_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_FLOOR_STAIRS = AVPRBlocks.registerBlock("temple_floor_stairs",
+            () -> new AVPRStairBlock(TEMPLE_WALL_BASE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_FLOOR_WALL = AVPRBlocks.registerBlock("temple_floor_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_TILE = AVPRBlocks.registerBlock("temple_tile",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_TILE_SLAB = AVPRBlocks.registerBlock("temple_tile_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_TILE_STAIRS = AVPRBlocks.registerBlock("temple_tile_stairs",
+            () -> new AVPRStairBlock(TEMPLE_WALL_BASE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> TEMPLE_TILE_WALL = AVPRBlocks.registerBlock("temple_tile_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(TEMPLE_WALL_BASE.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK = AVPRBlocks.registerBlock("engineer_ship_brick",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_SLAB = AVPRBlocks.registerBlock("engineer_ship_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_STAIRS = AVPRBlocks.registerBlock("engineer_ship_brick_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_BRICK.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_WALL = AVPRBlocks.registerBlock("engineer_ship_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_1 = AVPRBlocks.registerBlock("engineer_ship_brick_1",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_1_SLAB = AVPRBlocks.registerBlock("engineer_ship_brick_1_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_1_STAIRS = AVPRBlocks.registerBlock("engineer_ship_brick_1_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_BRICK_1.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_1_WALL = AVPRBlocks.registerBlock("engineer_ship_brick_1_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_2 = AVPRBlocks.registerBlock("engineer_ship_brick_2",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_2_SLAB = AVPRBlocks.registerBlock("engineer_ship_brick_2_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_2_STAIRS = AVPRBlocks.registerBlock("engineer_ship_brick_2_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_BRICK_2.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_2_WALL = AVPRBlocks.registerBlock("engineer_ship_brick_2_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_3 = AVPRBlocks.registerBlock("engineer_ship_brick_3",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_3_SLAB = AVPRBlocks.registerBlock("engineer_ship_brick_3_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_3.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_3_STAIRS = AVPRBlocks.registerBlock("engineer_ship_brick_3_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_BRICK_3.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_3.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_BRICK_3_WALL = AVPRBlocks.registerBlock("engineer_ship_brick_3_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_BRICK_3.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_0 = AVPRBlocks.registerBlock("engineer_ship_material_0",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_0_SLAB = AVPRBlocks.registerBlock("engineer_ship_material_0_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_0.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_0_STAIRS = AVPRBlocks.registerBlock("engineer_ship_material_0_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_MATERIAL_0.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_0.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_0_WALL = AVPRBlocks.registerBlock("engineer_ship_material_0_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_0.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_1 = AVPRBlocks.registerBlock("engineer_ship_material_1",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_1_SLAB = AVPRBlocks.registerBlock("engineer_ship_material_1_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_1_STAIRS = AVPRBlocks.registerBlock("engineer_ship_material_1_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_MATERIAL_1.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_1_WALL = AVPRBlocks.registerBlock("engineer_ship_material_1_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_2 = AVPRBlocks.registerBlock("engineer_ship_material_2",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_2_SLAB = AVPRBlocks.registerBlock("engineer_ship_material_2_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_2_STAIRS = AVPRBlocks.registerBlock("engineer_ship_material_2_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_MATERIAL_2.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_MATERIAL_2_WALL = AVPRBlocks.registerBlock("engineer_ship_material_2_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_MATERIAL_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL = AVPRBlocks.registerBlock("engineer_ship_wall",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_SLAB = AVPRBlocks.registerBlock("engineer_ship_wall_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_STAIRS = AVPRBlocks.registerBlock("engineer_ship_wall_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_WALL.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_WALL = AVPRBlocks.registerBlock("engineer_ship_wall_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_1 = AVPRBlocks.registerBlock("engineer_ship_wall_1",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_1_SLAB = AVPRBlocks.registerBlock("engineer_ship_wall_1_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_1_STAIRS = AVPRBlocks.registerBlock("engineer_ship_wall_1_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_WALL_1.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_1_WALL = AVPRBlocks.registerBlock("engineer_ship_wall_1_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_1.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_2 = AVPRBlocks.registerBlock("engineer_ship_wall_2",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_2_SLAB = AVPRBlocks.registerBlock("engineer_ship_wall_2_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_2_STAIRS = AVPRBlocks.registerBlock("engineer_ship_wall_2_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_WALL_2.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_2_WALL = AVPRBlocks.registerBlock("engineer_ship_wall_2_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_2.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_3 = AVPRBlocks.registerBlock("engineer_ship_wall_3",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_3_SLAB = AVPRBlocks.registerBlock("engineer_ship_wall_3_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_3.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_3_STAIRS = AVPRBlocks.registerBlock("engineer_ship_wall_3_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_WALL_3.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_3.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_3_WALL = AVPRBlocks.registerBlock("engineer_ship_wall_3_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_3.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_4 = AVPRBlocks.registerBlock("engineer_ship_wall_4",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_4_SLAB = AVPRBlocks.registerBlock("engineer_ship_wall_4_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_4.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_4_STAIRS = AVPRBlocks.registerBlock("engineer_ship_wall_4_stairs",
+            () -> new AVPRStairBlock(ENGINEER_SHIP_WALL_4.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_4.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_WALL_4_WALL = AVPRBlocks.registerBlock("engineer_ship_wall_4_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(ENGINEER_SHIP_WALL_4.get())));
+
+    public static final Supplier<Block> ENGINEER_SHIP_COLUMN_1 = AVPRBlocks.registerBlock("engineer_ship_column_1",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_COLUMN_2 = AVPRBlocks.registerBlock("engineer_ship_column_2",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_FLOOR = AVPRBlocks.registerBlock("engineer_ship_floor",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_GRAVEL = AVPRBlocks.registerBlock("engineer_ship_gravel",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_ROCK = AVPRBlocks.registerBlock("engineer_ship_rock",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_ROCK_1 = AVPRBlocks.registerBlock("engineer_ship_rock_1",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_ROCK_2 = AVPRBlocks.registerBlock("engineer_ship_rock_2",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
+    public static final Supplier<Block> ENGINEER_SHIP_ROCK_3 = AVPRBlocks.registerBlock("engineer_ship_rock_3",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(100, 1800)));
+
     private static final Map<DyeColor, Block> INDUSTRIAL_GLASS_BLOCKS = new EnumMap<>(DyeColor.class);
     private static final Map<DyeColor, Item> INDUSTRIAL_GLASS_ITEMS = new EnumMap<>(DyeColor.class);
     private static final Map<OreType, Block> ORE_BLOCKS = new EnumMap<>(OreType.class);
@@ -340,7 +568,7 @@ public record AVPRBlocks() {
     public static void registerPlasticBlocks() {
         Arrays.stream(DyeColor.values()).forEach(dyeColor ->
                 PLASTIC_VARIATIONS.forEach(variation -> {
-                            Supplier<Block> blockSupplier = null;
+                            Supplier<Block> blockSupplier;
                             switch (variation) {
                                 case "slab" -> blockSupplier = AVPRBlocks.registerBlock(
                                         "plastic_" + dyeColor.getName().toLowerCase(Locale.ROOT) + "_slab",
@@ -386,10 +614,9 @@ public record AVPRBlocks() {
                             if (blockSupplier != null) {
                                 PLASTIC_BLOCKS.put(dyeColor, blockSupplier.get());
 
-                                Supplier<Block> finalBlockSupplier = blockSupplier;
                                 Supplier<Item> itemSupplier = AVPRItems.registerItem(
                                         "plastic_" + dyeColor.name().toLowerCase(Locale.ROOT) + "_" + variation,
-                                        () -> new BlockItem(finalBlockSupplier.get(), new Item.Properties())
+                                        () -> new BlockItem(blockSupplier.get(), new Item.Properties())
                                 );
                                 PLASTIC_ITEMS.put(dyeColor, itemSupplier.get());
                             }
@@ -685,7 +912,7 @@ public record AVPRBlocks() {
         AVPRBlocks.registerPlasticBlocks();
         AVPRBlocks.registerPaddingBlocks();
         /*
-            TODO: Paradise Blocks, Temple, Engineer Ship
+            TODO: Engineer Ship
          */
     }
 }

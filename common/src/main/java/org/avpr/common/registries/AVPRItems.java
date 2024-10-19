@@ -62,19 +62,19 @@ public record AVPRItems() {
             "yautja_ship_brick", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK.get(), new Item.Properties()));
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_SLAB_ITEM = AVPRItems.registerItem(
-            "yautja_ship_brick_slab", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK.get(), new Item.Properties()));
+            "yautja_ship_brick_slab", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_SLAB.get(), new Item.Properties()));
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
-            "yautja_ship_brick_stairs", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_SLAB.get(), new Item.Properties()));
+            "yautja_ship_brick_stairs", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_STAIRS.get(), new Item.Properties()));
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_WALL_ITEM = AVPRItems.registerItem(
-            "yautja_ship_brick_wall", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_STAIRS.get(), new Item.Properties()));
+            "yautja_ship_brick_wall", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_WALL.get(), new Item.Properties()));
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_1_ITEM = AVPRItems.registerItem(
-            "yautja_ship_decor_1", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_BRICK_WALL.get(), new Item.Properties()));
+            "yautja_ship_decor_1", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_1.get(), new Item.Properties()));
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_2_ITEM = AVPRItems.registerItem(
-            "yautja_ship_decor_2", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_1.get(), new Item.Properties()));
+            "yautja_ship_decor_2", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_2.get(), new Item.Properties()));
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_ITEM = AVPRItems.registerItem(
             "yautja_ship_decor_3", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_DECOR_3.get(), new Item.Properties()));
@@ -96,6 +96,234 @@ public record AVPRItems() {
 
     public static final Supplier<BlockItem> YAUTJA_SHIP_WALL_BASE_ITEM = AVPRItems.registerItem(
             "yautja_ship_wall_base", () -> new BlockItem(AVPRBlocks.YAUTJA_SHIP_WALL_BASE.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_WALL_BASE_ITEM = AVPRItems.registerItem(
+            "temple_wall_base", () -> new BlockItem(AVPRBlocks.TEMPLE_WALL_BASE.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_CHESTBURSTER_ITEM = AVPRItems.registerItem(
+            "temple_brick_chestburster", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_CHESTBURSTER.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_FACEHUGGER_ITEM = AVPRItems.registerItem(
+            "temple_brick_facehugger", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_FACEHUGGER.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_SKULL_ITEM = AVPRItems.registerItem(
+            "temple_skulls", () -> new BlockItem(AVPRBlocks.TEMPLE_SKULL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_ITEM = AVPRItems.registerItem(
+            "temple_brick", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SLAB_ITEM = AVPRItems.registerItem(
+            "temple_brick_slab", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
+            "temple_brick_stairs", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_WALL_ITEM = AVPRItems.registerItem(
+            "temple_brick_wall", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SINGLE_ITEM = AVPRItems.registerItem(
+            "temple_brick_single", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_SINGLE.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SINGLE_SLAB_ITEM = AVPRItems.registerItem(
+            "temple_brick_single_slab", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_SINGLE_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SIMPLE_STAIRS_ITEM = AVPRItems.registerItem(
+            "temple_brick_single_stairs", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_SIMPLE_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SIMPLE_WALL_ITEM = AVPRItems.registerItem(
+            "temple_brick_single_wall", () -> new BlockItem(AVPRBlocks.TEMPLE_BRICK_SIMPLE_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_ITEM = AVPRItems.registerItem(
+            "temple_floor", () -> new BlockItem(AVPRBlocks.TEMPLE_FLOOR.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_SLAB_ITEM = AVPRItems.registerItem(
+            "temple_floor_slab", () -> new BlockItem(AVPRBlocks.TEMPLE_FLOOR_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_STAIRS_ITEM = AVPRItems.registerItem(
+            "temple_floor_stairs", () -> new BlockItem(AVPRBlocks.TEMPLE_FLOOR_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_WALL_ITEM = AVPRItems.registerItem(
+            "temple_floor_wall", () -> new BlockItem(AVPRBlocks.TEMPLE_FLOOR_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_ITEM = AVPRItems.registerItem(
+            "temple_tile", () -> new BlockItem(AVPRBlocks.TEMPLE_TILE.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_SLAB_ITEM = AVPRItems.registerItem(
+            "temple_tile_slab", () -> new BlockItem(AVPRBlocks.TEMPLE_TILE_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_STAIRS_ITEM = AVPRItems.registerItem(
+            "temple_tile_stairs", () -> new BlockItem(AVPRBlocks.TEMPLE_TILE_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_WALL_ITEM = AVPRItems.registerItem(
+            "temple_tile_wall", () -> new BlockItem(AVPRBlocks.TEMPLE_TILE_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_1", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_1.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_1_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_1_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_1_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_1_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_1_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_1_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_2", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_2.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_2_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_2_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_2_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_2_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_2_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_2_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_3", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_3.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_3_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_3_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_3_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_3_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_brick_3_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_BRICK_3_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_0", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_0.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_0_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_0_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_0_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_0_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_0_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_0_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_1", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_1.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_1_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_1_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_1_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_1_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_1_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_1_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_2", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_2.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_2_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_2_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_2_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_2_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_material_2_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_MATERIAL_2_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_1", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_1.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_1_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_1_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_1_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_1_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_1_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_1_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_2", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_2.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_2_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_2_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_2_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_2_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_2_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_2_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_3", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_3.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_3_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_3_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_3_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_3_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_3_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_3_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_4", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_4.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_SLAB_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_4_slab", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_4_SLAB.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_STAIRS_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_4_stairs", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_4_STAIRS.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_WALL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_wall_4_wall", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_WALL_4_WALL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_COLUMN_1_ITEM = AVPRItems.registerItem(
+            "engineer_ship_column_1", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_COLUMN_1.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_COLUMN_2_ITEM = AVPRItems.registerItem(
+            "engineer_ship_column_2", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_COLUMN_2.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_FLOOR_ITEM = AVPRItems.registerItem(
+            "engineer_ship_floor", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_FLOOR.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_GRAVEL_ITEM = AVPRItems.registerItem(
+            "engineer_ship_gravel", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_GRAVEL.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_ITEM = AVPRItems.registerItem(
+            "engineer_ship_rock", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_ROCK.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_1_ITEM = AVPRItems.registerItem(
+            "engineer_ship_rock_1", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_ROCK_1.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_2_ITEM = AVPRItems.registerItem(
+            "engineer_ship_rock_2", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_ROCK_2.get(), new Item.Properties()));
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_3_ITEM = AVPRItems.registerItem(
+            "engineer_ship_rock_3", () -> new BlockItem(AVPRBlocks.ENGINEER_SHIP_ROCK_3.get(), new Item.Properties()));
 
     public static final Supplier<SpawnEggItem> OVAMORPH_SPAWN_EGG = AVPRItems.registerItem(
             "spawn_egg_ovamorph",
