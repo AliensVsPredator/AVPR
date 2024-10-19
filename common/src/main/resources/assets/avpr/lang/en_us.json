@@ -144,11 +144,11 @@
   "block.avpr.industrial_glass_white": "White Industrial Glass",
   "block.avpr.industrial_glass_yellow": "Yellow Industrial Glass",
 
-  "block.avpr.industrial_wall": "Industrial Wall",
-  "block.avpr.industrial_wall_hazard": "Industrial Wall (Hazard)",
-  "block.avpr.industrial_wall_slab": "Industrial Wall Slab",
-  "block.avpr.industrial_wall_stairs": "Industrial Wall Stairs",
-  "block.avpr.industrial_wall_wall": "Industrial Wall",
+  "block.avpr.industrial_wall": "Industrial Concrete",
+  "block.avpr.industrial_wall_hazard": "Industrial Concrete (Hazard)",
+  "block.avpr.industrial_wall_slab": "Industrial Concrete Slab",
+  "block.avpr.industrial_wall_stairs": "Industrial Concrete Stairs",
+  "block.avpr.industrial_wall_wall": "Industrial Concrete Wall",
 
   "block.avpr.iron_grate": "Iron Grate",
   "block.avpr.iron_plated": "Plated Iron",
