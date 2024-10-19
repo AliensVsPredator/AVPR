@@ -1,14 +1,11 @@
 package org.avpr.common.registries;
 
-import net.minecraft.core.Holder;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 
-import java.util.*;
 import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
-import org.avpr.common.api.common.items.ArmorProperties;
 import org.avpr.common.items.GrenadeItem;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.armor.AVPRArmorMaterials;
@@ -3201,87 +3198,293 @@ public record AVPRItems() {
         () -> new BaseGunItem("weapon_old_painless", new Item.Properties())
     );
 
-    private static final Map<Holder<ArmorMaterial>, ArmorProperties> ARMOR_PROPERTIES = Map.of(
-        AVPRArmorMaterials.ALUMINUM,
-        new ArmorProperties("aluminum", 14),
-        AVPRArmorMaterials.MK50,
-        new ArmorProperties("mk50", 24),
-        AVPRArmorMaterials.ORIONITE,
-        new ArmorProperties("orionite", 35),
-        AVPRArmorMaterials.PRESSURE,
-        new ArmorProperties("pressure", 22),
-        AVPRArmorMaterials.TACTICAL,
-        new ArmorProperties("tactical", 26),
-        AVPRArmorMaterials.TITANIUM,
-        new ArmorProperties("titanium", 24),
-        AVPRArmorMaterials.VERITANIUM,
-        new ArmorProperties("veritanium", 34),
-        AVPRArmorMaterials.XENOMORPH_CHITIN,
-        new ArmorProperties("xenomorph_chitin", 30)
+    public static final Supplier<Item> ARMOR_ALUMINUM_HELMET = AVPRItems.registerItem(
+        "armor_aluminum_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ALUMINUM,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(14))
+        )
     );
 
-    private static final Map<Holder<ArmorMaterial>, EnumMap<ArmorItem.Type, Item>> ARMOR_ITEMS = new HashMap<>();
+    public static final Supplier<Item> ARMOR_ALUMINUM_CHESTPLATE = AVPRItems.registerItem(
+        "armor_aluminum_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ALUMINUM,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(14))
+        )
+    );
 
-    public static void registerArmorSets() {
-        ARMOR_PROPERTIES.forEach((armorMaterialHolder, properties) -> {
-            EnumMap<ArmorItem.Type, Item> items = new EnumMap<>(ArmorItem.Type.class);
+    public static final Supplier<Item> ARMOR_ALUMINUM_LEGGINGS = AVPRItems.registerItem(
+        "armor_aluminum_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ALUMINUM,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(14))
+        )
+    );
 
-            Supplier<Item> helmetSupplier = AVPRItems.registerItem(
-                "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_helmet",
-                () -> new AVPRArmorItem(
-                    armorMaterialHolder,
-                    ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(properties.durabilityFactor()))
-                )
-            );
-            items.put(ArmorItem.Type.HELMET, helmetSupplier.get());
+    public static final Supplier<Item> ARMOR_ALUMINUM_BOOTS = AVPRItems.registerItem(
+        "armor_aluminum_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ALUMINUM,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(14))
+        )
+    );
 
-            Supplier<Item> chestplateSupplier = AVPRItems.registerItem(
-                "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_body",
-                () -> new AVPRArmorItem(
-                    armorMaterialHolder,
-                    ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(properties.durabilityFactor()))
-                )
-            );
-            items.put(ArmorItem.Type.CHESTPLATE, chestplateSupplier.get());
+    public static final Supplier<Item> ARMOR_MK50_HELMET = AVPRItems.registerItem(
+        "armor_mk50_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.MK50,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(24))
+        )
+    );
 
-            Supplier<Item> leggingsSupplier = AVPRItems.registerItem(
-                "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_leggings",
-                () -> new AVPRArmorItem(
-                    armorMaterialHolder,
-                    ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(properties.durabilityFactor()))
-                )
-            );
-            items.put(ArmorItem.Type.LEGGINGS, leggingsSupplier.get());
+    public static final Supplier<Item> ARMOR_MK50_CHESTPLATE = AVPRItems.registerItem(
+        "armor_mk50_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.MK50,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(24))
+        )
+    );
 
-            Supplier<Item> bootsSupplier = AVPRItems.registerItem(
-                "armor_" + properties.materialName().toLowerCase(Locale.ROOT) + "_boots",
-                () -> new AVPRArmorItem(
-                    armorMaterialHolder,
-                    ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(properties.durabilityFactor()))
-                )
-            );
-            items.put(ArmorItem.Type.BOOTS, bootsSupplier.get());
+    public static final Supplier<Item> ARMOR_MK50_LEGGINGS = AVPRItems.registerItem(
+        "armor_mk50_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.MK50,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(24))
+        )
+    );
 
-            ARMOR_ITEMS.put(armorMaterialHolder, items);
-        });
-    }
+    public static final Supplier<Item> ARMOR_MK50_BOOTS = AVPRItems.registerItem(
+        "armor_mk50_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.MK50,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(24))
+        )
+    );
 
-    public static Item getArmorItem(Holder<ArmorMaterial> armorMaterialHolder, ArmorItem.Type type) {
-        EnumMap<ArmorItem.Type, Item> items = ARMOR_ITEMS.get(armorMaterialHolder);
-        return items != null ? items.get(type) : null;
-    }
+    public static final Supplier<Item> ARMOR_ORIONITE_HELMET = AVPRItems.registerItem(
+        "armor_orionite_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ORIONITE,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(35))
+        )
+    );
 
-    public static List<Item> getAllArmorItems() {
-        return ARMOR_ITEMS.values()
-            .stream()
-            .flatMap(enumMap -> enumMap.values().stream())
-            .filter(Objects::nonNull)
-            .toList();
-    }
+    public static final Supplier<Item> ARMOR_ORIONITE_CHESTPLATE = AVPRItems.registerItem(
+        "armor_orionite_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ORIONITE,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(35))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_ORIONITE_LEGGINGS = AVPRItems.registerItem(
+        "armor_orionite_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ORIONITE,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(35))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_ORIONITE_BOOTS = AVPRItems.registerItem(
+        "armor_orionite_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.ORIONITE,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(35))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_PRESSURE_HELMET = AVPRItems.registerItem(
+        "armor_pressure_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.PRESSURE,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(22))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_PRESSURE_CHESTPLATE = AVPRItems.registerItem(
+        "armor_pressure_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.PRESSURE,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(22))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_PRESSURE_LEGGINGS = AVPRItems.registerItem(
+        "armor_pressure_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.PRESSURE,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(22))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_PRESSURE_BOOTS = AVPRItems.registerItem(
+        "armor_pressure_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.PRESSURE,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(22))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TACTICAL_HELMET = AVPRItems.registerItem(
+        "armor_tactical_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TACTICAL,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(26))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TACTICAL_CHESTPLATE = AVPRItems.registerItem(
+        "armor_tactical_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TACTICAL,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(26))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TACTICAL_LEGGINGS = AVPRItems.registerItem(
+        "armor_tactical_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TACTICAL,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(26))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TACTICAL_BOOTS = AVPRItems.registerItem(
+        "armor_tactical_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TACTICAL,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(26))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TITANIUM_HELMET = AVPRItems.registerItem(
+        "armor_titanium_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TITANIUM,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(24))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TITANIUM_CHESTPLATE = AVPRItems.registerItem(
+        "armor_titanium_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TITANIUM,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(24))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TITANIUM_LEGGINGS = AVPRItems.registerItem(
+        "armor_titanium_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TITANIUM,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(24))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_TITANIUM_BOOTS = AVPRItems.registerItem(
+        "armor_titanium_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.TITANIUM,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(24))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_VERITANIUM_HELMET = AVPRItems.registerItem(
+        "armor_veritanium_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.VERITANIUM,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(34))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_VERITANIUM_CHESTPLATE = AVPRItems.registerItem(
+        "armor_veritanium_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.VERITANIUM,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(34))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_VERITANIUM_LEGGINGS = AVPRItems.registerItem(
+        "armor_veritanium_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.VERITANIUM,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(34))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_VERITANIUM_BOOTS = AVPRItems.registerItem(
+        "armor_veritanium_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.VERITANIUM,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(34))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_XENOMORPH_CHITIN_HELMET = AVPRItems.registerItem(
+        "armor_xenomorph_chitin_helmet",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.XENOMORPH_CHITIN,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(30))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_XENOMORPH_CHITIN_CHESTPLATE = AVPRItems.registerItem(
+        "armor_xenomorph_chitin_body",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.XENOMORPH_CHITIN,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(30))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_XENOMORPH_CHITIN_LEGGINGS = AVPRItems.registerItem(
+        "armor_xenomorph_chitin_leggings",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.XENOMORPH_CHITIN,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(30))
+        )
+    );
+
+    public static final Supplier<Item> ARMOR_XENOMORPH_CHITIN_BOOTS = AVPRItems.registerItem(
+        "armor_xenomorph_chitin_boots",
+        () -> new AVPRArmorItem(
+            AVPRArmorMaterials.XENOMORPH_CHITIN,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(30))
+        )
+    );
 
     /**
      * Example of using this Interface to create a new Item:
@@ -3324,7 +3527,5 @@ public record AVPRItems() {
         return AVPRServices.COMMON_REGISTRY.registerItem(CommonMod.MOD_ID, itemName, item);
     }
 
-    public static void initialize() {
-        AVPRItems.registerArmorSets();
-    }
+    public static void initialize() {}
 }

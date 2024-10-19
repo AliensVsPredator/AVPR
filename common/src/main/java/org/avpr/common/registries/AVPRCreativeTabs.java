@@ -1,7 +1,6 @@
 package org.avpr.common.registries;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
@@ -9,7 +8,6 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
-import org.avpr.common.items.armor.AVPRArmorMaterials;
 import org.avpr.common.platform.AVPRServices;
 
 /**
@@ -64,11 +62,44 @@ public record AVPRCreativeTabs() {
             .icon(
                 () -> new ItemStack(
                     Objects.requireNonNull(
-                        AVPRItems.getArmorItem(AVPRArmorMaterials.VERITANIUM, ArmorItem.Type.HELMET)
+                        AVPRItems.ARMOR_VERITANIUM_HELMET.get()
                     )
                 )
             )
-            .displayItems((enabledFeatures, entries) -> AVPRItems.getAllArmorItems().forEach(entries::accept))
+            .displayItems((enabledFeatures, entries) -> {
+                entries.accept(AVPRItems.ARMOR_ALUMINUM_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_ALUMINUM_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_ALUMINUM_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_ALUMINUM_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_MK50_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_MK50_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_MK50_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_MK50_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_ORIONITE_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_ORIONITE_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_ORIONITE_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_ORIONITE_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_PRESSURE_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_PRESSURE_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_PRESSURE_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_PRESSURE_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_TACTICAL_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_TACTICAL_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_TACTICAL_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_TACTICAL_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_TITANIUM_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_TITANIUM_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_TITANIUM_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_TITANIUM_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_VERITANIUM_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_VERITANIUM_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_VERITANIUM_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_VERITANIUM_BOOTS.get());
+                entries.accept(AVPRItems.ARMOR_XENOMORPH_CHITIN_HELMET.get());
+                entries.accept(AVPRItems.ARMOR_XENOMORPH_CHITIN_CHESTPLATE.get());
+                entries.accept(AVPRItems.ARMOR_XENOMORPH_CHITIN_LEGGINGS.get());
+                entries.accept(AVPRItems.ARMOR_XENOMORPH_CHITIN_BOOTS.get());
+            })
             .build()
     );
 
