@@ -7,5 +7,10 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "server.MixinServerLevel",
+    "LivingEntityMixin"
+  ],
+  "client": [
+    "client.InGameOverlayRendererMixin"
   ]
 }

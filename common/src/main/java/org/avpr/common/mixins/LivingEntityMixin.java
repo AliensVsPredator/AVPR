@@ -48,10 +48,8 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = {"tick"}, at = {@At("HEAD")})
     void tick(CallbackInfo callbackInfo) {
-        if (!this.level().isClientSide) {
-            if (PredicatesUtil.shouldApplyImpEffects.test(this))
-                this.hurt(DamageUtil.of(this.level(), AVPRDamageSources.CHESTBURST), 0.2f);
-        }
+        if (!this.level().isClientSide && PredicatesUtil.shouldApplyImpEffects.test(this))
+            this.hurt(DamageUtil.of(this.level(), AVPRDamageSources.CHESTBURST), 0.2f);
     }
 
     @Inject(method = "onEffectRemoved(Lnet/minecraft/world/effect/MobEffectInstance;)V", at = @At(value = "TAIL"))
