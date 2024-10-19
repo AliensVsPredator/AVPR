@@ -2,6 +2,7 @@ package org.avpr.common.status_effects;
 
 import mod.azure.azurelib.core.object.Color;
 import net.minecraft.core.Holder;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -15,31 +16,13 @@ import org.avpr.common.api.util.DamageUtil;
 import org.avpr.common.api.util.EntityUtil;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.registries.AVPRDamageSources;
+import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 
 public class ImpregnationStatusEffect extends MobEffect {
 
     public ImpregnationStatusEffect() {
         super(MobEffectCategory.HARMFUL, Color.DARK_GRAY.getColor());
-    }
-
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        return true;
-    }
-
-    /**
-     * Applies a series of status effects to a LivingEntity if it does not already have those effects.
-     *
-     * @param livingEntity  The LivingEntity to which the status effects will be applied.
-     * @param ticks         The duration in ticks for which the status effects will last.
-     * @param statusEffects A variable number of Holder<MobEffect> representing the status effects to be applied.
-     */
-    @SafeVarargs
-    private void handleStatusEffects(@NotNull LivingEntity livingEntity, int ticks, Holder<MobEffect>... statusEffects) {
-        for (Holder<MobEffect> effect : statusEffects)
-            if (!livingEntity.hasEffect(effect))
-                livingEntity.addEffect(new MobEffectInstance(effect, ticks, 3, true, true));
     }
 
     /**
@@ -71,8 +54,15 @@ public class ImpregnationStatusEffect extends MobEffect {
         if (burster != null) {
             setBursterProperties(entity, burster);
             entity.level().addFreshEntity(burster);
-            // entity.level().playSound(entity, entity.blockPosition(), AVPRSounds.CHESTBURSTING.get(),
-            // SoundSource.NEUTRAL, 2.0f, 1.0f);
+            entity.level()
+                .playSound(
+                    entity,
+                    entity.blockPosition(),
+                    AVPRSounds.ENTITY_CHESTBURSTER_HURT.get(),
+                    SoundSource.NEUTRAL,
+                    2.0f,
+                    1.0f
+                );
             if (!PredicatesUtil.IS_CREATIVEorSPECTATOR.test(entity))
                 DamageUtil.damageArmor(entity.getItemBySlot(EquipmentSlot.CHEST), entity.getRandom(), 5, 10);
             entity.hurt(DamageUtil.of(entity.level(), AVPRDamageSources.CHESTBURST), Integer.MAX_VALUE);
@@ -90,5 +80,24 @@ public class ImpregnationStatusEffect extends MobEffect {
             burster.setCustomName(entity.getCustomName());
         burster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 10), burster);
         burster.moveTo(entity.blockPosition(), entity.getYRot(), entity.getXRot());
+    }
+
+    @Override
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
+        return true;
+    }
+
+    /**
+     * Applies a series of status effects to a LivingEntity if it does not already have those effects.
+     *
+     * @param livingEntity  The LivingEntity to which the status effects will be applied.
+     * @param ticks         The duration in ticks for which the status effects will last.
+     * @param statusEffects A variable number of Holder<MobEffect> representing the status effects to be applied.
+     */
+    @SafeVarargs
+    private void handleStatusEffects(@NotNull LivingEntity livingEntity, int ticks, Holder<MobEffect>... statusEffects) {
+        for (Holder<MobEffect> effect : statusEffects)
+            if (!livingEntity.hasEffect(effect))
+                livingEntity.addEffect(new MobEffectInstance(effect, ticks, 3, true, true));
     }
 }
