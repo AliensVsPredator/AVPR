@@ -25,7 +25,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "avp:veritanium_shard"
+          "name": "avpr:veritanium_shard"
         }
       ],
       "rolls": 1.0
@@ -45,39 +45,39 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avp:armor_veritanium_helmet"
+          "name": "avpr:armor_veritanium_helmet"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:armor_veritanium_body"
+          "name": "avpr:armor_veritanium_body"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:armor_veritanium_leggings"
+          "name": "avpr:armor_veritanium_leggings"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:armor_veritanium_boots"
+          "name": "avpr:armor_veritanium_boots"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:tool_veritanium_axe"
+          "name": "avpr:tool_veritanium_axe"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:tool_veritanium_hoe"
+          "name": "avpr:tool_veritanium_hoe"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:tool_veritanium_pickaxe"
+          "name": "avpr:tool_veritanium_pickaxe"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:tool_veritanium_shovel"
+          "name": "avpr:tool_veritanium_shovel"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:tool_veritanium_sword"
+          "name": "avpr:tool_veritanium_sword"
         }
       ],
       "rolls": 1.0
@@ -106,7 +106,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "avp:laser_mine"
+          "name": "avpr:laser_mine"
         },
         {
           "type": "minecraft:item",
@@ -129,19 +129,19 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "avp:shuriken"
+          "name": "avpr:shuriken"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:smart_disc"
+          "name": "avpr:smart_disc"
         },
         {
           "type": "minecraft:item",
-          "name": "avp:yautja_artifact"
+          "name": "avpr:yautja_artifact"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avp:entities/yautja"
+  "random_sequence": "avpr:entities/yautja"
 }

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "avpr:copper_plated_stack"
-  },
-  "result": "avpr:copper_plated_stack_wall"
-}

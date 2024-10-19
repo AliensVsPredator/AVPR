@@ -25,11 +25,11 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "avp:xenomorph_chitin"
+          "name": "avpr:xenomorph_chitin"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avp:entities/warrior"
+  "random_sequence": "avpr:entities/warrior"
 }

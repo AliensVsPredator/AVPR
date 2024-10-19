@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avpr:copper_plated_stack_wall"
+          "name": "avpr:copper_plated_wall"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avpr:blocks/copper_plated_stack_wall"
+  "random_sequence": "avpr:blocks/copper_plated_wall"
 }

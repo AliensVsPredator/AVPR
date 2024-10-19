@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avpr:steel_plated_stack"
+          "name": "avpr:steel_plated"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avpr:blocks/steel_plated_stack"
+  "random_sequence": "avpr:blocks/steel_plated"
 }

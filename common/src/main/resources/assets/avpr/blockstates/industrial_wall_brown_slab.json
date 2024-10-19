@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "type=bottom": {
+            "model": "avpr:block/industrial_wall_brown_slab"
+        },
+        "type=double": {
+            "model": "avpr:block/industrial_wall_brown"
+        },
+        "type=top": {
+            "model": "avpr:block/industrial_wall_brown_slab_top"
+        }
+    }
+}

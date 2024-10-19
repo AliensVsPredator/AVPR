@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 4,
-  "ingredient": {
-    "item": "avpr:steel_block"
-  },
-  "result": "avpr:steel_plated_stack"
-}

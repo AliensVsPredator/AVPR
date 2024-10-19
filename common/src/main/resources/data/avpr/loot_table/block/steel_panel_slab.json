@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "avpr:steel_plated_stack_slab",
+                  "block": "avpr:steel_plated_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -25,11 +25,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "avpr:steel_plated_stack_slab"
+          "name": "avpr:steel_plated_slab"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avpr:blocks/steel_plated_stack_slab"
+  "random_sequence": "avpr:blocks/steel_plated_slab"
 }

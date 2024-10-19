@@ -25,9 +25,15 @@ public class FabricClientMod implements ClientModInitializer {
         EntityRenderers.register(AVPREntities.ACID.get(), AcidEntityRender::new);
         EntityRenderers.register(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
         EntityRenderers.register(AVPREntities.FACEHUGGER.get(), FacehuggerRenderer::new);
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS.get(), RenderType.translucent());
         AVPRBlocks.getAllGlassBlocks().forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent()));
-        AVPRBlocks.getAllMetalBlocks().forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent()));
-        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.RESIN_VEIN_BLOCK.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.gold_grate.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.aluminum_grate.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.iron_grate.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.copper_grate.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.steel_grate.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.ferroaluminum_grate.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.titanium_grate.get(), RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.RESIN_WEBBING_BLOCK.get(), RenderType.cutout());
     }
 

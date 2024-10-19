@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avpr:netherite_plated_stack_stairs"
+          "name": "avpr:netherite_plated_stairs"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avpr:blocks/netherite_plated_stack_stairs"
+  "random_sequence": "avpr:blocks/netherite_plated_stairs"
 }

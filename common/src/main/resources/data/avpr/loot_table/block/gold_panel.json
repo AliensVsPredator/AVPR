@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avpr:gold_plated_stack"
+          "name": "avpr:gold_plated"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avpr:blocks/gold_plated_stack"
+  "random_sequence": "avpr:blocks/gold_plated"
 }

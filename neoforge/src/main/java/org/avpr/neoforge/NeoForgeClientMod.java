@@ -28,7 +28,14 @@ public class NeoForgeClientMod {
     public static void onClientSetup(final FMLClientSetupEvent event) {
         AVPRBlocks.getAllGlassBlocks().forEach(block -> ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent()));
         ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.RESIN_VEIN_BLOCK.get(), RenderType.translucent());
-        AVPRBlocks.getAllMetalBlocks().forEach(block -> ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent()));
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.INDUSTRIAL_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.gold_grate.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.aluminum_grate.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.iron_grate.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.copper_grate.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.steel_grate.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.ferroaluminum_grate.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.titanium_grate.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(AVPRBlocks.RESIN_WEBBING_BLOCK.get(), RenderType.cutout());
     }
 
