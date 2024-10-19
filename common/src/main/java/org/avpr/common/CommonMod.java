@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 
 import org.avpr.common.config.AVPRConfig;
 import org.avpr.common.registries.*;
+import org.avpr.common.worldgen.features.AVPROreFeatures;
 
 public class CommonMod {
 
@@ -63,5 +64,6 @@ public class CommonMod {
         AVPRCreativeTabs.initialize();
         AVPRStatusEffects.initialize();
         AVPRFluids.initialize();
+        AVPROreFeatures.initialize();
     }
 }

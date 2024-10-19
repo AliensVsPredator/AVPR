@@ -24,6 +24,8 @@ public class AVPROreFeatures {
         return ResourceKey.create(Registries.PLACED_FEATURE, CommonMod.modResource(registryName));
     }
 
+    public static void initialize() {}
+
     private AVPROreFeatures() {
         throw new UnsupportedOperationException();
     }
