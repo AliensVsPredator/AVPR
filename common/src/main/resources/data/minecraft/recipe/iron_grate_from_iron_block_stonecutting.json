@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "minecraft:iron_block"
   },
-  "result": "avpr:iron_grate"
+  "result": {
+    "id": "avpr:iron_grate"
+  }
 }

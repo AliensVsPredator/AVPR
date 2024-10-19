@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:engineer_ship_material_2"
   },
-  "result": "avpr:engineer_ship_material_2_slab"
+  "result": {
+    "id": "avpr:engineer_ship_material_2_slab"
+  }
 }

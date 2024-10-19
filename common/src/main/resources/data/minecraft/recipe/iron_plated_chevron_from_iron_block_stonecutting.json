@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "minecraft:iron_block"
   },
-  "result": "avpr:iron_plated_chevron"
+  "result": {
+    "id": "avpr:iron_plated_chevron"
+  }
 }

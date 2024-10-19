@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "minecraft:gold_block"
   },
-  "result": "avpr:gold_vent"
+  "result": {
+    "id": "avpr:gold_vent"
+  }
 }

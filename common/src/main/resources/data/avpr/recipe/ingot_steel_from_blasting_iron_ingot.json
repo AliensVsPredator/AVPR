@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "minecraft:iron_ingot"
   },
-  "result": "avpr:ingot_steel"
+  "result": {
+    "id": "avpr:ingot_steel"
+  }
 }

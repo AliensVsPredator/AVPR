@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:aluminum_plated_chevron"
   },
-  "result": "avpr:aluminum_plated_chevron_stairs"
+  "result": {
+    "id": "avpr:aluminum_plated_chevron_stairs"
+  }
 }

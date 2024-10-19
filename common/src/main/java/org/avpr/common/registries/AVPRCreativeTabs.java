@@ -63,6 +63,8 @@ public record AVPRCreativeTabs() {
                     .title(Component.translatable("tab." + CommonMod.MOD_ID + ".items"))
                     .icon(() -> new ItemStack(AVPRItems.ROYAL_JELLY.get()))
                     .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(AVPRItems.BOTTLE_TINTED.get());
+                        entries.accept(AVPRItems.BOTTLE_TINTED_ACID.get());
                         entries.accept(AVPRItems.COLBALT.get());
                         entries.accept(AVPRItems.CARBON.get());
                         entries.accept(AVPRItems.DUST_LITHIUM.get());

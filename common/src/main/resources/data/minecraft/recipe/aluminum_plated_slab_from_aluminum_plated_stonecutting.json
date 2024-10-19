@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:aluminum_plated"
   },
-  "result": "avpr:aluminum_plated_slab"
+  "result": {
+    "id": "avpr:aluminum_plated_slab"
+  }
 }

@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "avpr:raw_tentacle"
   },
-  "result": "avpr:trilo_bite"
+  "result": {
+    "id": "avpr:trilo_bite"
+  }
 }

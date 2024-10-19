@@ -24,6 +24,6 @@
     "ABC"
   ],
   "result": {
-    "item": "avpr:power_supply"
+    "id": "avpr:power_supply"
   }
 }

@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "avpr:raw_titanium"
   },
-  "result": "avpr:ingot_titanium"
+  "result": {
+    "id": "avpr:ingot_titanium"
+  }
 }

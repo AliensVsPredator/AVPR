@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "avpr:sheet_orionite"
   },
-  "result": "avpr:ingot_orionite"
+  "result": {
+    "id": "avpr:ingot_orionite"
+  }
 }

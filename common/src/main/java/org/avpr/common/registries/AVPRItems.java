@@ -1606,6 +1606,14 @@ public record AVPRItems() {
             "cobalt",
             () -> new Item(new Item.Properties()));
 
+    public static final Supplier<Item> BOTTLE_TINTED = AVPRItems.registerItem(
+            "bottle_tinted",
+            () -> new Item(new Item.Properties()));
+
+    public static final Supplier<Item> BOTTLE_TINTED_ACID = AVPRItems.registerItem(
+            "bottle_tinted_acid",
+            () -> new Item(new Item.Properties()));
+
     public static final Supplier<Item> CARBON = AVPRItems.registerItem(
             "carbon",
             () -> new Item(new Item.Properties()));

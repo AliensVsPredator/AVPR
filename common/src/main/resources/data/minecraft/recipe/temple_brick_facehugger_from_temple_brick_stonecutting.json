@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:temple_brick"
   },
-  "result": "avpr:temple_brick_facehugger"
+  "result": {
+    "id": "avpr:temple_brick_facehugger"
+  }
 }

@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:titanium_cut"
   },
-  "result": "avpr:titanium_cut_stairs"
+  "result": {
+    "id": "avpr:titanium_cut_stairs"
+  }
 }

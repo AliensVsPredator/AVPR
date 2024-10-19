@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:steel_cut"
   },
-  "result": "avpr:steel_cut_stairs"
+  "result": {
+    "id": "avpr:steel_cut_stairs"
+  }
 }

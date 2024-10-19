@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:plastic_light_blue"
   },
-  "result": "avpr:plastic_light_blue_slab"
+  "result": {
+    "id": "avpr:plastic_light_blue_slab"
+  }
 }

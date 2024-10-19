@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:padding_lime_square"
   },
-  "result": "avpr:padding_lime_square_stairs"
+  "result": {
+    "id": "avpr:padding_lime_square_stairs"
+  }
 }

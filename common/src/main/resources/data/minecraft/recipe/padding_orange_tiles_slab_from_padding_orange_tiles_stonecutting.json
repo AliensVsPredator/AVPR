@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:padding_orange_tiles"
   },
-  "result": "avpr:padding_orange_tiles_slab"
+  "result": {
+    "id": "avpr:padding_orange_tiles_slab"
+  }
 }

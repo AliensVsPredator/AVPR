@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "avpr:ore_bauxite"
   },
-  "result": "avpr:ingot_aluminum"
+  "result": {
+    "id": "avpr:ingot_aluminum"
+  }
 }

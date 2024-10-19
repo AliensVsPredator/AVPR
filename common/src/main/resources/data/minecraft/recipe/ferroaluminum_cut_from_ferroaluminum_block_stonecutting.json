@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:ferroaluminum_block"
   },
-  "result": "avpr:ferroaluminum_cut"
+  "result": {
+    "id": "avpr:ferroaluminum_cut"
+  }
 }

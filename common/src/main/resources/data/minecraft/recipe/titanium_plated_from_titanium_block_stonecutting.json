@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:titanium_block"
   },
-  "result": "avpr:titanium_plated"
+  "result": {
+    "id": "avpr:titanium_plated"
+  }
 }

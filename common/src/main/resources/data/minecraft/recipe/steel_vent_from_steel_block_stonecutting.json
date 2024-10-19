@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:steel_block"
   },
-  "result": "avpr:steel_vent"
+  "result": {
+    "id": "avpr:steel_vent"
+  }
 }

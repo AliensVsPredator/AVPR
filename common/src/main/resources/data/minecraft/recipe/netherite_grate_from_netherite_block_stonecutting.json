@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "minecraft:netherite_block"
   },
-  "result": "avpr:netherite_grate"
+  "result": {
+    "id": "avpr:netherite_grate"
+  }
 }

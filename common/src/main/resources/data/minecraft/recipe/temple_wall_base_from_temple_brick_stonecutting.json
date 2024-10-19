@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:temple_brick"
   },
-  "result": "avpr:temple_wall_base"
+  "result": {
+    "id": "avpr:temple_wall_base"
+  }
 }

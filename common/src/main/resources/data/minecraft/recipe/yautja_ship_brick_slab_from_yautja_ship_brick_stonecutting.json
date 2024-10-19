@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:yautja_ship_brick"
   },
-  "result": "avpr:yautja_ship_brick_slab"
+  "result": {
+    "id": "avpr:yautja_ship_brick_slab"
+  }
 }

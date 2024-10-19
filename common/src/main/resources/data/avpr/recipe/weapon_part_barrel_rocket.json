@@ -12,6 +12,6 @@
     "AAA"
   ],
   "result": {
-    "item": "avpr:weapon_part_barrel_rocket"
+    "id": "avpr:weapon_part_barrel_rocket"
   }
 }

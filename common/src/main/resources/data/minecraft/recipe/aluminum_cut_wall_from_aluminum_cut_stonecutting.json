@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:aluminum_cut"
   },
-  "result": "avpr:aluminum_cut_wall"
+  "result": {
+    "id": "avpr:aluminum_cut_wall"
+  }
 }

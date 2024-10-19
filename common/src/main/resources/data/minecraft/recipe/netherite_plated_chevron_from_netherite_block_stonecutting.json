@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "minecraft:netherite_block"
   },
-  "result": "avpr:netherite_plated_chevron"
+  "result": {
+    "id": "avpr:netherite_plated_chevron"
+  }
 }

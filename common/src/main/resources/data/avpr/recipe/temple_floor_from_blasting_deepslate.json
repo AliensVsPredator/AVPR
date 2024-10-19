@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "minecraft:deepslate"
   },
-  "result": "avpr:temple_floor"
+  "result": {
+    "id": "avpr:temple_floor"
+  }
 }

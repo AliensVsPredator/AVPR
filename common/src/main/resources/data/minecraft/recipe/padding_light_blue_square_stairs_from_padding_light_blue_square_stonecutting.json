@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:padding_light_blue_square"
   },
-  "result": "avpr:padding_light_blue_square_stairs"
+  "result": {
+    "id": "avpr:padding_light_blue_square_stairs"
+  }
 }

@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:padding_green_tiles"
   },
-  "result": "avpr:padding_green_tiles_wall"
+  "result": {
+    "id": "avpr:padding_green_tiles_wall"
+  }
 }

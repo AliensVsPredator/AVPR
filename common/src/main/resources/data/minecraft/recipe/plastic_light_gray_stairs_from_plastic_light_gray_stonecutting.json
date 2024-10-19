@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:plastic_light_gray"
   },
-  "result": "avpr:plastic_light_gray_stairs"
+  "result": {
+    "id": "avpr:plastic_light_gray_stairs"
+  }
 }

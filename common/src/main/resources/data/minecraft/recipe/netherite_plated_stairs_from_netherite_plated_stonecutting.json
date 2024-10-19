@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:netherite_plated"
   },
-  "result": "avpr:netherite_plated_stairs"
+  "result": {
+    "id": "avpr:netherite_plated_stairs"
+  }
 }

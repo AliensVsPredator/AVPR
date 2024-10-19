@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:plastic_cyan"
   },
-  "result": "avpr:plastic_cyan_wall"
+  "result": {
+    "id": "avpr:plastic_cyan_wall"
+  }
 }

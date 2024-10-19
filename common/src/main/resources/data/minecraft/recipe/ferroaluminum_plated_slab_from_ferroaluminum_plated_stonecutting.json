@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:ferroaluminum_plated"
   },
-  "result": "avpr:ferroaluminum_plated_slab"
+  "result": {
+    "id": "avpr:ferroaluminum_plated_slab"
+  }
 }

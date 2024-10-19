@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "avpr:industrial_glass_red"
   },
-  "result": "avpr:industrial_glass"
+  "result": {
+    "id": "avpr:industrial_glass"
+  }
 }

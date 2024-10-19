@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:padding_cyan_square"
   },
-  "result": "avpr:padding_cyan_square_stairs"
+  "result": {
+    "id": "avpr:padding_cyan_square_stairs"
+  }
 }

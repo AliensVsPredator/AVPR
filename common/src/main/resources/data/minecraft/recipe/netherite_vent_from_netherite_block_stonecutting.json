@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "minecraft:netherite_block"
   },
-  "result": "avpr:netherite_vent"
+  "result": {
+    "id": "avpr:netherite_vent"
+  }
 }

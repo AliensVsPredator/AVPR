@@ -21,6 +21,6 @@
     "BAB"
   ],
   "result": {
-    "item": "avpr:led_display"
+    "id": "avpr:led_display"
   }
 }

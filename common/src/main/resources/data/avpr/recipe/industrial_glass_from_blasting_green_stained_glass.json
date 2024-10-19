@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "minecraft:green_stained_glass"
   },
-  "result": "avpr:industrial_glass"
+  "result": {
+    "id": "avpr:industrial_glass"
+  }
 }

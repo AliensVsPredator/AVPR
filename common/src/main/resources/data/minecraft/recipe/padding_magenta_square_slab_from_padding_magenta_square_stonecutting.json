@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "avpr:padding_magenta_square"
   },
-  "result": "avpr:padding_magenta_square_slab"
+  "result": {
+    "id": "avpr:padding_magenta_square_slab"
+  }
 }
