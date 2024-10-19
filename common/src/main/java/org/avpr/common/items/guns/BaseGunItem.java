@@ -6,10 +6,16 @@ import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.function.Consumer;
 
+import org.avpr.common.api.util.TooltipUtils;
 import org.avpr.common.client.items.renders.GunRender;
 
 public class BaseGunItem extends Item implements GeoItem {
@@ -25,6 +31,23 @@ public class BaseGunItem extends Item implements GeoItem {
 
     public String getItemID() {
         return this.id;
+    }
+
+    @Override
+    public void appendHoverText(
+        @NotNull ItemStack stack,
+        @NotNull TooltipContext context,
+        @NotNull List<Component> tooltipComponents,
+        @NotNull TooltipFlag tooltipFlag
+    ) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        TooltipUtils.appendLabel(
+            tooltipComponents,
+            "tooltip.avp.ammunition_type",
+            Component.literal(
+                "Weapon features not yet implemented"
+            )
+        );
     }
 
     @Override
