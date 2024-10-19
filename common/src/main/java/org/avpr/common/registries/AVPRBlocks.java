@@ -11,11 +11,9 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
-import java.util.*;
 import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
-import org.avpr.common.api.common.blocks.*;
 import org.avpr.common.blocks.AVPRStairBlock;
 import org.avpr.common.blocks.ColoredTransparentBlock;
 import org.avpr.common.blocks.ResinVeinBlock;
@@ -3799,210 +3797,2732 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(titanium_block.get()))
     );
 
-    private static final Map<DyeColor, Block> INDUSTRIAL_GLASS_BLOCKS = new EnumMap<>(DyeColor.class);
-
-    private static final Map<DyeColor, Item> INDUSTRIAL_GLASS_ITEMS = new EnumMap<>(DyeColor.class);
-
-    private static final Map<OreType, Block> ORE_BLOCKS = new EnumMap<>(OreType.class);
-
-    private static final Map<OreType, Item> ORE_ITEMS = new EnumMap<>(OreType.class);
-
-    private static final Map<RawBlockType, Block> RAW_BLOCKS = new EnumMap<>(RawBlockType.class);
-
-    private static final Map<RawBlockType, Item> RAW_ITEMS = new EnumMap<>(RawBlockType.class);
-
-    private static final Map<NormalBlockType, Block> NORMAL_BLOCKS = new EnumMap<>(NormalBlockType.class);
-
-    private static final Map<NormalBlockType, Item> NORMAL_ITEMS = new EnumMap<>(NormalBlockType.class);
-
-    private static final Map<RawBlockType, OreProperties> RAW_PROPERTIES = Map.of(
-        RawBlockType.BAUXITE,
-        new OreProperties("bauxite", 3.2F, 2.6F),
-        RawBlockType.TITANIUM,
-        new OreProperties("titanium", 4.0F, 4.0F)
+    public static final Supplier<Block> ORE_BAUXITE = AVPRBlocks.registerBlock(
+        "ore_bauxite",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(3.2F, 2.6F)
+        )
     );
 
-    private static final Map<NormalBlockType, OreProperties> NORMAL_PROPERTIES = Map.of(
-        NormalBlockType.NEODYMIUM,
-        new OreProperties("neodymium", 3.2F, 2.6F),
-        NormalBlockType.COBALT,
-        new OreProperties("cobalt", 3.2F, 2.6F),
-        NormalBlockType.TITANIUM,
-        new OreProperties("titanium", 4.0F, 4.0F),
-        NormalBlockType.LITHIUM,
-        new OreProperties("lithium", 4.0F, 4.0F),
-        NormalBlockType.SILICA,
-        new OreProperties("silica", 2.2F, 1.4F)
+    public static final Supplier<Block> ORE_TITANIUM = AVPRBlocks.registerBlock(
+        "ore_titanium",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(4.0F, 4.0F)
+        )
     );
 
-    private static final Map<OreType, OreProperties> ORE_PROPERTIES = Map.of(
-        OreType.BAUXITE,
-        new OreProperties("ore_bauxite", 3.2F, 2.6F),
-        OreType.TITANIUM,
-        new OreProperties("ore_titanium", 4.0F, 4.0F),
-        OreType.SILICA,
-        new OreProperties("ore_silica", 2.2F, 1.4F),
-        OreType.MONAZITE,
-        new OreProperties("ore_monazite", 45F, 15F),
-        OreType.LITHIUM,
-        new OreProperties("ore_lithium", 4.2F, 5.4F),
-        OreType.COBALT,
-        new OreProperties("ore_cobalt", 50F, 20F)
+    public static final Supplier<Block> ORE_SILICA = AVPRBlocks.registerBlock(
+        "ore_silica",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(2.2F, 1.4F)
+        )
     );
 
-    public static void registerOres() {
-        ORE_PROPERTIES.forEach((oreType, properties) -> {
-            Supplier<Block> blockSupplier = AVPRBlocks.registerBlock(
-                properties.name().toLowerCase(Locale.ROOT),
-                () -> new Block(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                        .noOcclusion()
-                        .strength(properties.hardness(), properties.resistance())
-                )
-            );
-            ORE_BLOCKS.put(oreType, blockSupplier.get());
+    public static final Supplier<Block> ORE_MONAZITE = AVPRBlocks.registerBlock(
+        "ore_monazite",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(45.0F, 15.0F)
+        )
+    );
 
-            Supplier<Item> itemSupplier = AVPRItems.registerItem(
-                properties.name().toLowerCase(Locale.ROOT),
-                () -> new BlockItem(blockSupplier.get(), new Item.Properties())
-            );
-            ORE_ITEMS.put(oreType, itemSupplier.get());
-        });
-    }
+    public static final Supplier<Block> ORE_LITHIUM = AVPRBlocks.registerBlock(
+        "ore_lithium",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(4.2F, 5.4F)
+        )
+    );
 
-    public static void registerGlassBlocks() {
-        Arrays.stream(DyeColor.values()).forEach(dyeColor -> {
-            Supplier<Block> glassBlock = AVPRBlocks.registerBlock(
-                "industrial_glass_" + dyeColor.getName().toLowerCase(Locale.ROOT),
-                () -> new ColoredTransparentBlock(dyeColor, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
-            );
-            INDUSTRIAL_GLASS_BLOCKS.put(dyeColor, glassBlock.get());
+    public static final Supplier<Block> ORE_COBALT = AVPRBlocks.registerBlock(
+        "ore_cobalt",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(50.0F, 20.0F)
+        )
+    );
 
-            Supplier<Item> glassItem = AVPRItems.registerItem(
-                "industrial_glass_" + dyeColor.getName().toLowerCase(Locale.ROOT),
-                () -> new BlockItem(glassBlock.get(), new Item.Properties())
-            );
-            INDUSTRIAL_GLASS_ITEMS.put(dyeColor, glassItem.get());
-        });
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_WHITE = AVPRBlocks.registerBlock(
+        "industrial_glass_white",
+        () -> new ColoredTransparentBlock(DyeColor.WHITE, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static void registerRawBlocks() {
-        RAW_PROPERTIES.forEach((rawBlockType, properties) -> {
-            Supplier<Block> blockSupplier = AVPRBlocks.registerBlock(
-                "raw_" + properties.name().toLowerCase(Locale.ROOT) + "_block",
-                () -> new Block(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                        .strength(properties.hardness(), properties.resistance())
-                )
-            );
-            RAW_BLOCKS.put(rawBlockType, blockSupplier.get());
+    public static final Supplier<Block> INDUSTRIAL_GLASS_ORANGE = AVPRBlocks.registerBlock(
+        "industrial_glass_orange",
+        () -> new ColoredTransparentBlock(DyeColor.ORANGE, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-            Supplier<Item> itemSupplier = AVPRItems.registerItem(
-                "raw_" + properties.name().toLowerCase(Locale.ROOT) + "_block",
-                () -> new BlockItem(blockSupplier.get(), new Item.Properties())
-            );
-            RAW_ITEMS.put(rawBlockType, itemSupplier.get());
-        });
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_MAGENTA = AVPRBlocks.registerBlock(
+        "industrial_glass_magenta",
+        () -> new ColoredTransparentBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static void registerNormalBlocks() {
-        NORMAL_PROPERTIES.forEach((normalBlockType, properties) -> {
-            Supplier<Block> blockSupplier = AVPRBlocks.registerBlock(
-                properties.name().toLowerCase(Locale.ROOT) + "_block",
-                () -> new Block(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                        .strength(properties.hardness(), properties.resistance())
-                )
-            );
-            NORMAL_BLOCKS.put(normalBlockType, blockSupplier.get());
+    public static final Supplier<Block> INDUSTRIAL_GLASS_LIGHT_BLUE = AVPRBlocks.registerBlock(
+        "industrial_glass_light_blue",
+        () -> new ColoredTransparentBlock(DyeColor.LIGHT_BLUE, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-            Supplier<Item> itemSupplier = AVPRItems.registerItem(
-                properties.name().toLowerCase(Locale.ROOT) + "_block",
-                () -> new BlockItem(blockSupplier.get(), new Item.Properties())
-            );
-            NORMAL_ITEMS.put(normalBlockType, itemSupplier.get());
-        });
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_YELLOW = AVPRBlocks.registerBlock(
+        "industrial_glass_yellow",
+        () -> new ColoredTransparentBlock(DyeColor.YELLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static Block getNormalBlock(NormalBlockType rawBlockType) {
-        return NORMAL_BLOCKS.get(rawBlockType);
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_LIME = AVPRBlocks.registerBlock(
+        "industrial_glass_lime",
+        () -> new ColoredTransparentBlock(DyeColor.LIME, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static Item getNormalItem(NormalBlockType rawBlockType) {
-        return NORMAL_ITEMS.get(rawBlockType);
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_PINK = AVPRBlocks.registerBlock(
+        "industrial_glass_pink",
+        () -> new ColoredTransparentBlock(DyeColor.PINK, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static List<Item> getAllNormalItems() {
-        return Arrays.stream(NormalBlockType.values())
-            .map(AVPRBlocks::getNormalItem)
-            .toList();
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_GRAY = AVPRBlocks.registerBlock(
+        "industrial_glass_gray",
+        () -> new ColoredTransparentBlock(DyeColor.GRAY, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static List<Block> getAllNormalBlocks() {
-        return Arrays.stream(NormalBlockType.values())
-            .map(AVPRBlocks::getNormalBlock)
-            .toList();
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_LIGHT_GRAY = AVPRBlocks.registerBlock(
+        "industrial_glass_light_gray",
+        () -> new ColoredTransparentBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static Block getRawBlock(RawBlockType rawBlockType) {
-        return RAW_BLOCKS.get(rawBlockType);
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_CYAN = AVPRBlocks.registerBlock(
+        "industrial_glass_cyan",
+        () -> new ColoredTransparentBlock(DyeColor.CYAN, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static Item getRawItem(RawBlockType rawBlockType) {
-        return RAW_ITEMS.get(rawBlockType);
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_PURPLE = AVPRBlocks.registerBlock(
+        "industrial_glass_purple",
+        () -> new ColoredTransparentBlock(DyeColor.PURPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static List<Item> getAllRawItems() {
-        return Arrays.stream(RawBlockType.values())
-            .map(AVPRBlocks::getRawItem)
-            .toList();
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_BLUE = AVPRBlocks.registerBlock(
+        "industrial_glass_blue",
+        () -> new ColoredTransparentBlock(DyeColor.BLUE, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static List<Block> getAllRawBlocks() {
-        return Arrays.stream(RawBlockType.values())
-            .map(AVPRBlocks::getRawBlock)
-            .toList();
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_BROWN = AVPRBlocks.registerBlock(
+        "industrial_glass_brown",
+        () -> new ColoredTransparentBlock(DyeColor.BROWN, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static Block getOreBlock(OreType oreType) {
-        return ORE_BLOCKS.get(oreType);
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_GREEN = AVPRBlocks.registerBlock(
+        "industrial_glass_green",
+        () -> new ColoredTransparentBlock(DyeColor.GREEN, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static Item getOreItem(OreType oreType) {
-        return ORE_ITEMS.get(oreType);
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_RED = AVPRBlocks.registerBlock(
+        "industrial_glass_red",
+        () -> new ColoredTransparentBlock(DyeColor.RED, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static List<Item> getAllOreItems() {
-        return Arrays.stream(OreType.values())
-            .map(AVPRBlocks::getOreItem)
-            .toList();
-    }
+    public static final Supplier<Block> INDUSTRIAL_GLASS_BLACK = AVPRBlocks.registerBlock(
+        "industrial_glass_black",
+        () -> new ColoredTransparentBlock(DyeColor.BLACK, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+    );
 
-    public static List<Block> getAllOreBlocks() {
-        return Arrays.stream(OreType.values())
-            .map(AVPRBlocks::getOreBlock)
-            .toList();
-    }
+    public static final Supplier<Block> RAW_BAUXITE_BLOCK = AVPRBlocks.registerBlock(
+        "raw_bauxite_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(3.2F, 2.6F)
+        )
+    );
 
-    public static Block getGlassBlock(DyeColor dyeColor) {
-        return INDUSTRIAL_GLASS_BLOCKS.get(dyeColor);
-    }
+    public static final Supplier<Block> RAW_TITANIUM_BLOCK = AVPRBlocks.registerBlock(
+        "raw_titanium_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(4.0F, 4.0F)
+        )
+    );
 
-    public static Item getGlassItem(DyeColor dyeColor) {
-        return INDUSTRIAL_GLASS_ITEMS.get(dyeColor);
-    }
+    public static final Supplier<Block> NEODYMIUM_BLOCK = AVPRBlocks.registerBlock(
+        "neodymium_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(3.2F, 2.6F)
+        )
+    );
 
-    public static List<Item> getAllGlassItems() {
-        return Arrays.stream(DyeColor.values())
-            .map(AVPRBlocks::getGlassItem)
-            .toList();
-    }
+    public static final Supplier<Block> COBALT_BLOCK = AVPRBlocks.registerBlock(
+        "cobalt_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(3.2F, 2.6F)
+        )
+    );
 
-    public static List<Block> getAllGlassBlocks() {
-        return Arrays.stream(DyeColor.values())
-            .map(AVPRBlocks::getGlassBlock)
-            .toList();
-    }
+    public static final Supplier<Block> LITHIUM_BLOCK = AVPRBlocks.registerBlock(
+        "lithium_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(4.0F, 4.0F)
+        )
+    );
+
+    public static final Supplier<Block> SILICA_BLOCK = AVPRBlocks.registerBlock(
+        "silica_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(2.2F, 1.4F)
+        )
+    );
+
+    public static final Supplier<BlockItem> RESIN_BLOCK_ITEM = AVPRItems.registerItem(
+        "resin",
+        () -> new BlockItem(RESIN_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> RESIN_VEIN_BLOCK_ITEM = AVPRItems.registerItem(
+        "resin_vein",
+        () -> new BlockItem(RESIN_VEIN_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> RESIN_WEBBING_BLOCK_ITEM = AVPRItems.registerItem(
+        "resin_webbing",
+        () -> new BlockItem(RESIN_WEBBING_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ORIONITE_BLOCK_ITEM = AVPRItems.registerItem(
+        "orionite_block",
+        () -> new BlockItem(ORIONITE_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_HAZARD_ITEM = AVPRItems.registerItem(
+        "industrial_wall_hazard",
+        () -> new BlockItem(INDUSTRIAL_WALL_HAZARD.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> SOLAR_PANEL_ITEM = AVPRItems.registerItem(
+        "solar_panel",
+        () -> new BlockItem(SOLAR_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_DIRT_ITEM = AVPRItems.registerItem(
+        "unidentified_dirt",
+        () -> new BlockItem(UNIDENTIFIED_DIRT.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_GRAVEL_ITEM = AVPRItems.registerItem(
+        "unidentified_gravel",
+        () -> new BlockItem(UNIDENTIFIED_GRAVEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_ROCK_ITEM = AVPRItems.registerItem(
+        "unidentified_rock",
+        () -> new BlockItem(UNIDENTIFIED_ROCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_SAND_ITEM = AVPRItems.registerItem(
+        "unidentified_sand",
+        () -> new BlockItem(UNIDENTIFIED_SAND.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> UNIDENTIFIED_STONE_ITEM = AVPRItems.registerItem(
+        "unidentified_stone",
+        () -> new BlockItem(UNIDENTIFIED_STONE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_ITEM = AVPRItems.registerItem(
+        "yautja_ship_brick",
+        () -> new BlockItem(YAUTJA_SHIP_BRICK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_SLAB_ITEM = AVPRItems.registerItem(
+        "yautja_ship_brick_slab",
+        () -> new BlockItem(YAUTJA_SHIP_BRICK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
+        "yautja_ship_brick_stairs",
+        () -> new BlockItem(YAUTJA_SHIP_BRICK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_BRICK_WALL_ITEM = AVPRItems.registerItem(
+        "yautja_ship_brick_wall",
+        () -> new BlockItem(YAUTJA_SHIP_BRICK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_1_ITEM = AVPRItems.registerItem(
+        "yautja_ship_decor_1",
+        () -> new BlockItem(YAUTJA_SHIP_DECOR_1.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_2_ITEM = AVPRItems.registerItem(
+        "yautja_ship_decor_2",
+        () -> new BlockItem(YAUTJA_SHIP_DECOR_2.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_ITEM = AVPRItems.registerItem(
+        "yautja_ship_decor_3",
+        () -> new BlockItem(YAUTJA_SHIP_DECOR_3.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_SLAB_ITEM = AVPRItems.registerItem(
+        "yautja_ship_decor_3_slab",
+        () -> new BlockItem(YAUTJA_SHIP_DECOR_3_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_STAIRS_ITEM = AVPRItems.registerItem(
+        "yautja_ship_decor_3_stairs",
+        () -> new BlockItem(YAUTJA_SHIP_DECOR_3_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_DECOR_3_WALL_ITEM = AVPRItems.registerItem(
+        "yautja_ship_decor_3_wall",
+        () -> new BlockItem(YAUTJA_SHIP_DECOR_3_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_PANEL_ITEM = AVPRItems.registerItem(
+        "yautja_ship_panel",
+        () -> new BlockItem(YAUTJA_SHIP_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_SUPPORT_PILLAR_ITEM = AVPRItems.registerItem(
+        "yautja_ship_support_pillar",
+        () -> new BlockItem(YAUTJA_SHIP_SUPPORT_PILLAR.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> YAUTJA_SHIP_WALL_BASE_ITEM = AVPRItems.registerItem(
+        "yautja_ship_wall_base",
+        () -> new BlockItem(YAUTJA_SHIP_WALL_BASE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_WALL_BASE_ITEM = AVPRItems.registerItem(
+        "temple_wall_base",
+        () -> new BlockItem(TEMPLE_WALL_BASE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_CHESTBURSTER_ITEM = AVPRItems.registerItem(
+        "temple_brick_chestburster",
+        () -> new BlockItem(TEMPLE_BRICK_CHESTBURSTER.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_FACEHUGGER_ITEM = AVPRItems.registerItem(
+        "temple_brick_facehugger",
+        () -> new BlockItem(TEMPLE_BRICK_FACEHUGGER.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_SKULL_ITEM = AVPRItems.registerItem(
+        "temple_skulls",
+        () -> new BlockItem(TEMPLE_SKULL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_ITEM = AVPRItems.registerItem(
+        "temple_brick",
+        () -> new BlockItem(TEMPLE_BRICK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SLAB_ITEM = AVPRItems.registerItem(
+        "temple_brick_slab",
+        () -> new BlockItem(TEMPLE_BRICK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
+        "temple_brick_stairs",
+        () -> new BlockItem(TEMPLE_BRICK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_WALL_ITEM = AVPRItems.registerItem(
+        "temple_brick_wall",
+        () -> new BlockItem(TEMPLE_BRICK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SINGLE_ITEM = AVPRItems.registerItem(
+        "temple_brick_single",
+        () -> new BlockItem(TEMPLE_BRICK_SINGLE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SINGLE_SLAB_ITEM = AVPRItems.registerItem(
+        "temple_brick_single_slab",
+        () -> new BlockItem(TEMPLE_BRICK_SINGLE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SIMPLE_STAIRS_ITEM = AVPRItems.registerItem(
+        "temple_brick_single_stairs",
+        () -> new BlockItem(TEMPLE_BRICK_SIMPLE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_BRICK_SIMPLE_WALL_ITEM = AVPRItems.registerItem(
+        "temple_brick_single_wall",
+        () -> new BlockItem(TEMPLE_BRICK_SIMPLE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_ITEM = AVPRItems.registerItem(
+        "temple_floor",
+        () -> new BlockItem(TEMPLE_FLOOR.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_SLAB_ITEM = AVPRItems.registerItem(
+        "temple_floor_slab",
+        () -> new BlockItem(TEMPLE_FLOOR_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_STAIRS_ITEM = AVPRItems.registerItem(
+        "temple_floor_stairs",
+        () -> new BlockItem(TEMPLE_FLOOR_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_FLOOR_WALL_ITEM = AVPRItems.registerItem(
+        "temple_floor_wall",
+        () -> new BlockItem(TEMPLE_FLOOR_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_ITEM = AVPRItems.registerItem(
+        "temple_tile",
+        () -> new BlockItem(TEMPLE_TILE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_SLAB_ITEM = AVPRItems.registerItem(
+        "temple_tile_slab",
+        () -> new BlockItem(TEMPLE_TILE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_STAIRS_ITEM = AVPRItems.registerItem(
+        "temple_tile_stairs",
+        () -> new BlockItem(TEMPLE_TILE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TEMPLE_TILE_WALL_ITEM = AVPRItems.registerItem(
+        "temple_tile_wall",
+        () -> new BlockItem(TEMPLE_TILE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_slab",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_wall",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_1",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_1.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_1_slab",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_1_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_1_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_1_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_1_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_1_wall",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_1_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_2",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_2.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_2_slab",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_2_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_2_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_2_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_2_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_2_wall",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_2_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_3",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_3.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_3_slab",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_3_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_3_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_3_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_BRICK_3_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_brick_3_wall",
+        () -> new BlockItem(ENGINEER_SHIP_BRICK_3_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_0",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_0.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_0_slab",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_0_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_0_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_0_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_0_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_0_wall",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_0_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_1",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_1.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_1_slab",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_1_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_1_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_1_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_1_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_1_wall",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_1_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_2",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_2.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_2_slab",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_2_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_2_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_2_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_MATERIAL_2_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_material_2_wall",
+        () -> new BlockItem(ENGINEER_SHIP_MATERIAL_2_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall",
+        () -> new BlockItem(ENGINEER_SHIP_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_slab",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_wall",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_1",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_1.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_1_slab",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_1_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_1_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_1_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_1_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_1_wall",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_1_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_2",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_2.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_2_slab",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_2_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_2_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_2_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_2_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_2_wall",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_2_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_3",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_3.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_3_slab",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_3_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_3_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_3_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_3_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_3_wall",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_3_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_4",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_4.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_SLAB_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_4_slab",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_4_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_STAIRS_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_4_stairs",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_4_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_WALL_4_WALL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_wall_4_wall",
+        () -> new BlockItem(ENGINEER_SHIP_WALL_4_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_COLUMN_1_ITEM = AVPRItems.registerItem(
+        "engineer_ship_column_1",
+        () -> new BlockItem(ENGINEER_SHIP_COLUMN_1.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_COLUMN_2_ITEM = AVPRItems.registerItem(
+        "engineer_ship_column_2",
+        () -> new BlockItem(ENGINEER_SHIP_COLUMN_2.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_FLOOR_ITEM = AVPRItems.registerItem(
+        "engineer_ship_floor",
+        () -> new BlockItem(ENGINEER_SHIP_FLOOR.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_GRAVEL_ITEM = AVPRItems.registerItem(
+        "engineer_ship_gravel",
+        () -> new BlockItem(ENGINEER_SHIP_GRAVEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_ITEM = AVPRItems.registerItem(
+        "engineer_ship_rock",
+        () -> new BlockItem(ENGINEER_SHIP_ROCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_1_ITEM = AVPRItems.registerItem(
+        "engineer_ship_rock_1",
+        () -> new BlockItem(ENGINEER_SHIP_ROCK_1.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_2_ITEM = AVPRItems.registerItem(
+        "engineer_ship_rock_2",
+        () -> new BlockItem(ENGINEER_SHIP_ROCK_2.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ENGINEER_SHIP_ROCK_3_ITEM = AVPRItems.registerItem(
+        "engineer_ship_rock_3",
+        () -> new BlockItem(ENGINEER_SHIP_ROCK_3.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_WHITE_ITEM = AVPRItems.registerItem(
+        "plastic_white",
+        () -> new BlockItem(PLASTIC_WHITE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_WHITE_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_white_slab",
+        () -> new BlockItem(PLASTIC_WHITE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_WHITE_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_white_stairs",
+        () -> new BlockItem(PLASTIC_WHITE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_WHITE_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_white_wall",
+        () -> new BlockItem(PLASTIC_WHITE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_ORANGE_ITEM = AVPRItems.registerItem(
+        "plastic_orange",
+        () -> new BlockItem(PLASTIC_ORANGE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_ORANGE_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_orange_slab",
+        () -> new BlockItem(PLASTIC_ORANGE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_ORANGE_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_orange_stairs",
+        () -> new BlockItem(PLASTIC_ORANGE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_ORANGE_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_orange_wall",
+        () -> new BlockItem(PLASTIC_ORANGE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_MAGENTA_ITEM = AVPRItems.registerItem(
+        "plastic_magenta",
+        () -> new BlockItem(PLASTIC_MAGENTA.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_MAGENTA_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_magenta_slab",
+        () -> new BlockItem(PLASTIC_MAGENTA_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_MAGENTA_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_magenta_stairs",
+        () -> new BlockItem(PLASTIC_MAGENTA_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_MAGENTA_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_magenta_wall",
+        () -> new BlockItem(PLASTIC_MAGENTA_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_BLUE_ITEM = AVPRItems.registerItem(
+        "plastic_light_blue",
+        () -> new BlockItem(PLASTIC_LIGHT_BLUE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PURPLE_ITEM = AVPRItems.registerItem(
+        "plastic_purple",
+        () -> new BlockItem(PLASTIC_PURPLE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIME_ITEM = AVPRItems.registerItem(
+        "plastic_lime",
+        () -> new BlockItem(PLASTIC_LIME.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PINK_ITEM = AVPRItems.registerItem(
+        "plastic_pink",
+        () -> new BlockItem(PLASTIC_PINK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GRAY_ITEM = AVPRItems.registerItem(
+        "plastic_gray",
+        () -> new BlockItem(PLASTIC_GRAY.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLUE_ITEM = AVPRItems.registerItem(
+        "plastic_blue",
+        () -> new BlockItem(PLASTIC_BLUE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BROWN_ITEM = AVPRItems.registerItem(
+        "plastic_brown",
+        () -> new BlockItem(PLASTIC_BROWN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_RED_ITEM = AVPRItems.registerItem(
+        "plastic_red",
+        () -> new BlockItem(PLASTIC_RED.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_BLUE_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_light_blue_slab",
+        () -> new BlockItem(PLASTIC_LIGHT_BLUE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_BLUE_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_light_blue_stairs",
+        () -> new BlockItem(PLASTIC_LIGHT_BLUE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_BLUE_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_light_blue_wall",
+        () -> new BlockItem(PLASTIC_LIGHT_BLUE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_YELLOW_ITEM = AVPRItems.registerItem(
+        "plastic_yellow",
+        () -> new BlockItem(PLASTIC_YELLOW.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_YELLOW_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_yellow_slab",
+        () -> new BlockItem(PLASTIC_YELLOW_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_YELLOW_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_yellow_stairs",
+        () -> new BlockItem(PLASTIC_YELLOW_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_YELLOW_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_yellow_wall",
+        () -> new BlockItem(PLASTIC_YELLOW_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIME_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_lime_slab",
+        () -> new BlockItem(PLASTIC_LIME_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIME_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_lime_stairs",
+        () -> new BlockItem(PLASTIC_LIME_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIME_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_lime_wall",
+        () -> new BlockItem(PLASTIC_LIME_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PINK_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_pink_slab",
+        () -> new BlockItem(PLASTIC_PINK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PINK_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_pink_stairs",
+        () -> new BlockItem(PLASTIC_PINK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PINK_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_pink_wall",
+        () -> new BlockItem(PLASTIC_PINK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GRAY_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_gray_slab",
+        () -> new BlockItem(PLASTIC_GRAY_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GRAY_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_gray_stairs",
+        () -> new BlockItem(PLASTIC_GRAY_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GRAY_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_gray_wall",
+        () -> new BlockItem(PLASTIC_GRAY_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_GRAY_ITEM = AVPRItems.registerItem(
+        "plastic_light_gray",
+        () -> new BlockItem(PLASTIC_LIGHT_GRAY.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_GRAY_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_light_gray_slab",
+        () -> new BlockItem(PLASTIC_LIGHT_GRAY_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_GRAY_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_light_gray_stairs",
+        () -> new BlockItem(PLASTIC_LIGHT_GRAY_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_LIGHT_GRAY_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_light_gray_wall",
+        () -> new BlockItem(PLASTIC_LIGHT_GRAY_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_CYAN_ITEM = AVPRItems.registerItem(
+        "plastic_cyan",
+        () -> new BlockItem(PLASTIC_CYAN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_CYAN_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_cyan_slab",
+        () -> new BlockItem(PLASTIC_CYAN_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_CYAN_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_cyan_stairs",
+        () -> new BlockItem(PLASTIC_CYAN_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_CYAN_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_cyan_wall",
+        () -> new BlockItem(PLASTIC_CYAN_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PURPLE_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_purple_slab",
+        () -> new BlockItem(PLASTIC_PURPLE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PURPLE_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_purple_stairs",
+        () -> new BlockItem(PLASTIC_PURPLE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_PURPLE_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_purple_wall",
+        () -> new BlockItem(PLASTIC_PURPLE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLUE_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_blue_slab",
+        () -> new BlockItem(PLASTIC_BLUE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLUE_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_blue_stairs",
+        () -> new BlockItem(PLASTIC_BLUE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLUE_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_blue_wall",
+        () -> new BlockItem(PLASTIC_BLUE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BROWN_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_brown_slab",
+        () -> new BlockItem(PLASTIC_BROWN_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BROWN_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_brown_stairs",
+        () -> new BlockItem(PLASTIC_BROWN_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BROWN_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_brown_wall",
+        () -> new BlockItem(PLASTIC_BROWN_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GREEN_ITEM = AVPRItems.registerItem(
+        "plastic_green_slab",
+        () -> new BlockItem(PLASTIC_GREEN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GREEN_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_green",
+        () -> new BlockItem(PLASTIC_GREEN_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GREEN_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_green_stairs",
+        () -> new BlockItem(PLASTIC_GREEN_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_GREEN_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_green_wall",
+        () -> new BlockItem(PLASTIC_GREEN_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_RED_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_red_slab",
+        () -> new BlockItem(PLASTIC_RED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_RED_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_red_stairs",
+        () -> new BlockItem(PLASTIC_RED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_RED_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_red_wall",
+        () -> new BlockItem(PLASTIC_RED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLACK_ITEM = AVPRItems.registerItem(
+        "plastic_black",
+        () -> new BlockItem(PLASTIC_BLACK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLACK_SLAB_ITEM = AVPRItems.registerItem(
+        "plastic_black_slab",
+        () -> new BlockItem(PLASTIC_BLACK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLACK_STAIRS_ITEM = AVPRItems.registerItem(
+        "plastic_black_stairs",
+        () -> new BlockItem(PLASTIC_BLACK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PLASTIC_BLACK_WALL_ITEM = AVPRItems.registerItem(
+        "plastic_black_wall",
+        () -> new BlockItem(PLASTIC_BLACK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_WHITE_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_white_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_WHITE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_WHITE_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_white_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_WHITE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_WHITE_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_white_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_WHITE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_ORANGE_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_orange_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_ORANGE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_ORANGE_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_orange_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_ORANGE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_ORANGE_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_orange_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_ORANGE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_MAGENTA_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_magenta_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_MAGENTA_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_MAGENTA_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_magenta_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_MAGENTA_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_MAGENTA_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_magenta_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_MAGENTA_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_BLUE_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_light_blue_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_BLUE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_BLUE_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_light_blue_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_BLUE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_BLUE_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_light_blue_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_BLUE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_YELLOW_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_yellow_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_YELLOW_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_YELLOW_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_yellow_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_YELLOW_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_YELLOW_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_yellow_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_YELLOW_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIME_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_lime_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIME_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIME_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_lime_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIME_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIME_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_lime_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIME_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PINK_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_pink_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_PINK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PINK_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_pink_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_PINK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PINK_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_pink_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_PINK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GRAY_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_gray_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_GRAY_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GRAY_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_gray_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_GRAY_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GRAY_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_gray_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_GRAY_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_GRAY_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_light_gray_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_GRAY_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_GRAY_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_light_gray_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_GRAY_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_GRAY_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_light_gray_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_GRAY_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_CYAN_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_cyan_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_CYAN_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_CYAN_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_cyan_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_CYAN_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_CYAN_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_cyan_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_CYAN_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PURPLE_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_purple_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_PURPLE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PURPLE_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_purple_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_PURPLE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PURPLE_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_purple_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_PURPLE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLUE_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_blue_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_BLUE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLUE_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_blue_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_BLUE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLUE_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_blue_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_BLUE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BROWN_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_brown_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_BROWN_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BROWN_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_brown_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_BROWN_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BROWN_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_brown_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_BROWN_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GREEN_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_green_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_GREEN_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GREEN_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_green_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_GREEN_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GREEN_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_green_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_GREEN_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_RED_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_red_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_RED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_RED_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_red_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_RED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_RED_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_red_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_RED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLACK_SLAB_ITEM = AVPRItems.registerItem(
+        "industrial_wall_black_slab",
+        () -> new BlockItem(INDUSTRIAL_WALL_BLACK_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLACK_STAIRS_ITEM = AVPRItems.registerItem(
+        "industrial_wall_black_stairs",
+        () -> new BlockItem(INDUSTRIAL_WALL_BLACK_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLACK_WALL_ITEM = AVPRItems.registerItem(
+        "industrial_wall_black_wall",
+        () -> new BlockItem(INDUSTRIAL_WALL_BLACK_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_white_panel",
+        () -> new BlockItem(PADDING_WHITE_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_white_pipes",
+        () -> new BlockItem(PADDING_WHITE_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_white_square",
+        () -> new BlockItem(PADDING_WHITE_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_TILES_ITEM = AVPRItems.registerItem(
+        "padding_white_tiles",
+        () -> new BlockItem(PADDING_WHITE_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_orange_panel",
+        () -> new BlockItem(PADDING_ORANGE_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_orange_pipes",
+        () -> new BlockItem(PADDING_ORANGE_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_orange_square",
+        () -> new BlockItem(PADDING_ORANGE_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_ITEM = AVPRItems.registerItem(
+        "padding_orange_tiles",
+        () -> new BlockItem(PADDING_ORANGE_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_magenta_panel",
+        () -> new BlockItem(PADDING_MAGENTA_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_magenta_pipes",
+        () -> new BlockItem(PADDING_MAGENTA_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_magenta_square",
+        () -> new BlockItem(PADDING_MAGENTA_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_ITEM = AVPRItems.registerItem(
+        "padding_magenta_tiles",
+        () -> new BlockItem(PADDING_MAGENTA_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_panel",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_pipes",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_square",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_tiles",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_yellow_panel",
+        () -> new BlockItem(PADDING_YELLOW_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_yellow_pipes",
+        () -> new BlockItem(PADDING_YELLOW_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_yellow_square",
+        () -> new BlockItem(PADDING_YELLOW_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_ITEM = AVPRItems.registerItem(
+        "padding_yellow_tiles",
+        () -> new BlockItem(PADDING_YELLOW_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_lime_panel",
+        () -> new BlockItem(PADDING_LIME_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_lime_pipes",
+        () -> new BlockItem(PADDING_LIME_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_lime_square",
+        () -> new BlockItem(PADDING_LIME_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_TILES_ITEM = AVPRItems.registerItem(
+        "padding_lime_tiles",
+        () -> new BlockItem(PADDING_LIME_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_pink_panel",
+        () -> new BlockItem(PADDING_PINK_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_pink_pipes",
+        () -> new BlockItem(PADDING_PINK_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_pink_square",
+        () -> new BlockItem(PADDING_PINK_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_TILES_ITEM = AVPRItems.registerItem(
+        "padding_pink_tiles",
+        () -> new BlockItem(PADDING_PINK_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_gray_panel",
+        () -> new BlockItem(PADDING_GRAY_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_gray_pipes",
+        () -> new BlockItem(PADDING_GRAY_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_gray_square",
+        () -> new BlockItem(PADDING_GRAY_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_TILES_ITEM = AVPRItems.registerItem(
+        "padding_gray_tiles",
+        () -> new BlockItem(PADDING_GRAY_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_panel",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_pipes",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_square",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_tiles",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_cyan_panel",
+        () -> new BlockItem(PADDING_CYAN_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_cyan_pipes",
+        () -> new BlockItem(PADDING_CYAN_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_cyan_square",
+        () -> new BlockItem(PADDING_CYAN_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_TILES_ITEM = AVPRItems.registerItem(
+        "padding_cyan_tiles",
+        () -> new BlockItem(PADDING_CYAN_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_purple_panel",
+        () -> new BlockItem(PADDING_PURPLE_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_purple_pipes",
+        () -> new BlockItem(PADDING_PURPLE_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_purple_square",
+        () -> new BlockItem(PADDING_PURPLE_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_ITEM = AVPRItems.registerItem(
+        "padding_purple_tiles",
+        () -> new BlockItem(PADDING_PURPLE_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_blue_panel",
+        () -> new BlockItem(PADDING_BLUE_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_blue_pipes",
+        () -> new BlockItem(PADDING_BLUE_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_blue_square",
+        () -> new BlockItem(PADDING_BLUE_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_TILES_ITEM = AVPRItems.registerItem(
+        "padding_blue_tiles",
+        () -> new BlockItem(PADDING_BLUE_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_brown_panel",
+        () -> new BlockItem(PADDING_BROWN_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_brown_pipes",
+        () -> new BlockItem(PADDING_BROWN_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_brown_square",
+        () -> new BlockItem(PADDING_BROWN_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_TILES_ITEM = AVPRItems.registerItem(
+        "padding_brown_tiles",
+        () -> new BlockItem(PADDING_BROWN_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_green_panel",
+        () -> new BlockItem(PADDING_GREEN_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_green_pipes",
+        () -> new BlockItem(PADDING_GREEN_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_green_square",
+        () -> new BlockItem(PADDING_GREEN_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_TILES_ITEM = AVPRItems.registerItem(
+        "padding_green_tiles",
+        () -> new BlockItem(PADDING_GREEN_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_red_panel",
+        () -> new BlockItem(PADDING_RED_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_red_pipes",
+        () -> new BlockItem(PADDING_RED_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_red_square",
+        () -> new BlockItem(PADDING_RED_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_TILES_ITEM = AVPRItems.registerItem(
+        "padding_red_tiles",
+        () -> new BlockItem(PADDING_RED_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_PANEL_ITEM = AVPRItems.registerItem(
+        "padding_black_panel",
+        () -> new BlockItem(PADDING_BLACK_PANEL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_PIPES_ITEM = AVPRItems.registerItem(
+        "padding_black_pipes",
+        () -> new BlockItem(PADDING_BLACK_PIPES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_SQUARE_ITEM = AVPRItems.registerItem(
+        "padding_black_square",
+        () -> new BlockItem(PADDING_BLACK_SQUARE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_TILES_ITEM = AVPRItems.registerItem(
+        "padding_black_tiles",
+        () -> new BlockItem(PADDING_BLACK_TILES.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_block_item = AVPRItems.registerItem(
+        "aluminum_block",
+        () -> new BlockItem(aluminum_block.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_grate_item = AVPRItems.registerItem(
+        "aluminum_grate",
+        () -> new BlockItem(aluminum_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_vent_item = AVPRItems.registerItem(
+        "aluminum_vent",
+        () -> new BlockItem(aluminum_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_panel_item = AVPRItems.registerItem(
+        "aluminum_panel",
+        () -> new BlockItem(aluminum_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_plated_item = AVPRItems.registerItem(
+        "aluminum_plated",
+        () -> new BlockItem(aluminum_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_plated_chevron_item = AVPRItems.registerItem(
+        "aluminum_plated_chevron",
+        () -> new BlockItem(aluminum_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> aluminum_cut_item = AVPRItems.registerItem(
+        "aluminum_cut",
+        () -> new BlockItem(aluminum_cut.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> copper_grate_item = AVPRItems.registerItem(
+        "copper_grate",
+        () -> new BlockItem(copper_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> copper_vent_item = AVPRItems.registerItem(
+        "copper_vent",
+        () -> new BlockItem(copper_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> copper_panel_item = AVPRItems.registerItem(
+        "copper_panel",
+        () -> new BlockItem(copper_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> copper_plated_item = AVPRItems.registerItem(
+        "copper_plated",
+        () -> new BlockItem(copper_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> copper_plated_chevron_item = AVPRItems.registerItem(
+        "copper_plated_chevron",
+        () -> new BlockItem(copper_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_block_item = AVPRItems.registerItem(
+        "ferroaluminum_block",
+        () -> new BlockItem(ferroaluminum_block.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_grate_item = AVPRItems.registerItem(
+        "ferroaluminum_grate",
+        () -> new BlockItem(ferroaluminum_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_vent_item = AVPRItems.registerItem(
+        "ferroaluminum_vent",
+        () -> new BlockItem(ferroaluminum_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_panel_item = AVPRItems.registerItem(
+        "ferroaluminum_panel",
+        () -> new BlockItem(ferroaluminum_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_plated_item = AVPRItems.registerItem(
+        "ferroaluminum_plated",
+        () -> new BlockItem(ferroaluminum_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_plated_chevron_item = AVPRItems.registerItem(
+        "ferroaluminum_plated_chevron",
+        () -> new BlockItem(ferroaluminum_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ferroaluminum_cut_item = AVPRItems.registerItem(
+        "ferroaluminum_cut",
+        () -> new BlockItem(ferroaluminum_cut.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> gold_grate_item = AVPRItems.registerItem(
+        "gold_grate",
+        () -> new BlockItem(gold_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> gold_vent_item = AVPRItems.registerItem(
+        "gold_vent",
+        () -> new BlockItem(gold_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> gold_panel_item = AVPRItems.registerItem(
+        "gold_panel",
+        () -> new BlockItem(gold_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> gold_plated_item = AVPRItems.registerItem(
+        "gold_plated",
+        () -> new BlockItem(gold_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> gold_plated_chevron_item = AVPRItems.registerItem(
+        "gold_plated_chevron",
+        () -> new BlockItem(gold_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> iron_grate_item = AVPRItems.registerItem(
+        "iron_grate",
+        () -> new BlockItem(iron_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> iron_vent_item = AVPRItems.registerItem(
+        "iron_vent",
+        () -> new BlockItem(iron_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> iron_panel_item = AVPRItems.registerItem(
+        "iron_panel",
+        () -> new BlockItem(iron_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> iron_plated_item = AVPRItems.registerItem(
+        "iron_plated",
+        () -> new BlockItem(iron_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> iron_plated_chevron_item = AVPRItems.registerItem(
+        "iron_plated_chevron",
+        () -> new BlockItem(iron_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> netherite_grate_item = AVPRItems.registerItem(
+        "netherite_grate",
+        () -> new BlockItem(netherite_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> netherite_vent_item = AVPRItems.registerItem(
+        "netherite_vent",
+        () -> new BlockItem(netherite_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> netherite_panel_item = AVPRItems.registerItem(
+        "netherite_panel",
+        () -> new BlockItem(netherite_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> netherite_plated_item = AVPRItems.registerItem(
+        "netherite_plated",
+        () -> new BlockItem(netherite_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> netherite_plated_chevron_item = AVPRItems.registerItem(
+        "netherite_plated_chevron",
+        () -> new BlockItem(netherite_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_block_item = AVPRItems.registerItem(
+        "steel_block",
+        () -> new BlockItem(steel_block.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_grate_item = AVPRItems.registerItem(
+        "steel_grate",
+        () -> new BlockItem(steel_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_vent_item = AVPRItems.registerItem(
+        "steel_vent",
+        () -> new BlockItem(steel_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_panel_item = AVPRItems.registerItem(
+        "steel_panel",
+        () -> new BlockItem(steel_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_plated_item = AVPRItems.registerItem(
+        "steel_plated",
+        () -> new BlockItem(steel_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_plated_chevron_item = AVPRItems.registerItem(
+        "steel_plated_chevron",
+        () -> new BlockItem(steel_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> steel_cut_item = AVPRItems.registerItem(
+        "steel_cut",
+        () -> new BlockItem(steel_cut.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_block_item = AVPRItems.registerItem(
+        "titanium_block",
+        () -> new BlockItem(titanium_block.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_grate_item = AVPRItems.registerItem(
+        "titanium_grate",
+        () -> new BlockItem(titanium_grate.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_vent_item = AVPRItems.registerItem(
+        "titanium_vent",
+        () -> new BlockItem(titanium_vent.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_panel_item = AVPRItems.registerItem(
+        "titanium_panel",
+        () -> new BlockItem(titanium_panel.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_plated_item = AVPRItems.registerItem(
+        "titanium_plated",
+        () -> new BlockItem(titanium_plated.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_plated_chevron_item = AVPRItems.registerItem(
+        "titanium_plated_chevron",
+        () -> new BlockItem(titanium_plated_chevron.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> titanium_cut_item = AVPRItems.registerItem(
+        "titanium_cut",
+        () -> new BlockItem(titanium_cut.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_GLASS_ITEM = AVPRItems.registerItem(
+        "industrial_glass",
+        () -> new BlockItem(INDUSTRIAL_GLASS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_CUT_SLAB_ITEM = AVPRItems.registerItem(
+        "aluminum_cut_slab",
+        () -> new BlockItem(ALUMINUM_CUT_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_CUT_STAIRS_ITEM = AVPRItems.registerItem(
+        "aluminum_cut_stairs",
+        () -> new BlockItem(ALUMINUM_CUT_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_CUT_WALL_ITEM = AVPRItems.registerItem(
+        "aluminum_cut_wall",
+        () -> new BlockItem(ALUMINUM_CUT_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "aluminum_plated_chevron_slab",
+        () -> new BlockItem(ALUMINUM_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "aluminum_plated_chevron_stairs",
+        () -> new BlockItem(ALUMINUM_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "aluminum_plated_chevron_wall",
+        () -> new BlockItem(ALUMINUM_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "aluminum_plated_slab",
+        () -> new BlockItem(ALUMINUM_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "aluminum_plated_stairs",
+        () -> new BlockItem(ALUMINUM_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> ALUMINUM_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "aluminum_plated_wall",
+        () -> new BlockItem(ALUMINUM_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> COPPER_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "copper_plated_chevron_slab",
+        () -> new BlockItem(COPPER_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> COPPER_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "copper_plated_chevron_stairs",
+        () -> new BlockItem(COPPER_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> COPPER_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "copper_plated_chevron_wall",
+        () -> new BlockItem(COPPER_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> COPPER_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "copper_plated_slab",
+        () -> new BlockItem(COPPER_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> COPPER_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "copper_plated_stairs",
+        () -> new BlockItem(COPPER_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> COPPER_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "copper_plated_wall",
+        () -> new BlockItem(COPPER_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_CUT_SLAB_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_cut_slab",
+        () -> new BlockItem(FERROALUMINUM_CUT_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_CUT_STAIRS_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_cut_stairs",
+        () -> new BlockItem(FERROALUMINUM_CUT_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_CUT_WALL_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_cut_wall",
+        () -> new BlockItem(FERROALUMINUM_CUT_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_plated_chevron_slab",
+        () -> new BlockItem(FERROALUMINUM_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_plated_chevron_stairs",
+        () -> new BlockItem(FERROALUMINUM_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_plated_chevron_wall",
+        () -> new BlockItem(FERROALUMINUM_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_plated_slab",
+        () -> new BlockItem(FERROALUMINUM_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_plated_stairs",
+        () -> new BlockItem(FERROALUMINUM_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> FERROALUMINUM_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "ferroaluminum_plated_wall",
+        () -> new BlockItem(FERROALUMINUM_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> GOLD_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "gold_plated_chevron_slab",
+        () -> new BlockItem(GOLD_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> GOLD_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "gold_plated_chevron_stairs",
+        () -> new BlockItem(GOLD_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> GOLD_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "gold_plated_chevron_wall",
+        () -> new BlockItem(GOLD_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> GOLD_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "gold_plated_slab",
+        () -> new BlockItem(GOLD_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> GOLD_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "gold_plated_stairs",
+        () -> new BlockItem(GOLD_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> GOLD_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "gold_plated_wall",
+        () -> new BlockItem(GOLD_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> IRON_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "iron_plated_chevron_slab",
+        () -> new BlockItem(IRON_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> IRON_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "iron_plated_chevron_stairs",
+        () -> new BlockItem(IRON_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> IRON_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "iron_plated_chevron_wall",
+        () -> new BlockItem(IRON_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> IRON_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "iron_plated_slab",
+        () -> new BlockItem(IRON_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> IRON_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "iron_plated_stairs",
+        () -> new BlockItem(IRON_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> IRON_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "iron_plated_wall",
+        () -> new BlockItem(IRON_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> NETHERITE_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "netherite_plated_chevron_slab",
+        () -> new BlockItem(NETHERITE_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> NETHERITE_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "netherite_plated_chevron_stairs",
+        () -> new BlockItem(NETHERITE_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> NETHERITE_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "netherite_plated_chevron_wall",
+        () -> new BlockItem(NETHERITE_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> NETHERITE_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "netherite_plated_slab",
+        () -> new BlockItem(NETHERITE_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> NETHERITE_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "netherite_plated_stairs",
+        () -> new BlockItem(NETHERITE_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> NETHERITE_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "netherite_plated_wall",
+        () -> new BlockItem(NETHERITE_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_black_square_slab",
+        () -> new BlockItem(PADDING_BLACK_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_black_square_stairs",
+        () -> new BlockItem(PADDING_BLACK_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_black_square_wall",
+        () -> new BlockItem(PADDING_BLACK_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_black_tiles_slab",
+        () -> new BlockItem(PADDING_BLACK_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_black_tiles_stairs",
+        () -> new BlockItem(PADDING_BLACK_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLACK_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_black_tiles_wall",
+        () -> new BlockItem(PADDING_BLACK_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_blue_square_slab",
+        () -> new BlockItem(PADDING_BLUE_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_blue_square_stairs",
+        () -> new BlockItem(PADDING_BLUE_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_blue_square_wall",
+        () -> new BlockItem(PADDING_BLUE_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_blue_tiles_slab",
+        () -> new BlockItem(PADDING_BLUE_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_blue_tiles_stairs",
+        () -> new BlockItem(PADDING_BLUE_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BLUE_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_blue_tiles_wall",
+        () -> new BlockItem(PADDING_BLUE_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_brown_square_slab",
+        () -> new BlockItem(PADDING_BROWN_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_brown_square_stairs",
+        () -> new BlockItem(PADDING_BROWN_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_brown_square_wall",
+        () -> new BlockItem(PADDING_BROWN_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_brown_tiles_slab",
+        () -> new BlockItem(PADDING_BROWN_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_brown_tiles_stairs",
+        () -> new BlockItem(PADDING_BROWN_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_BROWN_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_brown_tiles_wall",
+        () -> new BlockItem(PADDING_BROWN_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_cyan_square_slab",
+        () -> new BlockItem(PADDING_CYAN_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_cyan_square_stairs",
+        () -> new BlockItem(PADDING_CYAN_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_cyan_square_wall",
+        () -> new BlockItem(PADDING_CYAN_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_cyan_tiles_slab",
+        () -> new BlockItem(PADDING_CYAN_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_cyan_tiles_stairs",
+        () -> new BlockItem(PADDING_CYAN_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_CYAN_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_cyan_tiles_wall",
+        () -> new BlockItem(PADDING_CYAN_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_gray_square_slab",
+        () -> new BlockItem(PADDING_GRAY_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_gray_square_stairs",
+        () -> new BlockItem(PADDING_GRAY_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_gray_square_wall",
+        () -> new BlockItem(PADDING_GRAY_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_gray_tiles_slab",
+        () -> new BlockItem(PADDING_GRAY_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_gray_tiles_stairs",
+        () -> new BlockItem(PADDING_GRAY_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GRAY_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_gray_tiles_wall",
+        () -> new BlockItem(PADDING_GRAY_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_green_square_slab",
+        () -> new BlockItem(PADDING_GREEN_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_green_square_stairs",
+        () -> new BlockItem(PADDING_GREEN_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_green_square_wall",
+        () -> new BlockItem(PADDING_GREEN_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_green_tiles_slab",
+        () -> new BlockItem(PADDING_GREEN_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_green_tiles_stairs",
+        () -> new BlockItem(PADDING_GREEN_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_GREEN_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_green_tiles_wall",
+        () -> new BlockItem(PADDING_GREEN_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_square_slab",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_square_stairs",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_square_wall",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_tiles_slab",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_tiles_stairs",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_light_blue_tiles_wall",
+        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_square_slab",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_square_stairs",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_square_wall",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_tiles_slab",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_tiles_stairs",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_light_gray_tiles_wall",
+        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_lime_square_slab",
+        () -> new BlockItem(PADDING_LIME_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_lime_square_stairs",
+        () -> new BlockItem(PADDING_LIME_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_lime_square_wall",
+        () -> new BlockItem(PADDING_LIME_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_lime_tiles_slab",
+        () -> new BlockItem(PADDING_LIME_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_lime_tiles_stairs",
+        () -> new BlockItem(PADDING_LIME_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_LIME_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_lime_tiles_wall",
+        () -> new BlockItem(PADDING_LIME_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_magenta_square_slab",
+        () -> new BlockItem(PADDING_MAGENTA_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_magenta_square_stairs",
+        () -> new BlockItem(PADDING_MAGENTA_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_magenta_square_wall",
+        () -> new BlockItem(PADDING_MAGENTA_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_magenta_tiles_slab",
+        () -> new BlockItem(PADDING_MAGENTA_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_magenta_tiles_stairs",
+        () -> new BlockItem(PADDING_MAGENTA_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_magenta_tiles_wall",
+        () -> new BlockItem(PADDING_MAGENTA_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_orange_square_slab",
+        () -> new BlockItem(PADDING_ORANGE_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_orange_square_stairs",
+        () -> new BlockItem(PADDING_ORANGE_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_orange_square_wall",
+        () -> new BlockItem(PADDING_ORANGE_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_orange_tiles_slab",
+        () -> new BlockItem(PADDING_ORANGE_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_orange_tiles_stairs",
+        () -> new BlockItem(PADDING_ORANGE_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_orange_tiles_wall",
+        () -> new BlockItem(PADDING_ORANGE_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_pink_square_slab",
+        () -> new BlockItem(PADDING_PINK_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_pink_square_stairs",
+        () -> new BlockItem(PADDING_PINK_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_pink_square_wall",
+        () -> new BlockItem(PADDING_PINK_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_pink_tiles_slab",
+        () -> new BlockItem(PADDING_PINK_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_pink_tiles_stairs",
+        () -> new BlockItem(PADDING_PINK_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PINK_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_pink_tiles_wall",
+        () -> new BlockItem(PADDING_PINK_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_purple_square_slab",
+        () -> new BlockItem(PADDING_PURPLE_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_purple_square_stairs",
+        () -> new BlockItem(PADDING_PURPLE_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_purple_square_wall",
+        () -> new BlockItem(PADDING_PURPLE_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_purple_tiles_slab",
+        () -> new BlockItem(PADDING_PURPLE_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_purple_tiles_stairs",
+        () -> new BlockItem(PADDING_PURPLE_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_purple_tiles_wall",
+        () -> new BlockItem(PADDING_PURPLE_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_red_square_slab",
+        () -> new BlockItem(PADDING_RED_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_red_square_stairs",
+        () -> new BlockItem(PADDING_RED_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_red_square_wall",
+        () -> new BlockItem(PADDING_RED_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_red_tiles_slab",
+        () -> new BlockItem(PADDING_RED_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_red_tiles_stairs",
+        () -> new BlockItem(PADDING_RED_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_RED_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_red_tiles_wall",
+        () -> new BlockItem(PADDING_RED_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_white_square_slab",
+        () -> new BlockItem(PADDING_WHITE_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_white_square_stairs",
+        () -> new BlockItem(PADDING_WHITE_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_white_square_wall",
+        () -> new BlockItem(PADDING_WHITE_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_white_tiles_slab",
+        () -> new BlockItem(PADDING_WHITE_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_white_tiles_stairs",
+        () -> new BlockItem(PADDING_WHITE_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_WHITE_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_white_tiles_wall",
+        () -> new BlockItem(PADDING_WHITE_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_yellow_square_slab",
+        () -> new BlockItem(PADDING_YELLOW_SQUARE_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_SQUARE_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_yellow_square_stairs",
+        () -> new BlockItem(PADDING_YELLOW_SQUARE_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_SQUARE_WALL_ITEM = AVPRItems.registerItem(
+        "padding_yellow_square_wall",
+        () -> new BlockItem(PADDING_YELLOW_SQUARE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_SLAB_ITEM = AVPRItems.registerItem(
+        "padding_yellow_tiles_slab",
+        () -> new BlockItem(PADDING_YELLOW_TILES_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_STAIRS_ITEM = AVPRItems.registerItem(
+        "padding_yellow_tiles_stairs",
+        () -> new BlockItem(PADDING_YELLOW_TILES_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_WALL_ITEM = AVPRItems.registerItem(
+        "padding_yellow_tiles_wall",
+        () -> new BlockItem(PADDING_YELLOW_TILES_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_CUT_SLAB_ITEM = AVPRItems.registerItem(
+        "steel_cut_slab",
+        () -> new BlockItem(STEEL_CUT_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_CUT_STAIRS_ITEM = AVPRItems.registerItem(
+        "steel_cut_stairs",
+        () -> new BlockItem(STEEL_CUT_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_CUT_WALL_ITEM = AVPRItems.registerItem(
+        "steel_cut_wall",
+        () -> new BlockItem(STEEL_CUT_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "steel_plated_chevron_slab",
+        () -> new BlockItem(STEEL_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "steel_plated_chevron_stairs",
+        () -> new BlockItem(STEEL_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "steel_plated_chevron_wall",
+        () -> new BlockItem(STEEL_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "steel_plated_slab",
+        () -> new BlockItem(STEEL_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "steel_plated_stairs",
+        () -> new BlockItem(STEEL_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> STEEL_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "steel_plated_wall",
+        () -> new BlockItem(STEEL_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_CUT_SLAB_ITEM = AVPRItems.registerItem(
+        "titanium_cut_slab",
+        () -> new BlockItem(TITANIUM_CUT_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_CUT_STAIRS_ITEM = AVPRItems.registerItem(
+        "titanium_cut_stairs",
+        () -> new BlockItem(TITANIUM_CUT_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_CUT_WALL_ITEM = AVPRItems.registerItem(
+        "titanium_cut_wall",
+        () -> new BlockItem(TITANIUM_CUT_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_PLATED_CHEVRON_SLAB_ITEM = AVPRItems.registerItem(
+        "titanium_plated_chevron_slab",
+        () -> new BlockItem(TITANIUM_PLATED_CHEVRON_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_PLATED_CHEVRON_STAIRS_ITEM = AVPRItems.registerItem(
+        "titanium_plated_chevron_stairs",
+        () -> new BlockItem(TITANIUM_PLATED_CHEVRON_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_PLATED_CHEVRON_WALL_ITEM = AVPRItems.registerItem(
+        "titanium_plated_chevron_wall",
+        () -> new BlockItem(TITANIUM_PLATED_CHEVRON_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_PLATED_SLAB_ITEM = AVPRItems.registerItem(
+        "titanium_plated_slab",
+        () -> new BlockItem(TITANIUM_PLATED_SLAB.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_PLATED_STAIRS_ITEM = AVPRItems.registerItem(
+        "titanium_plated_stairs",
+        () -> new BlockItem(TITANIUM_PLATED_STAIRS.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> TITANIUM_PLATED_WALL_ITEM = AVPRItems.registerItem(
+        "titanium_plated_wall",
+        () -> new BlockItem(TITANIUM_PLATED_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> ORE_BAUXITE_ITEM = AVPRItems.registerItem(
+        "ore_bauxite",
+        () -> new BlockItem(ORE_BAUXITE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> ORE_TITANIUM_ITEM = AVPRItems.registerItem(
+        "ore_titanium",
+        () -> new BlockItem(ORE_TITANIUM.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> ORE_SILICA_ITEM = AVPRItems.registerItem(
+        "ore_silica",
+        () -> new BlockItem(ORE_SILICA.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> ORE_MONAZITE_ITEM = AVPRItems.registerItem(
+        "ore_monazite",
+        () -> new BlockItem(ORE_MONAZITE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> ORE_LITHIUM_ITEM = AVPRItems.registerItem(
+        "ore_lithium",
+        () -> new BlockItem(ORE_LITHIUM.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> ORE_COBALT_ITEM = AVPRItems.registerItem(
+        "ore_cobalt",
+        () -> new BlockItem(ORE_COBALT.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_WHITE_ITEM = AVPRItems.registerItem(
+        "industrial_glass_white",
+        () -> new BlockItem(INDUSTRIAL_GLASS_WHITE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_ORANGE_ITEM = AVPRItems.registerItem(
+        "industrial_glass_orange",
+        () -> new BlockItem(INDUSTRIAL_GLASS_ORANGE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_MAGENTA_ITEM = AVPRItems.registerItem(
+        "industrial_glass_magenta",
+        () -> new BlockItem(INDUSTRIAL_GLASS_MAGENTA.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_LIGHT_BLUE_ITEM = AVPRItems.registerItem(
+        "industrial_glass_light_blue",
+        () -> new BlockItem(INDUSTRIAL_GLASS_LIGHT_BLUE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_YELLOW_ITEM = AVPRItems.registerItem(
+        "industrial_glass_yellow",
+        () -> new BlockItem(INDUSTRIAL_GLASS_YELLOW.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_LIME_ITEM = AVPRItems.registerItem(
+        "industrial_glass_lime",
+        () -> new BlockItem(INDUSTRIAL_GLASS_LIME.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_PINK_ITEM = AVPRItems.registerItem(
+        "industrial_glass_pink",
+        () -> new BlockItem(INDUSTRIAL_GLASS_PINK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_GRAY_ITEM = AVPRItems.registerItem(
+        "industrial_glass_gray",
+        () -> new BlockItem(INDUSTRIAL_GLASS_GRAY.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_LIGHT_GRAY_ITEM = AVPRItems.registerItem(
+        "industrial_glass_light_gray",
+        () -> new BlockItem(INDUSTRIAL_GLASS_LIGHT_GRAY.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_CYAN_ITEM = AVPRItems.registerItem(
+        "industrial_glass_cyan",
+        () -> new BlockItem(INDUSTRIAL_GLASS_CYAN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_PURPLE_ITEM = AVPRItems.registerItem(
+        "industrial_glass_purple",
+        () -> new BlockItem(INDUSTRIAL_GLASS_PURPLE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_BLUE_ITEM = AVPRItems.registerItem(
+        "industrial_glass_blue",
+        () -> new BlockItem(INDUSTRIAL_GLASS_BLUE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_BROWN_ITEM = AVPRItems.registerItem(
+        "industrial_glass_brown",
+        () -> new BlockItem(INDUSTRIAL_GLASS_BROWN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_GREEN_ITEM = AVPRItems.registerItem(
+        "industrial_glass_green",
+        () -> new BlockItem(INDUSTRIAL_GLASS_GREEN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_RED_ITEM = AVPRItems.registerItem(
+        "industrial_glass_red",
+        () -> new BlockItem(INDUSTRIAL_GLASS_RED.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> INDUSTRIAL_GLASS_BLACK_ITEM = AVPRItems.registerItem(
+        "industrial_glass_black",
+        () -> new BlockItem(INDUSTRIAL_GLASS_BLACK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> RAW_BAUXITE_BLOCK_ITEM = AVPRItems.registerItem(
+        "raw_bauxite_block",
+        () -> new BlockItem(RAW_BAUXITE_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> RAW_TITANIUM_BLOCK_ITEM = AVPRItems.registerItem(
+        "raw_titanium_block",
+        () -> new BlockItem(RAW_TITANIUM_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> NEODYMIUM_BLOCK_ITEM = AVPRItems.registerItem(
+        "neodymium_block",
+        () -> new BlockItem(NEODYMIUM_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> COBALT_BLOCK_ITEM = AVPRItems.registerItem(
+        "cobalt_block",
+        () -> new BlockItem(COBALT_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> LITHIUM_BLOCK_ITEM = AVPRItems.registerItem(
+        "lithium_block",
+        () -> new BlockItem(LITHIUM_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> SILICA_BLOCK_ITEM = AVPRItems.registerItem(
+        "silica_block",
+        () -> new BlockItem(SILICA_BLOCK.get(), new Item.Properties())
+    );
 
     /**
      * Example of using this method to create a new Block:
@@ -4081,13 +6601,5 @@ public record AVPRBlocks() {
         return AVPRServices.COMMON_REGISTRY.registerBlockEntity(modID, blockEntityName, blockEntity);
     }
 
-    public static void initialize() {
-        AVPRBlocks.registerNormalBlocks();
-        AVPRBlocks.registerRawBlocks();
-        AVPRBlocks.registerGlassBlocks();
-        AVPRBlocks.registerOres();
-        /*
-         * TODO: Engineer Ship
-         */
-    }
+    public static void initialize() {}
 }

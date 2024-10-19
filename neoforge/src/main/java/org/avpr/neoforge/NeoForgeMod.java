@@ -85,26 +85,19 @@ public final class NeoForgeMod {
         CommonMod.initRegistries();
         if (NeoForgeMod.blockEntityTypeDeferredRegister != null)
             NeoForgeMod.blockEntityTypeDeferredRegister.register(modEventBus);
+        NeoForgeMod.blockDeferredRegister.register(modEventBus);
+        NeoForgeMod.entityTypeDeferredRegister.register(modEventBus);
         if (NeoForgeMod.armorMaterialDeferredRegister != null)
             NeoForgeMod.armorMaterialDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.entityTypeDeferredRegister != null)
-            NeoForgeMod.entityTypeDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.itemDeferredRegister != null)
-            NeoForgeMod.itemDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.soundEventDeferredRegister != null)
-            NeoForgeMod.soundEventDeferredRegister.register(modEventBus);
+        NeoForgeMod.itemDeferredRegister.register(modEventBus);
+        NeoForgeMod.soundEventDeferredRegister.register(modEventBus);
         if (NeoForgeMod.menuTypeDeferredRegister != null)
             NeoForgeMod.menuTypeDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.particleTypeDeferredRegister != null)
-            NeoForgeMod.particleTypeDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.creativeModeTabDeferredRegister != null)
-            NeoForgeMod.creativeModeTabDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.statusEffectDeferredRegister != null)
-            NeoForgeMod.statusEffectDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.fluidDeferredRegister != null)
+        NeoForgeMod.particleTypeDeferredRegister.register(modEventBus);
+        NeoForgeMod.creativeModeTabDeferredRegister.register(modEventBus);
+        NeoForgeMod.statusEffectDeferredRegister.register(modEventBus);
+        if (NeoForgeMod.menuTypeDeferredRegister != null)
             NeoForgeMod.fluidDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.fluidTypeDeferredRegister != null)
-            NeoForgeMod.fluidTypeDeferredRegister.register(modEventBus);
         modEventBus.addListener(this::createEntityAttributes);
         modEventBus.addListener(this::onRegisterEvent);
     }

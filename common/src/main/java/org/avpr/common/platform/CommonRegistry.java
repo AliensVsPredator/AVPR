@@ -54,4 +54,20 @@ public interface CommonRegistry {
     );
 
     CreativeModeTab.Builder newCreativeTabBuilder();
+
+    Holder<ArmorMaterial> getAluminumMaterial();
+
+    Holder<ArmorMaterial> getMK50Material();
+
+    Holder<ArmorMaterial> getOrioniteMaterial();
+
+    Holder<ArmorMaterial> getPressureMaterial();
+
+    Holder<ArmorMaterial> getTacticalMaterial();
+
+    Holder<ArmorMaterial> getTitaniumMaterial();
+
+    Holder<ArmorMaterial> getVeritaniumMaterial();
+
+    Holder<ArmorMaterial> getXenomorphMaterial();
 }

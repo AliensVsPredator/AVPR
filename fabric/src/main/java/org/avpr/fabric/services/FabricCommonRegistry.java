@@ -25,6 +25,7 @@ import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.platform.CommonRegistry;
+import org.avpr.fabric.item.armor.AVPRFabricArmorMaterials;
 
 public class FabricCommonRegistry implements CommonRegistry {
 
@@ -123,5 +124,45 @@ public class FabricCommonRegistry implements CommonRegistry {
     @Override
     public CreativeModeTab.Builder newCreativeTabBuilder() {
         return FabricItemGroup.builder();
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getAluminumMaterial() {
+        return AVPRFabricArmorMaterials.ALUMINUM;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getMK50Material() {
+        return AVPRFabricArmorMaterials.MK50;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getOrioniteMaterial() {
+        return AVPRFabricArmorMaterials.ORIONITE;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getPressureMaterial() {
+        return AVPRFabricArmorMaterials.PRESSURE;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getTacticalMaterial() {
+        return AVPRFabricArmorMaterials.TACTICAL;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getTitaniumMaterial() {
+        return AVPRFabricArmorMaterials.TITANIUM;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getVeritaniumMaterial() {
+        return AVPRFabricArmorMaterials.VERITANIUM;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getXenomorphMaterial() {
+        return AVPRFabricArmorMaterials.XENOMORPH_CHITIN;
     }
 }

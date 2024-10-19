@@ -22,6 +22,7 @@ import java.util.function.Supplier;
 
 import org.avpr.common.platform.CommonRegistry;
 import org.avpr.neoforge.NeoForgeMod;
+import org.avpr.neoforge.item.armor.AVPRNeoForgeArmorMaterials;
 
 public class NeoForgeCommonRegistry implements CommonRegistry {
 
@@ -97,5 +98,45 @@ public class NeoForgeCommonRegistry implements CommonRegistry {
     @Override
     public CreativeModeTab.Builder newCreativeTabBuilder() {
         return CreativeModeTab.builder();
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getAluminumMaterial() {
+        return AVPRNeoForgeArmorMaterials.ALUMINUM;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getMK50Material() {
+        return AVPRNeoForgeArmorMaterials.MK50;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getOrioniteMaterial() {
+        return AVPRNeoForgeArmorMaterials.ORIONITE;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getPressureMaterial() {
+        return AVPRNeoForgeArmorMaterials.PRESSURE;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getTacticalMaterial() {
+        return AVPRNeoForgeArmorMaterials.TACTICAL;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getTitaniumMaterial() {
+        return AVPRNeoForgeArmorMaterials.TITANIUM;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getVeritaniumMaterial() {
+        return AVPRNeoForgeArmorMaterials.VERITANIUM;
+    }
+
+    @Override
+    public Holder<ArmorMaterial> getXenomorphMaterial() {
+        return AVPRNeoForgeArmorMaterials.XENOMORPH_CHITIN;
     }
 }
