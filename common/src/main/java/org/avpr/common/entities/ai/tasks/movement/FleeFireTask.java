@@ -49,12 +49,6 @@ public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
     protected void start(@NotNull ServerLevel level, AlienEntity entity, long gameTime) {
         entity.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
         entity.getBrain().eraseMemory(MemoryModuleType.ATTACK_TARGET);
-        entity.setFleeingStatus(true);
-    }
-
-    @Override
-    protected void stop(@NotNull ServerLevel level, E entity, long gameTime) {
-        entity.setFleeingStatus(false);
     }
 
     @Override
