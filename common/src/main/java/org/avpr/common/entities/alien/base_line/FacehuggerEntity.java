@@ -44,6 +44,7 @@ import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -76,6 +77,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
 
     public FacehuggerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        this.vibrationUser = new AVPRVibrationUser(this, 1.2F);
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.05F, 1.0F, true);
     }
 

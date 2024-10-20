@@ -3,8 +3,6 @@ package org.avpr.common.entities.alien;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Dynamic;
 import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
-import mod.azure.azurelib.common.api.common.entities.AzureVibrationUser;
-import mod.azure.azurelib.common.api.common.interfaces.AzureTicker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
@@ -35,6 +33,8 @@ import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import org.avpr.common.entities.ai.tasks.AVPRTicker;
+import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -83,7 +83,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
         this.noCulling = true;
-        this.vibrationUser = new AzureVibrationUser(this, 2.5F, 32);
+        this.vibrationUser = new AVPRVibrationUser(this, 2.5F);
         this.vibrationData = new Data();
         this.dynamicGameEventListener = new DynamicGameEventListener<>(new Listener(this));
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.5F, 1.0F, true);
@@ -191,7 +191,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
      * `super.tick()` method to ensure the base class tick behavior is executed. 2. Resets the entity's air supply to
      * its maximum value. 3. If the current level is a `ServerLevel` instance: - Increases the entity's growth by its
      * growth multiplier if it is alive. - Sets the entity's aggressive state to false if it is a vehicle. - Updates the
-     * vibration data and user via `AzureTicker`. 4. Refreshes the entity's dimensions every 10 ticks.
+     * vibration data and user via `AVPRTicker`. 4. Refreshes the entity's dimensions every 10 ticks.
      */
     @Override
     public void tick() {
@@ -202,7 +202,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
                 this.grow(this, 1 * getGrowthMultiplier());
             if (this.isVehicle())
                 this.setAggressive(false);
-            AzureTicker.tick(serverLevel, this.vibrationData, this.vibrationUser);
+            AVPRTicker.tick(serverLevel, this.vibrationData, this.vibrationUser);
         }
         if (this.tickCount % 10 == 0)
             this.refreshDimensions();
