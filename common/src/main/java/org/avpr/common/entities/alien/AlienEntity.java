@@ -10,6 +10,8 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
@@ -425,6 +427,22 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
             }
         }
         super.die(source);
+    }
+
+    /**
+     *
+     */
+    @Override
+    protected @NotNull SoundEvent getSwimSplashSound() {
+        return SoundEvents.DOLPHIN_SPLASH;
+    }
+
+    /**
+     *
+     */
+    @Override
+    protected @NotNull SoundEvent getSwimSound() {
+        return SoundEvents.DOLPHIN_SWIM;
     }
 
     /**
