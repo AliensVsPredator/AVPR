@@ -35,8 +35,6 @@ import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import org.avpr.common.entities.ai.tasks.AVPRTicker;
-import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,6 +45,8 @@ import java.util.function.BiConsumer;
 
 import org.avpr.common.api.common.GrowableInterface;
 import org.avpr.common.api.util.EntityUtil;
+import org.avpr.common.entities.ai.tasks.AVPRTicker;
+import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPREntityTags;
 
