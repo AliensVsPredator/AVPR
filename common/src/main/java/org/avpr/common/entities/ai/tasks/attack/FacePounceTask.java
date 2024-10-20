@@ -64,10 +64,8 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
     @Override
     protected boolean checkExtraStartConditions(ServerLevel level, E entity) {
         this.target = BrainUtils.getTargetOfEntity(entity);
-        assert this.target != null;
-        return target.getType().is(AVPREntityTags.HOSTS) && !target.getType().is(AVPREntityTags.ALIENS) && target.getVehicle()
-            .getSelfAndPassengers()
-            .noneMatch(
+        return target != null && target.getType().is(AVPREntityTags.HOSTS) && !target.getType().is(AVPREntityTags.ALIENS) && !target
+            .hasPassenger(
                 AlienEntity.class::isInstance
             ) && entity.isWithinMeleeAttackRange(
                 this.target
