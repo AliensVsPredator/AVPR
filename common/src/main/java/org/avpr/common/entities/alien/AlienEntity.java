@@ -152,7 +152,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
 
     @Override
     public float maxUpStep() {
-        return 2.5f;
+        return 1.05f;
     }
 
     /**
