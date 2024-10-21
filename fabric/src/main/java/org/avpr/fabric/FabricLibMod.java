@@ -264,84 +264,84 @@ public final class FabricLibMod implements ModInitializer {
          * Mob Spawns
          */
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.BOILER.get(),
-                7,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.BOILER.get(),
+            7,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.CRUSHER.get(),
-                10,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.CRUSHER.get(),
+            10,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.DRONE_RUNNER.get(),
-                50,
-                1,
-                3
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.DRONE_RUNNER.get(),
+            50,
+            1,
+            3
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.DRONE.get(),
-                50,
-                1,
-                2
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.DRONE.get(),
+            50,
+            1,
+            2
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.PRAETORIAN.get(),
-                10,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.PRAETORIAN.get(),
+            10,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.QUEEN.get(),
-                5,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.QUEEN.get(),
+            5,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.SPITTER.get(),
-                10,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.SPITTER.get(),
+            10,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.WARRIOR_RUNNER.get(),
-                25,
-                1,
-                2
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.WARRIOR_RUNNER.get(),
+            25,
+            1,
+            2
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.WARRIOR.get(),
-                25,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.WARRIOR.get(),
+            25,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.foundInOverworld(),
-                MobCategory.MONSTER,
-                AVPREntities.YAUTJA.get(),
-                30,
-                1,
-                1
+            BiomeSelectors.foundInOverworld(),
+            MobCategory.MONSTER,
+            AVPREntities.YAUTJA.get(),
+            30,
+            1,
+            1
         );
     }
 }
