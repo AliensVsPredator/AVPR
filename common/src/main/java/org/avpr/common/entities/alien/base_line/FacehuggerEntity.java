@@ -32,6 +32,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -42,9 +43,10 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -53,11 +55,13 @@ import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.api.util.Tick;
+import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
 import org.avpr.common.entities.ai.tasks.attack.FacePounceTask;
 import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.registries.AVPRStatusEffects;
+import org.avpr.common.tags.AVPREntityTags;
 
 public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<FacehuggerEntity> {
 
@@ -277,7 +281,15 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
     public List<ExtendedSensor<FacehuggerEntity>> getSensors() {
         return ObjectArrayList.of(
             new NearbyPlayersSensor<>(),
-            new NearbyLivingEntitySensor<>(),
+            new NearbyLivingEntitySensor<FacehuggerEntity>().setPredicate(
+                (target, self) -> !(target instanceof Creeper || target instanceof IronGolem) && !target.getType()
+                    .is(
+                        EntityTypeTags.UNDEAD
+                    ) && target.getType()
+                        .is(
+                            AVPREntityTags.HOSTS
+                        )
+            ),
             new NearbyBlocksSensor<FacehuggerEntity>().setRadius(7),
             new UnreachableTargetSensor<>(),
             new HurtBySensor<>()
