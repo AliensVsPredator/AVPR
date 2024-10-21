@@ -132,7 +132,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.1,
-                0.385,
+                0.085,
                 calcStandardOffsetY(facehugger) + 0.79
             )
         );// sheep
@@ -142,7 +142,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.1,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 0.72
             )
         );// cow
@@ -152,7 +152,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.1,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 1.00
             )
         );// pig
@@ -162,21 +162,21 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.2,
-                0.74,
+                0.44,
                 calcStandardOffsetY(facehugger) + 0.92
             )
         );// wolf
         headDistances.put(
             EntityType.VILLAGER,
-            (facehugger, host) -> new TransformData(0.0, 0.0, 0.0, 0.36, calcStandardOffsetY(facehugger) + 0.22)
+            (facehugger, host) -> new TransformData(0.0, 0.0, 0.0, 0.06, calcStandardOffsetY(facehugger) + 0.22)
         );// villager
         headDistances.put(
             EntityType.DOLPHIN,
-            (facehugger, host) -> new TransformData(0.0, -0.23, 0.0, 0.80, calcStandardOffsetY(facehugger) + 0.5)
+            (facehugger, host) -> new TransformData(0.0, -0.23, 0.0, 0.20, calcStandardOffsetY(facehugger) + 0.5)
         );// doplin
         headDistances.put(
             EntityType.PLAYER,
-            (facehugger, host) -> new TransformData(0.0, 0.25, 0.0, 0.21, calcStandardOffsetY(facehugger) + 0.15)
+            (facehugger, host) -> new TransformData(0.0, 0.25, 0.0, -0.1, calcStandardOffsetY(facehugger) + 0.15)
         );// player
         headDistances.put(
             EntityType.DONKEY,
@@ -184,7 +184,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.25,
-                0.36,
+                0.06,
                 calcStandardOffsetY(facehugger) + 1.2
             )
         );// donkey
@@ -194,7 +194,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.2,
-                0.74,
+                0.44,
                 calcStandardOffsetY(facehugger) + 1.0
             )
         );// fox
@@ -204,7 +204,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.3,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.0,
-                0.36,
+                0.06,
                 calcStandardOffsetY(facehugger) + 0.9
             )
         );// goat
@@ -214,7 +214,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() - 0.1,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.25,
-                0.36,
+                0.06,
                 calcStandardOffsetY(facehugger) + 0.7
             )
         );// hoglin
@@ -224,7 +224,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 -0.05,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.7,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.15,
-                0.36,
+                0.06,
                 calcStandardOffsetY(facehugger) + 0.85
             )
         );// horse
@@ -234,7 +234,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.1,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 0.72
             )
         );// mooshroom
@@ -244,7 +244,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.6,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.3,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 1.05
             )
         );// llama
@@ -254,7 +254,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.49,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.2,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 1.0
             )
         );// donkey
@@ -264,7 +264,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.5,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.1,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 0.95
             )
         );// oce
@@ -274,7 +274,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.2,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.1,
-                0.31,
+                0.01,
                 calcStandardOffsetY(facehugger) + 0.65
             )
         ); // panda
@@ -284,7 +284,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.45,
-                0.56,
+                0.26,
                 calcStandardOffsetY(facehugger) + 0.95
             )
         );// turle
@@ -294,7 +294,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.1,
-                0.11,
+                -0.21,
                 calcStandardOffsetY(facehugger) + 0.5
             )
         );// piglin
@@ -304,7 +304,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.45,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 0.5
             )
         );// piglin brute
@@ -314,7 +314,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.3,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.5,
-                -0.3,
+                0,
                 calcStandardOffsetY(facehugger) + 0.0
             )
         );// rev
@@ -324,7 +324,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.3,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.5,
-                0.5,
+                0.2,
                 calcStandardOffsetY(facehugger) + 0.15
             )
         );// sniffer
@@ -334,7 +334,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.3,
                 host.getBbWidth() - (facehugger.getBbHeight()) + 0.15,
-                0.41,
+                0.11,
                 calcStandardOffsetY(facehugger) + 0.65
             )
         );// polar bear
@@ -344,9 +344,9 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
                 0.0,
                 (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.85,
                 host.getBbWidth() - (facehugger.getBbHeight()) - 0.35,
-                0.36,
+                0.06,
                 calcStandardOffsetY(facehugger) + 0.82
             )
-        );// camal
+        );
     }
 }
