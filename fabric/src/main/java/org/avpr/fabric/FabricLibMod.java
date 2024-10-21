@@ -260,6 +260,28 @@ public final class FabricLibMod implements ModInitializer {
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             YautjaEntity::checkMonsterSpawnRules
         );
+        /*
+         * Mob Spawns
+         */
+        BiomeModifications.addSpawn(
+                BiomeSelectors.foundInOverworld(),
+                MobCategory.MONSTER,
+                AVPREntities.BOILER.get(),
+                7,
+                1,
+                1
+        );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.foundInOverworld(),
+                MobCategory.MONSTER,
+                AVPREntities.CRUSHER.get(),
+                10,
+                1,
+                1
+        );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.foundInOverworld(),
+                MobCategory.MONSTER,
                 AVPREntities.DRONE_RUNNER.get(),
                 50,
                 1,
