@@ -34,7 +34,7 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
     public void preRender(PoseStack poseStack, FacehuggerEntity animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight,
                 packedOverlay, colour);
-        if (animatable.isInfertile() && animatable.getVehicle() == null) {
+        if (animatable.isDeadOrDying() && animatable.getVehicle() == null) {
             poseStack.translate(0, animatable.getBbHeight() - 0.05f, 0);
             poseStack.mulPose(Axis.ZP.rotationDegrees(180f));
         }
