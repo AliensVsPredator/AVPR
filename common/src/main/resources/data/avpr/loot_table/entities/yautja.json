@@ -2,46 +2,29 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "avpr:veritanium_shard",
           "functions": [
             {
-              "add": false,
+              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
+                "min": 1,
+                "max": 4
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:looting_enchant"
+              "add": false
             }
-          ],
-          "name": "avpr:veritanium_shard"
+          ]
         }
-      ],
-      "rolls": 1.0
+      ]
     },
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.1,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.033
-        }
-      ],
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -80,56 +63,45 @@
           "name": "avpr:tool_veritanium_sword"
         }
       ],
-      "rolls": 1.0
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ]
     },
     {
-      "bonus_rolls": 0.0,
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "avpr:laser_mine",
           "functions": [
             {
-              "add": false,
+              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
-                "min": 4.0
+                "min": 4,
+                "max": 8
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
-              },
-              "function": "minecraft:looting_enchant"
+              "add": false
             }
-          ],
-          "name": "avpr:laser_mine"
+          ]
         },
         {
           "type": "minecraft:item",
+          "name": "avpr:shuriken",
           "functions": [
             {
-              "add": false,
+              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
-                "min": 4.0
+                "min": 4,
+                "max": 8
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
-              },
-              "function": "minecraft:looting_enchant"
+              "add": false
             }
-          ],
-          "name": "avpr:shuriken"
+          ]
         },
         {
           "type": "minecraft:item",
@@ -139,8 +111,7 @@
           "type": "minecraft:item",
           "name": "avpr:yautja_artifact"
         }
-      ],
-      "rolls": 1.0
+      ]
     }
   ],
   "random_sequence": "avpr:entities/yautja"
