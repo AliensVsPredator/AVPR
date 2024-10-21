@@ -1,8 +1,10 @@
 package org.avpr.common.client.entities.renders;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.common.internal.common.cache.object.BakedGeoModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
@@ -29,52 +31,58 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
     }
 
     @Override
+    public void preRender(PoseStack poseStack, FacehuggerEntity animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight,
+                packedOverlay, colour);
+        if (animatable.isInfertile() && animatable.getVehicle() == null) {
+            poseStack.translate(0, animatable.getBbHeight() - 0.05f, 0);
+            poseStack.mulPose(Axis.ZP.rotationDegrees(180f));
+        }
+    }
+
+    @Override
     public void render(
-        FacehuggerEntity entity,
+        FacehuggerEntity animatable,
         float entityYaw,
         float partialTick,
         @NotNull PoseStack poseStack,
         @NotNull MultiBufferSource bufferSource,
         int packedLight
     ) {
-        if (entity.isInfertile() && entity.getVehicle() == null) {
-            poseStack.translate(0, animatable.getBbHeight() - 0.05f, 0);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(180f));
-        }
-        if (entity.isVehicle() || entity.isPassenger())
+        if (animatable.isVehicle() || animatable.isPassenger())
             poseStack.translate(0, -0.18, 0);
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+        super.render(animatable, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
     @Override
     protected void applyRotations(
-        FacehuggerEntity facehugger,
-        PoseStack matrixStackIn,
+        FacehuggerEntity animatable,
+        PoseStack poseStack,
         float ageInTicks,
         float rotationYaw,
         float partialTicks,
         float nativeScale
     ) {
-        if (facehugger.isAlive() && facehugger.isAttachedToHost()) {
-            var host = (LivingEntity) facehugger.getVehicle();
+        if (animatable.isAlive() && animatable.isAttachedToHost()) {
+            var host = (LivingEntity) animatable.getVehicle();
             if (host == null)
                 return;
-            var transformData = getTransformData(facehugger, host);
+            var transformData = getTransformData(animatable, host);
             var bodyYaw = Mth.rotLerp(partialTicks, host.yBodyRotO, host.yBodyRot);
             var headYaw = Mth.rotLerp(partialTicks, host.yHeadRotO, host.yHeadRot) - bodyYaw;
             var headPitch = Mth.rotLerp(partialTicks, host.getXRot(), host.xRotO);
 
             // translate head-center
-            matrixStackIn.mulPose(Axis.YN.rotationDegrees(bodyYaw));
-            matrixStackIn.translate(transformData.originX(), transformData.originY(), transformData.originZ());
+            poseStack.mulPose(Axis.YN.rotationDegrees(bodyYaw));
+            poseStack.translate(transformData.originX(), transformData.originY(), transformData.originZ());
             // yaw
-            matrixStackIn.mulPose(Axis.YN.rotationDegrees(headYaw));
+            poseStack.mulPose(Axis.YN.rotationDegrees(headYaw));
             // pitch
-            matrixStackIn.mulPose(Axis.XP.rotationDegrees(headPitch));
-            matrixStackIn.translate(0.0, transformData.headOffset(), transformData.faceOffset()); // apply offsets
+            poseStack.mulPose(Axis.XP.rotationDegrees(headPitch));
+            poseStack.translate(0.0, transformData.headOffset(), transformData.faceOffset()); // apply offsets
 
         } else
-            super.applyRotations(facehugger, matrixStackIn, ageInTicks, rotationYaw, partialTicks, 1);
+            super.applyRotations(animatable, poseStack, ageInTicks, rotationYaw, partialTicks, 1);
     }
 
     @Override
