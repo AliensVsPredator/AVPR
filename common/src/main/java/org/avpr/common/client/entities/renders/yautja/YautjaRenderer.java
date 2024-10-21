@@ -55,12 +55,14 @@ public class YautjaRenderer extends GeoEntityRenderer<YautjaEntity> {
         var currentHealthPercentage = (animatable.getHealth() / animatable.getMaxHealth()) * 100;
         var maskBone = model.getBone("gArmorMask");
         var wristBladeBone = model.getBone("gWristBlade");
+        if (animatable.hasMask() && maskBone.isPresent())
+            maskBone.get().setHidden(false);
         if (!animatable.hasMask() && maskBone.isPresent())
             maskBone.get().setHidden(true);
-//        if (!animatable.isAggressive() && wristBladeBone.isPresent())
-//            wristBladeBone.get().setHidden(true);
-//        if (animatable.isAggressive() && wristBladeBone.isPresent())
-//            wristBladeBone.get().setHidden(false);
+        if (!animatable.isAggressive() && wristBladeBone.isPresent())
+            wristBladeBone.get().setHidden(true);
+        if (animatable.isAggressive() && wristBladeBone.isPresent())
+            wristBladeBone.get().setHidden(false);
         this.update(currentHealthPercentage, model);
     }
 
