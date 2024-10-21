@@ -55,7 +55,7 @@ public abstract class LivingEntityMixin extends Entity {
      */
     @Inject(method = { "tick" }, at = { @At("HEAD") })
     void tick(CallbackInfo callbackInfo) {
-        if (!this.level().isClientSide && PredicatesUtil.shouldApplyImpEffects.test(this))
+        if (!this.level().isClientSide && PredicatesUtil.SHOULD_APPLY_IMPREGNATION_EFFECT.test(this))
             this.hurt(DamageUtil.of(this.level(), AVPRDamageSources.CHESTBURST), 0.2f);
     }
 
