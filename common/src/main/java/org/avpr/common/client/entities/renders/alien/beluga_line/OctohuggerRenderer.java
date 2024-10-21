@@ -146,6 +146,10 @@ public class OctohuggerRenderer extends GeoEntityRenderer<OctohuggerEntity> {
         ).invoke(facehugger, host);
     }
 
+    /**
+     * TODO: Add {@link org.avpr.common.entities.engineer.EngineerEntity} and
+     * {@link org.avpr.common.entities.yautja.YautjaEntity} values
+     */
     public void setHeadDistances() {
         headDistances.put(
             EntityType.SHEEP,
