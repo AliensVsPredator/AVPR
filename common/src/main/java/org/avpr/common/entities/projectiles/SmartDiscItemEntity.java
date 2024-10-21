@@ -35,8 +35,10 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
     @Override
     public void tick() {
         super.tick();
+        // If older then 15 seconds, remove to keep entity count down
         if (this.tickCount > 300)
             this.kill();
+        // Searches around itself for an entity to target
         var livingEntities = level().getEntitiesOfClass(
             LivingEntity.class,
             this.getBoundingBox().inflate(5),
