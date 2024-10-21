@@ -125,6 +125,7 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<NauticomorphEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

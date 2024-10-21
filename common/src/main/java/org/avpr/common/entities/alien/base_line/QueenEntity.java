@@ -125,6 +125,7 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<QueenEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

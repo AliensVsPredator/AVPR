@@ -125,6 +125,7 @@ public class PredalienEntity extends AlienEntity implements SmartBrainOwner<Pred
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<PredalienEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

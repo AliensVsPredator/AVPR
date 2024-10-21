@@ -125,6 +125,7 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<BoilerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

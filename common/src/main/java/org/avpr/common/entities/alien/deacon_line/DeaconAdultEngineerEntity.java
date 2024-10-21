@@ -125,6 +125,7 @@ public class DeaconAdultEngineerEntity extends AlienEntity implements SmartBrain
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<DeaconAdultEngineerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

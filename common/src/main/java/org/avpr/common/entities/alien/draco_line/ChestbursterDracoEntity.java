@@ -131,6 +131,7 @@ public class ChestbursterDracoEntity extends AlienEntity implements SmartBrainOw
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<ChestbursterDracoEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

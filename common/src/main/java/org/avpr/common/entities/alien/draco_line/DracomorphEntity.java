@@ -125,6 +125,7 @@ public class DracomorphEntity extends AlienEntity implements SmartBrainOwner<Dra
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<DracomorphEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

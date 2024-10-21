@@ -125,6 +125,7 @@ public class CrusherEntity extends AlienEntity implements SmartBrainOwner<Crushe
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<CrusherEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

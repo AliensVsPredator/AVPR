@@ -188,6 +188,7 @@ public class EngineerEntity extends WaterAnimal implements Enemy, GeoEntity, Sma
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<EngineerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

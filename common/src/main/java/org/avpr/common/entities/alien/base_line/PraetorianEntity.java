@@ -125,6 +125,7 @@ public class PraetorianEntity extends AlienEntity implements SmartBrainOwner<Pra
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<PraetorianEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

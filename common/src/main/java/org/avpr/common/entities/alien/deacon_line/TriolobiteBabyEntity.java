@@ -131,6 +131,7 @@ public class TriolobiteBabyEntity extends AlienEntity implements SmartBrainOwner
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<TriolobiteBabyEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

@@ -136,6 +136,7 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<ChestbursterEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

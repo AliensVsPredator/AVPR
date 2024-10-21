@@ -125,6 +125,7 @@ public class WarriorEntity extends AlienEntity implements SmartBrainOwner<Warrio
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<WarriorEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

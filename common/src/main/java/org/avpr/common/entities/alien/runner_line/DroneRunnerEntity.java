@@ -125,6 +125,7 @@ public class DroneRunnerEntity extends AlienEntity implements SmartBrainOwner<Dr
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<DroneRunnerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

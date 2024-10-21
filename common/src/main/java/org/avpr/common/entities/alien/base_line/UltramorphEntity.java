@@ -125,6 +125,7 @@ public class UltramorphEntity extends AlienEntity implements SmartBrainOwner<Ult
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<UltramorphEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(

@@ -132,6 +132,7 @@ public class ChestbursterQueenEntity extends AlienEntity implements SmartBrainOw
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<ChestbursterQueenEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(
