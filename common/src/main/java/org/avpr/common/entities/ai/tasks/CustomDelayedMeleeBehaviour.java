@@ -3,15 +3,15 @@ package org.avpr.common.entities.ai.tasks;
 import mod.azure.azurelib.sblforked.api.core.behaviour.ExtendedBehaviour;
 import mod.azure.azurelib.sblforked.util.BrainUtils;
 import net.minecraft.server.level.ServerLevel;
-import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
-import org.avpr.common.entities.alien.base_line.FacehuggerRoyalEntity;
-import org.avpr.common.entities.alien.beluga_line.OctohuggerEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
 import org.avpr.common.api.util.EntityUtil;
 import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
+import org.avpr.common.entities.alien.base_line.FacehuggerRoyalEntity;
+import org.avpr.common.entities.alien.beluga_line.OctohuggerEntity;
 
 /**
  * CustomDelayedMeleeBehaviour is an abstract class that defines a behavior for entities to perform a delayed melee
@@ -54,7 +54,10 @@ public abstract class CustomDelayedMeleeBehaviour<E extends AlienEntity> extends
             doDelayedAction(entity);
         }
         var target = BrainUtils.getTargetOfEntity(entity);
-        if (target != null && (entity instanceof FacehuggerEntity || entity instanceof FacehuggerRoyalEntity || entity instanceof OctohuggerEntity))
+        if (
+            target != null && (entity instanceof FacehuggerEntity || entity instanceof FacehuggerRoyalEntity
+                || entity instanceof OctohuggerEntity)
+        )
             EntityUtil.jumpAtTarget(target, entity);
     }
 

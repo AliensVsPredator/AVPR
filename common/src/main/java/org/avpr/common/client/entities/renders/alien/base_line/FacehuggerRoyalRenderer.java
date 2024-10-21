@@ -141,7 +141,7 @@ public class FacehuggerRoyalRenderer extends GeoEntityRenderer<FacehuggerRoyalEn
                 )) - this.getPassengersRidingOffset(
                     host
                 ) - facehugger.getBbWidth() + host.getBbWidth(),
-                calcStandardOffsetY((FacehuggerRoyalEntity) facehugger)
+                calcStandardOffsetY(facehugger)
             )
         ).invoke(facehugger, host);
     }

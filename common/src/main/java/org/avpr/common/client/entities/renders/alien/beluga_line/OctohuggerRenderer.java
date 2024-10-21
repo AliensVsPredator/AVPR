@@ -141,7 +141,7 @@ public class OctohuggerRenderer extends GeoEntityRenderer<OctohuggerEntity> {
                 )) - this.getPassengersRidingOffset(
                     host
                 ) - facehugger.getBbWidth() + host.getBbWidth(),
-                calcStandardOffsetY((OctohuggerEntity) facehugger)
+                calcStandardOffsetY(facehugger)
             )
         ).invoke(facehugger, host);
     }
