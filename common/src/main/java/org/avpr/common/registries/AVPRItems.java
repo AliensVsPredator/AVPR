@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 import org.avpr.common.CommonMod;
 import org.avpr.common.items.GrenadeItem;
 import org.avpr.common.items.ShurikenItem;
+import org.avpr.common.items.SmartDiscItem;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.guns.BaseGunItem;
 import org.avpr.common.items.tools.AVPRToolMaterials;
@@ -437,7 +438,7 @@ public record AVPRItems() {
 
     public static final Supplier<Item> SMART_DISC = AVPRItems.registerItem(
         "smart_disc",
-        () -> new Item(new Item.Properties())
+        () -> new SmartDiscItem(new Item.Properties())
     );
 
     public static final Supplier<Item> YAUTJA_ARTIFCAT = AVPRItems.registerItem(

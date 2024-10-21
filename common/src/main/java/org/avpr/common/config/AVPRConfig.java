@@ -40,6 +40,16 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float SKURIKEN_DAMAGE = 5F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float SMARTDISC_BREAKSPEED_MODIFIER = 4.0f;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float SMARTDISC_DAMAGE = 5F;
     }
 
     @Configurable

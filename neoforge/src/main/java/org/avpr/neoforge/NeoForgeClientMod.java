@@ -99,6 +99,7 @@ public class NeoForgeClientMod {
         event.registerEntityRenderer(AVPREntities.YAUTJA.get(), YautjaRenderer::new);
         event.registerEntityRenderer(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(AVPREntities.SHURKIEN_ENTITY.get(), SkurikenItemRenderer::new);
+        event.registerEntityRenderer(AVPREntities.SMARTDISC_ENTITY.get(), SkurikenItemRenderer::new);
     }
 
     @SubscribeEvent
