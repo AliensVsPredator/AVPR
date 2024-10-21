@@ -9,9 +9,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.avpr.common.entities.projectiles.ShurikenItemEntity;
-import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 import org.jetbrains.annotations.NotNull;
+
+import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 
 public class SmartDiscItem extends Item {
 

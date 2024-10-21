@@ -16,8 +16,11 @@ import net.minecraft.world.item.ItemDisplayContext;
 import org.jetbrains.annotations.NotNull;
 
 public class SkurikenItemRenderer<T extends Entity & ItemSupplier> extends EntityRenderer<T> {
+
     private final ItemRenderer itemRenderer;
+
     private final float scale;
+
     private final boolean fullBright;
 
     public SkurikenItemRenderer(EntityRendererProvider.Context context, float scale, boolean fullBright) {
@@ -37,14 +40,30 @@ public class SkurikenItemRenderer<T extends Entity & ItemSupplier> extends Entit
     }
 
     @Override
-    public void render(T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
+    public void render(
+        T entity,
+        float entityYaw,
+        float partialTicks,
+        @NotNull PoseStack poseStack,
+        @NotNull MultiBufferSource buffer,
+        int packedLight
+    ) {
         if (entity.tickCount >= 2 || this.entityRenderDispatcher.camera.getEntity().distanceToSqr(entity) > 12.25) {
             poseStack.pushPose();
             poseStack.scale(this.scale, this.scale, this.scale);
             poseStack.mulPose(Axis.XP.rotationDegrees(90));
             float rotation = (entity.tickCount + partialTicks) * 15.0F;
             poseStack.mulPose(Axis.ZP.rotation(rotation));
-            this.itemRenderer.renderStatic(entity.getItem(), ItemDisplayContext.GROUND, packedLight, OverlayTexture.NO_OVERLAY, poseStack, buffer, entity.level(), entity.getId());
+            this.itemRenderer.renderStatic(
+                entity.getItem(),
+                ItemDisplayContext.GROUND,
+                packedLight,
+                OverlayTexture.NO_OVERLAY,
+                poseStack,
+                buffer,
+                entity.level(),
+                entity.getId()
+            );
             poseStack.popPose();
             super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
         }

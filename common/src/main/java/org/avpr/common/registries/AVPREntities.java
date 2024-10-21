@@ -47,11 +47,11 @@ public record AVPREntities() {
     );
 
     public static final Supplier<EntityType<SmartDiscItemEntity>> SMARTDISC_ENTITY = AVPREntities.registerEntity(
-            "smartdisc_entity",
-            SmartDiscItemEntity::new,
-            MobCategory.MISC,
-            0.25F,
-            0.25F
+        "smartdisc_entity",
+        SmartDiscItemEntity::new,
+        MobCategory.MISC,
+        0.25F,
+        0.25F
     );
 
     public static final Supplier<EntityType<AcidEntity>> ACID = AVPREntities.registerEntity(

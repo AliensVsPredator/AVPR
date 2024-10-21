@@ -2,23 +2,23 @@ package org.avpr.common.entities.projectiles;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
+
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.server.BlockBreakProgressManager;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.tags.AVPREntityTags;
-import org.jetbrains.annotations.NotNull;
 
 public class SmartDiscItemEntity extends ThrowableItemProjectile {
+
     public SmartDiscItemEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
         super(entityType, level);
     }
@@ -37,8 +37,14 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
         super.tick();
         if (this.tickCount > 300)
             this.kill();
-        var livingEntities = level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(5), livingEntity -> !livingEntity.getType().is(
-                AVPREntityTags.PREDATORS) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity));
+        var livingEntities = level().getEntitiesOfClass(
+            LivingEntity.class,
+            this.getBoundingBox().inflate(5),
+            livingEntity -> !livingEntity.getType()
+                .is(
+                    AVPREntityTags.PREDATORS
+                ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity)
+        );
         if (!livingEntities.isEmpty()) {
             var first = livingEntities.getFirst(); // Get the first entity found.
             var entityPos = new Vec3(first.getX(), first.getY() + first.getEyeHeight(), first.getZ());
@@ -55,15 +61,14 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
             // Set the new velocity for the projectile.
             this.setDeltaMovement(newVelocity);
         }
-
     }
 
     @Override
     protected void onHitBlock(@NotNull BlockHitResult result) {
         BlockBreakProgressManager.damage(
-                level(),
-                result.getBlockPos(),
-                CommonMod.config.itemConfigs.SMARTDISC_BREAKSPEED_MODIFIER * 2.0F
+            level(),
+            result.getBlockPos(),
+            CommonMod.config.itemConfigs.SMARTDISC_BREAKSPEED_MODIFIER * 2.0F
         );
         this.kill();
         super.onHitBlock(result);
@@ -72,8 +77,10 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(@NotNull EntityHitResult result) {
         if (result.getEntity() instanceof LivingEntity livingEntity && getOwner() != null) {
-            livingEntity.hurt(damageSources().thrown(getOwner(), livingEntity),
-                    CommonMod.config.itemConfigs.SMARTDISC_DAMAGE);
+            livingEntity.hurt(
+                damageSources().thrown(getOwner(), livingEntity),
+                CommonMod.config.itemConfigs.SMARTDISC_DAMAGE
+            );
             this.kill();
         }
         super.onHitEntity(result);
