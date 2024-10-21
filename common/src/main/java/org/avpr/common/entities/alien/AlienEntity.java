@@ -20,6 +20,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ambient.Bat;
@@ -432,9 +433,9 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
                 EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
             else {
                 var radius = (getAcidDiameter() - 1) / 2;
-                for (int i = 0; i < getAcidDiameter(); i++) {
-                    int x = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
-                    int z = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
+                for (var i = 0; i < getAcidDiameter(); i++) {
+                    var x = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
+                    var z = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
                     if (source != damageSources().genericKill() || source != damageSources().generic())
                         EntityUtil.generateAcidPool(this, this.blockPosition(), x, z);
                 }
