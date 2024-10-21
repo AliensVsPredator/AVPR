@@ -268,6 +268,20 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         return 0;
     }
 
+    @Override
+    public boolean hurt(@NotNull DamageSource source, float amount) {
+        if (!this.level().isClientSide && source.getEntity() != null && source.getEntity() instanceof LivingEntity livingEntity)
+            this.brain.setMemory(MemoryModuleType.ATTACK_TARGET, livingEntity);
+
+        if (amount >= 50 && source != this.damageSources().genericKill())
+            return super.hurt(source, amount * 0.10f);
+
+        if (source == damageSources().inWall())
+            return false;
+
+        return super.hurt(source, amount);
+    }
+
     /**
      * Data handling
      */

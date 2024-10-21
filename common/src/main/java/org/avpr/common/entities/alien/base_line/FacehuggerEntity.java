@@ -237,13 +237,29 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
 
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
+        var multiplier = 1.0f;
+        
+        if (source == this.damageSources().onFire())
+            multiplier = 2.0f;
+
         if ((isAttachedToHost() || isInfertile()) && (source == damageSources().drown()))
             return false;
 
-        if (!this.level().isClientSide && source.getEntity() != null && source.getEntity() instanceof LivingEntity livingEntity)
-            this.brain.setMemory(MemoryModuleType.ATTACK_TARGET, livingEntity);
-
-        return super.hurt(source, amount);
+        if (
+                !this.level().isClientSide && source != this.damageSources().genericKill() && amount >= 8) {
+            if (getAcidDiameter() == 1)
+                EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
+            else {
+                var radius = (getAcidDiameter() - 1) / 2;
+                for (var i = 0; i < getAcidDiameter(); i++) {
+                    var x = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
+                    var z = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
+                    if (source != damageSources().genericKill() || source != damageSources().generic())
+                        EntityUtil.generateAcidPool(this, this.blockPosition(), x, z);
+                }
+            }
+        }
+        return super.hurt(source, amount * multiplier);
     }
 
     @Override
