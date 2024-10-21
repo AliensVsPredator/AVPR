@@ -36,6 +36,11 @@ public class AVPRConfig {
         @Configurable.DecimalRange(min = 0)
         public float OVAMORPH_HEALTH = 8F;
 
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float OVAMORPH_HATCH_RANGE = 7F;
+
     }
 
     @Configurable
@@ -48,6 +53,21 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float FACEHUGGER_HEALTH = 5F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float FACEHUGGER_SPEED = 0.3300000041723251F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 1)
+        public float FACEHUGGER_ATTACH_TIME_IN_TICKS = 1200F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.Range(min = 1)
+        public int FACEHUGGER_IMPREG_TIMER = 1200;
 
         @Configurable
         @Configurable.Synchronized

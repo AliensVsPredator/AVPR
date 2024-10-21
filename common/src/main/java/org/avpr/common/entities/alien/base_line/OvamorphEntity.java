@@ -346,7 +346,7 @@ public class OvamorphEntity extends AlienEntity {
             this.level()
                 .getEntitiesOfClass(
                     LivingEntity.class,
-                    this.getBoundingBox().inflate(7.0f)
+                    this.getBoundingBox().inflate(CommonMod.config.ovamorphConfigs.OVAMORPH_HATCH_RANGE)
                 )
                 .forEach(target -> {
                     // If the entity is alive and can be facehugged

@@ -47,6 +47,7 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.avpr.common.api.util.EntityUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -103,7 +104,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                 Attributes.FOLLOW_RANGE,
                 32.0
             )
-            .add(Attributes.MOVEMENT_SPEED, 0.3300000041723251);
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.facehuggerConfigs.FACEHUGGER_SPEED);
     }
 
     @Override
@@ -171,7 +172,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                 livingEntity.heal(6);
             if (getVehicle() instanceof Player player && player.getFoodData().needsFood())
                 player.getFoodData().setFoodLevel(20);
-            if (ticksAttachedToHost > 1200) {
+            if (ticksAttachedToHost > CommonMod.config.facehuggerConfigs.FACEHUGGER_ATTACH_TIME_IN_TICKS) {
                 // if (getVehicle() instanceof Player player && player instanceof ServerPlayer serverPlayer) {
                 // var advancement = serverPlayer.server.getAdvancements().get(CommonMod.modResource("facehugged"));
                 // if (advancement != null && !serverPlayer.getAdvancements().getOrStartProgress(advancement).isDone())
@@ -184,7 +185,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                 if (livingEntity.hasEffect(MobEffects.BLINDNESS))
                     livingEntity.removeEffect(MobEffects.BLINDNESS);
                 if (!livingEntity.hasEffect(AVPRStatusEffects.IMPREGNATION))
-                    livingEntity.addEffect(new MobEffectInstance(AVPRStatusEffects.IMPREGNATION, 1200, 0, false, true));
+                    livingEntity.addEffect(new MobEffectInstance(AVPRStatusEffects.IMPREGNATION, CommonMod.config.facehuggerConfigs.FACEHUGGER_IMPREG_TIMER, 0, false, true));
                 if (!level().isClientSide)
                     this.level().playSound(this, this.blockPosition(), AVPRSounds.IMPREGNATE.get(), SoundSource.HOSTILE, 1.0F, 1.0F);
                 setIsInfertile(true);
@@ -229,7 +230,8 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
         entity.setSpeed(0.0f);
         if (CommonMod.config.facehuggerConfigs.FACEHUGGER_GIVE_BLINDNESS)
             entity.addEffect(
-                new MobEffectInstance(MobEffects.BLINDNESS, 1200, 0)
+                new MobEffectInstance(MobEffects.BLINDNESS,
+                        (int) CommonMod.config.facehuggerConfigs.FACEHUGGER_ATTACH_TIME_IN_TICKS, 0)
             );
         if (entity instanceof ServerPlayer player && (!player.isCreative() || !player.isSpectator()))
             player.connection.send(new ClientboundSetPassengersPacket(entity));
@@ -238,7 +240,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
         var multiplier = 1.0f;
-        
+
         if (source == this.damageSources().onFire())
             multiplier = 2.0f;
 

@@ -1039,5 +1039,20 @@
   "tooltip.avpr.damage": "Damage: ",
   "tooltip.avpr.fire_mode": "Fire Mode: ",
   "tooltip.avpr.fire_rate": "Fire Rate: ",
-  "tooltip.avpr.recoil": "Recoil: "
+  "tooltip.avpr.recoil": "Recoil: ",
+
+  "config.screen.avpr": "AVP Regenesis Configs",
+  "config.avpr.option.": "",
+  "config.avpr.option.acidConfigs": "Acid Configs",
+  "config.avpr.option.ACID_BREAKSPEED_MODIFIER": "How fast should Acid break blocks",
+  "config.avpr.option.ACID_DAMAGE": "How much Acid should damage for",
+  "config.avpr.option.ovamorphConfigs": "Ovamorph Configs",
+  "config.avpr.option.OVAMORPH_HEALTH": "Sets Ovamorph Heatlh Attribute",
+  "config.avpr.option.OVAMORPH_HATCH_RANGE": "Sets Ovamorph Search Range",
+  "config.avpr.option.facehuggerConfigs": "Facehugger Configs",
+  "config.avpr.option.FACEHUGGER_HEALTH": "Sets Facehugger Heatlh Attribute",
+  "config.avpr.option.FACEHUGGER_SPEED": "Sets Facehugger Speed Attribute",
+  "config.avpr.option.FACEHUGGER_ATTACH_TIME_IN_TICKS": "Sets how long a hugger is attached for",
+  "config.avpr.option.FACEHUGGER_IMPREG_TIMER": "Sets timer for how long the impregnation status will take",
+  "config.avpr.option.FACEHUGGER_GIVE_BLINDNESS": "Should Facehuggers give blindness"
 }
