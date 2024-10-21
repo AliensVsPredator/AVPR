@@ -27,6 +27,23 @@ public class AVPRConfig {
 
     @Configurable
     @Configurable.Synchronized
+    public ItemConfigs itemConfigs = new ItemConfigs();
+
+    public static class ItemConfigs {
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float SKURIKEN_BREAKSPEED_MODIFIER = 1.0f;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float SKURIKEN_DAMAGE = 5F;
+    }
+
+    @Configurable
+    @Configurable.Synchronized
     public OvamorphConfigs ovamorphConfigs = new OvamorphConfigs();
 
     public static class OvamorphConfigs {

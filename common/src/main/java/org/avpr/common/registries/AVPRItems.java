@@ -7,6 +7,7 @@ import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.items.GrenadeItem;
+import org.avpr.common.items.ShurikenItem;
 import org.avpr.common.items.armor.AVPRArmorItem;
 import org.avpr.common.items.guns.BaseGunItem;
 import org.avpr.common.items.tools.AVPRToolMaterials;
@@ -426,7 +427,7 @@ public record AVPRItems() {
 
     public static final Supplier<Item> SHURIKEN = AVPRItems.registerItem(
         "shuriken",
-        () -> new Item(new Item.Properties())
+        () -> new ShurikenItem(new Item.Properties())
     );
 
     public static final Supplier<Item> SILICA = AVPRItems.registerItem(

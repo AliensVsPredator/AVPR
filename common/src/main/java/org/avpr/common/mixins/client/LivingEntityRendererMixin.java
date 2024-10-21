@@ -22,6 +22,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
 
     @Shadow
     protected abstract float getFlipDegrees(T animatable);
+
     /**
      * TODO: Finish via renders
      */

@@ -18,6 +18,7 @@ import org.avpr.common.client.entities.renders.alien.draco_line.*;
 import org.avpr.common.client.entities.renders.alien.predalien_line.PredalienRenderer;
 import org.avpr.common.client.entities.renders.alien.runner_line.*;
 import org.avpr.common.client.entities.renders.engineer.EngineerRenderer;
+import org.avpr.common.client.entities.renders.items.SkurikenItemRenderer;
 import org.avpr.common.client.entities.renders.yautja.YautjaRenderer;
 import org.avpr.common.client.misc.AcidEntityRender;
 import org.avpr.common.particles.AcidParticleProvider;
@@ -63,6 +64,7 @@ public class FabricClientMod implements ClientModInitializer {
         EntityRenderers.register(AVPREntities.ENGINEER.get(), EngineerRenderer::new);
         EntityRenderers.register(AVPREntities.YAUTJA.get(), YautjaRenderer::new);
         EntityRenderers.register(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(AVPREntities.SHURKIEN_ENTITY.get(), SkurikenItemRenderer::new);
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS.get(), RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS_WHITE.get(), RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS_ORANGE.get(), RenderType.translucent());
