@@ -13,6 +13,6 @@ public class DefaultEntityModel<T extends GeoAnimatable> extends DefaultedEntity
 
     @Override
     public RenderType getRenderType(T animatable, ResourceLocation texture) {
-        return RenderType.entityTranslucentCull(texture);
+        return RenderType.entityTranslucent(texture);
     }
 }
