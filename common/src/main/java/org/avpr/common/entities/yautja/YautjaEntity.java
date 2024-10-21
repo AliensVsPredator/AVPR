@@ -5,6 +5,8 @@ import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
 import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
+import mod.azure.azurelib.core.animation.AnimationController;
+import mod.azure.azurelib.core.object.PlayState;
 import mod.azure.azurelib.sblforked.api.SmartBrainOwner;
 import mod.azure.azurelib.sblforked.api.core.BrainActivityGroup;
 import mod.azure.azurelib.sblforked.api.core.SmartBrainProvider;
@@ -32,6 +34,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
@@ -49,7 +52,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 import org.avpr.common.CommonMod;
+import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
+import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 
 public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, SmartBrainOwner<YautjaEntity> {
@@ -96,7 +101,40 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, Constants.LIVING_CONTROLLER, 0, event -> {
+            if (this.isAggressive())
+                return event.setAndContinue(Constants.BLADE_OPEN);
+            return event.setAndContinue(Constants.BLADE_CLOSE);
+        }).setSoundKeyframeHandler(event -> {
+            if (level().isClientSide()) {
+                if (event.getKeyframeData().getSound().matches("blade_closing"))
+                    level().playLocalSound(
+                        this.blockPosition(),
+                        AVPRSounds.ITEM_WEAPON_WRISTBLADE_CLOSE.get(),
+                        SoundSource.HOSTILE,
+                        1,
+                        1,
+                        true
+                    );
+                if (event.getKeyframeData().getSound().matches("blade_opening"))
+                    level().playLocalSound(
+                        this.blockPosition(),
+                        AVPRSounds.ITEM_WEAPON_WRISTBLADE_OPEN.get(),
+                        SoundSource.HOSTILE,
+                        1,
+                        1,
+                        true
+                    );
+            }
+        }))
+            .add(
+                new AnimationController<>(this, Constants.ATTACK_CONTROLLER, 0, event -> PlayState.STOP).triggerableAnim(
+                    "blade_attack",
+                    Constants.BLADE_ATTACK
+                )
+            );
+    }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
@@ -121,7 +159,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(HAS_MASK, this.random.nextBoolean());
+        builder.define(HAS_MASK, true);
     }
 
     @Override
@@ -206,9 +244,13 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
             new InvalidateAttackTarget<>().invalidateIf(
                 (entity, target) -> target.getType().is(AVPREntityTags.PREDATORS)
             ),
-            new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F)
-                .startCondition(entity -> this.getMainHandItem().isEmpty()),
-            new AnimatableMeleeAttack<>(6)
+            new SetWalkTargetToAttackTarget<>().startCondition(entity -> this.getMainHandItem().isEmpty()),
+            new AnimatableMeleeAttack<>(6).whenStarting(
+                mob -> this.triggerAnim(
+                    Constants.ATTACK_CONTROLLER,
+                    "blade_attack"
+                )
+            )
         );
     }
 }

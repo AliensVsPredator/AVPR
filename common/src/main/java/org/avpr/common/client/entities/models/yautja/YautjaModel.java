@@ -35,7 +35,7 @@ public class YautjaModel extends DefaultEntityModel<YautjaEntity> {
                     ) * 0.6662F
                 ) * 2.0F * animatable.walkAnimation.speed() * 0.5F
             );
-        if (rightArm != null)
+        if (rightArm != null && !animatable.isAggressive())
             rightArm.setRotX(
                 Mth.cos(
                     animatable.walkAnimation.position(

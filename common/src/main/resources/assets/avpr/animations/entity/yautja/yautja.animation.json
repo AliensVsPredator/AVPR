@@ -1,5 +1,86 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.bladeopen": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"gWristBlade": {
+					"position": {
+						"0.0": {
+							"vector": [-1, 7, 0]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [1, 1, 1],
+							"easing": "easeInSine"
+						}
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "blade_opening"
+				}
+			}
+		},
+		"animation.bladeclose": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"gWristBlade": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-1, 7, 0]
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1],
+							"easing": "easeInSine"
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "blade_closing"
+				}
+			}
+		},
+		"animation.blade_attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"gRightArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.2083": {
+							"vector": [-64.96851, -25.25199, -11.26653]
+						},
+						"0.2917": {
+							"vector": [-64.96851, -25.25199, -11.26653]
+						},
+						"0.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		}
 	}
 }
