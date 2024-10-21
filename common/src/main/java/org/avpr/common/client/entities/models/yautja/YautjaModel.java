@@ -17,7 +17,7 @@ public class YautjaModel extends DefaultEntityModel<YautjaEntity> {
     @Override
     public void setCustomAnimations(YautjaEntity animatable, long instanceId, AnimationState<YautjaEntity> animationState) {
         super.setCustomAnimations(animatable, instanceId, animationState);
-        var head = getAnimationProcessor().getBone("gNeckUpper");
+        var head = getAnimationProcessor().getBone("gNeckLower");
         var leftArm = getAnimationProcessor().getBone("gLeftArm");
         var rightArm = getAnimationProcessor().getBone("gRightArm");
         var leftLeg = getAnimationProcessor().getBone("gLeftLeg");

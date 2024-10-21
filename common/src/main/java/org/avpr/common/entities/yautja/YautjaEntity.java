@@ -107,6 +107,15 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     public void tick() {
         super.tick();
         this.setAirSupply(this.getMaxAirSupply());
+        var currentHealthPercentage = (this.getHealth() / this.getMaxHealth()) * 100;
+        if (this.hasMask() && currentHealthPercentage <= 0.85)
+            this.setMaskStatus(true);
+    }
+
+    @Override
+    public int getArmorValue() {
+        var currentHealthPercentage = (this.getHealth() / this.getMaxHealth()) * 100;
+        return (int) (currentHealthPercentage * super.getArmorValue());
     }
 
     @Override
@@ -173,6 +182,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<YautjaEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(
