@@ -14,12 +14,142 @@ import org.avpr.common.platform.AVPRServices;
 
 public record AVPRItems() {
 
-    public static final Supplier<SpawnEggItem> OVAMORPH_SPAWN_EGG = AVPRItems.registerItem(
-        "spawn_egg_ovamorph",
+    public static final Supplier<SpawnEggItem> PREDALIEN_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_predalien",
         AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
-            AVPREntities.OVAMORPH,
-            0x615B45,
-            0xBF7872,
+            AVPREntities.PREDALIEN,
+            0x747252,
+            0x494837,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> BOILER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_boiler",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.BOILER,
+            0x010202,
+            0x9DA930,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> DRONE_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_drone",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.DRONE,
+            0x010202,
+            0xDFE2E4,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> NAUTICOMORPH_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_nauticomorph",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.NAUTICOMORPH,
+            0x010202,
+            0x678275,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> PRAETORIAN_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_praetorian",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.PRAETORIAN,
+            0x010202,
+            0x363534,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> QUEEN_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_queen",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.QUEEN,
+            0x010202,
+            0x363534,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> SPITTER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_spitter",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.SPITTER,
+            0x010202,
+            0x3CDC09,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> ULTRAMORPH_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_ultramorph",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.ULTRAMORPH,
+            0x3E474E,
+            0x696E76,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> WARRIOR_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_warrior",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.WARRIOR,
+            0x010202,
+            0x4A4E55,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> CHESTBURSTER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_chestburster",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.CHESTBURSTER,
+            0xD8B877,
+            0xF7E2B4,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> CHESTBURSTER_QUEEN_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_chestburster_queen",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.CHESTBURSTER_QUEEN,
+            0xD8B877,
+            0xF7E2B4,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> CHESTBURSTER_DRACO_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_chestburster_draco",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.CHESTBURSTER_DRACO,
+            0xD8B877,
+            0xF7E2B4,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> CHESTBURSTER_RUNNER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_chestburster_runner",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.CHESTBURSTER_RUNNER,
+            0xD8B877,
+            0xF7E2B4,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> BELUGABURSTER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_belugaburster",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.BELUGABURSTER,
+            0xC2C1BD,
+            0x646857,
             new Item.Properties()
         )
     );
@@ -30,6 +160,156 @@ public record AVPRItems() {
             AVPREntities.FACEHUGGER,
             0xE4D597,
             0xA55863,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> BELUGAMORPH_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_belugamorph",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.BELUGAMORPH,
+            0xBCC9C6,
+            0x646E65,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> OCTOHUGGER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_octohugger",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.OCTOHUGGER,
+            0xC2BCC8,
+            0xC09CAE,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> OVAMORPH_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_ovamorph",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.OVAMORPH,
+            0x615B45,
+            0xBF7872,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> OVAMORPH_DRACO_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_ovamorph_draco",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.OVAMORPH_DRACO,
+            0x2F2F2F,
+            0xA36762,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> DEACON_ADULT_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_deacon_adult",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.DEACON_ADULT,
+            0x8896A5,
+            0x495256,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> DEACON_ADULT_ENGINEER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_deacon_adult_engineer",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.DEACON_ADULT_ENGINEER,
+            0x8896A5,
+            0x495256,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> DEACON_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_deacon",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.DEACON,
+            0x8896A5,
+            0x495256,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> TRIOLOBITE_BABY_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_trilobite_baby",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.TRIOLOBITE_BABY,
+            0xCCC2A5,
+            0x987379,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> TRIOLOBITE_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_trilobite",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.TRIOLOBITE,
+            0xCCC2A5,
+            0x987379,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> DRACOMORPH_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_dracomorph",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.DRACOMORPH,
+            0x212121,
+            0x535353,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> CRUSHER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_crusher",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.CRUSHER,
+            0x2E2921,
+            0x534A3B,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> DRONE_RUNNER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_drone_runner",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.DRONE_RUNNER,
+            0x503D34,
+            0xA69E85,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> WARRIOR_RUNNER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_warrior_runner",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.WARRIOR_RUNNER,
+            0x1A1917,
+            0x61615E,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> ENGINEER_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_engineer",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.ENGINEER,
+            0xB8B1B6,
+            0x99AFBD,
+            new Item.Properties()
+        )
+    );
+
+    public static final Supplier<SpawnEggItem> YAUTJA_SPAWN_EGG = AVPRItems.registerItem(
+        "spawn_egg_yautja",
+        AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
+            AVPREntities.YAUTJA,
+            0xB9A86C,
+            0x5A4728,
             new Item.Properties()
         )
     );

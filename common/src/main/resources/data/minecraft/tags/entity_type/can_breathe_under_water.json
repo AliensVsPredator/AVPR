@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#avpr:aliens"
+    "#avpr:aliens",
+    "#avpr:predators"
   ]
 }

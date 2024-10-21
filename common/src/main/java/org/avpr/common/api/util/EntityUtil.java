@@ -1,9 +1,12 @@
 package org.avpr.common.api.util;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 
+import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.registries.AVPREntities;
+import org.avpr.common.tags.AVPREntityTags;
 
 public class EntityUtil {
 
@@ -17,7 +20,20 @@ public class EntityUtil {
     }
 
     public static LivingEntity spawnBurster(LivingEntity entity) {
-        // var defaultBurster = AVPREntities.CHESTBURSTER.get().create(entity.level());
-        return null;
+        EntityType<? extends AlienEntity> entity_type = AVPREntities.CHESTBURSTER.get();
+        AlienEntity defaultBurster = entity_type.create(entity.level());
+        // if (SET_CAUSE_FLAG) {
+        // entity_type = AVPREntities.CHESTBURSTER_DRACO.get();
+        // defaultBurster.setHostId("beluga");
+        // return entity_type.create(entity.level());
+        // }
+        // if (entity.getType().is(AVPREntityTags.RUNNER_HOSTS)) {
+        // entity_type = AVPREntities.CHESTBURSTER_RUNNER.get();
+        // defaultBurster.setHostId("runner");
+        // return entity_type.create(entity.level());
+        // }
+        if (entity.getType().is(AVPREntityTags.PREDATORS))
+            defaultBurster.setHostId("predalien");
+        return defaultBurster;
     }
 }

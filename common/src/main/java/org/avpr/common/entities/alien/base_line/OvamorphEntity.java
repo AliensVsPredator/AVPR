@@ -17,6 +17,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
@@ -75,7 +76,7 @@ public class OvamorphEntity extends AlienEntity {
      * @return A builder object for defining the attributes of the `OvamorphEntity`.
      */
     public static AttributeSupplier.Builder createAttributes() {
-        return LivingEntity.createLivingAttributes()
+        return Mob.createMobAttributes()
             .add(
                 Attributes.MAX_HEALTH,
                 CommonMod.config.ovamorphConfigs.OVAMORPH_HEALTH
@@ -367,7 +368,7 @@ public class OvamorphEntity extends AlienEntity {
             this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(3)).forEach(target -> {
                 if (
                     target.isAlive() && target.getType().is(AVPREntityTags.HOSTS) && this.level().random.nextFloat() < 0.8f
-                        && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                        && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
                 ) {
                     this.setIsHatching(true);
                 }

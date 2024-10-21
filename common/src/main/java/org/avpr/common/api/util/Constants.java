@@ -18,6 +18,8 @@ public class Constants {
 
     public static final RawAnimation FACEHUG = RawAnimation.begin().thenPlayAndHold("animation.facehug");
 
+    public static final RawAnimation EAT = RawAnimation.begin().thenPlay("animation.eat");
+
     public static <T> T self(Object object) {
         return (T) object;
     }

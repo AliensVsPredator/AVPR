@@ -9,6 +9,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -57,8 +58,8 @@ public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
     }
 
     /**
-     * Determines if the AlienEntity should flee from nearby lava blocks and sets the appropriate walk target to move
-     * the entity away from the detected lava.
+     * Determines if the AlienEntity should flee from nearby repellents blocks and sets the appropriate walk target to
+     * move the entity away from the detected repellents.
      *
      * @param level    the server level in which the entity resides
      * @param owner    the AlienEntity for which the task is being executed
@@ -69,23 +70,20 @@ public class FleeFireTask<E extends AlienEntity> extends ExtendedBehaviour<E> {
         if (owner.level().dimensionType().piglinSafe())
             return;
         var mobPos = owner.blockPosition();
-        var searchRadius = 5; // Define the radius to search for lava blocks
+        var searchRadius = 5;
         var isLavaNearby = false;
         var runAwayDirection = new Vec3(0, 0, 0);
 
-        // Iterate through blocks around the mob to detect lava
         for (
             var pos : BlockPos.betweenClosed(mobPos.offset(-searchRadius, -1, -searchRadius), mobPos.offset(searchRadius, 1, searchRadius))
         ) {
-            if (level.getBlockState(pos).is(AVPRBlockTags.ALIEN_REPELLENTS)) {
+            if (level.getBlockState(pos).is(AVPRBlockTags.ALIEN_REPELLENTS) || level.getBlockState(pos).is(Blocks.FIRE)) {
                 isLavaNearby = true;
-                // Calculate a direction away from the lava block
                 var lavaPos = Vec3.atCenterOf(pos);
                 runAwayDirection = runAwayDirection.add(owner.position().subtract(lavaPos).normalize());
             }
         }
 
-        // If lava is nearby, set the walk target to move away from it
         if (isLavaNearby && owner.getNavigation().isDone()) {
             var panicPos = owner.position().add(runAwayDirection.normalize().scale(20.0)); // Scale to desired distance
             owner.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(panicPos, this.speed, 0));

@@ -8,10 +8,22 @@ import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.entities.AcidEntity;
-import org.avpr.common.entities.TempEntity;
-import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
-import org.avpr.common.entities.alien.base_line.OvamorphEntity;
+import org.avpr.common.entities.alien.base_line.*;
+import org.avpr.common.entities.alien.beluga_line.BelugabursterEntity;
+import org.avpr.common.entities.alien.beluga_line.BelugamorphEntity;
+import org.avpr.common.entities.alien.beluga_line.OctohuggerEntity;
+import org.avpr.common.entities.alien.deacon_line.*;
+import org.avpr.common.entities.alien.draco_line.ChestbursterDracoEntity;
+import org.avpr.common.entities.alien.draco_line.DracomorphEntity;
+import org.avpr.common.entities.alien.draco_line.OvamorphDracoEntity;
+import org.avpr.common.entities.alien.predalien_line.PredalienEntity;
+import org.avpr.common.entities.alien.runner_line.ChestbursterRunnerEntity;
+import org.avpr.common.entities.alien.runner_line.CrusherEntity;
+import org.avpr.common.entities.alien.runner_line.DroneRunnerEntity;
+import org.avpr.common.entities.alien.runner_line.WarriorDroneEntity;
+import org.avpr.common.entities.engineer.EngineerEntity;
 import org.avpr.common.entities.projectiles.ThrownGrenade;
+import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.platform.AVPRServices;
 
 public record AVPREntities() {
@@ -32,33 +44,33 @@ public record AVPREntities() {
         0.05F
     );
 
-    public static final Supplier<EntityType<TempEntity>> BOILER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<BoilerEntity>> BOILER = AVPREntities.registerEntity(
         "boiler",
-        TempEntity::new,
+        BoilerEntity::new,
         MobCategory.MONSTER,
         0.98F,
         2.48F
     );
 
-    public static final Supplier<EntityType<TempEntity>> CHESTBURSTER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<ChestbursterEntity>> CHESTBURSTER = AVPREntities.registerEntity(
         "chestburster",
-        TempEntity::new,
+        ChestbursterEntity::new,
         MobCategory.MONSTER,
         0.75F,
         0.3F
     );
 
-    public static final Supplier<EntityType<TempEntity>> CHESTBURSTER_QUEEN = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<ChestbursterQueenEntity>> CHESTBURSTER_QUEEN = AVPREntities.registerEntity(
         "chestburster_queen",
-        TempEntity::new,
+        ChestbursterQueenEntity::new,
         MobCategory.MONSTER,
         0.75F,
         0.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> DRONE = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<DroneEntity>> DRONE = AVPREntities.registerEntity(
         "drone",
-        TempEntity::new,
+        DroneEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
@@ -72,17 +84,17 @@ public record AVPREntities() {
         0.3F
     );
 
-    public static final Supplier<EntityType<TempEntity>> FACEHUGGER_ROYAL = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<FacehuggerRoyalEntity>> FACEHUGGER_ROYAL = AVPREntities.registerEntity(
         "facehugger_royal",
-        TempEntity::new,
+        FacehuggerRoyalEntity::new,
         MobCategory.MONSTER,
         0.75F,
         0.3F
     );
 
-    public static final Supplier<EntityType<TempEntity>> NAUTICOMORPH = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<NauticomorphEntity>> NAUTICOMORPH = AVPREntities.registerEntity(
         "nauticomorph",
-        TempEntity::new,
+        NauticomorphEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
@@ -96,177 +108,185 @@ public record AVPREntities() {
         0.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> PRAETORIAN = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<PraetorianEntity>> PRAETORIAN = AVPREntities.registerEntity(
         "praetorian",
-        TempEntity::new,
+        PraetorianEntity::new,
         MobCategory.MONSTER,
         0.98F,
         2.48F
     );
 
-    public static final Supplier<EntityType<TempEntity>> QUEEN = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<QueenEntity>> QUEEN = AVPREntities.registerEntity(
         "queen",
-        TempEntity::new,
+        QueenEntity::new,
         MobCategory.MONSTER,
         1.98F,
         3.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> SPITTER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<SpitterEntity>> SPITTER = AVPREntities.registerEntity(
         "spitter",
-        TempEntity::new,
+        SpitterEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> ULTRAMORPH = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<UltramorphEntity>> ULTRAMORPH = AVPREntities.registerEntity(
         "ultramorph",
-        TempEntity::new,
+        UltramorphEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> WARRIOR = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<WarriorEntity>> WARRIOR = AVPREntities.registerEntity(
         "warrior",
-        TempEntity::new,
+        WarriorEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> BELUGABURSTER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<BelugabursterEntity>> BELUGABURSTER = AVPREntities.registerEntity(
         "belugaburster",
-        TempEntity::new,
+        BelugabursterEntity::new,
         MobCategory.MONSTER,
         0.78F,
         0.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> BELUGAMORPH = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<BelugamorphEntity>> BELUGAMORPH = AVPREntities.registerEntity(
         "belugamorph",
-        TempEntity::new,
+        BelugamorphEntity::new,
         MobCategory.MONSTER,
         0.75F,
         2.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> OCTOHUGGER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<OctohuggerEntity>> OCTOHUGGER = AVPREntities.registerEntity(
         "octohugger",
-        TempEntity::new,
+        OctohuggerEntity::new,
         MobCategory.MONSTER,
         0.25F,
         0.75F
     );
 
-    public static final Supplier<EntityType<TempEntity>> DEACON_ADULT = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<DeaconAdultEntity>> DEACON_ADULT = AVPREntities.registerEntity(
         "deacon_adult",
-        TempEntity::new,
+        DeaconAdultEntity::new,
         MobCategory.MONSTER,
         0.98F,
         2.48F
     );
 
-    public static final Supplier<EntityType<TempEntity>> DEACON_ADULT_ENGINEER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<DeaconAdultEngineerEntity>> DEACON_ADULT_ENGINEER = AVPREntities.registerEntity(
         "deacon_adult_engineer",
-        TempEntity::new,
+        DeaconAdultEngineerEntity::new,
         MobCategory.MONSTER,
         0.98F,
         2.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> DEACON = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<DeaconEntity>> DEACON = AVPREntities.registerEntity(
         "deacon",
-        TempEntity::new,
+        DeaconEntity::new,
         MobCategory.MONSTER,
         0.75F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> TRIOLOBITE_BABY = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<TriolobiteBabyEntity>> TRIOLOBITE_BABY = AVPREntities.registerEntity(
         "trilobite_baby",
-        TempEntity::new,
+        TriolobiteBabyEntity::new,
         MobCategory.MONSTER,
         0.5F,
         0.25F
     );
 
-    public static final Supplier<EntityType<TempEntity>> TRIOLOBITE = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<TriolobiteEntity>> TRIOLOBITE = AVPREntities.registerEntity(
         "trilobite",
-        TempEntity::new,
+        TriolobiteEntity::new,
         MobCategory.MONSTER,
         1.98F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> CHESTBURSTER_DRACO = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<ChestbursterDracoEntity>> CHESTBURSTER_DRACO = AVPREntities.registerEntity(
         "chestburster_draco",
-        TempEntity::new,
+        ChestbursterDracoEntity::new,
         MobCategory.MONSTER,
         0.75F,
         0.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> DRACOMORPH = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<DracomorphEntity>> DRACOMORPH = AVPREntities.registerEntity(
         "dracomorph",
-        TempEntity::new,
+        DracomorphEntity::new,
         MobCategory.MONSTER,
         1.98F,
         2.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> OVAMORPH_DRACO = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<OvamorphDracoEntity>> OVAMORPH_DRACO = AVPREntities.registerEntity(
         "ovamorph_draco",
-        TempEntity::new,
+        OvamorphDracoEntity::new,
         MobCategory.MONSTER,
         0.98F,
         0.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> CHESTBURSTER_RUNNER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<ChestbursterRunnerEntity>> CHESTBURSTER_RUNNER = AVPREntities.registerEntity(
         "chestburster_runner",
-        TempEntity::new,
+        ChestbursterRunnerEntity::new,
         MobCategory.MONSTER,
         0.75F,
         0.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> CRUSHER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<CrusherEntity>> CRUSHER = AVPREntities.registerEntity(
         "crusher",
-        TempEntity::new,
+        CrusherEntity::new,
         MobCategory.MONSTER,
         0.75F,
         0.3F
     );
 
-    public static final Supplier<EntityType<TempEntity>> DRONE_RUNNER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<DroneRunnerEntity>> DRONE_RUNNER = AVPREntities.registerEntity(
         "drone_runner",
-        TempEntity::new,
+        DroneRunnerEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> WARRIOR_RUNNER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<WarriorDroneEntity>> WARRIOR_RUNNER = AVPREntities.registerEntity(
         "warrior_runner",
-        TempEntity::new,
+        WarriorDroneEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F
     );
 
-    public static final Supplier<EntityType<TempEntity>> ENGINEER = AVPREntities.registerEntity(
-        "engineer",
-        TempEntity::new,
+    public static final Supplier<EntityType<PredalienEntity>> PREDALIEN = AVPREntities.registerEntity(
+        "predalien",
+        PredalienEntity::new,
         MobCategory.MONSTER,
         0.98F,
         2.48F
     );
 
-    public static final Supplier<EntityType<TempEntity>> YAUTJA = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<EngineerEntity>> ENGINEER = AVPREntities.registerEntity(
+        "engineer",
+        EngineerEntity::new,
+        MobCategory.MONSTER,
+        0.98F,
+        2.48F
+    );
+
+    public static final Supplier<EntityType<YautjaEntity>> YAUTJA = AVPREntities.registerEntity(
         "yautja",
-        TempEntity::new,
+        YautjaEntity::new,
         MobCategory.MONSTER,
         0.98F,
         2.48F

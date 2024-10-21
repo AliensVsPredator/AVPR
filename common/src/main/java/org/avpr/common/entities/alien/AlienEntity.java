@@ -42,12 +42,13 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.util.Collections;
+import java.util.Locale;
 import java.util.function.BiConsumer;
 
 import org.avpr.common.api.common.GrowableInterface;
 import org.avpr.common.api.util.EntityUtil;
-import org.avpr.common.entities.ai.tasks.AVPRTicker;
-import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
+import org.avpr.common.entities.ai.AVPRTicker;
+import org.avpr.common.entities.ai.AVPRVibrationUser;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPREntityTags;
 
@@ -82,6 +83,8 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     protected User vibrationUser;
 
     private Data vibrationData;
+
+    protected String hostId = null;
 
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
@@ -310,6 +313,14 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         this.entityData.set(FLEEING_FIRE, fleeing);
     }
 
+    public String getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(String hostId) {
+        this.hostId = hostId.toLowerCase(Locale.ROOT);
+    }
+
     @Override
     public void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
@@ -321,6 +332,8 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     @Override
     public void addAdditionalSaveData(@NotNull CompoundTag compound) {
         super.addAdditionalSaveData(compound);
+        if (hostId != null)
+            compound.putString("hostId", hostId);
         compound.putFloat("growth", this.getGrowth());
         compound.putBoolean("isFleeing", this.isFleeing());
         Data.CODEC.encodeStart(NbtOps.INSTANCE, this.vibrationData)
@@ -339,6 +352,8 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     @Override
     public void readAdditionalSaveData(@NotNull CompoundTag compound) {
         super.readAdditionalSaveData(compound);
+        if (compound.contains("hostId"))
+            hostId = compound.getString("hostId");
         this.setGrowth(compound.getFloat("growth"));
         this.setFleeingStatus(compound.getBoolean("growth"));
         if (compound.contains("anger")) {

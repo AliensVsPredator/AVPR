@@ -47,21 +47,22 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import org.avpr.common.api.util.EntityUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
+import org.avpr.common.api.util.EntityUtil;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.api.util.Tick;
-import org.avpr.common.entities.ai.tasks.AVPRVibrationUser;
+import org.avpr.common.entities.ai.AVPRVibrationUser;
 import org.avpr.common.entities.ai.tasks.attack.FacePounceTask;
 import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.registries.AVPRStatusEffects;
+import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
 
 public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<FacehuggerEntity> {
@@ -87,7 +88,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createLivingAttributes()
+        return Mob.createMobAttributes()
             .add(Attributes.MAX_HEALTH, CommonMod.config.facehuggerConfigs.FACEHUGGER_HEALTH)
             .add(
                 Attributes.ARMOR,
@@ -185,7 +186,15 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                 if (livingEntity.hasEffect(MobEffects.BLINDNESS))
                     livingEntity.removeEffect(MobEffects.BLINDNESS);
                 if (!livingEntity.hasEffect(AVPRStatusEffects.IMPREGNATION))
-                    livingEntity.addEffect(new MobEffectInstance(AVPRStatusEffects.IMPREGNATION, CommonMod.config.facehuggerConfigs.FACEHUGGER_IMPREG_TIMER, 0, false, true));
+                    livingEntity.addEffect(
+                        new MobEffectInstance(
+                            AVPRStatusEffects.IMPREGNATION,
+                            CommonMod.config.facehuggerConfigs.FACEHUGGER_IMPREG_TIMER,
+                            0,
+                            false,
+                            true
+                        )
+                    );
                 if (!level().isClientSide)
                     this.level().playSound(this, this.blockPosition(), AVPRSounds.IMPREGNATE.get(), SoundSource.HOSTILE, 1.0F, 1.0F);
                 setIsInfertile(true);
@@ -230,8 +239,11 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
         entity.setSpeed(0.0f);
         if (CommonMod.config.facehuggerConfigs.FACEHUGGER_GIVE_BLINDNESS)
             entity.addEffect(
-                new MobEffectInstance(MobEffects.BLINDNESS,
-                        (int) CommonMod.config.facehuggerConfigs.FACEHUGGER_ATTACH_TIME_IN_TICKS, 0)
+                new MobEffectInstance(
+                    MobEffects.BLINDNESS,
+                    (int) CommonMod.config.facehuggerConfigs.FACEHUGGER_ATTACH_TIME_IN_TICKS,
+                    0
+                )
             );
         if (entity instanceof ServerPlayer player && (!player.isCreative() || !player.isSpectator()))
             player.connection.send(new ClientboundSetPassengersPacket(entity));
@@ -248,7 +260,8 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
             return false;
 
         if (
-                !this.level().isClientSide && source != this.damageSources().genericKill() && amount >= 8) {
+            !this.level().isClientSide && source != this.damageSources().genericKill() && amount >= 8
+        ) {
             if (getAcidDiameter() == 1)
                 EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
             else {
@@ -303,11 +316,15 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                 (target, self) -> !(target instanceof Creeper || target instanceof IronGolem) && !target.getType()
                     .is(
                         EntityTypeTags.UNDEAD
-                    ) && target.getType()
+                    ) && !target.getType().is(AVPREntityTags.ALIENS) && target.getType()
                         .is(
                             AVPREntityTags.HOSTS
                         )
             ),
+            new NearbyBlocksSensor<FacehuggerEntity>().setRadius(7)
+                .setPredicate(
+                    (block, entity) -> block.is(AVPRBlockTags.ALIEN_REPELLENTS)
+                ),
             new NearbyBlocksSensor<FacehuggerEntity>().setRadius(7),
             new UnreachableTargetSensor<>(),
             new HurtBySensor<>()

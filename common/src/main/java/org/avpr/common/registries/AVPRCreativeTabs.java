@@ -51,6 +51,32 @@ public record AVPRCreativeTabs() {
             .displayItems((enabledFeatures, entries) -> {
                 entries.accept(AVPRItems.OVAMORPH_SPAWN_EGG.get());
                 entries.accept(AVPRItems.FACEHUGGER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.CHESTBURSTER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.DRONE_SPAWN_EGG.get());
+                entries.accept(AVPRItems.WARRIOR_SPAWN_EGG.get());
+                entries.accept(AVPRItems.BOILER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.NAUTICOMORPH_SPAWN_EGG.get());
+                entries.accept(AVPRItems.PRAETORIAN_SPAWN_EGG.get());
+                entries.accept(AVPRItems.SPITTER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.ULTRAMORPH_SPAWN_EGG.get());
+                entries.accept(AVPRItems.QUEEN_SPAWN_EGG.get());
+                entries.accept(AVPRItems.OCTOHUGGER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.BELUGABURSTER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.BELUGAMORPH_SPAWN_EGG.get());
+                entries.accept(AVPRItems.TRIOLOBITE_BABY_SPAWN_EGG.get());
+                entries.accept(AVPRItems.TRIOLOBITE_SPAWN_EGG.get());
+                entries.accept(AVPRItems.DEACON_SPAWN_EGG.get());
+                entries.accept(AVPRItems.DEACON_ADULT_SPAWN_EGG.get());
+                entries.accept(AVPRItems.DEACON_ADULT_ENGINEER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.OVAMORPH_DRACO_SPAWN_EGG.get());
+                entries.accept(AVPRItems.CHESTBURSTER_DRACO_SPAWN_EGG.get());
+                entries.accept(AVPRItems.DRACOMORPH_SPAWN_EGG.get());
+                entries.accept(AVPRItems.CHESTBURSTER_RUNNER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.WARRIOR_RUNNER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.DRONE_RUNNER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.CRUSHER_SPAWN_EGG.get());
+                entries.accept(AVPRItems.PREDALIEN_SPAWN_EGG.get());
+                entries.accept(AVPRItems.YAUTJA_SPAWN_EGG.get());
             })
             .build()
     );

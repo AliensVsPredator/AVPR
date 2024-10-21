@@ -11,8 +11,14 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 import org.avpr.common.CommonMod;
-import org.avpr.common.client.entities.renders.FacehuggerRenderer;
-import org.avpr.common.client.entities.renders.OvamorphRenderer;
+import org.avpr.common.client.entities.renders.alien.base_line.*;
+import org.avpr.common.client.entities.renders.alien.beluga_line.*;
+import org.avpr.common.client.entities.renders.alien.deacon_line.*;
+import org.avpr.common.client.entities.renders.alien.draco_line.*;
+import org.avpr.common.client.entities.renders.alien.predalien_line.PredalienRenderer;
+import org.avpr.common.client.entities.renders.alien.runner_line.*;
+import org.avpr.common.client.entities.renders.engineer.EngineerRenderer;
+import org.avpr.common.client.entities.renders.yautja.YautjaRenderer;
 import org.avpr.common.client.misc.AcidEntityRender;
 import org.avpr.common.particles.AcidParticleProvider;
 import org.avpr.common.registries.AVPRBlocks;
@@ -59,8 +65,37 @@ public class NeoForgeClientMod {
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(AVPREntities.ACID.get(), AcidEntityRender::new);
-        event.registerEntityRenderer(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
+        event.registerEntityRenderer(AVPREntities.CHESTBURSTER.get(), ChestbursterRenderer::new);
+        event.registerEntityRenderer(AVPREntities.CHESTBURSTER_QUEEN.get(), ChestbursterQueenRenderer::new);
+        event.registerEntityRenderer(AVPREntities.FACEHUGGER_ROYAL.get(), FacehuggerRoyalRenderer::new);
         event.registerEntityRenderer(AVPREntities.FACEHUGGER.get(), FacehuggerRenderer::new);
+        event.registerEntityRenderer(AVPREntities.OVAMORPH.get(), OvamorphRenderer::new);
+        event.registerEntityRenderer(AVPREntities.DRONE.get(), DroneRenderer::new);
+        event.registerEntityRenderer(AVPREntities.WARRIOR.get(), WarriorRenderer::new);
+        event.registerEntityRenderer(AVPREntities.BOILER.get(), BoilerRenderer::new);
+        event.registerEntityRenderer(AVPREntities.NAUTICOMORPH.get(), NauticomorphRenderer::new);
+        event.registerEntityRenderer(AVPREntities.PRAETORIAN.get(), PraetorianRenderer::new);
+        event.registerEntityRenderer(AVPREntities.SPITTER.get(), SpitterRenderer::new);
+        event.registerEntityRenderer(AVPREntities.ULTRAMORPH.get(), UltramorphRenderer::new);
+        event.registerEntityRenderer(AVPREntities.QUEEN.get(), QueenRenderer::new);
+        event.registerEntityRenderer(AVPREntities.OCTOHUGGER.get(), OctohuggerRenderer::new);
+        event.registerEntityRenderer(AVPREntities.BELUGABURSTER.get(), BelugabursterRenderer::new);
+        event.registerEntityRenderer(AVPREntities.BELUGAMORPH.get(), BelugamorphRenderer::new);
+        event.registerEntityRenderer(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.TRIOLOBITE.get(), TriolobiteRenderer::new);
+        event.registerEntityRenderer(AVPREntities.DEACON_ADULT.get(), DeaconAdultRenderer::new);
+        event.registerEntityRenderer(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerRenderer::new);
+        event.registerEntityRenderer(AVPREntities.DEACON.get(), DeaconRenderer::new);
+        event.registerEntityRenderer(AVPREntities.CHESTBURSTER_DRACO.get(), ChestbursterDracoRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.DRACOMORPH.get(), DracomorphRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.OVAMORPH_DRACO.get(), OvamorphDracoRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.CHESTBURSTER_RUNNER.get(), ChestbursterRunnerRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.DRONE_RUNNER.get(), DroneRunnerRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.WARRIOR_RUNNER.get(), WarriorRunnerRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.CRUSHER.get(), CrusherRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.PREDALIEN.get(), PredalienRenderer::new);
+        event.registerEntityRenderer(AVPREntities.ENGINEER.get(), EngineerRenderer::new);
+        event.registerEntityRenderer(AVPREntities.YAUTJA.get(), YautjaRenderer::new);
         event.registerEntityRenderer(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
     }
 
