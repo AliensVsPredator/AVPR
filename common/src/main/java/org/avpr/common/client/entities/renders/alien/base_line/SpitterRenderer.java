@@ -1,6 +1,7 @@
 package org.avpr.common.client.entities.renders.alien.base_line;
 
 import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.common.api.client.renderer.layer.AutoGlowingGeoLayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,6 +13,7 @@ public class SpitterRenderer extends GeoEntityRenderer<SpitterEntity> {
 
     public SpitterRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new DefaultEntityModel<>(CommonMod.modResource("alien/base_line/spitter")));
+        addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override
