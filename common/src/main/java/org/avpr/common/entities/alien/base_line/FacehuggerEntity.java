@@ -52,10 +52,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 import org.avpr.common.CommonMod;
-import org.avpr.common.api.util.Constants;
-import org.avpr.common.api.util.EntityUtil;
-import org.avpr.common.api.util.PredicatesUtil;
-import org.avpr.common.api.util.Tick;
+import org.avpr.common.api.util.*;
 import org.avpr.common.entities.ai.AVPRVibrationUser;
 import org.avpr.common.entities.ai.tasks.attack.FacePounceTask;
 import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
@@ -340,6 +337,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public BrainActivityGroup<FacehuggerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(
@@ -361,7 +359,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
     public BrainActivityGroup<FacehuggerEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
             new InvalidateAttackTarget<>().invalidateIf(
-                (entity, target) -> PredicatesUtil.removeFaceHuggerTarget(target) || this.isFleeing()
+                (entity, target) -> PredicatesUtil.SHOULD_REMOVE_TARGET.test(target) || this.isFleeing()
             ),
             new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F),
             new FacePounceTask<>(6)

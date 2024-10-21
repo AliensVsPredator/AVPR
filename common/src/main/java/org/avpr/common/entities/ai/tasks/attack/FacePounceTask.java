@@ -2,26 +2,24 @@ package org.avpr.common.entities.ai.tasks.attack;
 
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import mod.azure.azurelib.sblforked.api.core.behaviour.DelayedBehaviour;
 import mod.azure.azurelib.sblforked.util.BrainUtils;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.ToIntFunction;
 
-import org.avpr.common.api.util.AttackSelector;
-import org.avpr.common.entities.ai.tasks.CustomDelayedMeleeBehaviour;
-import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.api.util.EntityUtil;
+import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
-import org.avpr.common.tags.AVPREntityTags;
 
-public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMeleeBehaviour<E> {
+public class FacePounceTask<E extends FacehuggerEntity> extends DelayedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
         Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
@@ -34,7 +32,7 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
     protected LivingEntity target = null;
 
     public FacePounceTask(int delayTicks) {
-        super(delayTicks, AttackSelector.HUGGER_SELECTOR);
+        super(delayTicks);
     }
 
     /**
@@ -64,12 +62,7 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
     @Override
     protected boolean checkExtraStartConditions(ServerLevel level, E entity) {
         this.target = BrainUtils.getTargetOfEntity(entity);
-        return target != null && target.getType().is(AVPREntityTags.HOSTS) && !target.getType().is(AVPREntityTags.ALIENS) && !target
-            .hasPassenger(
-                AlienEntity.class::isInstance
-            ) && entity.isWithinMeleeAttackRange(
-                this.target
-            ) && !entity.getType().is(EntityTypeTags.UNDEAD);
+        return target != null && target instanceof Mob mob && PredicatesUtil.SHOULD_FACEHUG.test(mob);
     }
 
     @Override
@@ -101,8 +94,6 @@ public class FacePounceTask<E extends FacehuggerEntity> extends CustomDelayedMel
         if (this.target == null)
             return;
 
-        // Check if the target is within the entity's view direction and reachable via pathfinding
-        if (!this.target.getUseItem().is(Items.SHIELD))
-            entity.grabTarget(this.target);
+        EntityUtil.hugTarget(target, entity);
     }
 }
