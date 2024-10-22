@@ -57,17 +57,12 @@ public class BulletProjectile extends AbstractArrow {
     }
 
     /**
-     * Updates the state of the bullet projectile on each tick.
-     *
-     * This method performs several key operations on every game tick:
-     * - Calls the parent class's tick method to ensure inherited behaviors.
-     * - Conditionally adjusts the projectile's movement to track the nearest living entity.
-     * - Removes the projectile if it has existed for more than 300 ticks.
-     * - On the client side, creates a smoke particle effect near the projectile.
-     * - Disables the glowing tag for all entities within a 10-block radius.
-     *
-     * The method handles both server-side and client-side actions to ensure consistent behavior
-     * and appearance of the projectile across the game environment.
+     * Updates the state of the bullet projectile on each tick. This method performs several key operations on every
+     * game tick: - Calls the parent class's tick method to ensure inherited behaviors. - Conditionally adjusts the
+     * projectile's movement to track the nearest living entity. - Removes the projectile if it has existed for more
+     * than 300 ticks. - On the client side, creates a smoke particle effect near the projectile. - Disables the glowing
+     * tag for all entities within a 10-block radius. The method handles both server-side and client-side actions to
+     * ensure consistent behavior and appearance of the projectile across the game environment.
      */
     @Override
     public void tick() {
@@ -81,16 +76,19 @@ public class BulletProjectile extends AbstractArrow {
             var y = this.getZ() + (this.random.nextDouble()) * this.getBbWidth() * 0.5D;
             this.level().addParticle(ParticleTypes.SMOKE, true, x, this.getY(), y, 0, 0, 0);
         }
-        var livingEntities = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(10),
-                Entity::hasGlowingTag);
+        var livingEntities = this.level()
+            .getEntitiesOfClass(
+                LivingEntity.class,
+                this.getBoundingBox().inflate(10),
+                Entity::hasGlowingTag
+            );
         livingEntities.forEach(entity -> entity.setGlowingTag(false));
     }
 
     /**
-     * Determines if the bullet projectile is affected by gravity.
-     * This method overrides the parent class method by checking
-     * if the projectile is underwater. If the projectile is underwater,
-     * it returns false indicating no gravity effect; otherwise, it returns true.
+     * Determines if the bullet projectile is affected by gravity. This method overrides the parent class method by
+     * checking if the projectile is underwater. If the projectile is underwater, it returns false indicating no gravity
+     * effect; otherwise, it returns true.
      *
      * @return true if the projectile is not underwater (indicating gravity affects it); false otherwise.
      */
@@ -100,8 +98,8 @@ public class BulletProjectile extends AbstractArrow {
     }
 
     /**
-     * Method called when the projectile hits a target. It distinguishes between hitting a block
-     * and hitting an entity, and delegates the handling to the respective methods.
+     * Method called when the projectile hits a target. It distinguishes between hitting a block and hitting an entity,
+     * and delegates the handling to the respective methods.
      *
      * @param result The result of the hit, providing details about the hit target.
      */
@@ -133,8 +131,8 @@ public class BulletProjectile extends AbstractArrow {
     }
 
     /**
-     * Handles the event when the projectile hits a block.
-     * This method processes block hit results, applies damage to the block, and plays the appropriate sound effects.
+     * Handles the event when the projectile hits a block. This method processes block hit results, applies damage to
+     * the block, and plays the appropriate sound effects.
      *
      * @param result The result of the hit, containing details about the block hit.
      */

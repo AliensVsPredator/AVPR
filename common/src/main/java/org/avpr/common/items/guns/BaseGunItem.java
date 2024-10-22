@@ -46,10 +46,7 @@ import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPRItemTags;
 
 /**
- * TODO:
- * - Add Rocket launcher.
- * - Add Ammo Type Selection.
- * - Add reloading.
+ * TODO: - Add Rocket launcher. - Add Ammo Type Selection. - Add reloading.
  */
 public class BaseGunItem extends Item implements GeoItem {
 

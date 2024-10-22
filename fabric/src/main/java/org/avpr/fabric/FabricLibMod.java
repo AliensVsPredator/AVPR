@@ -297,12 +297,12 @@ public final class FabricLibMod implements ModInitializer {
             2
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.tag(AVPRBiomeTags.IS_WET),
-                MobCategory.MONSTER,
-                AVPREntities.NAUTICOMORPH.get(),
-                30,
-                1,
-                1
+            BiomeSelectors.tag(AVPRBiomeTags.IS_WET),
+            MobCategory.MONSTER,
+            AVPREntities.NAUTICOMORPH.get(),
+            30,
+            1,
+            1
         );
         BiomeModifications.addSpawn(
             BiomeSelectors.foundInOverworld(),
