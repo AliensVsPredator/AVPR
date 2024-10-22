@@ -81,27 +81,19 @@ public record AVPRDataComponments() {
     );
 
     public static final Supplier<DataComponentType<Boolean>> GUN_IS_WINDINGUP = registerDataComponent(
-            "gun_is_windingup",
-            builder -> builder.persistent(Codec.BOOL)
-                    .networkSynchronized(
-                            ByteBufCodecs.BOOL
-                    )
-    );
-
-    public static final Supplier<DataComponentType<Boolean>> SHOULDNT_RENDER_AS_BOW = registerDataComponent(
-            "shouldnt_render_as_bow",
-            builder -> builder.persistent(Codec.BOOL)
-                    .networkSynchronized(
-                            ByteBufCodecs.BOOL
-                    )
+        "gun_is_windingup",
+        builder -> builder.persistent(Codec.BOOL)
+            .networkSynchronized(
+                ByteBufCodecs.BOOL
+            )
     );
 
     public static final Supplier<DataComponentType<Boolean>> SHOULD_RENDER_AS_CROSSBOW = registerDataComponent(
-            "shouldnt_render_as_bow",
-            builder -> builder.persistent(Codec.BOOL)
-                    .networkSynchronized(
-                            ByteBufCodecs.BOOL
-                    )
+        "shouldnt_render_as_bow",
+        builder -> builder.persistent(Codec.BOOL)
+            .networkSynchronized(
+                ByteBufCodecs.BOOL
+            )
     );
 
     public static final Supplier<DataComponentType<Boolean>> STOP_ANIMATIONS = registerDataComponent(
