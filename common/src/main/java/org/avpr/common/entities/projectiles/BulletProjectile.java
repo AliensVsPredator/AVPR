@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.avpr.common.api.util.EntityUtil;
 import org.jetbrains.annotations.NotNull;
 
 import org.avpr.common.CommonMod;
@@ -24,15 +25,17 @@ import org.avpr.common.registries.AVPREntities;
 public class BulletProjectile extends AbstractArrow {
 
     private static int bulletdamage;
+    private boolean trackToEntity;
 
     public BulletProjectile(EntityType<? extends AbstractArrow> entityType, Level level) {
         super(entityType, level);
         this.pickup = AbstractArrow.Pickup.DISALLOWED;
     }
 
-    public BulletProjectile(Level world, Integer damage) {
+    public BulletProjectile(Level world, Integer damage, boolean shouldTrackToEntity) {
         this(AVPREntities.BULLET.get(), world);
         bulletdamage = damage;
+        trackToEntity = shouldTrackToEntity;
     }
 
     @Override
@@ -53,6 +56,8 @@ public class BulletProjectile extends AbstractArrow {
     @Override
     public void tick() {
         super.tick();
+        if (trackToEntity)
+            EntityUtil.trackToLivingEntity(this, 0.5);
         if (this.tickCount >= 300)
             this.remove(Entity.RemovalReason.DISCARDED);
         if (this.level().isClientSide) {
