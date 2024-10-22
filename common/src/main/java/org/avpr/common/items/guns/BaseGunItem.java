@@ -27,6 +27,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -44,6 +45,12 @@ import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPRItemTags;
 
+/**
+ * TODO:
+ * - Add Rocket launcher.
+ * - Add Ammo Type Selection.
+ * - Add reloading.
+ */
 public class BaseGunItem extends Item implements GeoItem {
 
     protected final String id;
@@ -129,15 +136,15 @@ public class BaseGunItem extends Item implements GeoItem {
     }
 
     protected SoundEvent getReloadSound() {
-        return GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).reloadSound();
+        return this.gunEnum != null ? GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).reloadSound() : null;
     }
 
     protected SoundEvent getFiringSound() {
-        return GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).firingSound();
+        return this.gunEnum != null ? GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).firingSound() : null;
     }
 
     protected List<GunFireMode> getGunFireMode() {
-        return GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).gunFireMode();
+        return this.gunEnum != null ? GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).gunFireMode() : Collections.emptyList();
     }
 
     @Override
@@ -148,11 +155,12 @@ public class BaseGunItem extends Item implements GeoItem {
         @NotNull TooltipFlag tooltipFlag
     ) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-        TooltipUtils.appendLabel(
-            tooltipComponents,
-            "tooltip.avpr.fire_mode",
-            Component.literal(this.getGunFireMode().toString().toLowerCase(Locale.ROOT).replace("_", "-") + " (1 / Shot)")
-        );
+        if (this.getGunFireMode() != null)
+            TooltipUtils.appendLabel(
+                tooltipComponents,
+                "tooltip.avpr.fire_mode",
+                Component.literal(this.getGunFireMode().toString().toUpperCase(Locale.ROOT).replace("_", "-") + " (1 / Shot)")
+            );
         TooltipUtils.appendLabel(
             tooltipComponents,
             "tooltip.avpr.ammunition",
