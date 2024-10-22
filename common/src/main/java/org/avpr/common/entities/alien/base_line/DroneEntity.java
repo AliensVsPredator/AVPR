@@ -37,6 +37,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
+import org.avpr.common.registries.AVPREntities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -74,12 +75,14 @@ public class DroneEntity extends AlienEntity implements SmartBrainOwner<DroneEnt
 
     @Override
     public float getMaxGrowth() {
-        return 0;
+        return 12000;
     }
 
     @Override
     public LivingEntity growInto() {
-        return null;
+        return AVPREntities.WARRIOR.get().create(level());
+    }
+
     @Override
     public int getAcidDiameter() {
         return 3;
