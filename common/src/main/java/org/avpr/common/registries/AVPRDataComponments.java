@@ -97,11 +97,11 @@ public record AVPRDataComponments() {
     );
 
     public static final Supplier<DataComponentType<Boolean>> STOP_ANIMATIONS = registerDataComponent(
-            "stop_animations",
-            builder -> builder.persistent(Codec.BOOL)
-                    .networkSynchronized(
-                            ByteBufCodecs.BOOL
-                    )
+        "stop_animations",
+        builder -> builder.persistent(Codec.BOOL)
+            .networkSynchronized(
+                ByteBufCodecs.BOOL
+            )
     );
 
     public static final Supplier<DataComponentType<Integer>> CURRENT_AMMO = registerDataComponent(
