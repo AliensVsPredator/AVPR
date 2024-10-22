@@ -216,6 +216,11 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
             this.refreshDimensions();
     }
 
+    /**
+     * Updates the dynamic game event listener associated with the AlienEntity.
+     *
+     * @param biConsumer A BiConsumer that takes a DynamicGameEventListener and a ServerLevel as parameters.
+     */
     @Override
     public void updateDynamicGameEventListener(@NotNull BiConsumer<DynamicGameEventListener<?>, ServerLevel> biConsumer) {
         if (this.level() instanceof ServerLevel serverLevel)
