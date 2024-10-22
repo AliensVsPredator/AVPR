@@ -34,6 +34,11 @@ public class AVPRConfig {
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
+        public float BULLET_BREAKSPEED_MODIFIER = 1.0f;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
         public float SKURIKEN_BREAKSPEED_MODIFIER = 1.0f;
 
         @Configurable
