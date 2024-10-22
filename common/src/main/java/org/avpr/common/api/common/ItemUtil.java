@@ -5,10 +5,11 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
+
 import org.avpr.common.items.guns.BaseGunItem;
 import org.avpr.common.registries.AVPRDataComponments;
 import org.avpr.common.registries.AVPRItems;
-import org.jetbrains.annotations.NotNull;
 
 public class ItemUtil {
 
@@ -26,7 +27,11 @@ public class ItemUtil {
      * @param playerEntity Player whose inventory is being checked.
      */
     public static void removeAmmo(@NotNull Item ammo, @NotNull Player playerEntity) {
-        if (playerEntity.getItemInHand(playerEntity.getUsedItemHand()).getItem() instanceof BaseGunItem && !playerEntity.isCreative()) { // Creative mode reloading breaks things
+        if (playerEntity.getItemInHand(playerEntity.getUsedItemHand()).getItem() instanceof BaseGunItem && !playerEntity.isCreative()) { // Creative
+                                                                                                                                         // mode
+                                                                                                                                         // reloading
+                                                                                                                                         // breaks
+                                                                                                                                         // things
             for (var item : playerEntity.getInventory().offhand) {
                 if (item.getItem() == ammo) {
                     item.shrink(1);
