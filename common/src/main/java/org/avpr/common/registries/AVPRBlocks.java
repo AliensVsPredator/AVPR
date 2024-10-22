@@ -4799,6 +4799,11 @@ public record AVPRBlocks() {
         () -> new BlockItem(PLASTIC_BLACK_WALL.get(), new Item.Properties())
     );
 
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_WHITE_ITEM = AVPRItems.registerItem(
+            "industrial_wall_white",
+            () -> new BlockItem(INDUSTRIAL_WALL_WHITE.get(), new Item.Properties())
+    );
+
     public static final Supplier<BlockItem> INDUSTRIAL_WALL_WHITE_SLAB_ITEM = AVPRItems.registerItem(
         "industrial_wall_white_slab",
         () -> new BlockItem(INDUSTRIAL_WALL_WHITE_SLAB.get(), new Item.Properties())
@@ -4812,6 +4817,11 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> INDUSTRIAL_WALL_WHITE_WALL_ITEM = AVPRItems.registerItem(
         "industrial_wall_white_wall",
         () -> new BlockItem(INDUSTRIAL_WALL_WHITE_WALL.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_ORANGE_ITEM = AVPRItems.registerItem(
+            "industrial_wall_orange",
+            () -> new BlockItem(INDUSTRIAL_WALL_ORANGE.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> INDUSTRIAL_WALL_ORANGE_SLAB_ITEM = AVPRItems.registerItem(
@@ -6522,6 +6532,76 @@ public record AVPRBlocks() {
     public static final Supplier<Item> SILICA_BLOCK_ITEM = AVPRItems.registerItem(
         "silica_block",
         () -> new BlockItem(SILICA_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_MAGENTA_ITEM = AVPRItems.registerItem(
+            "industrial_wall_magenta",
+            () -> new BlockItem(INDUSTRIAL_WALL_MAGENTA.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_BLUE_ITEM = AVPRItems.registerItem(
+            "industrial_wall_light_blue",
+            () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_BLUE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_YELLOW_ITEM = AVPRItems.registerItem(
+            "industrial_wall_yellow",
+            () -> new BlockItem(INDUSTRIAL_WALL_YELLOW.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIME_ITEM = AVPRItems.registerItem(
+            "industrial_wall_lime",
+            () -> new BlockItem(INDUSTRIAL_WALL_LIME.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PINK_ITEM = AVPRItems.registerItem(
+            "industrial_wall_pink",
+            () -> new BlockItem(INDUSTRIAL_WALL_PINK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GRAY_ITEM = AVPRItems.registerItem(
+            "industrial_wall_gray",
+            () -> new BlockItem(INDUSTRIAL_WALL_GRAY.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_LIGHT_GRAY_ITEM = AVPRItems.registerItem(
+            "industrial_wall_light_gray",
+            () -> new BlockItem(INDUSTRIAL_WALL_LIGHT_GRAY.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_CYAN_ITEM = AVPRItems.registerItem(
+            "industrial_wall_cyan",
+            () -> new BlockItem(INDUSTRIAL_WALL_CYAN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_PURPLE_ITEM = AVPRItems.registerItem(
+            "industrial_wall_purple",
+            () -> new BlockItem(INDUSTRIAL_WALL_PURPLE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLUE_ITEM = AVPRItems.registerItem(
+            "industrial_wall_blue",
+            () -> new BlockItem(INDUSTRIAL_WALL_BLUE.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BROWN_ITEM = AVPRItems.registerItem(
+            "industrial_wall_brown",
+            () -> new BlockItem(INDUSTRIAL_WALL_BROWN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_GREEN_ITEM = AVPRItems.registerItem(
+            "industrial_wall_green",
+            () -> new BlockItem(INDUSTRIAL_WALL_GREEN.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_RED_ITEM = AVPRItems.registerItem(
+            "industrial_wall_red",
+            () -> new BlockItem(INDUSTRIAL_WALL_RED.get(), new Item.Properties())
+    );
+
+    public static final Supplier<BlockItem> INDUSTRIAL_WALL_BLACK_ITEM = AVPRItems.registerItem(
+            "industrial_wall_black",
+            () -> new BlockItem(INDUSTRIAL_WALL_BLACK.get(), new Item.Properties())
     );
 
     /**
