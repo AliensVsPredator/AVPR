@@ -54,6 +54,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
 
     public WarriorDroneEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        spawnPos = 32;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

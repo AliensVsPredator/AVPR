@@ -54,6 +54,7 @@ public class PraetorianEntity extends AlienEntity implements SmartBrainOwner<Pra
 
     public PraetorianEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        spawnPos = 0;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

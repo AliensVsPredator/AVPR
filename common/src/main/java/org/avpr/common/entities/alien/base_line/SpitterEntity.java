@@ -54,6 +54,7 @@ public class SpitterEntity extends AlienEntity implements SmartBrainOwner<Spitte
 
     public SpitterEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        spawnPos = 0;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

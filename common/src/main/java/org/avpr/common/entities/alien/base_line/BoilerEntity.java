@@ -54,6 +54,7 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
 
     public BoilerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        spawnPos = 0;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

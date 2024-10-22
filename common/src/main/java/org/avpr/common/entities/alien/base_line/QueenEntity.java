@@ -54,6 +54,7 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
 
     public QueenEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        spawnPos = -24;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
