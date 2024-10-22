@@ -1044,6 +1044,12 @@
   "tooltip.avpr.recoil": "Recoil: ",
 
   "config.screen.avpr": "AVP Regenesis Configs",
+  "config.avpr.option.itemConfigs": "Acid Configs",
+  "config.avpr.option.BULLET_BREAKSPEED_MODIFIER": "How fast should Bullets break blocks",
+  "config.avpr.option.SKURIKEN_BREAKSPEED_MODIFIER": "How fast should Skurikens break blocks",
+  "config.avpr.option.SKURIKEN_DAMAGE": "How much damage should Skurikens do",
+  "config.avpr.option.SMARTDISC_BREAKSPEED_MODIFIER": "How fast should Smart Discs break blocks",
+  "config.avpr.option.SMARTDISC_DAMAGE": "How much damage should Smart Discs do",
   "config.avpr.option.acidConfigs": "Acid Configs",
   "config.avpr.option.ACID_BREAKSPEED_MODIFIER": "How fast should Acid break blocks",
   "config.avpr.option.ACID_DAMAGE": "How much Acid should damage for",
