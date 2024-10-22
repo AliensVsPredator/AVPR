@@ -47,6 +47,14 @@ public record EntityUtil() {
         }
     }
 
+    /**
+     * Generates an acid pool entity at the specified position and offsets, with a predefined multiplier.
+     *
+     * @param entity The living entity that triggers the generation of the acid pool.
+     * @param pos The position where the acid pool will be generated.
+     * @param xOffset The x-coordinate offset from the given position where the acid pool will appear.
+     * @param zOffset The z-coordinate offset from the given position where the acid pool will appear.
+     */
     public static void generateAcidPool(LivingEntity entity, BlockPos pos, int xOffset, int zOffset) {
         var acidEntity = AVPREntities.ACID.get().create(entity.level());
         if (acidEntity != null) {
@@ -56,6 +64,13 @@ public record EntityUtil() {
         }
     }
 
+    /**
+     * Spawns a new burster entity based on the type of the given host entity. The spawned burster's
+     * type or host ID may vary depending on the host entity's characteristics.
+     *
+     * @param entity The host living entity from which the burster will emerge.
+     * @return The newly spawned burster entity.
+     */
     public static LivingEntity spawnBurster(LivingEntity entity) {
         EntityType<? extends AlienEntity> entity_type = AVPREntities.CHESTBURSTER.get();
         AlienEntity defaultBurster = entity_type.create(entity.level());
@@ -74,6 +89,12 @@ public record EntityUtil() {
         return defaultBurster;
     }
 
+    /**
+     * Makes the alien entity jump towards the specified target entity.
+     *
+     * @param target The living entity that the alien entity will jump towards.
+     * @param alienEntity The alien entity that will perform the jump towards the target.
+     */
     public static void jumpAtTarget(LivingEntity target, AlienEntity alienEntity) {
         var vec3d2 = new Vec3(
             target.getX() - alienEntity.getX(),
