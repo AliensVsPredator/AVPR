@@ -55,6 +55,19 @@ public class BulletProjectile extends AbstractArrow {
         return Items.AIR.getDefaultInstance();
     }
 
+    /**
+     * Updates the state of the bullet projectile on each tick.
+     *
+     * This method performs several key operations on every game tick:
+     * - Calls the parent class's tick method to ensure inherited behaviors.
+     * - Conditionally adjusts the projectile's movement to track the nearest living entity.
+     * - Removes the projectile if it has existed for more than 300 ticks.
+     * - On the client side, creates a smoke particle effect near the projectile.
+     * - Disables the glowing tag for all entities within a 10-block radius.
+     *
+     * The method handles both server-side and client-side actions to ensure consistent behavior
+     * and appearance of the projectile across the game environment.
+     */
     @Override
     public void tick() {
         super.tick();
