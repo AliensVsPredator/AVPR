@@ -89,6 +89,11 @@ public final class NeoForgeMod {
 
     public static DeferredRegister<Fluid> fluidDeferredRegister = DeferredRegister.create(Registries.FLUID, CommonMod.MOD_ID);
 
+    public static DeferredRegister.DataComponents dataComponentTypeDeferredRegister = DeferredRegister.createDataComponents(
+        Registries.DATA_COMPONENT_TYPE,
+        CommonMod.MOD_ID
+    );
+
     public static final DeferredRegister<FluidType> fluidTypeDeferredRegister = DeferredRegister.create(
         NeoForgeRegistries.Keys.FLUID_TYPES,
         CommonMod.MOD_ID
@@ -112,6 +117,8 @@ public final class NeoForgeMod {
         NeoForgeMod.statusEffectDeferredRegister.register(modEventBus);
         if (NeoForgeMod.menuTypeDeferredRegister != null)
             NeoForgeMod.fluidDeferredRegister.register(modEventBus);
+        if (NeoForgeMod.dataComponentTypeDeferredRegister != null)
+            NeoForgeMod.dataComponentTypeDeferredRegister.register(modEventBus);
         modEventBus.addListener(this::createEntityAttributes);
         modEventBus.addListener(this::onRegisterEvent);
         SBLConstants.SBL_LOADER.init(modEventBus);

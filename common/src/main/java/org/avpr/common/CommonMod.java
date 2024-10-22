@@ -72,5 +72,6 @@ public class CommonMod {
         AVPRStatusEffects.initialize();
         AVPRFluids.initialize();
         AVPROreFeatures.initialize();
+        AVPRDataComponments.initialize();
     }
 }

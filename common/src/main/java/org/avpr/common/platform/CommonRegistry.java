@@ -1,6 +1,7 @@
 package org.avpr.common.platform;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public interface CommonRegistry {
 
@@ -30,7 +32,10 @@ public interface CommonRegistry {
 
     <T extends Block> Supplier<T> registerBlock(String modID, String blockName, Supplier<T> block);
 
-    <T extends ArmorMaterial> Holder<T> registerArmorMaterial(String modID, String armorMaterialName, Supplier<T> armorMaterial);
+    <T> Supplier<DataComponentType<T>> registerDataComponentType(
+        String dataComponentName,
+        UnaryOperator<DataComponentType.Builder<T>> builderOperator
+    );
 
     <T extends Entity> Supplier<EntityType<T>> registerEntity(String modID, String entityName, Supplier<EntityType<T>> entity);
 

@@ -1,6 +1,7 @@
 package org.avpr.neoforge.services;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
@@ -19,6 +20,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 import org.avpr.common.platform.CommonRegistry;
 import org.avpr.neoforge.NeoForgeMod;
@@ -46,8 +48,14 @@ public class NeoForgeCommonRegistry implements CommonRegistry {
     }
 
     @Override
-    public <T extends ArmorMaterial> Holder<T> registerArmorMaterial(String modID, String armorMaterialName, Supplier<T> armorMaterial) {
-        return (Holder<T>) NeoForgeMod.armorMaterialDeferredRegister.register(armorMaterialName, armorMaterial);
+    public <T> Supplier<DataComponentType<T>> registerDataComponentType(
+        String dataComponentName,
+        UnaryOperator<DataComponentType.Builder<T>> builderOperator
+    ) {
+        return NeoForgeMod.dataComponentTypeDeferredRegister.registerComponentType(
+            dataComponentName,
+            builderOperator
+        );
     }
 
     @Override

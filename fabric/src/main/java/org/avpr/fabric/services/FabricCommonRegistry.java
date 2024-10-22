@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.platform.CommonRegistry;
@@ -72,8 +74,15 @@ public class FabricCommonRegistry implements CommonRegistry {
     }
 
     @Override
-    public <T extends ArmorMaterial> Holder<T> registerArmorMaterial(String modID, String armorMaterialName, Supplier<T> armorMaterial) {
-        return registerHolder(BuiltInRegistries.ARMOR_MATERIAL, modID, armorMaterialName, armorMaterial);
+    public <T> Supplier<DataComponentType<T>> registerDataComponentType(
+        String dataComponentName,
+        UnaryOperator<DataComponentType.Builder<T>> builderOperator
+    ) {
+        return () -> Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            CommonMod.modResource(dataComponentName),
+            builderOperator.apply(DataComponentType.builder()).build()
+        );
     }
 
     @Override
