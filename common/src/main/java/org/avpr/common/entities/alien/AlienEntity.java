@@ -89,10 +89,10 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
         this.noCulling = true;
-        this.vibrationUser = new AVPRVibrationUser(this, 2.5F);
+        this.vibrationUser = new AVPRVibrationUser(this, 1.2F);
         this.vibrationData = new Data();
         this.dynamicGameEventListener = new DynamicGameEventListener<>(new Listener(this));
-        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.5F, 1.0F, true);
+        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.05F, 1.0F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
         this.setPathfindingMalus(PathType.WATER, 0.0F);
     }
