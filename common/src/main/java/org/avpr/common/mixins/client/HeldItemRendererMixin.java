@@ -3,7 +3,6 @@ package org.avpr.common.mixins.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.world.item.ItemStack;
-import org.avpr.common.items.guns.BaseGunItem;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -12,6 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import org.avpr.common.items.guns.BaseGunItem;
+
 @Mixin(value = ItemInHandRenderer.class)
 public abstract class HeldItemRendererMixin {
 
@@ -19,12 +20,16 @@ public abstract class HeldItemRendererMixin {
     @Shadow
     @Final
     private final Minecraft minecraft;
+
     @Shadow
     private float mainHandHeight;
+
     @Shadow
     private float offHandHeight;
+
     @Shadow
     private ItemStack mainHandItem;
+
     @Shadow
     private ItemStack offHandItem;
 
