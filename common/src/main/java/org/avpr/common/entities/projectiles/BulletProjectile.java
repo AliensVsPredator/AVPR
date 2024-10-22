@@ -94,7 +94,7 @@ public class BulletProjectile extends AbstractArrow {
         if (speed > 0.1)
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), bulletdamage);
         this.setDeltaMovement(this.getDeltaMovement().multiply(0.25, 0.25, 0.25));
-        this.setRemoved(RemovalReason.DISCARDED);
+        this.kill();
     }
 
     private void handleBlockHit(HitResult result) {
@@ -123,7 +123,7 @@ public class BulletProjectile extends AbstractArrow {
                 1.0F
             );
         }
-        this.setRemoved(RemovalReason.DISCARDED);
+        this.kill();
     }
 
     @Override
