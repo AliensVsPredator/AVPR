@@ -115,13 +115,12 @@ public final class NeoForgeMod {
         NeoForgeMod.particleTypeDeferredRegister.register(modEventBus);
         NeoForgeMod.creativeModeTabDeferredRegister.register(modEventBus);
         NeoForgeMod.statusEffectDeferredRegister.register(modEventBus);
-        if (NeoForgeMod.menuTypeDeferredRegister != null)
+        if (NeoForgeMod.fluidDeferredRegister != null)
             NeoForgeMod.fluidDeferredRegister.register(modEventBus);
         if (NeoForgeMod.dataComponentTypeDeferredRegister != null)
             NeoForgeMod.dataComponentTypeDeferredRegister.register(modEventBus);
         modEventBus.addListener(this::createEntityAttributes);
         modEventBus.addListener(this::onRegisterEvent);
-        SBLConstants.SBL_LOADER.init(modEventBus);
     }
 
     public void onRegisterEvent(RegisterSpawnPlacementsEvent event) {
