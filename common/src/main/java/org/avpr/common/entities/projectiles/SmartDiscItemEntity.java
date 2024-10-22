@@ -45,7 +45,7 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
             livingEntity -> !livingEntity.getType()
                 .is(
                     AVPREntityTags.PREDATORS
-                ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity)
+                ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity) && livingEntity != getOwner()
         );
         if (!livingEntities.isEmpty()) {
             var first = livingEntities.getFirst(); // Get the first entity found.
