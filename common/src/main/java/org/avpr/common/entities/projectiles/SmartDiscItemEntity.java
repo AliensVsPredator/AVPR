@@ -7,16 +7,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
-import org.avpr.common.api.util.EntityUtil;
 import org.jetbrains.annotations.NotNull;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.server.BlockBreakProgressManager;
-import org.avpr.common.api.util.PredicatesUtil;
+import org.avpr.common.api.util.EntityUtil;
 import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRItems;
-import org.avpr.common.tags.AVPREntityTags;
 
 public class SmartDiscItemEntity extends ThrowableItemProjectile {
 
@@ -39,7 +36,7 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
         // If older then 15 seconds, remove to keep entity count down
         if (this.tickCount > 300)
             this.kill();
-        EntityUtil.trackToLivingEntity(this, 0.5);
+        EntityUtil.trackToLivingEntity(this, 0.5, false);
     }
 
     @Override

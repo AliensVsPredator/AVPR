@@ -17,23 +17,27 @@ import org.avpr.common.tags.AVPREntityTags;
 public record EntityUtil() {
 
     /**
-     * Sets the projectile to track the nearest living entity and adjust its movement direction and velocity accordingly.
+     * Sets the projectile to track the nearest living entity and adjust its movement direction and velocity
+     * accordingly.
      *
      * @param projectile  The projectile entity that will track the target.
      * @param bulletSpeed The speed at which the projectile will move towards the target.
      */
-    public static void trackToLivingEntity(Projectile projectile, Double bulletSpeed) {
+    public static void trackToLivingEntity(Projectile projectile, Double bulletSpeed, Boolean highLightMob) {
         // Searches around itself for an entity to target
-        var livingEntities = projectile.level().getEntitiesOfClass(
+        var livingEntities = projectile.level()
+            .getEntitiesOfClass(
                 LivingEntity.class,
                 projectile.getBoundingBox().inflate(5),
                 livingEntity -> !livingEntity.getType()
-                        .is(
-                                AVPREntityTags.PREDATORS
-                        ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity) && livingEntity != projectile.getOwner()
-        );
+                    .is(
+                        AVPREntityTags.PREDATORS
+                    ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity) && livingEntity != projectile.getOwner()
+            );
         if (!livingEntities.isEmpty()) {
             var first = livingEntities.getFirst(); // Get the first entity found.
+            if (Boolean.TRUE.equals(highLightMob))
+                first.setGlowingTag(true);
             var entityPos = new Vec3(first.getX(), first.getY() + first.getEyeHeight(), first.getZ());
 
             // Calculate the direction vector towards the entity.
@@ -50,8 +54,8 @@ public record EntityUtil() {
     /**
      * Generates an acid pool entity at the specified position and offsets, with a predefined multiplier.
      *
-     * @param entity The living entity that triggers the generation of the acid pool.
-     * @param pos The position where the acid pool will be generated.
+     * @param entity  The living entity that triggers the generation of the acid pool.
+     * @param pos     The position where the acid pool will be generated.
      * @param xOffset The x-coordinate offset from the given position where the acid pool will appear.
      * @param zOffset The z-coordinate offset from the given position where the acid pool will appear.
      */
@@ -65,8 +69,8 @@ public record EntityUtil() {
     }
 
     /**
-     * Spawns a new burster entity based on the type of the given host entity. The spawned burster's
-     * type or host ID may vary depending on the host entity's characteristics.
+     * Spawns a new burster entity based on the type of the given host entity. The spawned burster's type or host ID may
+     * vary depending on the host entity's characteristics.
      *
      * @param entity The host living entity from which the burster will emerge.
      * @return The newly spawned burster entity.
@@ -92,7 +96,7 @@ public record EntityUtil() {
     /**
      * Makes the alien entity jump towards the specified target entity.
      *
-     * @param target The living entity that the alien entity will jump towards.
+     * @param target      The living entity that the alien entity will jump towards.
      * @param alienEntity The alien entity that will perform the jump towards the target.
      */
     public static void jumpAtTarget(LivingEntity target, AlienEntity alienEntity) {
