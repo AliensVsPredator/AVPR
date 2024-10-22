@@ -17,9 +17,9 @@ import java.util.function.ToIntFunction;
 
 import org.avpr.common.api.util.EntityUtil;
 import org.avpr.common.api.util.PredicatesUtil;
-import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
+import org.avpr.common.entities.alien.AlienEntity;
 
-public class FacePounceTask<E extends FacehuggerEntity> extends DelayedBehaviour<E> {
+public class FacePounceTask<E extends AlienEntity> extends DelayedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
         Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
