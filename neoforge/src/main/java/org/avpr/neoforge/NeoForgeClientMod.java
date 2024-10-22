@@ -20,6 +20,7 @@ import org.avpr.common.client.entities.renders.alien.runner_line.*;
 import org.avpr.common.client.entities.renders.engineer.EngineerRenderer;
 import org.avpr.common.client.entities.renders.items.SkurikenItemRenderer;
 import org.avpr.common.client.entities.renders.projectiles.EmptyRender;
+import org.avpr.common.client.entities.renders.projectiles.RocketRenderer;
 import org.avpr.common.client.entities.renders.yautja.YautjaRenderer;
 import org.avpr.common.client.misc.AcidEntityRender;
 import org.avpr.common.particles.AcidParticleProvider;
@@ -102,6 +103,7 @@ public class NeoForgeClientMod {
         event.registerEntityRenderer(AVPREntities.SHURKIEN_ENTITY.get(), SkurikenItemRenderer::new);
         event.registerEntityRenderer(AVPREntities.SMARTDISC_ENTITY.get(), SkurikenItemRenderer::new);
         event.registerEntityRenderer(AVPREntities.BULLET.get(), EmptyRender::new);
+        event.registerEntityRenderer(AVPREntities.ROCKET_ENTITY.get(), RocketRenderer::new);
     }
 
     @SubscribeEvent

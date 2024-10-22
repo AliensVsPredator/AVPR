@@ -40,6 +40,7 @@ import org.avpr.common.api.common.ItemUtil;
 import org.avpr.common.api.util.TooltipUtils;
 import org.avpr.common.client.items.renders.GunRender;
 import org.avpr.common.entities.projectiles.BulletProjectile;
+import org.avpr.common.entities.projectiles.RocketProjectile;
 import org.avpr.common.registries.AVPRDataComponments;
 import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.registries.AVPRSounds;
@@ -268,6 +269,25 @@ public class BaseGunItem extends Item implements GeoItem {
                         if (!player.getAbilities().instabuild)
                             stack.set(AVPRDataComponments.CURRENT_AMMO.get(), stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1);
                     }
+                } else if (this.getItemID().matches("weapon_m83a2_sadar")) {
+                    if (!player.getCooldowns().isOnCooldown(this)) {
+                        this.fireRocket(player, stack, level);
+                        player.getCooldowns().addCooldown(this, stack.get(AVPRDataComponments.GUN_FIRERATE.get()));
+                        level.playSound(
+                            null,
+                            player.blockPosition(),
+                            this.getFiringSound(),
+                            SoundSource.PLAYERS,
+                            0.5F,
+                            1
+                        );
+                        if (!player.getAbilities().instabuild)
+                            stack.set(
+                                AVPRDataComponments.CURRENT_AMMO.get(),
+                                stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1
+                            );
+                    }
+
                 } else {
                     if (!player.getCooldowns().isOnCooldown(this)) {
                         this.fireBullet(player, stack, level);
@@ -310,6 +330,26 @@ public class BaseGunItem extends Item implements GeoItem {
         stack.set(AVPRDataComponments.GUN_HAS_WINDUP.get(), true);
         stack.set(AVPRDataComponments.STOP_ANIMATIONS.get(), true);
         return super.useOnRelease(stack);
+    }
+
+    protected void fireRocket(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {
+        if (
+            livingEntity instanceof Player player && (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0
+                || player.getAbilities().instabuild)
+        ) {
+            var rocketProjectile = new RocketProjectile(level, stack.get(AVPRDataComponments.GUN_DAMAGE.get()));
+            rocketProjectile.shootFromRotation(
+                livingEntity,
+                livingEntity.getXRot(),
+                livingEntity.getYRot(),
+                0.0F,
+                3.0F,
+                1.0F
+            );
+            CommonUtils.spawnLightSource(livingEntity, player.level().isWaterAt(player.blockPosition()));
+            rocketProjectile.moveTo(livingEntity.getX(), livingEntity.getY(0.6D), livingEntity.getZ(), 0, 0);
+            level.addFreshEntity(rocketProjectile);
+        }
     }
 
     protected void fireBullet(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {
