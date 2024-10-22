@@ -36,6 +36,7 @@ public class BulletProjectile extends AbstractArrow {
 
     public BulletProjectile(Level world, Integer damage, boolean shouldTrackToEntity) {
         this(AVPREntities.BULLET.get(), world);
+        this.pickup = AbstractArrow.Pickup.DISALLOWED;
         bulletdamage = damage;
         trackToEntity = shouldTrackToEntity;
     }
