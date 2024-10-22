@@ -83,6 +83,11 @@ public class PraetorianEntity extends AlienEntity implements SmartBrainOwner<Pra
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

@@ -83,6 +83,11 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

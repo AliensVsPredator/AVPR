@@ -83,6 +83,11 @@ public class ChestbursterRunnerEntity extends AlienEntity implements SmartBrainO
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 1;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

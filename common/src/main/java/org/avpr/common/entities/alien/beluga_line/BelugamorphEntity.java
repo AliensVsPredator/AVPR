@@ -82,6 +82,11 @@ public class BelugamorphEntity extends AlienEntity implements SmartBrainOwner<Be
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

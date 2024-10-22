@@ -83,6 +83,11 @@ public class CrusherEntity extends AlienEntity implements SmartBrainOwner<Crushe
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

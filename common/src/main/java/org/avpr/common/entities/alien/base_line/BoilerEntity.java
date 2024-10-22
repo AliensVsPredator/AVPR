@@ -83,6 +83,11 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

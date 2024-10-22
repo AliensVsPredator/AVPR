@@ -82,6 +82,11 @@ public class DeaconEntity extends AlienEntity implements SmartBrainOwner<DeaconE
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

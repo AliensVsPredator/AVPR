@@ -82,6 +82,11 @@ public class UltramorphEntity extends AlienEntity implements SmartBrainOwner<Ult
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

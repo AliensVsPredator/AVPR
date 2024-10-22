@@ -88,6 +88,11 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 1;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

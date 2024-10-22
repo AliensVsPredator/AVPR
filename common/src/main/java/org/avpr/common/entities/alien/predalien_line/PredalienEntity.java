@@ -82,6 +82,11 @@ public class PredalienEntity extends AlienEntity implements SmartBrainOwner<Pred
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

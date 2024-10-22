@@ -83,6 +83,11 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 6;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

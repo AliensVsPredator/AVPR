@@ -80,6 +80,9 @@ public class DroneEntity extends AlienEntity implements SmartBrainOwner<DroneEnt
     @Override
     public LivingEntity growInto() {
         return null;
+    @Override
+    public int getAcidDiameter() {
+        return 3;
     }
 
     @Override

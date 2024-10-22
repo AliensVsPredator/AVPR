@@ -82,6 +82,11 @@ public class TriolobiteEntity extends AlienEntity implements SmartBrainOwner<Tri
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 2;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }

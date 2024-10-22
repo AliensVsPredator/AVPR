@@ -83,6 +83,11 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
     }
 
     @Override
+    public int getAcidDiameter() {
+        return 3;
+    }
+
+    @Override
     protected Brain.@NotNull Provider<?> brainProvider() {
         return new SmartBrainProvider<>(this);
     }
