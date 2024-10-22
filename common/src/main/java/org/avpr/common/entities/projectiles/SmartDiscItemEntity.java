@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.avpr.common.api.util.EntityUtil;
 import org.jetbrains.annotations.NotNull;
 
 import org.avpr.common.CommonMod;
@@ -38,31 +39,7 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
         // If older then 15 seconds, remove to keep entity count down
         if (this.tickCount > 300)
             this.kill();
-        // Searches around itself for an entity to target
-        var livingEntities = level().getEntitiesOfClass(
-            LivingEntity.class,
-            this.getBoundingBox().inflate(5),
-            livingEntity -> !livingEntity.getType()
-                .is(
-                    AVPREntityTags.PREDATORS
-                ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity) && livingEntity != getOwner()
-        );
-        if (!livingEntities.isEmpty()) {
-            var first = livingEntities.getFirst(); // Get the first entity found.
-            var entityPos = new Vec3(first.getX(), first.getY() + first.getEyeHeight(), first.getZ());
-
-            // Calculate the direction vector towards the entity.
-            var directionToTarget = entityPos.subtract(this.position()).normalize();
-
-            // Set a fixed speed for the projectile.
-            double speed = 0.5; // Adjust this value to control how fast the projectile moves.
-
-            // Multiply the direction vector by the speed to get the new velocity.
-            var newVelocity = directionToTarget.scale(speed);
-
-            // Set the new velocity for the projectile.
-            this.setDeltaMovement(newVelocity);
-        }
+        EntityUtil.trackToLivingEntity(this, 0.5);
     }
 
     @Override
