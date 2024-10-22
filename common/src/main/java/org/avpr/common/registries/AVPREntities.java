@@ -22,6 +22,7 @@ import org.avpr.common.entities.alien.runner_line.CrusherEntity;
 import org.avpr.common.entities.alien.runner_line.DroneRunnerEntity;
 import org.avpr.common.entities.alien.runner_line.WarriorDroneEntity;
 import org.avpr.common.entities.engineer.EngineerEntity;
+import org.avpr.common.entities.projectiles.BulletProjectile;
 import org.avpr.common.entities.projectiles.ShurikenItemEntity;
 import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 import org.avpr.common.entities.projectiles.ThrownGrenade;
@@ -29,6 +30,14 @@ import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.platform.AVPRServices;
 
 public record AVPREntities() {
+
+    public static final Supplier<EntityType<BulletProjectile>> BULLET = AVPREntities.registerEntity(
+        "bullet",
+        BulletProjectile::new,
+        MobCategory.MISC,
+        0.5F,
+        0.5F
+    );
 
     public static final Supplier<EntityType<ThrownGrenade>> GRENADE_THROWN = AVPREntities.registerEntity(
         "grenade_thrown",

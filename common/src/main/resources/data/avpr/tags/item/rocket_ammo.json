@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:rocket",
+    "avpr:rocket_electric",
+    "avpr:rocket_incendiary",
+    "avpr:rocket_penetration"
+  ]
+}

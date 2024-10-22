@@ -78,10 +78,11 @@ public class FabricCommonRegistry implements CommonRegistry {
         String dataComponentName,
         UnaryOperator<DataComponentType.Builder<T>> builderOperator
     ) {
-        return () -> Registry.register(
+        return registerSupplier(
             BuiltInRegistries.DATA_COMPONENT_TYPE,
-            CommonMod.modResource(dataComponentName),
-            builderOperator.apply(DataComponentType.builder()).build()
+            CommonMod.MOD_ID,
+            dataComponentName,
+            () -> builderOperator.apply(DataComponentType.builder()).build()
         );
     }
 

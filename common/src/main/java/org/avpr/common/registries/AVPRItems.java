@@ -1021,57 +1021,93 @@ public record AVPRItems() {
 
     public static final Supplier<Item> WEAPON_FLAMETHROWER_SEVASTOPOL = AVPRItems.registerItem(
         "weapon_flamethrower_sevastopol",
-        () -> new BaseGunItem("weapon_flamethrower_sevastopol", new Item.Properties())
+        () -> new BaseGunItem("weapon_flamethrower_sevastopol", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_M88MOD4_COMBAT_PISTOL = AVPRItems.registerItem(
         "weapon_m88mod4_combat_pistol",
-        () -> new BaseGunItem("weapon_m88mod4_combat_pistol", new Item.Properties())
+        () -> new BaseGunItem("weapon_m88mod4_combat_pistol", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_37_12_SHOTGUN = AVPRItems.registerItem(
         "weapon_37_12_shotgun",
-        () -> new BaseGunItem("weapon_37_12_shotgun", new Item.Properties())
+        () -> new BaseGunItem("weapon_37_12_shotgun", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_AK_47 = AVPRItems.registerItem(
         "weapon_ak_47",
-        () -> new BaseGunItem("weapon_ak_47", new Item.Properties())
+        () -> new BaseGunItem("weapon_ak_47", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_F90_RIFLE = AVPRItems.registerItem(
         "weapon_f90_rifle",
-        () -> new BaseGunItem("weapon_f90_rifle", new Item.Properties())
+        () -> new BaseGunItem("weapon_f90_rifle", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_M4_CARBINE = AVPRItems.registerItem(
         "weapon_m4_carbine",
-        () -> new BaseGunItem("weapon_m4_carbine", new Item.Properties())
+        () -> new BaseGunItem("weapon_m4_carbine", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_M41A_PULSE_RIFLE = AVPRItems.registerItem(
         "weapon_m41a_pulse_rifle",
-        () -> new BaseGunItem("weapon_m41a_pulse_rifle", new Item.Properties())
+        () -> new BaseGunItem("weapon_m41a_pulse_rifle", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_SNIPER_RIFLE = AVPRItems.registerItem(
         "weapon_sniper_rifle",
-        () -> new BaseGunItem("weapon_sniper_rifle", new Item.Properties())
+        () -> new BaseGunItem("weapon_sniper_rifle", new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64))
     );
 
     public static final Supplier<Item> WEAPON_M56_SMARTGUN = AVPRItems.registerItem(
         "weapon_m56_smartgun",
-        () -> new BaseGunItem("weapon_m56_smartgun", new Item.Properties())
+        () -> new BaseGunItem(
+            "weapon_m56_smartgun",
+            new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 500)
+                .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
+                .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
+                .component(AVPRDataComponments.GUN_RECOIL.get(), 0D)
+                .component(AVPRDataComponments.GUN_FIRERATE.get(), 1)
+                .component(AVPRDataComponments.GUN_RELOAD_TICKS.get(), 100)
+                .component(AVPRDataComponments.GUN_KNOCKBACK.get(), 0.13)
+                .component(AVPRDataComponments.GUN_RANGE.get(), 64D)
+        )
     );
 
     public static final Supplier<Item> WEAPON_M83A2_SADAR = AVPRItems.registerItem(
         "weapon_m83a2_sadar",
-        () -> new BaseGunItem("weapon_m83a2_sadar", new Item.Properties())
+        () -> new BaseGunItem(
+            "weapon_m83a2_sadar",
+            new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 4)
+                .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
+                .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
+                .component(AVPRDataComponments.GUN_RECOIL.get(), 1.5)
+                .component(AVPRDataComponments.GUN_FIRERATE.get(), 0)
+                .component(AVPRDataComponments.GUN_RELOAD_TICKS.get(), 100)
+                .component(AVPRDataComponments.GUN_KNOCKBACK.get(), 0.5)
+                .component(AVPRDataComponments.GUN_RANGE.get(), 100D)
+        )
     );
 
     public static final Supplier<Item> WEAPON_OLD_PAINLESS = AVPRItems.registerItem(
         "weapon_old_painless",
-        () -> new BaseGunItem("weapon_old_painless", new Item.Properties())
+        () -> new BaseGunItem(
+            "weapon_old_painless",
+            new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), Integer.MAX_VALUE)
+                .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
+                .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
+                .component(AVPRDataComponments.GUN_RECOIL.get(), 0D)
+                .component(AVPRDataComponments.GUN_FIRERATE.get(), 0)
+                .component(AVPRDataComponments.GUN_RELOAD_TICKS.get(), 0)
+                .component(AVPRDataComponments.GUN_HAS_WINDUP.get(), true)
+                .component(AVPRDataComponments.GUN_WIND_UP_LONG.get(), 20D)
+                .component(AVPRDataComponments.GUN_KNOCKBACK.get(), 0.02)
+                .component(AVPRDataComponments.GUN_RANGE.get(), 64D)
+                .component(AVPRDataComponments.GUN_IS_WINDINGUP.get(), true)
+                .component(AVPRDataComponments.GUN_IS_WINDINGUP.get(), false)
+                .component(AVPRDataComponments.SHOULDNT_RENDER_AS_BOW.get(), true)
+                .component(AVPRDataComponments.SHOULD_RENDER_AS_CROSSBOW.get(), true)
+        )
     );
 
     public static final Supplier<Item> ARMOR_ALUMINUM_HELMET = AVPRItems.registerItem(

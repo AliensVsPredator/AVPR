@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:bullet_rifle",
+    "avpr:bullet_rifle_acid",
+    "avpr:bullet_rifle_electric",
+    "avpr:bullet_rifle_explosive",
+    "avpr:bullet_rifle_incendiary",
+    "avpr:bullet_rifle_penetration"
+  ]
+}

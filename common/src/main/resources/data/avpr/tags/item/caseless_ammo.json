@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:bullet_caseless",
+    "avpr:bullet_caseless_acid",
+    "avpr:bullet_caseless_electric",
+    "avpr:bullet_caseless_explosive",
+    "avpr:bullet_caseless_incendiary",
+    "avpr:bullet_caseless_penetration"
+  ]
+}
