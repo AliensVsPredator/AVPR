@@ -13,6 +13,8 @@ import mod.azure.azurelib.core.object.PlayState;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -26,8 +28,13 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.function.Consumer;
 
+import org.avpr.common.api.common.GunEnum;
+import org.avpr.common.api.common.GunFireMode;
+import org.avpr.common.api.common.GunProperties;
 import org.avpr.common.api.common.ItemUtil;
 import org.avpr.common.api.util.TooltipUtils;
 import org.avpr.common.client.items.renders.GunRender;
@@ -43,16 +50,94 @@ public class BaseGunItem extends Item implements GeoItem {
 
     protected long windUpTicks = 0;
 
+    protected GunEnum gunEnum;
+
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    public BaseGunItem(String id, Properties properties) {
+    private static final Map<GunEnum, GunProperties> GUN_ENUM_GUN_PROPERTIES_MAP = Map.of(
+        GunEnum.PISTOL,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_COMBAT_PISTOL_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_COMBAT_PISTOL_SHOOT.get(),
+            java.util.List.of(GunFireMode.SEMI_AUTOMATIC)
+        ),
+        GunEnum.SHOTGUN,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_SHOTGUN_SHOOT.get(),
+            List.of(GunFireMode.SEMI_AUTOMATIC)
+        ),
+        GunEnum.AK47,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+            List.of(GunFireMode.AUTOMATIC)
+        ),
+        GunEnum.F90RIFLE,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+            List.of(GunFireMode.AUTOMATIC)
+        ),
+        GunEnum.M4CARBINE,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+            List.of(GunFireMode.AUTOMATIC)
+        ),
+        GunEnum.M41APULSERIFLE,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_PULSE_RIFLE_SHOOT.get(),
+            List.of(GunFireMode.AUTOMATIC, GunFireMode.BURST)
+        ),
+        GunEnum.SNIPER,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_SNIPER_RIFLE_SHOOT.get(),
+            List.of(GunFireMode.SEMI_AUTOMATIC)
+        ),
+        GunEnum.SMARTGUN,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+            List.of(GunFireMode.AUTOMATIC)
+        ),
+        GunEnum.SADAR,
+        new GunProperties(
+            AVPRSounds.ITEM_WEAPON_ROCKET_LAUNCHER_RELOAD_START.get(),
+            AVPRSounds.ITEM_WEAPON_ROCKET_LAUNCHER_SHOOT.get(),
+            List.of(GunFireMode.SEMI_AUTOMATIC)
+        ),
+        GunEnum.OLDPAINLESS,
+        new GunProperties(
+            SoundEvents.LEVER_CLICK,
+            AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_LOOP.get(),
+            List.of(GunFireMode.AUTOMATIC)
+        )
+    );
+
+    public BaseGunItem(String id, GunEnum setGunEnum, Properties properties) {
         super(properties);
         this.id = id;
+        this.gunEnum = setGunEnum;
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     public String getItemID() {
         return this.id;
+    }
+
+    protected SoundEvent getReloadSound() {
+        return GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).reloadSound();
+    }
+
+    protected SoundEvent getFiringSound() {
+        return GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).firingSound();
+    }
+
+    protected List<GunFireMode> getGunFireMode() {
+        return GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).gunFireMode();
     }
 
     @Override
@@ -63,11 +148,11 @@ public class BaseGunItem extends Item implements GeoItem {
         @NotNull TooltipFlag tooltipFlag
     ) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-        // TooltipUtils.appendLabel(
-        // tooltipComponents,
-        // "tooltip.avpr.fire_mode",
-        // Component.literal(fireMode.identifier() + " (" + fireMode.ammunitionData().consumedAmmunition() + " / Shot)")
-        // );
+        TooltipUtils.appendLabel(
+            tooltipComponents,
+            "tooltip.avpr.fire_mode",
+            Component.literal(this.getGunFireMode().toString().toLowerCase(Locale.ROOT).replace("_", "-") + " (1 / Shot)")
+        );
         TooltipUtils.appendLabel(
             tooltipComponents,
             "tooltip.avpr.ammunition",
@@ -143,7 +228,7 @@ public class BaseGunItem extends Item implements GeoItem {
         super.onUseTick(level, livingEntity, stack, remainingUseDuration);
         if (livingEntity instanceof Player player) {
             if (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0 || player.getAbilities().instabuild) {
-                 if (this.getItemID().matches("weapon_old_painless")) {
+                if (this.getItemID().matches("weapon_old_painless")) {
                     this.windUpTicks++;
                     stack.set(AVPRDataComponments.STOP_ANIMATIONS.get(), false);
                     if (stack.get(AVPRDataComponments.GUN_HAS_WINDUP.get())) {
@@ -159,7 +244,8 @@ public class BaseGunItem extends Item implements GeoItem {
                             triggerAnim(player, GeoItem.getOrAssignId(stack, (ServerLevel) level), "main", "spin");
                         stack.set(AVPRDataComponments.GUN_HAS_WINDUP.get(), false);
                     }
-                    if (this.windUpTicks > stack.get(
+                    if (
+                        this.windUpTicks > stack.get(
                             AVPRDataComponments.GUN_WIND_UP_LONG.get()
                         )
                     ) {
@@ -167,7 +253,7 @@ public class BaseGunItem extends Item implements GeoItem {
                         level.playSound(
                             null,
                             player.blockPosition(),
-                            AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_LOOP.get(),
+                            this.getFiringSound(),
                             SoundSource.PLAYERS,
                             1,
                             1
@@ -178,24 +264,24 @@ public class BaseGunItem extends Item implements GeoItem {
                             stack.set(AVPRDataComponments.CURRENT_AMMO.get(), stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1);
                     }
                 } else {
-                     if (!player.getCooldowns().isOnCooldown(this)) {
-                         this.fireBullet(player, stack, level);
-                         player.getCooldowns().addCooldown(this, stack.get(AVPRDataComponments.GUN_FIRERATE.get()));
-                         level.playSound(
-                                 null,
-                                 player.blockPosition(),
-                                 AVPRSounds.ITEM_WEAPON_SHOTGUN_SHOOT.get(),
-                                 SoundSource.PLAYERS,
-                                 1,
-                                 1
-                         );
-                         if (!player.getAbilities().instabuild)
-                             stack.set(
-                                     AVPRDataComponments.CURRENT_AMMO.get(),
-                                     stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1
-                             );
-                     }
-                 }
+                    if (!player.getCooldowns().isOnCooldown(this)) {
+                        this.fireBullet(player, stack, level);
+                        player.getCooldowns().addCooldown(this, stack.get(AVPRDataComponments.GUN_FIRERATE.get()));
+                        level.playSound(
+                            null,
+                            player.blockPosition(),
+                            this.getFiringSound(),
+                            SoundSource.PLAYERS,
+                            0.5F,
+                            1
+                        );
+                        if (!player.getAbilities().instabuild)
+                            stack.set(
+                                AVPRDataComponments.CURRENT_AMMO.get(),
+                                stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1
+                            );
+                    }
+                }
             } else if (player.getInventory().hasAnyMatching(itemStack -> itemStack.is(AVPRItemTags.HEAVY_AMMO))) {
                 if (player.getInventory().countItem(AVPRItems.BULLET_HEAVY.get()) > 0)
                     ItemUtil.reloadGun(stack, player, this);
