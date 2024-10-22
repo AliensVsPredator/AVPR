@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#avpr:is_wet",
+  "spawners": {
+    "type": "avpr:nauticomorph",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 25
+  }
+}

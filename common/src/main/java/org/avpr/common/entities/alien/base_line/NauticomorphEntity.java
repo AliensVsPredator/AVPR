@@ -54,6 +54,7 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
 
     public NauticomorphEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
+        spawnPos = level.getSeaLevel();
     }
 
     public static AttributeSupplier.Builder createAttributes() {

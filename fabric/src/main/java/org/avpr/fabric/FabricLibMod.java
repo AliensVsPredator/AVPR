@@ -29,6 +29,7 @@ import org.avpr.common.entities.alien.runner_line.WarriorDroneEntity;
 import org.avpr.common.entities.engineer.EngineerEntity;
 import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.registries.AVPREntities;
+import org.avpr.common.tags.AVPRBiomeTags;
 
 public final class FabricLibMod implements ModInitializer {
 
@@ -294,6 +295,14 @@ public final class FabricLibMod implements ModInitializer {
             50,
             1,
             2
+        );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.tag(AVPRBiomeTags.IS_WET),
+                MobCategory.MONSTER,
+                AVPREntities.NAUTICOMORPH.get(),
+                30,
+                1,
+                1
         );
         BiomeModifications.addSpawn(
             BiomeSelectors.foundInOverworld(),
