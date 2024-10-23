@@ -261,14 +261,14 @@ public class BaseGunItem extends Item implements GeoItem {
                     this.windUpTicks++;
                     stack.set(AVPRDataComponments.STOP_ANIMATIONS.get(), false);
                     if (stack.get(AVPRDataComponments.GUN_HAS_WINDUP.get())) {
-                        level.playSound(
-                            null,
-                            player.blockPosition(),
-                            AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_STOP.get(),
-                            SoundSource.PLAYERS,
-                            1,
-                            1
-                        );
+                        // level.playSound(
+                        // null,
+                        // player.blockPosition(),
+                        // AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_STOP.get(),
+                        // SoundSource.PLAYERS,
+                        // 1,
+                        // 1
+                        // );
                         if (!level.isClientSide())
                             triggerAnim(player, GeoItem.getOrAssignId(stack, (ServerLevel) level), "main", "spin");
                         stack.set(AVPRDataComponments.GUN_HAS_WINDUP.get(), false);
