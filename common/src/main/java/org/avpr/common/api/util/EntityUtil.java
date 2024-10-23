@@ -1,6 +1,8 @@
 package org.avpr.common.api.util;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -11,10 +13,71 @@ import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerRoyalEntity;
 import org.avpr.common.entities.alien.beluga_line.OctohuggerEntity;
+import org.avpr.common.entities.projectiles.ShurikenItemEntity;
+import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.tags.AVPREntityTags;
 
 public record EntityUtil() {
+
+    /**
+     * Shoots a shuriken from the specified living entity, playing a sound effect and
+     * spawning a {@code ShurikenItemEntity} in the game world.
+     *
+     * @param entity The {@code LivingEntity} that is shooting the shuriken. This entity
+     *               will be used as the source and owner of the shuriken.
+     */
+    public static void shootSkuriken(LivingEntity entity) {
+        // TODO: Change sound effect here.
+        entity.level()
+            .playSound(
+                null,
+                entity.getX(),
+                entity.getY(),
+                entity.getZ(),
+                SoundEvents.TRIDENT_THROW,
+                SoundSource.PLAYERS,
+                0.5F,
+                0.4F / (entity.level().getRandom().nextFloat() * 0.4F + 0.8F)
+            );
+        if (!entity.level().isClientSide) {
+            var shurikenItemEntity = new ShurikenItemEntity(entity.level(), entity);
+            shurikenItemEntity.setItem(entity.getUseItem());
+            shurikenItemEntity.setOwner(entity);
+            shurikenItemEntity.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, 1.5F, 1.0F);
+            entity.level().addFreshEntity(shurikenItemEntity);
+        }
+    }
+
+    /**
+     * Shoots a smart disc from the specified living entity, playing a sound effect and spawning a
+     * {@code SmartDiscItemEntity} in the game world.
+     *
+     * @param entity The {@code LivingEntity} that is shooting the smart disc. This entity will be
+     *               used as the source and owner of the smart disc.
+     */
+    public static void shootSmartDisc(LivingEntity entity) {
+        // TODO: Change sound effect here.
+        entity.level()
+            .playSound(
+                null,
+                entity.getX(),
+                entity.getY(),
+                entity.getZ(),
+                SoundEvents.TRIDENT_THROW,
+                SoundSource.PLAYERS,
+                0.5F,
+                0.4F / (entity.level().getRandom().nextFloat() * 0.4F + 0.8F)
+            );
+
+        if (!entity.level().isClientSide) {
+            var smartDiscItemEntity = new SmartDiscItemEntity(entity.level(), entity);
+            smartDiscItemEntity.setItem(entity.getUseItem());
+            smartDiscItemEntity.setOwner(entity);
+            smartDiscItemEntity.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, 3.5F, 1.0F);
+            entity.level().addFreshEntity(smartDiscItemEntity);
+        }
+    }
 
     /**
      * Sets the projectile to track the nearest living entity and adjust its movement direction and velocity

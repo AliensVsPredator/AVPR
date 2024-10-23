@@ -2,11 +2,18 @@ package org.avpr.common.client.entities.renders.yautja;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.common.api.client.renderer.layer.BlockAndItemGeoLayer;
 import mod.azure.azurelib.common.internal.common.cache.object.BakedGeoModel;
+import mod.azure.azurelib.common.internal.common.cache.object.GeoBone;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
@@ -18,6 +25,42 @@ public class YautjaRenderer extends GeoEntityRenderer<YautjaEntity> {
 
     public YautjaRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new YautjaModel(CommonMod.modResource("yautja/yautja")));
+
+        addRenderLayer(new BlockAndItemGeoLayer<>(this) {
+
+            @Nullable
+            @Override
+            protected ItemStack getStackForBone(GeoBone bone, YautjaEntity animatable) {
+                if ("left_hand_item".equals(bone.getName())) {
+                    return animatable.getItemBySlot(EquipmentSlot.MAINHAND);
+                } else {
+                    return null;
+                }
+            }
+
+            @Override
+            protected ItemDisplayContext getTransformTypeForStack(GeoBone bone, ItemStack stack, YautjaEntity animatable) {
+                return ItemDisplayContext.FIRST_PERSON_LEFT_HAND;
+            }
+
+            @Override
+            protected void renderStackForBone(
+                PoseStack poseStack,
+                GeoBone bone,
+                ItemStack stack,
+                YautjaEntity animatable,
+                MultiBufferSource bufferSource,
+                float partialTick,
+                int packedLight,
+                int packedOverlay
+            ) {
+                poseStack.mulPose(Axis.XP.rotationDegrees(-110));
+                poseStack.mulPose(Axis.YP.rotationDegrees(0));
+                poseStack.mulPose(Axis.ZP.rotationDegrees(0));
+                poseStack.translate(-0.1D, 0.1D, -0.55D);
+                super.renderStackForBone(poseStack, bone, stack, animatable, bufferSource, partialTick, packedLight, packedOverlay);
+            }
+        });
     }
 
     @Override

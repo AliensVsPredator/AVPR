@@ -38,15 +38,15 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.NotNull;
@@ -57,6 +57,8 @@ import java.util.*;
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
+import org.avpr.common.entities.ai.tasks.attack.UseItemTask;
+import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 
@@ -238,7 +240,19 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         this.setHasRightForearmArmor(true);
         this.setHasChestarmor(true);
         this.setHasBlade(true);
+        if (this.getRandom().nextInt(10) >= 4)
+            setItemSlot(EquipmentSlot.MAINHAND, makeInitialWeapon());
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
+    private ItemStack makeInitialWeapon() {
+        final var givenList = Arrays.asList(
+            AVPRItems.SHURIKEN.get(),
+            AVPRItems.SMART_DISC.get()
+        );
+        final var randomIndex = random.nextInt(givenList.size());
+        final var randomElement = givenList.get(randomIndex);
+        return randomElement.getDefaultInstance();
     }
 
     /**
@@ -467,9 +481,9 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     public BrainActivityGroup<YautjaEntity> getCoreTasks() {
         return BrainActivityGroup.coreTasks(
             new LookAtTarget<>(),
-            new StrafeTarget<>()
-                .stopStrafingWhen(entity -> this.getMainHandItem().isEmpty())
-                .startCondition(entity -> !this.getMainHandItem().isEmpty()),
+            new StrafeTarget<YautjaEntity>()
+                .stopStrafingWhen(yautjaEntity -> yautjaEntity.getMainHandItem().isEmpty())
+                .startCondition(yautjaEntity -> !yautjaEntity.getMainHandItem().isEmpty()),
             new MoveToWalkTarget<>()
         );
     }
@@ -498,11 +512,17 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
             new InvalidateAttackTarget<>().invalidateIf(
                 (entity, target) -> target.getType().is(AVPREntityTags.PREDATORS) || target.getType().is(AVPREntityTags.NOT_WORTH_KILLING)
             ),
-            new SetWalkTargetToAttackTarget<>().startCondition(entity -> this.getMainHandItem().isEmpty()),
-            new AnimatableMeleeAttack<>(6).whenStarting(
-                mob -> this.triggerAnim(
-                    Constants.ATTACK_CONTROLLER,
-                    "blade_attack"
+            new SetWalkTargetToAttackTarget<YautjaEntity>().startCondition(yautjaEntity -> yautjaEntity.getMainHandItem().isEmpty()),
+            new UseItemTask<YautjaEntity>(20)
+                .startCondition(yautjaEntity -> !yautjaEntity.getMainHandItem().is(Items.AIR)),
+            new AnimatableMeleeAttack<YautjaEntity>(6).startCondition(
+                entity -> entity.getMainHandItem().isEmpty() || (entity.getTarget() != null && entity.getBoundingBox()
+                    .intersects(entity.getTarget().getBoundingBox()))
+            ).whenStarting(
+                    mob -> this.triggerAnim(
+                        Constants.ATTACK_CONTROLLER,
+                        "blade_attack"
+                    )
                 )
             )
         );
