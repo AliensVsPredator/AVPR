@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#avpr:guns",
+    "#avpr:predator_weapons",
     {
       "id": "#minecraft:swords",
       "required": false
@@ -10,6 +11,7 @@
       "id": "#minecraft:axes",
       "required": false
     },
-    "minecraft:trident"
+    "minecraft:trident",
+    "minecraft:bow"
   ]
 }
