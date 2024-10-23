@@ -16,7 +16,7 @@ import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPREntityTags;
 
-public class PredicatesUtil {
+public record PredicatesUtil() {
 
     public static final Predicate<LivingEntity> IS_CREATIVEorSPECTATOR = livingEntity -> livingEntity instanceof Player player && (player
         .isCreative()

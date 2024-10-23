@@ -1,6 +1,6 @@
 package org.avpr.common.api.util;
 
-public class Tick {
+public record Tick() {
 
     public static final int PER_SECOND = 20;
 
@@ -36,9 +36,5 @@ public class Tick {
             throw new IllegalArgumentException("Hours must not be less than zero.");
         }
         return hours * PER_HOUR;
-    }
-
-    private Tick() {
-        throw new UnsupportedOperationException();
     }
 }

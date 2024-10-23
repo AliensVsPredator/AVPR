@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.Objects;
 
-public class DamageUtil {
+public record DamageUtil() {
 
     public static DamageSource of(Level level, ResourceKey<DamageType> key) {
         return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(key));
