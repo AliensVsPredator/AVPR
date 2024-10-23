@@ -44,12 +44,10 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import org.avpr.common.tags.AVPRItemTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -62,6 +60,7 @@ import org.avpr.common.entities.ai.tasks.attack.UseItemTask;
 import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
+import org.avpr.common.tags.AVPRItemTags;
 
 public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, SmartBrainOwner<YautjaEntity> {
 
@@ -512,8 +511,10 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         return BrainActivityGroup.fightTasks(
             new InvalidateAttackTarget<YautjaEntity>().invalidateIf(
                 (yautjaEntity, target) -> target.getType().is(AVPREntityTags.PREDATORS) || target.getType()
-                    .is(AVPREntityTags.NOT_WORTH_KILLING) || (!target.getType().is(AVPREntityTags.ALIENS) && (target.getMainHandItem().is(
-                        AVPRItemTags.THREATENS_PREDATORS) && yautjaEntity.getLastAttacker() != target))
+                    .is(AVPREntityTags.NOT_WORTH_KILLING) || (!target.getType().is(AVPREntityTags.ALIENS) && (target.getMainHandItem()
+                        .is(
+                            AVPRItemTags.THREATENS_PREDATORS
+                        ) && yautjaEntity.getLastAttacker() != target))
             ),
             new SetWalkTargetToAttackTarget<YautjaEntity>().startCondition(yautjaEntity -> yautjaEntity.getMainHandItem().isEmpty()),
             new UseItemTask<YautjaEntity>(20)
@@ -521,7 +522,8 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
             new AnimatableMeleeAttack<YautjaEntity>(6).startCondition(
                 entity -> entity.getMainHandItem().isEmpty() || (entity.getTarget() != null && entity.getBoundingBox()
                     .intersects(entity.getTarget().getBoundingBox()))
-            ).whenStarting(
+            )
+                .whenStarting(
                     mob -> this.triggerAnim(
                         Constants.ATTACK_CONTROLLER,
                         "blade_attack"

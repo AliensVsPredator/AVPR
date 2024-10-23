@@ -55,7 +55,6 @@ public class AnimatableRangeTask<E extends LivingEntity> extends DelayedBehaviou
      */
     public void attackRadius(float radius) {
         this.attackRadius = radius * radius;
-
     }
 
     @Override
@@ -66,7 +65,7 @@ public class AnimatableRangeTask<E extends LivingEntity> extends DelayedBehaviou
     /**
      * Checks additional conditions required for the task to start.
      *
-     * @param level The current server level.
+     * @param level  The current server level.
      * @param entity The entity for which the conditions are being checked.
      * @return true if conditions are met to start the task, false otherwise.
      */

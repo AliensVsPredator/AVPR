@@ -10,7 +10,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 import org.jetbrains.annotations.NotNull;
 
 import org.avpr.common.entities.projectiles.ShurikenItemEntity;
@@ -34,14 +33,14 @@ public class ShurikenItem extends Item {
             player.getCooldowns().addCooldown(this, 5);
             // TODO: Change sound effect here.
             level.playSound(
-                    null,
-                    player.getX(),
-                    player.getY(),
-                    player.getZ(),
-                    SoundEvents.TRIDENT_THROW,
-                    SoundSource.PLAYERS,
-                    0.5F,
-                    0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F)
+                null,
+                player.getX(),
+                player.getY(),
+                player.getZ(),
+                SoundEvents.TRIDENT_THROW,
+                SoundSource.PLAYERS,
+                0.5F,
+                0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F)
             );
 
             if (!level.isClientSide) {

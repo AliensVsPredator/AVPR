@@ -21,11 +21,11 @@ import org.avpr.common.tags.AVPREntityTags;
 public record EntityUtil() {
 
     /**
-     * Shoots a shuriken from the specified living entity, playing a sound effect and
-     * spawning a {@code ShurikenItemEntity} in the game world.
+     * Shoots a shuriken from the specified living entity, playing a sound effect and spawning a
+     * {@code ShurikenItemEntity} in the game world.
      *
-     * @param entity The {@code LivingEntity} that is shooting the shuriken. This entity
-     *               will be used as the source and owner of the shuriken.
+     * @param entity The {@code LivingEntity} that is shooting the shuriken. This entity will be used as the source and
+     *               owner of the shuriken.
      */
     public static void shootSkuriken(LivingEntity entity) {
         // TODO: Change sound effect here.
@@ -53,8 +53,8 @@ public record EntityUtil() {
      * Shoots a smart disc from the specified living entity, playing a sound effect and spawning a
      * {@code SmartDiscItemEntity} in the game world.
      *
-     * @param entity The {@code LivingEntity} that is shooting the smart disc. This entity will be
-     *               used as the source and owner of the smart disc.
+     * @param entity The {@code LivingEntity} that is shooting the smart disc. This entity will be used as the source
+     *               and owner of the smart disc.
      */
     public static void shootSmartDisc(LivingEntity entity) {
         // TODO: Change sound effect here.

@@ -28,8 +28,8 @@ public class UseItemTask<E extends LivingEntity> extends AnimatableRangeTask<E> 
     }
 
     /**
-     * Executes a delayed action for the given entity.
-     * This method is invoked after a specified delay and performs an attack if the entity's target is visible and within attack range.
+     * Executes a delayed action for the given entity. This method is invoked after a specified delay and performs an
+     * attack if the entity's target is visible and within attack range.
      *
      * @param entity the entity performing the delayed action
      */
