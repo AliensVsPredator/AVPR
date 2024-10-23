@@ -347,7 +347,7 @@ public class BaseGunItem extends Item implements GeoItem {
                 1.0F
             );
             CommonUtils.spawnLightSource(livingEntity, player.level().isWaterAt(player.blockPosition()));
-            rocketProjectile.moveTo(livingEntity.getX(), livingEntity.getY(0.6D), livingEntity.getZ(), 0, 0);
+            rocketProjectile.moveTo(livingEntity.getX(), livingEntity.getY(0.7D), livingEntity.getZ(), 0, 0);
             level.addFreshEntity(rocketProjectile);
         }
     }
@@ -369,7 +369,7 @@ public class BaseGunItem extends Item implements GeoItem {
                 1.0F
             );
             CommonUtils.spawnLightSource(livingEntity, player.level().isWaterAt(player.blockPosition()));
-            bulletEntity.moveTo(livingEntity.getX(), livingEntity.getY(0.6D), livingEntity.getZ(), 0, 0);
+            bulletEntity.moveTo(livingEntity.getX(), livingEntity.getY(0.7D), livingEntity.getZ(), 0, 0);
             level.addFreshEntity(bulletEntity);
         }
     }
@@ -397,7 +397,7 @@ public class BaseGunItem extends Item implements GeoItem {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(
-            new AnimationController<>(this, "main", event -> PlayState.CONTINUE).triggerableAnim(
+            new AnimationController<>(this, "main", 10, event -> PlayState.CONTINUE).triggerableAnim(
                 "spin",
                 RawAnimation.begin().thenLoop("barrelspin")
             )
