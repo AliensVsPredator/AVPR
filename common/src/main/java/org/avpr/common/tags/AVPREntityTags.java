@@ -6,7 +6,7 @@ import net.minecraft.world.entity.EntityType;
 
 import org.avpr.common.CommonMod;
 
-public class AVPREntityTags {
+public record AVPREntityTags() {
 
     public static final TagKey<EntityType<?>> ACID_IMMUNE = CommonMod.createTag(Registries.ENTITY_TYPE, "acid_immune");
 
@@ -19,4 +19,27 @@ public class AVPREntityTags {
     public static final TagKey<EntityType<?>> ENGINEERS = CommonMod.createTag(Registries.ENTITY_TYPE, "engineers");
 
     public static final TagKey<EntityType<?>> PREDATORS = CommonMod.createTag(Registries.ENTITY_TYPE, "predators");
+
+    public static final TagKey<EntityType<?>> PARASITES = CommonMod.createTag(Registries.ENTITY_TYPE, "parasites");
+
+    public static final TagKey<EntityType<?>> NOT_WORTH_KILLING = CommonMod.createTag(Registries.ENTITY_TYPE, "not_worth_killing");
+
+    public static final TagKey<EntityType<?>> MONSTERS = CommonMod.createTag(Registries.ENTITY_TYPE, "monsters");
+
+    public static final TagKey<EntityType<?>> MEDIUM_GUNS_IMMUNE = CommonMod.createTag(Registries.ENTITY_TYPE, "medium_guns_immune");
+
+    public static final TagKey<EntityType<?>> HIVE_ALIENS = CommonMod.createTag(Registries.ENTITY_TYPE, "hive_aliens");
+
+    public static final TagKey<EntityType<?>> HEAVY_GUNS_IMMUNE = CommonMod.createTag(Registries.ENTITY_TYPE, "heavy_guns_immune");
+
+    public static final TagKey<EntityType<?>> EGGS = CommonMod.createTag(Registries.ENTITY_TYPE, "eggs");
+
+    public static final TagKey<EntityType<?>> ACID_BLEEDERS = CommonMod.createTag(Registries.ENTITY_TYPE, "acid_bleeders");
+
+    public static final TagKey<EntityType<?>> SMALL_GUNS_IMMUNE = CommonMod.createTag(Registries.ENTITY_TYPE, "small_guns_immune");
+
+    public static final TagKey<EntityType<?>> ROYAL_ALIENS = CommonMod.createTag(Registries.ENTITY_TYPE, "royal_aliens");
+
+    public static final TagKey<EntityType<?>> PRODUCES_RESIN = CommonMod.createTag(Registries.ENTITY_TYPE, "produces_resin");
+
 }

@@ -6,7 +6,7 @@ import net.minecraft.world.item.Item;
 
 import org.avpr.common.CommonMod;
 
-public class AVPRItemTags {
+public record AVPRItemTags() {
 
     public static final TagKey<Item> ACID_IMMUNE = CommonMod.createTag(Registries.ITEM, "acid_immune");
 
