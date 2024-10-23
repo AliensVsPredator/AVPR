@@ -155,9 +155,9 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, Constants.LIVING_CONTROLLER, 0, event -> {
-            if (this.isAggressive())
-                return event.setAndContinue(Constants.BLADE_OPEN);
-            return event.setAndContinue(Constants.BLADE_CLOSE);
+            return event.getAnimatable().hasBlade()
+                ? event.setAndContinue(Constants.BLADE_OPEN)
+                : event.setAndContinue(Constants.BLADE_CLOSE);
         }).setSoundKeyframeHandler(event -> {
             if (level().isClientSide()) {
                 if (event.getKeyframeData().getSound().matches("blade_closing"))
@@ -210,6 +210,10 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         this.setAirSupply(this.getMaxAirSupply());
         var currentHealthPercentage = (this.getHealth() / this.getMaxHealth()) * 100;
         this.update(currentHealthPercentage);
+        if (this.getMainHandItem().isEmpty() && this.isAggressive())
+            this.setHasBlade(true);
+        if (!this.getMainHandItem().isEmpty())
+            this.setHasBlade(false);
     }
 
     /**
