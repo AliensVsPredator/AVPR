@@ -5,10 +5,12 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 import org.jetbrains.annotations.NotNull;
 
 import org.avpr.common.entities.projectiles.ShurikenItemEntity;
@@ -20,39 +22,57 @@ public class ShurikenItem extends Item {
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(
-        @NotNull Level level,
-        @NotNull Player player,
-        @NotNull InteractionHand usedHand
-    ) {
-        var itemInHand = player.getItemInHand(usedHand);
-        if (!player.getCooldowns().isOnCooldown(this)) {
+    public int getUseDuration(@NotNull ItemStack stack, @NotNull LivingEntity entity) {
+        return 72000;
+    }
+
+    @Override
+    public void releaseUsing(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity livingEntity, int timeCharged) {
+        int i = this.getUseDuration(stack, livingEntity) - timeCharged;
+        float powerForTime = getPowerForTime(i);
+        if (powerForTime > 0.1 && livingEntity instanceof Player player && !player.getCooldowns().isOnCooldown(this)) {
             player.getCooldowns().addCooldown(this, 5);
             // TODO: Change sound effect here.
             level.playSound(
-                null,
-                player.getX(),
-                player.getY(),
-                player.getZ(),
-                SoundEvents.TRIDENT_THROW,
-                SoundSource.PLAYERS,
-                0.5F,
-                0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F)
+                    null,
+                    player.getX(),
+                    player.getY(),
+                    player.getZ(),
+                    SoundEvents.TRIDENT_THROW,
+                    SoundSource.PLAYERS,
+                    0.5F,
+                    0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F)
             );
 
             if (!level.isClientSide) {
                 var shurikenItemEntity = new ShurikenItemEntity(level, player);
-                shurikenItemEntity.setItem(itemInHand);
+                shurikenItemEntity.setItem(stack);
                 shurikenItemEntity.setOwner(player);
-                shurikenItemEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
+                shurikenItemEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, powerForTime * 6.5F, 1.0F);
                 level.addFreshEntity(shurikenItemEntity);
             }
             player.awardStat(Stats.ITEM_USED.get(this));
             if (!player.getAbilities().instabuild)
-                itemInHand.shrink(1);
-            return InteractionResultHolder.sidedSuccess(itemInHand, level.isClientSide());
-        } else {
-            return InteractionResultHolder.fail(itemInHand);
+                stack.shrink(1);
         }
+
+        super.releaseUsing(stack, level, livingEntity, timeCharged);
+    }
+
+    public static float getPowerForTime(int charge) {
+        float f = charge / 20.0F;
+        f = (f * f + f * 2.0F) / 3.0F;
+        if (f > 1.0F) {
+            f = 1.0F;
+        }
+
+        return f;
+    }
+
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
+        var itemStack = player.getItemInHand(hand);
+        player.startUsingItem(hand);
+        return InteractionResultHolder.consume(itemStack);
     }
 }
