@@ -466,10 +466,10 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         return ObjectArrayList.of(
             new NearbyPlayersSensor<>(),
             new NearbyLivingEntitySensor<YautjaEntity>().setPredicate(
-                (target, self) -> !target.getType()
+                (target, yautjaEntity) -> !target.getType()
                     .is(
                         AVPREntityTags.PREDATORS
-                    )
+                    ) || !target.getType().is(AVPREntityTags.NOT_WORTH_KILLING)
             ),
             new NearbyBlocksSensor<YautjaEntity>().setRadius(7),
             new UnreachableTargetSensor<>(),
