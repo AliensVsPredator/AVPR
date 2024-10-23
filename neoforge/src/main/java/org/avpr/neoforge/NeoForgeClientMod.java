@@ -120,6 +120,7 @@ public class NeoForgeClientMod {
         event.registerEntityRenderer(AVPREntities.SMARTDISC_ENTITY.get(), SkurikenItemRenderer::new);
         event.registerEntityRenderer(AVPREntities.BULLET.get(), EmptyRender::new);
         event.registerEntityRenderer(AVPREntities.ROCKET_ENTITY.get(), RocketRenderer::new);
+        event.registerEntityRenderer(AVPREntities.FLAMETHROW_ENTITY.get(), EmptyRender::new);
     }
 
     @SubscribeEvent

@@ -269,6 +269,38 @@ public class BaseGunItem extends Item implements GeoItem {
                         if (!player.getAbilities().instabuild)
                             stack.set(AVPRDataComponments.CURRENT_AMMO.get(), stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1);
                     }
+                } else if (this.getItemID().matches("weapon_flamethrower_sevastopol")) {
+                    if (!player.getCooldowns().isOnCooldown(this)) {
+                        this.fireFlamethrower(player, stack, level);
+                        player.getCooldowns().addCooldown(this, stack.get(AVPRDataComponments.GUN_FIRERATE.get()));
+                        if (!level.isClientSide())
+                            soundPlayingTicks++;
+                        if (soundPlayingTicks == 1)
+                            level.playSound(
+                                    null,
+                                    player.blockPosition(),
+                                    this.getFiringSound(),
+                                    SoundSource.PLAYERS,
+                                    0.5F,
+                                    1
+                            );
+                        if (soundPlayingTicks > 25) {
+                            level.playSound(
+                                null,
+                                player.blockPosition(),
+                                this.getFiringSound(),
+                                SoundSource.PLAYERS,
+                                0.5F,
+                                1
+                            );
+                            soundPlayingTicks = 0;
+                        }
+                        if (!player.getAbilities().instabuild)
+                            stack.set(
+                                AVPRDataComponments.CURRENT_AMMO.get(),
+                                stack.get(AVPRDataComponments.CURRENT_AMMO.get()) - 1
+                            );
+                    }
                 } else if (this.getItemID().matches("weapon_m83a2_sadar")) {
                     if (!player.getCooldowns().isOnCooldown(this)) {
                         this.fireRocket(player, stack, level);
@@ -330,6 +362,26 @@ public class BaseGunItem extends Item implements GeoItem {
         stack.set(AVPRDataComponments.GUN_HAS_WINDUP.get(), true);
         stack.set(AVPRDataComponments.STOP_ANIMATIONS.get(), true);
         return super.useOnRelease(stack);
+    }
+
+    protected void fireFlamethrower(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {
+        if (
+            livingEntity instanceof Player player && (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0
+                || player.getAbilities().instabuild)
+        ) {
+            var flamethrowProjectile = new FlamethrowProjectile(level);
+            flamethrowProjectile.setOwner(player);
+            flamethrowProjectile.shootFromRotation(
+                livingEntity,
+                livingEntity.getXRot(),
+                livingEntity.getYRot(),
+                0.0F,
+                1.0F,
+                1.0F
+            );
+            flamethrowProjectile.moveTo(livingEntity.getX(), livingEntity.getY(0.7D), livingEntity.getZ(), 0, 0);
+            level.addFreshEntity(flamethrowProjectile);
+        }
     }
 
     protected void fireRocket(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {

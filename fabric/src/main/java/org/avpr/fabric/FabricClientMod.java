@@ -84,6 +84,7 @@ public class FabricClientMod implements ClientModInitializer {
         EntityRenderers.register(AVPREntities.SMARTDISC_ENTITY.get(), SkurikenItemRenderer::new);
         EntityRenderers.register(AVPREntities.BULLET.get(), EmptyRender::new);
         EntityRenderers.register(AVPREntities.ROCKET_ENTITY.get(), RocketRenderer::new);
+        EntityRenderers.register(AVPREntities.FLAMETHROW_ENTITY.get(), EmptyRender::new);
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS.get(), RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS_WHITE.get(), RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(AVPRBlocks.INDUSTRIAL_GLASS_ORANGE.get(), RenderType.translucent());

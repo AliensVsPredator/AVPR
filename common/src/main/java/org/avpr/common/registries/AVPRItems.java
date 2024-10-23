@@ -1024,8 +1024,18 @@ public record AVPRItems() {
         "weapon_flamethrower_sevastopol",
         () -> new BaseGunItem(
             "weapon_flamethrower_sevastopol",
-            null,
-            new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 64)
+            GunEnum.FLAMETHROWER,
+            new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 500)
+                .component(AVPRDataComponments.GUN_DAMAGE.get(), 1)
+                .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
+                .component(AVPRDataComponments.GUN_RECOIL.get(), 0D)
+                .component(AVPRDataComponments.GUN_FIRERATE.get(), 1)
+                .component(AVPRDataComponments.GUN_RELOAD_TICKS.get(), 100)
+                .component(AVPRDataComponments.GUN_KNOCKBACK.get(), 0.0)
+                .component(AVPRDataComponments.GUN_RANGE.get(), 16D)
+                .component(AVPRDataComponments.GUN_WIND_UP_LONG.get(), 0D)
+                .component(AVPRDataComponments.GUN_IS_WINDINGUP.get(), false)
+                .component(AVPRDataComponments.SHOULD_RENDER_AS_CROSSBOW.get(), false)
         )
     );
 

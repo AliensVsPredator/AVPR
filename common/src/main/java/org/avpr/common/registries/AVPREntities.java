@@ -28,6 +28,14 @@ import org.avpr.common.platform.AVPRServices;
 
 public record AVPREntities() {
 
+    public static final Supplier<EntityType<FlamethrowProjectile>> FLAMETHROW_ENTITY = AVPREntities.registerEntity(
+        "flamethrow_entity",
+        FlamethrowProjectile::new,
+        MobCategory.MISC,
+        0.66F,
+        0.05F
+    );
+
     public static final Supplier<EntityType<BulletProjectile>> BULLET = AVPREntities.registerEntity(
         "bullet",
         BulletProjectile::new,
