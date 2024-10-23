@@ -496,7 +496,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     public BrainActivityGroup<YautjaEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
             new InvalidateAttackTarget<>().invalidateIf(
-                (entity, target) -> target.getType().is(AVPREntityTags.PREDATORS)
+                (entity, target) -> target.getType().is(AVPREntityTags.PREDATORS) || target.getType().is(AVPREntityTags.NOT_WORTH_KILLING)
             ),
             new SetWalkTargetToAttackTarget<>().startCondition(entity -> this.getMainHandItem().isEmpty()),
             new AnimatableMeleeAttack<>(6).whenStarting(
