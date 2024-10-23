@@ -59,74 +59,97 @@ public class BaseGunItem extends Item implements GeoItem {
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    private static final Map<GunEnum, GunProperties> GUN_ENUM_GUN_PROPERTIES_MAP = Map.of(
-        GunEnum.PISTOL,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_COMBAT_PISTOL_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_COMBAT_PISTOL_SHOOT.get(),
-            java.util.List.of(GunFireMode.SEMI_AUTOMATIC)
-        ),
-        GunEnum.SHOTGUN,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_SHOTGUN_SHOOT.get(),
-            List.of(GunFireMode.SEMI_AUTOMATIC)
-        ),
-        GunEnum.AK47,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
-            List.of(GunFireMode.AUTOMATIC)
-        ),
-        GunEnum.F90RIFLE,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
-            List.of(GunFireMode.AUTOMATIC)
-        ),
-        GunEnum.M4CARBINE,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
-            List.of(GunFireMode.AUTOMATIC)
-        ),
-        GunEnum.M41APULSERIFLE,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_PULSE_RIFLE_SHOOT.get(),
-            List.of(GunFireMode.AUTOMATIC, GunFireMode.BURST)
-        ),
-        GunEnum.SNIPER,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_SNIPER_RIFLE_SHOOT.get(),
-            List.of(GunFireMode.SEMI_AUTOMATIC)
-        ),
-        GunEnum.SMARTGUN,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
-            AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
-            List.of(GunFireMode.AUTOMATIC)
-        ),
-        GunEnum.SADAR,
-        new GunProperties(
-            AVPRSounds.ITEM_WEAPON_ROCKET_LAUNCHER_RELOAD_START.get(),
-            AVPRSounds.ITEM_WEAPON_ROCKET_LAUNCHER_SHOOT.get(),
-            List.of(GunFireMode.SEMI_AUTOMATIC)
-        ),
-        GunEnum.OLDPAINLESS,
-        new GunProperties(
-            SoundEvents.LEVER_CLICK,
-            AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_LOOP.get(),
-            List.of(GunFireMode.AUTOMATIC)
-        )
-    );
+    protected Map<GunEnum, GunProperties> GUN_ENUM_GUN_PROPERTIES_MAP = new EnumMap<>(GunEnum.class);
 
     public BaseGunItem(String id, GunEnum setGunEnum, Properties properties) {
         super(properties);
         this.id = id;
         this.gunEnum = setGunEnum;
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.FLAMETHROWER,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_FLAMETHROWER_RELOAD_START.get(),
+                AVPRSounds.ITEM_WEAPON_FLAMETHROWER_SHOOT.get(),
+                List.of(GunFireMode.AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.PISTOL,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_COMBAT_PISTOL_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_COMBAT_PISTOL_SHOOT.get(),
+                List.of(GunFireMode.SEMI_AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.SHOTGUN,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_SHOTGUN_SHOOT.get(),
+                List.of(GunFireMode.SEMI_AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.AK47,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+                List.of(GunFireMode.AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.F90RIFLE,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+                List.of(GunFireMode.AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.M4CARBINE,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+                List.of(GunFireMode.AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.M41APULSERIFLE,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_PULSE_RIFLE_SHOOT.get(),
+                List.of(GunFireMode.AUTOMATIC, GunFireMode.BURST)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.SNIPER,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_SNIPER_RIFLE_SHOOT.get(),
+                List.of(GunFireMode.SEMI_AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.SMARTGUN,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
+                AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
+                List.of(GunFireMode.AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.SADAR,
+            new GunProperties(
+                AVPRSounds.ITEM_WEAPON_ROCKET_LAUNCHER_RELOAD_START.get(),
+                AVPRSounds.ITEM_WEAPON_ROCKET_LAUNCHER_SHOOT.get(),
+                List.of(GunFireMode.SEMI_AUTOMATIC)
+            )
+        );
+        GUN_ENUM_GUN_PROPERTIES_MAP.put(
+            GunEnum.OLDPAINLESS,
+            new GunProperties(SoundEvents.LEVER_CLICK, AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_LOOP.get(), List.of(GunFireMode.AUTOMATIC))
+        );
     }
 
     public String getItemID() {
