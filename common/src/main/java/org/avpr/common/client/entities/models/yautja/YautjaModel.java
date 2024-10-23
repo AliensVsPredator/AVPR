@@ -27,37 +27,37 @@ public class YautjaModel extends DefaultEntityModel<YautjaEntity> {
             head.setRotX(entityData.headPitch() * Mth.DEG_TO_RAD);
             head.setRotY(entityData.netHeadYaw() * Mth.DEG_TO_RAD);
         }
-        if (leftArm != null)
+        if (leftArm != null && animationState.isMoving())
             leftArm.setRotX(
                 Mth.cos(
-                    animatable.walkAnimation.position(
+                        animationState.getAnimatable().walkAnimation.position(
                         animationState.getPartialTick()
                     ) * 0.6662F
-                ) * 2.0F * animatable.walkAnimation.speed() * 0.5F
+                ) * 2.0F * animationState.getAnimatable().walkAnimation.speed() * 0.5F
             );
-        if (rightArm != null && !animatable.isAggressive())
+        if (rightArm != null && !animationState.getAnimatable().isAggressive() && animationState.isMoving())
             rightArm.setRotX(
                 Mth.cos(
-                    animatable.walkAnimation.position(
+                    animationState.getAnimatable().walkAnimation.position(
                         animationState.getPartialTick()
                     ) * 0.6662F + 3.1415927F
-                ) * 2.0F * animatable.walkAnimation.speed() * 0.5F
+                ) * 2.0F * animationState.getAnimatable().walkAnimation.speed() * 0.5F
             );
-        if (leftLeg != null)
+        if (leftLeg != null && animationState.isMoving())
             leftLeg.setRotX(
                 Mth.cos(
-                    animatable.walkAnimation.position(
+                    animationState.getAnimatable().walkAnimation.position(
                         animationState.getPartialTick()
                     ) * 0.6662F + 3.1415927F
-                ) * 1.4F * animatable.walkAnimation.speed() * 0.5F
+                ) * 1.4F * animationState.getAnimatable().walkAnimation.speed() * 0.5F
             );
-        if (rightLeg != null)
+        if (rightLeg != null && animationState.isMoving())
             rightLeg.setRotX(
                 Mth.cos(
-                    animatable.walkAnimation.position(
+                    animationState.getAnimatable().walkAnimation.position(
                         animationState.getPartialTick()
                     ) * 0.6662F
-                ) * 1.4F * animatable.walkAnimation.speed() * 0.5F
+                ) * 1.4F * animationState.getAnimatable().walkAnimation.speed() * 0.5F
             );
     }
 }
