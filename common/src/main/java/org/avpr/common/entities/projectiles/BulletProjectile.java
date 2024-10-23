@@ -5,9 +5,11 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -29,31 +31,78 @@ public class BulletProjectile extends AbstractArrow {
 
     private boolean trackToEntity;
 
+    private static double knockBackDamage;
+
+    /**
+     * Constructs a BulletProjectile in the given Level.
+     *
+     * @param entityType The type of the entity.
+     * @param level      The level in which the projectile exists.
+     */
     public BulletProjectile(EntityType<? extends AbstractArrow> entityType, Level level) {
         super(entityType, level);
         this.pickup = AbstractArrow.Pickup.DISALLOWED;
     }
 
-    public BulletProjectile(Level world, Integer damage, boolean shouldTrackToEntity) {
+    /**
+     * Constructs a BulletProjectile with specified attributes.
+     *
+     * @param world               the Level in which the projectile exists
+     * @param damage              the damage inflicted by the projectile
+     * @param shouldTrackToEntity if true, the projectile will track to an entity
+     * @param setKnockBackDamage  the knockback damage set for the projectile
+     */
+    public BulletProjectile(Level world, Integer damage, boolean shouldTrackToEntity, Double setKnockBackDamage) {
         this(AVPREntities.BULLET.get(), world);
         this.pickup = AbstractArrow.Pickup.DISALLOWED;
         bulletdamage = damage;
         trackToEntity = shouldTrackToEntity;
+        knockBackDamage = setKnockBackDamage;
     }
 
+    /**
+     * Adds additional data to be saved to the provided tag.
+     *
+     * @param tag the CompoundTag to which additional data will be written
+     */
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         tag.putShort("life", (short) this.tickCount);
     }
 
+    /**
+     * Reads additional saved data from the provided CompoundTag.
+     *
+     * @param tag the CompoundTag from which additional data will be read
+     */
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         this.tickCount = tag.getShort("life");
     }
 
+    /**
+     * Gets the default item stack that can be picked up when the projectile is retrieved.
+     *
+     * @return The default item stack, which is an instance of the air item.
+     */
     @Override
     protected @NotNull ItemStack getDefaultPickupItem() {
         return Items.AIR.getDefaultInstance();
+    }
+
+    /**
+     * Performs a knockback effect on the specified entity based on the projectile's settings and the entity's
+     * resistance to knockback.
+     *
+     * @param entity       The living entity to apply the knockback effect to.
+     * @param damageSource The source of the damage that caused the knockback.
+     */
+    @Override
+    protected void doKnockback(LivingEntity entity, @NotNull DamageSource damageSource) {
+        var knockBackResistance = Math.max(0.0, 1.0 - entity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
+        var vec3 = this.getDeltaMovement().multiply(1.0, 0.0, 1.0).normalize().scale(0.6 * knockBackResistance);
+        if (vec3.lengthSqr() > 0.0)
+            entity.push(vec3.x, knockBackDamage, vec3.z);
     }
 
     /**
@@ -165,6 +214,12 @@ public class BulletProjectile extends AbstractArrow {
         this.kill();
     }
 
+    /**
+     * Determines whether the bullet projectile should render based on the square of the distance.
+     *
+     * @param distance the square of the distance to consider for rendering.
+     * @return true if the projectile should render; false otherwise.
+     */
     @Override
     public boolean shouldRenderAtSqrDistance(double distance) {
         return true;
