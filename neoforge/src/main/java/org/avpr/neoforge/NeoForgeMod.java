@@ -100,6 +100,7 @@ public final class NeoForgeMod {
 
     public NeoForgeMod(IEventBus modEventBus) {
         AzureLib.initialize();
+        AzureLib.hasKeyBindsInitialized = true;
         CommonMod.initRegistries();
         if (NeoForgeMod.blockEntityTypeDeferredRegister != null)
             NeoForgeMod.blockEntityTypeDeferredRegister.register(modEventBus);

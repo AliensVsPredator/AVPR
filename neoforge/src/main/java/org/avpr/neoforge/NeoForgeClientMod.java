@@ -1,5 +1,7 @@
 package org.avpr.neoforge;
 
+import com.mojang.blaze3d.platform.InputConstants;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -8,9 +10,12 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import org.lwjgl.glfw.GLFW;
 
 import org.avpr.common.CommonMod;
+import org.avpr.common.client.Keybinds;
 import org.avpr.common.client.entities.renders.alien.base_line.*;
 import org.avpr.common.client.entities.renders.alien.beluga_line.*;
 import org.avpr.common.client.entities.renders.alien.deacon_line.*;
@@ -34,6 +39,17 @@ public class NeoForgeClientMod {
     // @SubscribeEvent
     // public static void fluidReg(final RegisterClientExtensionsEvent event) {
     // }
+
+    @SubscribeEvent
+    public static void registerKeys(final RegisterKeyMappingsEvent event) {
+        Keybinds.FLASHLIGHT = new KeyMapping(
+            "key.avpr.flashlighttoggle",
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_F,
+            "keybind.category.avpr"
+        );
+        event.register(Keybinds.FLASHLIGHT);
+    }
 
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {

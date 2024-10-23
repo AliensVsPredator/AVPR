@@ -37,6 +37,7 @@ public final class FabricLibMod implements ModInitializer {
     public void onInitialize() {
         SBLConstants.SBL_LOADER.init(null);
         AzureLib.initialize();
+        AzureLib.hasKeyBindsInitialized = true;
         CommonMod.initRegistries();
         /*
          * Mob Attribute Registry

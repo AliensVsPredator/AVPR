@@ -1,16 +1,22 @@
 package org.avpr.fabric;
 
+import com.mojang.blaze3d.platform.InputConstants;
+import mod.azure.azurelib.common.internal.common.AzureLib;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import org.lwjgl.glfw.GLFW;
 
 import org.avpr.common.CommonMod;
+import org.avpr.common.client.Keybinds;
 import org.avpr.common.client.entities.renders.alien.base_line.*;
 import org.avpr.common.client.entities.renders.alien.beluga_line.*;
 import org.avpr.common.client.entities.renders.alien.deacon_line.*;
@@ -32,6 +38,14 @@ public class FabricClientMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        AzureLib.hasKeyBindsInitialized = true;
+        Keybinds.FLASHLIGHT = new KeyMapping(
+            "key.avpr.flashlighttoggle",
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_F,
+            "keybind.category.avpr"
+        );
+        KeyBindingHelper.registerKeyBinding(Keybinds.FLASHLIGHT);
         registerParticle("acid", AVPRParticles.ACID.get(), AcidParticleProvider::new);
         EntityRenderers.register(AVPREntities.ACID.get(), AcidEntityRender::new);
         EntityRenderers.register(AVPREntities.CHESTBURSTER.get(), ChestbursterRenderer::new);
