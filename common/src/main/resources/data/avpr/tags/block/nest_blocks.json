@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "avpr:resin",
+    "avpr:resin_vein",
+    "avpr:resin_webbing"
+  ]
+}
