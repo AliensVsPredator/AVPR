@@ -84,6 +84,7 @@ public class NeoForgeClientMod {
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(AVPREntities.ACID.get(), AcidEntityRender::new);
+        event.registerEntityRenderer(AVPREntities.LIGHT_ENTITY.get(), AcidEntityRender::new);
         event.registerEntityRenderer(AVPREntities.CHESTBURSTER.get(), ChestbursterRenderer::new);
         event.registerEntityRenderer(AVPREntities.CHESTBURSTER_QUEEN.get(), ChestbursterQueenRenderer::new);
         event.registerEntityRenderer(AVPREntities.FACEHUGGER_ROYAL.get(), FacehuggerRoyalRenderer::new);

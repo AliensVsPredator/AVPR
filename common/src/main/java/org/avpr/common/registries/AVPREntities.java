@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.entities.AcidEntity;
+import org.avpr.common.entities.LightEntity;
 import org.avpr.common.entities.alien.base_line.*;
 import org.avpr.common.entities.alien.beluga_line.BelugabursterEntity;
 import org.avpr.common.entities.alien.beluga_line.BelugamorphEntity;
@@ -27,6 +28,14 @@ import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.platform.AVPRServices;
 
 public record AVPREntities() {
+
+    public static final Supplier<EntityType<LightEntity>> LIGHT_ENTITY = AVPREntities.registerEntity(
+        "light_entity",
+        LightEntity::new,
+        MobCategory.MISC,
+        0.66F,
+        0.05F
+    );
 
     public static final Supplier<EntityType<FlamethrowProjectile>> FLAMETHROW_ENTITY = AVPREntities.registerEntity(
         "flamethrow_entity",

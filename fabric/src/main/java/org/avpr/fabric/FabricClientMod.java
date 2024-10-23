@@ -48,6 +48,7 @@ public class FabricClientMod implements ClientModInitializer {
         KeyBindingHelper.registerKeyBinding(Keybinds.FLASHLIGHT);
         registerParticle("acid", AVPRParticles.ACID.get(), AcidParticleProvider::new);
         EntityRenderers.register(AVPREntities.ACID.get(), AcidEntityRender::new);
+        EntityRenderers.register(AVPREntities.LIGHT_ENTITY.get(), AcidEntityRender::new);
         EntityRenderers.register(AVPREntities.CHESTBURSTER.get(), ChestbursterRenderer::new);
         EntityRenderers.register(AVPREntities.CHESTBURSTER_QUEEN.get(), ChestbursterQueenRenderer::new);
         EntityRenderers.register(AVPREntities.FACEHUGGER_ROYAL.get(), FacehuggerRoyalRenderer::new);

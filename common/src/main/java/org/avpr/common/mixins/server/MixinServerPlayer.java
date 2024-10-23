@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRItems;
 
 @Mixin(ServerPlayer.class)
@@ -21,14 +22,15 @@ public abstract class MixinServerPlayer extends Player {
     }
 
     /**
-     * Ensures that the player maintains their air supply when wearing the complete set of AVPR pressure armor.
+     * Handles the periodic actions for a ServerPlayer instance. This method is executed on each game tick to ensure
+     * players wearing specific armor pieces have their air supply replenished and to spawn a light entity if the player
+     * is wearing the tactical chestplate.
      *
-     * @param callbackInfo The callback information provided by the method injection.
+     * @param callbackInfo the callback information from the mixin injection point
      */
     @Inject(at = @At("HEAD"), method = "tick")
     public void tick(CallbackInfo callbackInfo) {
         var self = ServerPlayer.class.cast(this);
-
         if (
             self.tickCount % org.avpr.common.api.util.Tick.PER_SECOND == 0 &&
                 self.getItemBySlot(EquipmentSlot.HEAD).is(AVPRItems.ARMOR_PRESSURE_HELMET.get()) &&
@@ -38,5 +40,9 @@ public abstract class MixinServerPlayer extends Player {
         ) {
             self.setAirSupply(self.getMaxAirSupply());
         }
+        if (
+            self.getItemBySlot(EquipmentSlot.CHEST).is(AVPRItems.ARMOR_TACTICAL_CHESTPLATE.get())
+        )
+            self.level().addFreshEntity(AVPREntities.LIGHT_ENTITY.get().create(self.level()));
     }
 }
