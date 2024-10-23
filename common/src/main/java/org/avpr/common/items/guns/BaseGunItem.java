@@ -300,12 +300,12 @@ public class BaseGunItem extends Item implements GeoItem {
                             soundPlayingTicks++;
                         if (soundPlayingTicks == 1)
                             level.playSound(
-                                    null,
-                                    player.blockPosition(),
-                                    this.getFiringSound(),
-                                    SoundSource.PLAYERS,
-                                    0.5F,
-                                    1
+                                null,
+                                player.blockPosition(),
+                                this.getFiringSound(),
+                                SoundSource.PLAYERS,
+                                0.5F,
+                                1
                             );
                         if (soundPlayingTicks > 25) {
                             level.playSound(

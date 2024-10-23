@@ -50,6 +50,7 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
@@ -58,7 +59,6 @@ import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
-import org.jetbrains.annotations.Nullable;
 
 public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, SmartBrainOwner<YautjaEntity> {
 
@@ -198,7 +198,8 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
      * <li>Resets the entity's air supply to its maximum value.</li>
      * <li>Calculates the current health percentage of the entity.</li>
      * <li>If the entity is wearing a mask and its health percentage drops to 85% or less, removes the mask.</li>
-     * <li>Updates the entity based on the current health percentage, which may trigger specific actions such as hiding bones.</li>
+     * <li>Updates the entity based on the current health percentage, which may trigger specific actions such as hiding
+     * bones.</li>
      * </ol>
      */
     @Override
@@ -210,17 +211,23 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     /**
-     * Finalizes the spawning of a {@link YautjaEntity} within the game world, applying various armor and equipment statuses
-     * to the entity upon spawn.
+     * Finalizes the spawning of a {@link YautjaEntity} within the game world, applying various armor and equipment
+     * statuses to the entity upon spawn.
      *
-     * @param level          The server level accessor providing the context of the world where the entity is being spawned.
+     * @param level          The server level accessor providing the context of the world where the entity is being
+     *                       spawned.
      * @param difficulty     The current difficulty instance affecting the spawn conditions.
      * @param spawnType      The type of spawn that is being executed (natural, chunk generation, spawn egg, etc.).
      * @param spawnGroupData Data pertaining to the group this entity may be spawned with, if any.
      * @return The updated spawn group data after the entity has been spawned and modified, or null if none.
      */
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(
+        @NotNull ServerLevelAccessor level,
+        @NotNull DifficultyInstance difficulty,
+        @NotNull MobSpawnType spawnType,
+        @Nullable SpawnGroupData spawnGroupData
+    ) {
         this.setMaskStatus(true);
         this.setHasleftLegArmor(true);
         this.setHasRightLegArmor(true);
@@ -371,9 +378,8 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     /**
-     * Updates the entity's state based on its current health percentage.
-     * This method triggers the hiding of certain bones when the health
-     * percentage falls within specified threshold ranges.
+     * Updates the entity's state based on its current health percentage. This method triggers the hiding of certain
+     * bones when the health percentage falls within specified threshold ranges.
      *
      * @param currentHealthPercentage The current health percentage of the entity.
      */
@@ -397,12 +403,10 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     /**
-     * Triggers the hiding of bones when the entity's health percentage drops
-     * below a specified threshold. This method ensures that each threshold is
-     * only triggered once.
+     * Triggers the hiding of bones when the entity's health percentage drops below a specified threshold. This method
+     * ensures that each threshold is only triggered once.
      *
-     * @param threshold The specific health percentage threshold that triggers
-     *                  the bone hiding mechanic.
+     * @param threshold The specific health percentage threshold that triggers the bone hiding mechanic.
      */
     private void triggerBoneHiding(float threshold) {
         if (!triggeredThresholds.contains(threshold)) {
@@ -412,10 +416,9 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     /**
-     * Randomly hides one of the entity's armor pieces. This method gathers a list of
-     * actions to hide each specific piece of armor and shuffles the list before running
-     * one of these actions. If the list is not empty, the first action in the shuffled
-     * list is executed to hide the armor piece.
+     * Randomly hides one of the entity's armor pieces. This method gathers a list of actions to hide each specific
+     * piece of armor and shuffles the list before running one of these actions. If the list is not empty, the first
+     * action in the shuffled list is executed to hide the armor piece.
      */
     private void hideBones() {
         List<Runnable> hideActions = new ArrayList<>();
