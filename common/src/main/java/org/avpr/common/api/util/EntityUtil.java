@@ -3,6 +3,9 @@ package org.avpr.common.api.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -174,6 +177,28 @@ public record EntityUtil() {
             target.getEyeHeight() > 0.8F ? 0.5F : 0.4,
             vec3d2.z
         );
+    }
+
+    /**
+     * Causes the given alien entity to explode, creating acid pools and an area effect cloud.
+     * The explosion creates multiple acid pools around the entity and releases a harmful area effect cloud.
+     *
+     * @param alienEntity The alien entity that will explode and generate the acid pools and area effect cloud.
+     */
+    public static void explodeAcid(AlienEntity alienEntity) {
+        for (var i = 0; i < 5; i++) {
+            var x = alienEntity.level().getRandom().nextInt(5) - 5;
+            var z = alienEntity.level().getRandom().nextInt(5) - 5;
+            EntityUtil.generateAcidPool(alienEntity, alienEntity.blockPosition(), x, z, 20.0F);
+            var areaEffectCloudEntity = new AreaEffectCloud(alienEntity.level(), alienEntity.getX(), alienEntity.getY() + 1, alienEntity.getZ());
+            areaEffectCloudEntity.setRadius(8.0F);
+            areaEffectCloudEntity.setDuration(30);
+            areaEffectCloudEntity.setRadiusPerTick(
+                    -areaEffectCloudEntity.getRadius() / areaEffectCloudEntity.getDuration());
+            areaEffectCloudEntity.addEffect(new MobEffectInstance(MobEffects.HARM, 100, 0));
+            alienEntity.level().addFreshEntity(areaEffectCloudEntity);
+            alienEntity.kill();
+        }
     }
 
     public static void hugTarget(LivingEntity target, AlienEntity alienEntity) {

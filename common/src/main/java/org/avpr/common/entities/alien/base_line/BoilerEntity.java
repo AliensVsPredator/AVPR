@@ -9,7 +9,6 @@ import mod.azure.azurelib.sblforked.api.core.BrainActivityGroup;
 import mod.azure.azurelib.sblforked.api.core.SmartBrainProvider;
 import mod.azure.azurelib.sblforked.api.core.behaviour.FirstApplicableBehaviour;
 import mod.azure.azurelib.sblforked.api.core.behaviour.OneRandomBehaviour;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.look.LookAtTarget;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.misc.Idle;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.MoveToWalkTarget;
@@ -37,6 +36,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
+import org.avpr.common.entities.ai.tasks.attack.BoilerExplodeTask;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -154,7 +154,7 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
         return BrainActivityGroup.fightTasks(
             new InvalidateAttackTarget<>(),
             new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F),
-            new AnimatableMeleeAttack<>(6)
+            new BoilerExplodeTask<>(6)
         );
     }
 }
