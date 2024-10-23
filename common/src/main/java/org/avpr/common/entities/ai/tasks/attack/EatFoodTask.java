@@ -18,6 +18,12 @@ import java.util.List;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.entities.alien.AlienEntity;
 
+/**
+ * A task that enables an Alien Entity to locate and consume a nearby food item, ensuring specific conditions are met
+ * before performing the action.
+ *
+ * @param <E> the type of AlienEntity this task applies to
+ */
 public class EatFoodTask<E extends AlienEntity> extends DelayedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
@@ -46,6 +52,13 @@ public class EatFoodTask<E extends AlienEntity> extends DelayedBehaviour<E> {
         entity.swinging = false;
     }
 
+    /**
+     * Executes a delayed action where the entity attempts to consume a nearby item if certain conditions are met. If
+     * the item is within reach, the entity will stop moving, play an eating animation, and consume the item to grow. If
+     * the item is not within reach, the entity will start moving towards the item's position.
+     *
+     * @param entity the entity performing the delayed action
+     */
     @Override
     protected void doDelayedAction(E entity) {
         var foodItem = entity.getBrain().getMemory(SBLMemoryTypes.NEARBY_ITEMS.get()).orElse(null);
@@ -66,6 +79,12 @@ public class EatFoodTask<E extends AlienEntity> extends DelayedBehaviour<E> {
         }
     }
 
+    /**
+     * Initiates the movement of the alien entity towards the specified target position.
+     *
+     * @param alien     the alien entity that needs to move.
+     * @param targetPos the position that the alien entity should move to.
+     */
     private void startMovingToTarget(E alien, BlockPos targetPos) {
         BrainUtils.setMemory(alien, MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 3.7F, 0));
     }

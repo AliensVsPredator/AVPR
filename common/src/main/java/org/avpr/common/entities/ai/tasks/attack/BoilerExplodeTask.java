@@ -10,19 +10,26 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import org.avpr.common.api.util.EntityUtil;
-import org.avpr.common.api.util.PredicatesUtil;
-import org.avpr.common.entities.alien.AlienEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.ToIntFunction;
 
+import org.avpr.common.api.util.EntityUtil;
+import org.avpr.common.api.util.PredicatesUtil;
+import org.avpr.common.entities.alien.AlienEntity;
+
+/**
+ * BoilerExplodeTask is a custom task for entities that defines delayed explosive behavior. The entity will explode with
+ * acid upon engaging with a target if certain conditions are met.
+ *
+ * @param <E> the type of AlienEntity the task applies to
+ */
 public class BoilerExplodeTask<E extends AlienEntity> extends DelayedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(
-            Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
-            Pair.of(MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT)
+        Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
+        Pair.of(MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT)
     );
 
     protected ToIntFunction<E> attackIntervalSupplier = entity -> 80;
@@ -76,18 +83,18 @@ public class BoilerExplodeTask<E extends AlienEntity> extends DelayedBehaviour<E
     }
 
     /**
-     * Performs a delayed action on the entity, setting a memory state and attempting to grab the target entity if
-     * conditions are met.
+     * Executes a delayed action for the given entity. Sets a forgettable memory for the entity indicating that it is
+     * cooling down after an attack and then performs an acid explosion if there is a valid target.
      *
      * @param entity The entity performing the delayed action.
      */
     @Override
     protected void doDelayedAction(E entity) {
         BrainUtils.setForgettableMemory(
-                entity,
-                MemoryModuleType.ATTACK_COOLING_DOWN,
-                true,
-                this.attackIntervalSupplier.applyAsInt(entity)
+            entity,
+            MemoryModuleType.ATTACK_COOLING_DOWN,
+            true,
+            this.attackIntervalSupplier.applyAsInt(entity)
         );
 
         if (this.target == null)

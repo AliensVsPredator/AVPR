@@ -21,6 +21,11 @@ import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
 
+/**
+ * The AVPRVibrationUser class implements the VibrationSystem.User interface to handle vibration-related events for an
+ * AlienEntity. This class primarily focuses on the detection and reaction to vibrations within a specified radius and
+ * includes logic to determine valid vibrations and how to handle them upon reception.
+ */
 public class AVPRVibrationUser implements VibrationSystem.User {
 
     private final AlienEntity mob;

@@ -36,18 +36,39 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     abstract boolean addEffect(MobEffectInstance effect);
 
+    /**
+     * Determines if the entity is immobile. This method intercepts the result of the isImmobile function and modifies
+     * it based on specific conditions, such as whether the entity has any passengers of type AlienEntity.
+     *
+     * @param callbackInfo The callback information containing the return value of the isImmobile method. This value can
+     *                     be modified to alter the behavior of the immobility check.
+     */
     @Inject(method = { "isImmobile" }, at = { @At("RETURN") }, cancellable = true)
     protected void isImmobile(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (this.getPassengers().stream().anyMatch(AlienEntity.class::isInstance))
             callbackInfo.setReturnValue(true);
     }
 
+    /**
+     * Modifies the behavior of the isUsingItem method for the entity. This method intercepts the result of the
+     * isUsingItem function and sets the return value to false if the entity has any passengers of type
+     * FacehuggerEntity.
+     *
+     * @param callbackInfo The callback information containing the return value of the isUsingItem method. This value
+     *                     can be modified to alter the behavior of the item use check.
+     */
     @Inject(method = { "isUsingItem" }, at = { @At("RETURN") }, cancellable = true)
     public void isUsingItem(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (this.getPassengers().stream().anyMatch(FacehuggerEntity.class::isInstance))
             callbackInfo.setReturnValue(false);
     }
 
+    /**
+     * Intercepts the removal of all effects from the entity and prevents it if the entity has the Impregnation effect.
+     *
+     * @param callbackInfo The callback information containing the return value indicating whether all effects are
+     *                     removed.
+     */
     @Inject(method = { "removeAllEffects" }, at = { @At("HEAD") }, cancellable = true)
     public void noMilkRemoval(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (this.hasEffect(AVPRStatusEffects.IMPREGNATION))

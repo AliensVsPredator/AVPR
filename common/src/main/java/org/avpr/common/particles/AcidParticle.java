@@ -7,6 +7,11 @@ import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Represents a particle with an acidic visual effect, inheriting from TextureSheetParticle. AcidParticle simulates the
+ * behavior of an acidic particle in the game world with custom movement physics, color variations, and lifetime
+ * management.
+ */
 public class AcidParticle extends TextureSheetParticle {
 
     protected final SpriteSet spriteProvider;
@@ -34,6 +39,13 @@ public class AcidParticle extends TextureSheetParticle {
         this.setSpriteFromAge(spriteProvider);
     }
 
+    /**
+     * Updates the state of the AcidParticle on each tick. Manages particle's position, velocity, age, and visibility.
+     * The particle's previous position is saved, its velocity components are adjusted by adding small random values,
+     * and it moves according to its velocity. If the particle's age exceeds its lifetime or its transparency (alpha) is
+     * too low, the particle is removed from the system. Gradually decreases the alpha value as the particle reaches the
+     * end of its lifetime.
+     */
     @Override
     public void tick() {
         this.xo = this.x;
@@ -50,11 +62,23 @@ public class AcidParticle extends TextureSheetParticle {
             this.remove();
     }
 
+    /**
+     * Gets the rendering type of the AcidParticle, specifying the rendering strategy to be used.
+     *
+     * @return The rendering type used for rendering the particle.
+     */
     @Override
     public @NotNull ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
+    /**
+     * Calculates the size of the particle's quad at a given tick delta, scaling it based on the particle's age and
+     * lifetime.
+     *
+     * @param tickDelta The partial tick delta used to interpolate the particle's age.
+     * @return The interpolated size of the particle's quad.
+     */
     @Override
     public float getQuadSize(float tickDelta) {
         return quadSize * Mth.clamp(((age) + tickDelta) / (lifetime) * 32.0f, 0.0f, 1.0f);

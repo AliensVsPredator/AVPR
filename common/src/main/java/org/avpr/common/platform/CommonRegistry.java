@@ -20,8 +20,18 @@ import net.minecraft.world.level.material.Fluid;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
+/**
+ * CommonRegistry provides a set of methods for registering various game components such as blocks, entities, items,
+ * sounds, particles, and other elements.
+ */
 public interface CommonRegistry {
 
+    /**
+     * Checks if a mod with the specified ID is loaded.
+     *
+     * @param modId The unique identifier for the mod.
+     * @return true if the mod is loaded, false otherwise.
+     */
     boolean isModLoaded(String modId);
 
     <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(

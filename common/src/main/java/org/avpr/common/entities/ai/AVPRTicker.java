@@ -9,6 +9,10 @@ import net.minecraft.world.level.gameevent.vibrations.VibrationSystem.Data;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem.Listener;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem.User;
 
+/**
+ * The AVPRTicker interface provides the mechanism to handle vibrations in a game world. It includes methods to tick
+ * levels, schedule vibrations, receive vibrations, and check if adjacent chunks are actively ticking.
+ */
 public interface AVPRTicker {
 
     static void tick(Level level, Data data, User user) {

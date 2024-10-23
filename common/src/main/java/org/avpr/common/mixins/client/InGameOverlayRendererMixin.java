@@ -25,6 +25,13 @@ public class InGameOverlayRendererMixin {
     @Unique
     private static final ResourceLocation RESIN_OVERLAY_TEXTURE = CommonMod.modResource("textures/overlay/resin_webbing_gui.png");
 
+    /**
+     * Renders additional overlays on the screen based on specific conditions.
+     *
+     * @param client   The Minecraft client instance.
+     * @param matrices The PoseStack for GUI rendering transformations.
+     * @param ci       The callback information associated with the method injection point.
+     */
     @Inject(method = { "renderScreenEffect" }, at = { @At("RETURN") })
     private static void renderOverlays(Minecraft client, PoseStack matrices, CallbackInfo ci) {
         if (

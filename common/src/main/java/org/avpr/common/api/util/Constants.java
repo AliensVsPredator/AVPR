@@ -2,6 +2,9 @@ package org.avpr.common.api.util;
 
 import mod.azure.azurelib.core.animation.RawAnimation;
 
+/**
+ * A utility class that holds common constants and static methods used across multiple classes.
+ */
 public record Constants() {
 
     public static final String ATTACK_CONTROLLER = "attackController";
@@ -29,6 +32,12 @@ public record Constants() {
 
     public static final RawAnimation BLADE_ATTACK = RawAnimation.begin().thenPlay("animation.blade_attack");
 
+    /**
+     * Casts the given object to the specified type.
+     *
+     * @param object The object to be cast.
+     * @return The object cast to the specified type.
+     */
     public static <T> T self(Object object) {
         return (T) object;
     }

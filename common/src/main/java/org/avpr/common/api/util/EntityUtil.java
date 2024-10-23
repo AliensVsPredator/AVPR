@@ -180,8 +180,8 @@ public record EntityUtil() {
     }
 
     /**
-     * Causes the given alien entity to explode, creating acid pools and an area effect cloud.
-     * The explosion creates multiple acid pools around the entity and releases a harmful area effect cloud.
+     * Causes the given alien entity to explode, creating acid pools and an area effect cloud. The explosion creates
+     * multiple acid pools around the entity and releases a harmful area effect cloud.
      *
      * @param alienEntity The alien entity that will explode and generate the acid pools and area effect cloud.
      */
@@ -190,17 +190,30 @@ public record EntityUtil() {
             var x = alienEntity.level().getRandom().nextInt(5) - 5;
             var z = alienEntity.level().getRandom().nextInt(5) - 5;
             EntityUtil.generateAcidPool(alienEntity, alienEntity.blockPosition(), x, z, 20.0F);
-            var areaEffectCloudEntity = new AreaEffectCloud(alienEntity.level(), alienEntity.getX(), alienEntity.getY() + 1, alienEntity.getZ());
+            var areaEffectCloudEntity = new AreaEffectCloud(
+                alienEntity.level(),
+                alienEntity.getX(),
+                alienEntity.getY() + 1,
+                alienEntity.getZ()
+            );
             areaEffectCloudEntity.setRadius(8.0F);
             areaEffectCloudEntity.setDuration(30);
             areaEffectCloudEntity.setRadiusPerTick(
-                    -areaEffectCloudEntity.getRadius() / areaEffectCloudEntity.getDuration());
+                -areaEffectCloudEntity.getRadius() / areaEffectCloudEntity.getDuration()
+            );
             areaEffectCloudEntity.addEffect(new MobEffectInstance(MobEffects.HARM, 100, 0));
             alienEntity.level().addFreshEntity(areaEffectCloudEntity);
             alienEntity.kill();
         }
     }
 
+    /**
+     * Causes the specified alien entity to hug the target living entity, provided the target is not using a shield. The
+     * type of alien entity determines the specific grabbing behavior.
+     *
+     * @param target      The living entity that the alien entity will attempt to hug.
+     * @param alienEntity The alien entity that will perform the hugging action on the target.
+     */
     public static void hugTarget(LivingEntity target, AlienEntity alienEntity) {
         if (!target.getUseItem().is(Items.SHIELD)) {
             if (alienEntity instanceof FacehuggerEntity facehugger)

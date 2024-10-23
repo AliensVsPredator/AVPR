@@ -19,6 +19,15 @@ public class SmartDiscItem extends Item {
         super(properties);
     }
 
+    /**
+     * Handles the use of the SmartDisc item by the player.
+     *
+     * @param level    The current level where the player is located.
+     * @param player   The player using the SmartDisc item.
+     * @param usedHand The hand in which the player is holding the SmartDisc item.
+     * @return An {@link InteractionResultHolder} that indicates whether the use was successful and the resulting
+     *         {@link ItemStack}.
+     */
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
         @NotNull Level level,

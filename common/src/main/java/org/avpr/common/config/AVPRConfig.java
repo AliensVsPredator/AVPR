@@ -5,6 +5,12 @@ import mod.azure.azurelib.common.internal.common.config.Configurable;
 
 import org.avpr.common.CommonMod;
 
+/**
+ * The AVPRConfig class holds various nested static classes representing the configuration settings for different
+ * entities and items within the AVPR (Aliens versus Predator Requiem) mod. These settings include customizable
+ * parameters for entities such as acid, items, ovamorph, facehugger, chestburster, and many other game elements,
+ * allowing fine-tuned control over their properties and behaviors.
+ */
 @Config(id = CommonMod.MOD_ID)
 public class AVPRConfig {
 

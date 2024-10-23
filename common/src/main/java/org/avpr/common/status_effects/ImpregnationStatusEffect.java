@@ -82,6 +82,13 @@ public class ImpregnationStatusEffect extends MobEffect {
         burster.moveTo(entity.blockPosition(), entity.getYRot(), entity.getXRot());
     }
 
+    /**
+     * Determines whether an effect tick should be applied during the current tick.
+     *
+     * @param duration  The remaining duration of the effect in ticks.
+     * @param amplifier The level or intensity of the effect.
+     * @return true if the effect tick should be applied this tick, otherwise false.
+     */
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return true;

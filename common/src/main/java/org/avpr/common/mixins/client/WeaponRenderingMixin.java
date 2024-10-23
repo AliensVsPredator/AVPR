@@ -15,6 +15,13 @@ import org.avpr.common.registries.AVPRDataComponments;
 @Mixin(PlayerRenderer.class)
 public class WeaponRenderingMixin {
 
+    /**
+     * Adjusts the arm pose of the player based on the item held in hand.
+     *
+     * @param player the player whose arm pose is being determined
+     * @param hand   the hand in which the item is held
+     * @param ci     the callback information for the return value, which can be modified to change the arm pose
+     */
     @Inject(method = "getArmPose", at = @At(value = "TAIL"), cancellable = true)
     private static void tryItemPose(AbstractClientPlayer player, InteractionHand hand, CallbackInfoReturnable<HumanoidModel.ArmPose> ci) {
         var itemstack = player.getItemInHand(hand);

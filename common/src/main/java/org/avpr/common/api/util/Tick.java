@@ -1,5 +1,10 @@
 package org.avpr.common.api.util;
 
+/**
+ * The Tick record provides constants and utility methods to handle game tick operations. A game tick is a unit of time
+ * used in game development, where a certain number of ticks occur per second and can be utilized to manage
+ * timing-related tasks.
+ */
 public record Tick() {
 
     public static final int PER_SECOND = 20;

@@ -13,6 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.avpr.common.api.util.Tick;
 
+/**
+ * Manages the progress of block breaking actions in the game world. This class is responsible for handling the addition
+ * and cleanup of block break progress entries.
+ */
 public class BlockBreakProgressManager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BlockBreakProgressManager.class);

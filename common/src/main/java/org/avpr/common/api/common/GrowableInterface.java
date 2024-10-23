@@ -11,6 +11,11 @@ import static java.lang.Math.min;
  */
 public interface GrowableInterface {
 
+    /**
+     * Retrieves the current growth level of the entity.
+     *
+     * @return the current growth level as a float value
+     */
     float getGrowth();
 
     /**
@@ -20,6 +25,11 @@ public interface GrowableInterface {
      */
     void setGrowth(float growth);
 
+    /**
+     * Retrieves the maximum growth level that the entity can achieve before undergoing a transformation.
+     *
+     * @return the maximum growth level as a float value
+     */
     float getMaxGrowth();
 
     /**
@@ -36,11 +46,10 @@ public interface GrowableInterface {
     }
 
     /**
-     * Transforms the current growable entity into its next stage as part of its growth process. This method is called
-     * to replace the existing entity with a new one that represents the next stage of growth.
+     * Transforms the entity into its next growth stage as a LivingEntity. If the transformation is successful, the
+     * original entity is replaced by the new entity.
      *
-     * @return the new LivingEntity instance representing the next stage of growth, or null if no transformation is
-     *         possible.
+     * @return the new LivingEntity resulting from the growth transformation
      */
     LivingEntity growInto();
 
@@ -64,6 +73,12 @@ public interface GrowableInterface {
         }
     }
 
+    /**
+     * Calculates the amount of growth needed for the entity to reach its maximum growth level and transform into its
+     * next stage.
+     *
+     * @return the remaining growth needed until the entity can grow up, as a float value
+     */
     default float getGrowthNeededUntilGrowUp() {
         return getMaxGrowth() - getGrowth();
     }

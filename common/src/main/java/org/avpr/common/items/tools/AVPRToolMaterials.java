@@ -12,6 +12,11 @@ import java.util.function.Supplier;
 
 import org.avpr.common.registries.AVPRItems;
 
+/**
+ * Enum representing different tool materials available in the AVPR mod. Each material defines properties such as
+ * durability, mining speed, attack damage, enchantability, and the ingredient required for repairing tools made of that
+ * material.
+ */
 public enum AVPRToolMaterials implements Tier {
 
     ALUMINUM(BlockTags.INCORRECT_FOR_IRON_TOOL, 200, 5.0F, 4.0F, 10, () -> Ingredient.of(AVPRItems.INGOT_ALUMINUM.get())),
@@ -31,6 +36,16 @@ public enum AVPRToolMaterials implements Tier {
 
     private final Supplier<Ingredient> repairIngredient;
 
+    /**
+     * Constructs an instance of AVPRToolMaterials with specified properties.
+     *
+     * @param inverseTag       The tag of blocks for which the material is incorrect.
+     * @param itemDurability   The durability of the tool made from this material.
+     * @param miningSpeed      The speed at which the material can mine.
+     * @param attackDamage     The attack damage of the tool made from this material.
+     * @param enchantability   The enchantability of the material.
+     * @param repairIngredient The ingredient used to repair the tool made from this material.
+     */
     AVPRToolMaterials(
         final TagKey<Block> inverseTag,
         final int itemDurability,

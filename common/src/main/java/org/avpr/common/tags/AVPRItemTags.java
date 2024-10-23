@@ -6,6 +6,12 @@ import net.minecraft.world.item.Item;
 
 import org.avpr.common.CommonMod;
 
+/**
+ * The {@code AVPRItemTags} class contains predefined {@link TagKey} objects for various item categories used in the
+ * AVPR (Aliens versus Predator Requiem) mod. These tags are used to group items into specific categories that define
+ * their properties, functionalities, and interactions within the mod. They help in managing and referencing specific
+ * item types more efficiently.
+ */
 public record AVPRItemTags() {
 
     public static final TagKey<Item> ACID_IMMUNE = CommonMod.createTag(Registries.ITEM, "acid_immune");

@@ -16,6 +16,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.ToIntFunction;
 
+/**
+ * A task that enables an entity to perform a ranged attack after a specified delay. The task checks for the presence of
+ * an attack target and ensures that the entity is not cooling down from a previous attack.
+ *
+ * @param <E> The type of the entity executing this task, which must be a subtype of LivingEntity.
+ */
 public class AnimatableRangeTask<E extends LivingEntity> extends DelayedBehaviour<E> {
 
     private static final List<Pair<MemoryModuleType<?>, MemoryStatus>> MEMORY_REQUIREMENTS = ObjectArrayList.of(

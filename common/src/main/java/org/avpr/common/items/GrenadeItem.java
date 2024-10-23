@@ -17,15 +17,35 @@ public class GrenadeItem extends Item {
 
     private final boolean isIncendiary;
 
+    /**
+     * Constructs a GrenadeItem with specified properties and incendiary state.
+     *
+     * @param properties   The properties of the grenade item.
+     * @param isIncendiary Indicates whether the grenade is incendiary.
+     */
     public GrenadeItem(Properties properties, boolean isIncendiary) {
         super(properties);
         this.isIncendiary = isIncendiary;
     }
 
+    /**
+     * Constructs a GrenadeItem with specified properties.
+     *
+     * @param properties The properties of the grenade item.
+     */
     public GrenadeItem(Properties properties) {
         this(properties, false);
     }
 
+    /**
+     * Handles the action of using the grenade item, including playing a sound effect, spawning a thrown grenade entity,
+     * and updating the player's inventory and statistics.
+     *
+     * @param level           The level in which the action takes place.
+     * @param player          The player who is using the grenade item.
+     * @param interactionHand The hand that the player is using to interact with the item.
+     * @return An InteractionResultHolder containing the result of the interaction and the modified item stack.
+     */
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand interactionHand) {
         var itemInHand = player.getItemInHand(interactionHand);

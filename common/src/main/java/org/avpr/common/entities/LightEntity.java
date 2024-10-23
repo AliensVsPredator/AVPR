@@ -29,6 +29,14 @@ public class LightEntity extends Entity {
     @Override
     protected void addAdditionalSaveData(@NotNull CompoundTag compound) {}
 
+    /**
+     * Overrides the tick method to update the state of the LightEntity. This method performs the following operations:
+     * - Calls the superclass tick method. - Checks if the tick count exceeds 60 and the entity is not a passenger, then
+     * kills the entity. - Searches for nearby players within a 10-block radius who are wearing a tactical chestplate. -
+     * If such a player is found, this entity starts riding the player. - If the player is a ServerPlayer and not in
+     * creative or spectator mode, sends a packet to update the client about the new passenger. - Spawns a light source
+     * at the entity's location.
+     */
     @Override
     public void tick() {
         super.tick();

@@ -6,6 +6,11 @@ import net.minecraft.world.level.block.Block;
 
 import org.avpr.common.CommonMod;
 
+/**
+ * The AVPRBlockTags class contains static definitions of custom Block Tags used in the AVPR (Aliens versus Predator
+ * Requiem) mod. These tags categorize different types of blocks within the game to achieve various mod-specific
+ * functionalities.
+ */
 public record AVPRBlockTags() {
 
     public static final TagKey<Block> ACID_IMMUNE = CommonMod.createTag(Registries.BLOCK, "acid_immune");

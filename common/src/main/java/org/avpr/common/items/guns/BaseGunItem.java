@@ -59,6 +59,10 @@ public class BaseGunItem extends Item implements GeoItem {
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
+    /**
+     * A mapping of GunEnum types to their respective GunProperties. This map holds the configuration properties for
+     * different types of guns, such as reload sound, firing sound, and available fire modes for each gun type.
+     */
     protected Map<GunEnum, GunProperties> GUN_ENUM_GUN_PROPERTIES_MAP = new EnumMap<>(GunEnum.class);
 
     public BaseGunItem(String id, GunEnum setGunEnum, Properties properties) {
@@ -152,22 +156,57 @@ public class BaseGunItem extends Item implements GeoItem {
         );
     }
 
+    /**
+     * Retrieves the ID of the item.
+     *
+     * @return The ID of the item as a String.
+     */
     public String getItemID() {
         return this.id;
     }
 
+    /**
+     * Returns the reload sound associated with the gun item. This method retrieves the reload sound defined in the
+     * GunProperties for the current gun type.
+     *
+     * @return The SoundEvent representing the reload sound, or null if no gun type is specified or if no reload sound
+     *         is defined.
+     */
     protected SoundEvent getReloadSound() {
         return this.gunEnum != null ? GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).reloadSound() : null;
     }
 
+    /**
+     * Retrieves the firing sound associated with the gun item. This method fetches the firing sound defined in the
+     * GunProperties for the current gun type.
+     *
+     * @return The SoundEvent representing the firing sound, or null if no gun type is specified or if no firing sound
+     *         is defined.
+     */
     protected SoundEvent getFiringSound() {
         return this.gunEnum != null ? GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).firingSound() : null;
     }
 
+    /**
+     * Retrieves the list of fire modes available for the gun. If the gun enum is not specified, it returns an empty
+     * list.
+     *
+     * @return A list of GunFireMode enums representing the available fire modes for the gun. Returns an empty list if
+     *         the gun enum is null.
+     */
     protected List<GunFireMode> getGunFireMode() {
         return this.gunEnum != null ? GUN_ENUM_GUN_PROPERTIES_MAP.get(this.gunEnum).gunFireMode() : Collections.emptyList();
     }
 
+    /**
+     * Appends custom hover text to the provided tooltip components for a gun item. This method enhances the default
+     * tooltip with additional information such as fire mode, ammunition count, damage, fire rate, accuracy, and recoil.
+     *
+     * @param stack             The ItemStack representing the gun.
+     * @param context           The TooltipContext for the current environment or view.
+     * @param tooltipComponents The list of Components to which the hover text will be appended.
+     * @param tooltipFlag       Flags indicating what information should be shown on the tooltip.
+     */
     @Override
     public void appendHoverText(
         @NotNull ItemStack stack,
@@ -224,6 +263,16 @@ public class BaseGunItem extends Item implements GeoItem {
             );
     }
 
+    /**
+     * Handles inventory tick updates for the gun item. This method manages the state of ammunition, triggers
+     * animations, and processes specific events pertaining to the item.
+     *
+     * @param stack      The ItemStack representing the gun.
+     * @param level      The current level or world in which the item exists.
+     * @param entity     The entity holding or interacting with the item.
+     * @param slotId     The inventory slot ID in which the item resides.
+     * @param isSelected A boolean indicating whether the item is currently selected.
+     */
     @Override
     public void inventoryTick(@NotNull ItemStack stack, @NotNull Level level, @NotNull Entity entity, int slotId, boolean isSelected) {
         super.inventoryTick(stack, level, entity, slotId, isSelected);
@@ -252,6 +301,15 @@ public class BaseGunItem extends Item implements GeoItem {
         stack.getOrDefault(AVPRDataComponments.GUN_HAS_WINDUP.get(), false);
     }
 
+    /**
+     * Handles the behavior of an item when it is being used by a player, such as consuming ammunition, playing firing
+     * sounds, triggering animations, and handling cooldowns.
+     *
+     * @param level                The current level or world in which the player and item exist.
+     * @param livingEntity         The entity using the item, expected to be a player.
+     * @param stack                The ItemStack representing the item being used.
+     * @param remainingUseDuration The remaining duration for which the item can be used.
+     */
     @Override
     public void onUseTick(@NotNull Level level, @NotNull LivingEntity livingEntity, @NotNull ItemStack stack, int remainingUseDuration) {
         super.onUseTick(level, livingEntity, stack, remainingUseDuration);
@@ -379,6 +437,13 @@ public class BaseGunItem extends Item implements GeoItem {
         }
     }
 
+    /**
+     * Handles the action of releasing the item after using it. This method resets the wind-up ticks and updates
+     * specific data components in the item stack to control its state and animations.
+     *
+     * @param stack the item stack representing the gun being used
+     * @return true if the release action is successfully handled, otherwise false
+     */
     @Override
     public boolean useOnRelease(@NotNull ItemStack stack) {
         this.windUpTicks = 0;
@@ -387,6 +452,15 @@ public class BaseGunItem extends Item implements GeoItem {
         return super.useOnRelease(stack);
     }
 
+    /**
+     * Fires a flamethrower from the weapon held by the specified living entity. This method checks if the entity is a
+     * player and if there is enough ammunition or if the player has creative mode enabled. If the checks pass, a new
+     * flamethrower projectile is created and fired.
+     *
+     * @param livingEntity The living entity (e.g., player) that is firing the flamethrower.
+     * @param stack        The item stack representing the weapon from which the flamethrower is fired.
+     * @param level        The current level or world in which the entity is situated.
+     */
     protected void fireFlamethrower(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {
         if (
             livingEntity instanceof Player player && (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0
@@ -407,6 +481,15 @@ public class BaseGunItem extends Item implements GeoItem {
         }
     }
 
+    /**
+     * Fires a rocket from the weapon held by the specified living entity. This method checks if the entity is a player
+     * and if there is enough ammunition or if the player has creative mode enabled. If the checks pass, a new rocket
+     * projectile is created and fired, and a light source is spawned.
+     *
+     * @param livingEntity The living entity (e.g., player) that is firing the rocket.
+     * @param stack        The item stack representing the weapon from which the rocket is fired.
+     * @param level        The current level or world in which the entity is situated.
+     */
     protected void fireRocket(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {
         if (
             livingEntity instanceof Player player && (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0
@@ -427,6 +510,15 @@ public class BaseGunItem extends Item implements GeoItem {
         }
     }
 
+    /**
+     * Fires a bullet from the weapon held by the specified living entity. This method checks if the entity is a player
+     * and if there is enough ammunition or if the player has creative mode enabled. If the checks pass, a new bullet
+     * projectile is created and fired.
+     *
+     * @param livingEntity The living entity (e.g., player) that is firing the bullet.
+     * @param stack        The item stack representing the weapon from which the bullet is fired.
+     * @param level        The current level or world in which the entity is situated.
+     */
     protected void fireBullet(@NotNull LivingEntity livingEntity, @NotNull ItemStack stack, @NotNull Level level) {
         if (
             livingEntity instanceof Player player && (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0
@@ -459,6 +551,15 @@ public class BaseGunItem extends Item implements GeoItem {
         }
     }
 
+    /**
+     * Handles the use action of the gun item. When a player uses the item, it starts the item usage and returns the
+     * consumed item stack with an interaction result.
+     *
+     * @param level  The current level or world the player is in.
+     * @param player The player who is using the gun item.
+     * @param hand   The hand in which the player is holding the gun item.
+     * @return InteractionResultHolder containing the item stack and the interaction result.
+     */
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         var itemStack = player.getItemInHand(hand);
@@ -466,6 +567,11 @@ public class BaseGunItem extends Item implements GeoItem {
         return InteractionResultHolder.consume(itemStack);
     }
 
+    /**
+     * Creates and provides a custom renderer for the gun item.
+     *
+     * @param consumer A Consumer that accepts a RenderProvider which supplies a custom BlockEntityWithoutLevelRenderer
+     */
     @Override
     public void createRenderer(Consumer<RenderProvider> consumer) {
         consumer.accept(new RenderProvider() {
@@ -479,6 +585,11 @@ public class BaseGunItem extends Item implements GeoItem {
         });
     }
 
+    /**
+     * Registers animation controllers for the gun items with various triggerable animations.
+     *
+     * @param controllers The ControllerRegistrar instance used to add animation controllers.
+     */
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(
@@ -490,9 +601,19 @@ public class BaseGunItem extends Item implements GeoItem {
                     "idle",
                     RawAnimation.begin().thenPlay("idle")
                 )
+                .triggerableAnim(
+                    "shoot",
+                    RawAnimation.begin().thenLoop("shoot")
+                )
         );
     }
 
+    /**
+     * Retrieves the animatable instance cache associated with the gun item.
+     *
+     * @return The AnimatableInstanceCache instance used for managing the animation states and instances of the gun
+     *         item.
+     */
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;

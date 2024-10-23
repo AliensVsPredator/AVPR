@@ -27,11 +27,7 @@ public class ItemUtil {
      * @param playerEntity Player whose inventory is being checked.
      */
     public static void removeAmmo(@NotNull Item ammo, @NotNull Player playerEntity) {
-        if (playerEntity.getItemInHand(playerEntity.getUsedItemHand()).getItem() instanceof BaseGunItem && !playerEntity.isCreative()) { // Creative
-                                                                                                                                         // mode
-                                                                                                                                         // reloading
-                                                                                                                                         // breaks
-                                                                                                                                         // things
+        if (playerEntity.getItemInHand(playerEntity.getUsedItemHand()).getItem() instanceof BaseGunItem && !playerEntity.isCreative()) {
             for (var item : playerEntity.getInventory().offhand) {
                 if (item.getItem() == ammo) {
                     item.shrink(1);

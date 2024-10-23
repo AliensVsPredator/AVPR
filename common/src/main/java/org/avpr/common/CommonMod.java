@@ -15,8 +15,21 @@ import org.avpr.common.worldgen.features.AVPROreFeatures;
 
 public class CommonMod {
 
+    /**
+     * The {@code config} variable holds the configuration settings for the AVPR (Aliens versus Predator Requiem) mod.
+     * This configuration object is used to manage various parameters and properties that define the behavior and
+     * settings of the mod. Typically, it includes settings related to gameplay, resources, and other mod-specific
+     * options that can be adjusted to customize the mod's functionality.
+     */
     public static AVPRConfig config;
 
+    /**
+     * The unique identifier for the mod 'avpr'.
+     * <p>
+     * This constant is used as the namespace for all resources, registry keys, and identifiers associated with the mod.
+     * It ensures that all elements tied to the mod are uniquely identifiable and avoids conflicts with identifiers from
+     * other mods or the base game.
+     */
     public static final String MOD_ID = "avpr";
 
     /**

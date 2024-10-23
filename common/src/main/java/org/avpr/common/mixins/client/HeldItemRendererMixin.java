@@ -37,6 +37,13 @@ public abstract class HeldItemRendererMixin {
         this.minecraft = minecraft;
     }
 
+    /**
+     * Cancels the item animation for the main hand and offhand if the held items are instances of BaseGunItem and the
+     * same as the current main hand or offhand item, respectively.
+     *
+     * @param ci CallbackInfo provided by the mixin injection which contains information and controls for the injected
+     *           callback.
+     */
     @Inject(method = "tick", at = @At("TAIL"))
     public void cancelAnimation(CallbackInfo ci) {
         var clientPlayerEntity = this.minecraft.player;
