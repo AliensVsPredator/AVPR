@@ -37,4 +37,6 @@ public record AVPRItemTags() {
     public static final TagKey<Item> THREATENS_PREDATORS = CommonMod.createTag(Registries.ITEM, "threatens_predators");
 
     public static final TagKey<Item> UBER_GUNS = CommonMod.createTag(Registries.ITEM, "uber_guns");
+
+    public static final TagKey<Item> PREDARTOR_RANGE_WEAPONS = CommonMod.createTag(Registries.ITEM, "predator_range_weapons");
 }
