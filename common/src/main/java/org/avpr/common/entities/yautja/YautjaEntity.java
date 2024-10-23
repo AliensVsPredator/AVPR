@@ -37,9 +37,11 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -49,17 +51,65 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+import java.util.*;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
+import org.jetbrains.annotations.Nullable;
 
 public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, SmartBrainOwner<YautjaEntity> {
 
+    private final Set<Float> triggeredThresholds = new HashSet<>();
+
     private static final EntityDataAccessor<Boolean> HAS_MASK = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_lEFT_LEG_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_RIGHT_LEG_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_lEFT_FOOT_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_RIGHT_FOOT_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_RIGHT_ARM_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_lEFT_FOREARM_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_RIGHT_FOREARM_ARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_CHESTARMOR = SynchedEntityData.defineId(
+        YautjaEntity.class,
+        EntityDataSerializers.BOOLEAN
+    );
+
+    private static final EntityDataAccessor<Boolean> HAS_BLADE = SynchedEntityData.defineId(
         YautjaEntity.class,
         EntityDataSerializers.BOOLEAN
     );
@@ -141,15 +191,54 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         return cache;
     }
 
+    /**
+     * Processes the periodic update for the `YautjaEntity`. This method performs several critical functions:
+     * <ol>
+     * <li>Invokes the superclass's tick method to ensure base functionality is processed.</li>
+     * <li>Resets the entity's air supply to its maximum value.</li>
+     * <li>Calculates the current health percentage of the entity.</li>
+     * <li>If the entity is wearing a mask and its health percentage drops to 85% or less, removes the mask.</li>
+     * <li>Updates the entity based on the current health percentage, which may trigger specific actions such as hiding bones.</li>
+     * </ol>
+     */
     @Override
     public void tick() {
         super.tick();
         this.setAirSupply(this.getMaxAirSupply());
         var currentHealthPercentage = (this.getHealth() / this.getMaxHealth()) * 100;
-        if (this.hasMask() && currentHealthPercentage <= 0.85)
-            this.setMaskStatus(true);
+        this.update(currentHealthPercentage);
     }
 
+    /**
+     * Finalizes the spawning of a {@link YautjaEntity} within the game world, applying various armor and equipment statuses
+     * to the entity upon spawn.
+     *
+     * @param level          The server level accessor providing the context of the world where the entity is being spawned.
+     * @param difficulty     The current difficulty instance affecting the spawn conditions.
+     * @param spawnType      The type of spawn that is being executed (natural, chunk generation, spawn egg, etc.).
+     * @param spawnGroupData Data pertaining to the group this entity may be spawned with, if any.
+     * @return The updated spawn group data after the entity has been spawned and modified, or null if none.
+     */
+    @Override
+    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        this.setMaskStatus(true);
+        this.setHasleftLegArmor(true);
+        this.setHasRightLegArmor(true);
+        this.setHasleftFootArmor(true);
+        this.setHasRightFootArmor(true);
+        this.setHasRightArmArmor(true);
+        this.setHasleftForearmArmor(true);
+        this.setHasRightForearmArmor(true);
+        this.setHasChestarmor(true);
+        this.setHasBlade(true);
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
+    /**
+     * Calculates the armor value of the entity based on its current health percentage and the base armor value.
+     *
+     * @return The adjusted armor value of the entity.
+     */
     @Override
     public int getArmorValue() {
         var currentHealthPercentage = (this.getHealth() / this.getMaxHealth()) * 100;
@@ -160,18 +249,45 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(HAS_MASK, true);
+        builder.define(HAS_lEFT_LEG_ARMOR, true);
+        builder.define(HAS_RIGHT_LEG_ARMOR, true);
+        builder.define(HAS_lEFT_FOOT_ARMOR, true);
+        builder.define(HAS_RIGHT_FOOT_ARMOR, true);
+        builder.define(HAS_RIGHT_ARM_ARMOR, true);
+        builder.define(HAS_lEFT_FOREARM_ARMOR, true);
+        builder.define(HAS_RIGHT_FOREARM_ARMOR, true);
+        builder.define(HAS_CHESTARMOR, true);
+        builder.define(HAS_BLADE, true);
     }
 
     @Override
     public void addAdditionalSaveData(@NotNull CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putBoolean("hasMask", this.hasMask());
+        compound.putBoolean("hasLeftLegArmor", this.hasleftLegArmor());
+        compound.putBoolean("hasRightLegArmor", this.hasRightLegArmor());
+        compound.putBoolean("hasLeftFootArmor", this.hasLeftFootArmor());
+        compound.putBoolean("hasRightFootArmor", this.hasRightFootArmor());
+        compound.putBoolean("hasRightArmArmor", this.hasRightArmArmor());
+        compound.putBoolean("hasLeftForearmArmor", this.hasleftForearmArmor());
+        compound.putBoolean("hasRightForearmArmor", this.hasRightForearmArmor());
+        compound.putBoolean("hasChestArmor", this.hasChestArmor());
+        compound.putBoolean("hasBlade", this.hasBlade());
     }
 
     @Override
     public void readAdditionalSaveData(@NotNull CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         this.setMaskStatus(compound.getBoolean("hasMask"));
+        this.setHasleftLegArmor(compound.getBoolean("hasLeftLegArmor"));
+        this.setHasRightLegArmor(compound.getBoolean("hasRightLegArmor"));
+        this.setHasleftFootArmor(compound.getBoolean("hasLeftFootArmor"));
+        this.setHasRightFootArmor(compound.getBoolean("hasRightFootArmor"));
+        this.setHasRightArmArmor(compound.getBoolean("hasRightArmArmor"));
+        this.setHasleftForearmArmor(compound.getBoolean("hasLeftForearmArmor"));
+        this.setHasRightForearmArmor(compound.getBoolean("hasRightForearmArmor"));
+        this.setHasChestarmor(compound.getBoolean("hasChestArmor"));
+        this.setHasBlade(compound.getBoolean("hasBlade"));
     }
 
     public void setMaskStatus(boolean hasHelmet) {
@@ -180,6 +296,141 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
 
     public boolean hasMask() {
         return this.entityData.get(HAS_MASK);
+    }
+
+    public void setHasleftLegArmor(boolean hasleftLegArmor) {
+        entityData.set(HAS_lEFT_LEG_ARMOR, hasleftLegArmor);
+    }
+
+    public boolean hasleftLegArmor() {
+        return this.entityData.get(HAS_lEFT_LEG_ARMOR);
+    }
+
+    public void setHasRightLegArmor(boolean hasRightLegArmor) {
+        entityData.set(HAS_RIGHT_LEG_ARMOR, hasRightLegArmor);
+    }
+
+    public boolean hasRightLegArmor() {
+        return this.entityData.get(HAS_RIGHT_LEG_ARMOR);
+    }
+
+    public void setHasleftFootArmor(boolean hasleftFootArmor) {
+        entityData.set(HAS_lEFT_FOOT_ARMOR, hasleftFootArmor);
+    }
+
+    public boolean hasLeftFootArmor() {
+        return this.entityData.get(HAS_lEFT_FOOT_ARMOR);
+    }
+
+    public void setHasRightFootArmor(boolean hasRightFootArmor) {
+        entityData.set(HAS_RIGHT_FOOT_ARMOR, hasRightFootArmor);
+    }
+
+    public boolean hasRightFootArmor() {
+        return this.entityData.get(HAS_RIGHT_FOOT_ARMOR);
+    }
+
+    public void setHasRightArmArmor(boolean hasRightArmArmor) {
+        entityData.set(HAS_RIGHT_ARM_ARMOR, hasRightArmArmor);
+    }
+
+    public boolean hasRightArmArmor() {
+        return this.entityData.get(HAS_RIGHT_ARM_ARMOR);
+    }
+
+    public void setHasleftForearmArmor(boolean hasleftForearmArmor) {
+        entityData.set(HAS_lEFT_FOREARM_ARMOR, hasleftForearmArmor);
+    }
+
+    public boolean hasleftForearmArmor() {
+        return this.entityData.get(HAS_lEFT_FOREARM_ARMOR);
+    }
+
+    public void setHasRightForearmArmor(boolean hasRightForearmArmor) {
+        entityData.set(HAS_RIGHT_FOREARM_ARMOR, hasRightForearmArmor);
+    }
+
+    public boolean hasRightForearmArmor() {
+        return this.entityData.get(HAS_RIGHT_FOREARM_ARMOR);
+    }
+
+    public void setHasChestarmor(boolean hasChestarmor) {
+        entityData.set(HAS_CHESTARMOR, hasChestarmor);
+    }
+
+    public boolean hasChestArmor() {
+        return this.entityData.get(HAS_CHESTARMOR);
+    }
+
+    public void setHasBlade(boolean hasBlade) {
+        entityData.set(HAS_BLADE, hasBlade);
+    }
+
+    public boolean hasBlade() {
+        return this.entityData.get(HAS_BLADE);
+    }
+
+    /**
+     * Updates the entity's state based on its current health percentage.
+     * This method triggers the hiding of certain bones when the health
+     * percentage falls within specified threshold ranges.
+     *
+     * @param currentHealthPercentage The current health percentage of the entity.
+     */
+    public void update(float currentHealthPercentage) {
+        if (currentHealthPercentage <= 85 && currentHealthPercentage > 71)
+            triggerBoneHiding(85);
+        if (currentHealthPercentage <= 70 && currentHealthPercentage > 61)
+            triggerBoneHiding(70);
+        else if (currentHealthPercentage <= 61 && currentHealthPercentage > 53)
+            triggerBoneHiding(61);
+        else if (currentHealthPercentage <= 53 && currentHealthPercentage > 44)
+            triggerBoneHiding(53);
+        else if (currentHealthPercentage <= 44 && currentHealthPercentage > 35)
+            triggerBoneHiding(44);
+        else if (currentHealthPercentage <= 35 && currentHealthPercentage > 26)
+            triggerBoneHiding(35);
+        else if (currentHealthPercentage <= 26 && currentHealthPercentage > 18)
+            triggerBoneHiding(26);
+        else if (currentHealthPercentage <= 18 && currentHealthPercentage > 9)
+            triggerBoneHiding(18);
+    }
+
+    /**
+     * Triggers the hiding of bones when the entity's health percentage drops
+     * below a specified threshold. This method ensures that each threshold is
+     * only triggered once.
+     *
+     * @param threshold The specific health percentage threshold that triggers
+     *                  the bone hiding mechanic.
+     */
+    private void triggerBoneHiding(float threshold) {
+        if (!triggeredThresholds.contains(threshold)) {
+            hideBones();
+            triggeredThresholds.add(threshold);
+        }
+    }
+
+    /**
+     * Randomly hides one of the entity's armor pieces. This method gathers a list of
+     * actions to hide each specific piece of armor and shuffles the list before running
+     * one of these actions. If the list is not empty, the first action in the shuffled
+     * list is executed to hide the armor piece.
+     */
+    private void hideBones() {
+        List<Runnable> hideActions = new ArrayList<>();
+        hideActions.add(() -> setHasleftLegArmor(false));
+        hideActions.add(() -> setHasRightLegArmor(false));
+        hideActions.add(() -> setHasleftFootArmor(false));
+        hideActions.add(() -> setHasRightFootArmor(false));
+        hideActions.add(() -> setHasRightArmArmor(false));
+        hideActions.add(() -> setHasleftForearmArmor(false));
+        hideActions.add(() -> setHasChestarmor(false));
+        hideActions.add(() -> setMaskStatus(false));
+        Collections.shuffle(hideActions);
+        if (!hideActions.isEmpty()) {
+            hideActions.getFirst().run();
+        }
     }
 
     @Override

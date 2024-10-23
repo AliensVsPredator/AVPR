@@ -16,8 +16,6 @@ import org.avpr.common.entities.yautja.YautjaEntity;
 
 public class YautjaRenderer extends GeoEntityRenderer<YautjaEntity> {
 
-    private final Set<Float> triggeredThresholds = new HashSet<>();
-
     public YautjaRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new YautjaModel(CommonMod.modResource("yautja/yautja")));
     }
@@ -52,61 +50,65 @@ public class YautjaRenderer extends GeoEntityRenderer<YautjaEntity> {
             packedOverlay,
             colour
         );
-        var currentHealthPercentage = (animatable.getHealth() / animatable.getMaxHealth()) * 100;
         var maskBone = model.getBone("gArmorMask");
         var wristBladeBone = model.getBone("gWristBlade");
-        if (animatable.hasMask() && maskBone.isPresent())
+        var leftLegArmor = model.getBone("gLeftLegArmor");
+        var leftFootArmor = model.getBone("gLeftFootArmor");
+        var rightLegArmor = model.getBone("gRightLegArmor");
+        var rightFootArmor = model.getBone("gRightFootArmor");
+        var rightArmArmor = model.getBone("gRightArmArmor");
+        var leftArmArmor = model.getBone("gLeftArmArmor");
+        var leftForearmArmor = model.getBone("gLeftForearmArmor");
+        var chestArmor = model.getBone("gChestArmor");
+        if (animatable.hasMask() && maskBone.isPresent()) {
             maskBone.get().setHidden(false);
-        if (!animatable.hasMask() && maskBone.isPresent())
+        } else if (!animatable.hasMask() && maskBone.isPresent()) {
             maskBone.get().setHidden(true);
-        if (!animatable.isAggressive() && wristBladeBone.isPresent())
-            wristBladeBone.get().setHidden(true);
-        if (animatable.isAggressive() && wristBladeBone.isPresent())
-            wristBladeBone.get().setHidden(false);
-        this.update(currentHealthPercentage, model);
-    }
-
-    public void update(float currentHealthPercentage, BakedGeoModel model) {
-        if (currentHealthPercentage <= 70 && currentHealthPercentage > 61)
-            triggerBoneHiding(70, model);
-        else if (currentHealthPercentage <= 61 && currentHealthPercentage > 53)
-            triggerBoneHiding(61, model);
-        else if (currentHealthPercentage <= 53 && currentHealthPercentage > 44)
-            triggerBoneHiding(53, model);
-        else if (currentHealthPercentage <= 44 && currentHealthPercentage > 35)
-            triggerBoneHiding(44, model);
-        else if (currentHealthPercentage <= 35 && currentHealthPercentage > 26)
-            triggerBoneHiding(35, model);
-        else if (currentHealthPercentage <= 26 && currentHealthPercentage > 18)
-            triggerBoneHiding(26, model);
-        else if (currentHealthPercentage <= 18 && currentHealthPercentage > 9)
-            triggerBoneHiding(18, model);
-    }
-
-    private void triggerBoneHiding(float threshold, BakedGeoModel model) {
-        if (!triggeredThresholds.contains(threshold)) {
-            hideBones(model);
-            triggeredThresholds.add(threshold);
         }
-    }
-
-    private void hideBones(BakedGeoModel model) {
-        List<String> boneNames = new ArrayList<>();
-        boneNames.add("gLeftLegArmor");
-        boneNames.add("gLeftFootArmor");
-        boneNames.add("gRightLegArmor");
-        boneNames.add("gRightFootArmor");
-        boneNames.add("gRightArmArmor");
-        boneNames.add("gLeftArmArmor");
-        boneNames.add("gLeftForearmArmor");
-        boneNames.add("gChestArmor");
-        Collections.shuffle(boneNames);
-        for (var boneName : boneNames) {
-            var bone = model.getBone(boneName);
-            if (bone.isPresent() && !bone.get().isHidden()) {
-                bone.get().setHidden(true);
-                break;
-            }
+        if (animatable.hasBlade() && wristBladeBone.isPresent()) {
+            wristBladeBone.get().setHidden(false);
+        } else if (!animatable.hasBlade() && wristBladeBone.isPresent()) {
+            wristBladeBone.get().setHidden(true);
+        }
+        if (animatable.hasleftLegArmor() && leftLegArmor.isPresent()) {
+            leftLegArmor.get().setHidden(false);
+        } else if (!animatable.hasleftLegArmor() && leftLegArmor.isPresent()) {
+            leftLegArmor.get().setHidden(true);
+        }
+        if (animatable.hasLeftFootArmor() && leftFootArmor.isPresent()) {
+            leftFootArmor.get().setHidden(false);
+        } else if (!animatable.hasLeftFootArmor() && leftFootArmor.isPresent()) {
+            leftFootArmor.get().setHidden(true);
+        }
+        if (animatable.hasRightLegArmor() && rightLegArmor.isPresent()) {
+            rightLegArmor.get().setHidden(false);
+        } else if (!animatable.hasRightLegArmor() && rightLegArmor.isPresent()) {
+            rightLegArmor.get().setHidden(true);
+        }
+        if (animatable.hasRightFootArmor() && rightFootArmor.isPresent()) {
+            rightFootArmor.get().setHidden(false);
+        } else if (!animatable.hasRightFootArmor() && rightFootArmor.isPresent()) {
+            rightFootArmor.get().setHidden(true);
+        }
+        if (animatable.hasRightArmArmor() && rightArmArmor.isPresent()) {
+            rightArmArmor.get().setHidden(false);
+        } else if (!animatable.hasRightArmArmor() && rightArmArmor.isPresent()) {
+            rightArmArmor.get().setHidden(true);
+        }
+        if (animatable.hasRightArmArmor() && leftArmArmor.isPresent()) {
+            leftArmArmor.get().setHidden(false);
+        } else if (!animatable.hasRightArmArmor() && leftArmArmor.isPresent()) {
+            leftArmArmor.get().setHidden(true);
+        }
+        if (animatable.hasleftForearmArmor() && leftForearmArmor.isPresent()) {
+            leftForearmArmor.get().setHidden(false);
+        } else if (!animatable.hasleftForearmArmor() && leftForearmArmor.isPresent()) {
+            leftForearmArmor.get().setHidden(true);
+        }
+        if (animatable.hasChestArmor() && chestArmor.isPresent()) {
+            chestArmor.get().setHidden(false);
+        } else if (!animatable.hasChestArmor() && chestArmor.isPresent()) {
+            chestArmor.get().setHidden(true);
         }
     }
 }
