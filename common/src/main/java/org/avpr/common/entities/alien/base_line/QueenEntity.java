@@ -54,7 +54,7 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
 
     public QueenEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = -24;
+        spawnPos = CommonMod.config.queenConfigs.QUEEN_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

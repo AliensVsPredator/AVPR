@@ -54,7 +54,7 @@ public class SpitterEntity extends AlienEntity implements SmartBrainOwner<Spitte
 
     public SpitterEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = 0;
+        spawnPos = CommonMod.config.spitterConfigs.SPITTER_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

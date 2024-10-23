@@ -54,7 +54,7 @@ public class CrusherEntity extends AlienEntity implements SmartBrainOwner<Crushe
 
     public CrusherEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = 0;
+        spawnPos = CommonMod.config.crusherConfigs.CRUSHER_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

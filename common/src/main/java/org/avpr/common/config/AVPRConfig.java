@@ -205,6 +205,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float DRONE_SPEED = 0.5239000201463699F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int DRONE_MIN_SPAWN_Y = 75;
     }
 
     @Configurable
@@ -227,6 +231,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float WARRIOR_SPEED = 0.40300001549720765F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int WARRIOR_MIN_SPAWN_Y = 32;
     }
 
     @Configurable
@@ -249,6 +257,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float BOILER_SPEED = 0.3627000139474869F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int BOILER_MIN_SPAWN_Y = 75;
     }
 
     @Configurable
@@ -271,6 +283,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float NAUTICOMORPH_SPEED = 0.5239000201463699F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int NAUTICOMORPH_MIN_SPAWN_Y = 63;
     }
 
     @Configurable
@@ -293,6 +309,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float PRAETORIAN_SPEED = 0.38285001472234725F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int PRAETORIAN_MIN_SPAWN_Y = 0;
     }
 
     @Configurable
@@ -315,6 +335,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float SPITTER_SPEED = 0.3627000139474869F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int SPITTER_MIN_SPAWN_Y = 0;
     }
 
     @Configurable
@@ -359,6 +383,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float QUEEN_SPEED = 0.3627000139474869F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int QUEEN_MIN_SPAWN_Y = -24;
     }
 
     @Configurable
@@ -632,6 +660,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float DRONERUNNER_SPEED = 0.5370750206530094F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int DRONERUNNER_MIN_SPAWN_Y = 75;
     }
 
     @Configurable
@@ -654,6 +686,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float WARRIOR_RUNNER_SPEED = 0.562650021636486F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int WARRIOR_RUNNER_MIN_SPAWN_Y = 32;
     }
 
     @Configurable
@@ -676,6 +712,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float CRUSHER_SPEED = 0.46345001782178874F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int CRUSHER_MIN_SPAWN_Y = 0;
     }
 
     @Configurable
