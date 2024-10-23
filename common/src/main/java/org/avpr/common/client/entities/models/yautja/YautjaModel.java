@@ -30,7 +30,7 @@ public class YautjaModel extends DefaultEntityModel<YautjaEntity> {
         if (leftArm != null && animationState.isMoving())
             leftArm.setRotX(
                 Mth.cos(
-                        animationState.getAnimatable().walkAnimation.position(
+                    animationState.getAnimatable().walkAnimation.position(
                         animationState.getPartialTick()
                     ) * 0.6662F
                 ) * 2.0F * animationState.getAnimatable().walkAnimation.speed() * 0.5F
