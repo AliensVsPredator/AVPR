@@ -61,19 +61,7 @@
         {
           "type": "minecraft:item",
           "name": "avpr:tool_veritanium_sword"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0,
-      "entries": [
-        {
+        },{
           "type": "minecraft:item",
           "name": "avpr:laser_mine",
           "functions": [
@@ -110,6 +98,11 @@
         {
           "type": "minecraft:item",
           "name": "avpr:yautja_artifact"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
         }
       ]
     }
