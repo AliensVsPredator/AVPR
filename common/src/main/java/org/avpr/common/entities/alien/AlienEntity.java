@@ -291,7 +291,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
             return false;
 
         if (
-            !this.level().isClientSide && source != this.damageSources().genericKill() && amount >= 4
+            !this.level().isClientSide && source != this.damageSources().genericKill() && amount >= 8
         ) {
             if (getAcidDiameter() == 1)
                 EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
