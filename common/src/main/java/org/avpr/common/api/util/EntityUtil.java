@@ -122,11 +122,11 @@ public record EntityUtil() {
      * @param xOffset The x-coordinate offset from the given position where the acid pool will appear.
      * @param zOffset The z-coordinate offset from the given position where the acid pool will appear.
      */
-    public static void generateAcidPool(LivingEntity entity, BlockPos pos, int xOffset, int zOffset) {
+    public static void generateAcidPool(LivingEntity entity, BlockPos pos, int xOffset, int zOffset, float damageAmount) {
         var acidEntity = AVPREntities.ACID.get().create(entity.level());
         if (acidEntity != null) {
             acidEntity.moveTo(pos.offset(xOffset, 0, zOffset), entity.getYRot(), entity.getXRot());
-            acidEntity.setMultiplier(10);
+            acidEntity.setMultiplier(damageAmount * 2);
             entity.level().addFreshEntity(acidEntity);
         }
     }

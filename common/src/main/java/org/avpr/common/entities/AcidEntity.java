@@ -42,14 +42,14 @@ public class AcidEntity extends Entity {
 
     private static final String TICK_COUNT_FOR_CURRENT_MULTIPLIER = "TickCountForMultiplier";
 
-    private static final EntityDataAccessor<Integer> MULTIPLIER = SynchedEntityData.defineId(
+    private static final EntityDataAccessor<Float> MULTIPLIER = SynchedEntityData.defineId(
         AcidEntity.class,
-        EntityDataSerializers.INT
+        EntityDataSerializers.FLOAT
     );
 
-    private int particleTickCounter = 0;
+    private float particleTickCounter = 0;
 
-    private int tickCountForCurrentMultiplier = 0;
+    private float tickCountForCurrentMultiplier = 0;
 
     public AcidEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
@@ -65,19 +65,19 @@ public class AcidEntity extends Entity {
 
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
-        builder.define(MULTIPLIER, 1);
+        builder.define(MULTIPLIER, 1.0F);
     }
 
     @Override
     protected void readAdditionalSaveData(@NotNull CompoundTag compoundTag) {
         this.setMultiplier(compoundTag.getInt(MULTIPLIER_KEY));
-        this.tickCountForCurrentMultiplier = compoundTag.getInt(TICK_COUNT_FOR_CURRENT_MULTIPLIER);
+        this.tickCountForCurrentMultiplier = compoundTag.getFloat(TICK_COUNT_FOR_CURRENT_MULTIPLIER);
     }
 
     @Override
     protected void addAdditionalSaveData(@NotNull CompoundTag compoundTag) {
-        compoundTag.putInt(MULTIPLIER_KEY, getMultiplier());
-        compoundTag.putInt(TICK_COUNT_FOR_CURRENT_MULTIPLIER, tickCountForCurrentMultiplier);
+        compoundTag.putFloat(MULTIPLIER_KEY, getMultiplier());
+        compoundTag.putFloat(TICK_COUNT_FOR_CURRENT_MULTIPLIER, tickCountForCurrentMultiplier);
     }
 
     /**
@@ -238,7 +238,7 @@ public class AcidEntity extends Entity {
             } else if (!itemStack.isEmpty()) {
                 // Damage feet item if present.
                 var damage = (random.nextInt(3) + 3) * getMultiplier();
-                itemStack.setDamageValue(itemStack.getDamageValue() + damage);
+                itemStack.setDamageValue((int) (itemStack.getDamageValue() + damage));
                 if (itemStack.getDamageValue() > itemStack.getMaxDamage()) {
                     itemStack.setCount(0);
                 }
@@ -250,7 +250,7 @@ public class AcidEntity extends Entity {
             entity.hurt(DamageUtil.of(entity.level(), AVPRDamageSources.ACID), CommonMod.config.acidConfigs.ACID_DAMAGE);
     }
 
-    private int getMultiplier() {
+    private float getMultiplier() {
         return entityData.get(MULTIPLIER);
     }
 
@@ -260,7 +260,7 @@ public class AcidEntity extends Entity {
      *
      * @param multiplier The desired multiplier value. It will be clamped between 0 and MAX_MULTIPLIER.
      */
-    public void setMultiplier(int multiplier) {
+    public void setMultiplier(float multiplier) {
         entityData.set(MULTIPLIER, Mth.clamp(multiplier, 0, MAX_MULTIPLIER));
         tickCountForCurrentMultiplier = 0;
         refreshDimensions();

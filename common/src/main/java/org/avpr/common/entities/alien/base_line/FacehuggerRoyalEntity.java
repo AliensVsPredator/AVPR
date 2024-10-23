@@ -260,14 +260,14 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
             !this.level().isClientSide && source != this.damageSources().genericKill() && amount >= 8
         ) {
             if (getAcidDiameter() == 1)
-                EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0);
+                EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0, amount);
             else {
                 var radius = (getAcidDiameter() - 1) / 2;
                 for (var i = 0; i < getAcidDiameter(); i++) {
                     var x = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
                     var z = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
                     if (source != damageSources().genericKill() || source != damageSources().generic())
-                        EntityUtil.generateAcidPool(this, this.blockPosition(), x, z);
+                        EntityUtil.generateAcidPool(this, this.blockPosition(), x, z, amount);
                 }
             }
         }
