@@ -49,6 +49,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import org.avpr.common.tags.AVPRItemTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -509,8 +510,10 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     @Override
     public BrainActivityGroup<YautjaEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
-            new InvalidateAttackTarget<>().invalidateIf(
-                (entity, target) -> target.getType().is(AVPREntityTags.PREDATORS) || target.getType().is(AVPREntityTags.NOT_WORTH_KILLING)
+            new InvalidateAttackTarget<YautjaEntity>().invalidateIf(
+                (yautjaEntity, target) -> target.getType().is(AVPREntityTags.PREDATORS) || target.getType()
+                    .is(AVPREntityTags.NOT_WORTH_KILLING) || (!target.getType().is(AVPREntityTags.ALIENS) && (target.getMainHandItem().is(
+                        AVPRItemTags.THREATENS_PREDATORS) && yautjaEntity.getLastAttacker() != target))
             ),
             new SetWalkTargetToAttackTarget<YautjaEntity>().startCondition(yautjaEntity -> yautjaEntity.getMainHandItem().isEmpty()),
             new UseItemTask<YautjaEntity>(20)
@@ -524,7 +527,6 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
                         "blade_attack"
                     )
                 )
-            )
         );
     }
 }
