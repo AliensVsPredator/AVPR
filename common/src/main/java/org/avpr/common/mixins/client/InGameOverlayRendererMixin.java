@@ -22,6 +22,7 @@ import org.avpr.common.registries.AVPRBlocks;
 @Mixin(ScreenEffectRenderer.class)
 public class InGameOverlayRendererMixin {
 
+    @Unique
     private static final ResourceLocation RESIN_OVERLAY_TEXTURE = CommonMod.modResource("textures/overlay/resin_webbing_gui.png");
 
     @Inject(method = { "renderScreenEffect" }, at = { @At("RETURN") })
