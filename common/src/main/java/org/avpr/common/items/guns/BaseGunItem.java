@@ -27,10 +27,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 import org.avpr.common.api.common.GunEnum;
@@ -40,6 +37,7 @@ import org.avpr.common.api.common.ItemUtil;
 import org.avpr.common.api.util.TooltipUtils;
 import org.avpr.common.client.items.renders.GunRender;
 import org.avpr.common.entities.projectiles.BulletProjectile;
+import org.avpr.common.entities.projectiles.FlamethrowProjectile;
 import org.avpr.common.entities.projectiles.RocketProjectile;
 import org.avpr.common.registries.AVPRDataComponments;
 import org.avpr.common.registries.AVPRItems;
@@ -54,6 +52,8 @@ public class BaseGunItem extends Item implements GeoItem {
     protected final String id;
 
     protected long windUpTicks = 0;
+
+    protected long soundPlayingTicks = 0;
 
     protected GunEnum gunEnum;
 
@@ -409,9 +409,19 @@ public class BaseGunItem extends Item implements GeoItem {
             livingEntity instanceof Player player && (stack.get(AVPRDataComponments.CURRENT_AMMO.get()) > 0
                 || player.getAbilities().instabuild)
         ) {
-            var bulletEntity = new BulletProjectile(level, stack.get(AVPRDataComponments.GUN_DAMAGE.get()), false);
+            var bulletEntity = new BulletProjectile(
+                level,
+                stack.get(AVPRDataComponments.GUN_DAMAGE.get()),
+                false,
+                stack.get(AVPRDataComponments.GUN_KNOCKBACK.get())
+            );
             if (this.getItemID().matches("weapon_m56_smartgun"))
-                bulletEntity = new BulletProjectile(level, stack.get(AVPRDataComponments.GUN_DAMAGE.get()), true);
+                bulletEntity = new BulletProjectile(
+                    level,
+                    stack.get(AVPRDataComponments.GUN_DAMAGE.get()),
+                    true,
+                    stack.get(AVPRDataComponments.GUN_KNOCKBACK.get())
+                );
             bulletEntity.shootFromRotation(
                 livingEntity,
                 livingEntity.getXRot(),
@@ -449,7 +459,7 @@ public class BaseGunItem extends Item implements GeoItem {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(
-            new AnimationController<>(this, "main", 10, event -> PlayState.CONTINUE).triggerableAnim(
+            new AnimationController<>(this, "main", 5, event -> PlayState.CONTINUE).triggerableAnim(
                 "spin",
                 RawAnimation.begin().thenLoop("barrelspin")
             )
