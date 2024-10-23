@@ -913,7 +913,9 @@
   "key.avpr.reload": "Reload",
   "key.avpr.swap_ammunition_type": "Change Ammunition Type",
   "key.avpr.swap_fire_mode": "Change Fire Mode",
+  "key.avpr.flashlighttoggle": "Toggle Flashlight (If Equipped)",
 
+  "keybind.category.avpr": "AVPR Keybinds",
   "keybind.category.avpr.weapons": "Weapons",
 
   "subtitles.block.acid.burn": "Acid burns",
