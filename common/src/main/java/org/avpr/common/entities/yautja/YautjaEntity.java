@@ -194,16 +194,13 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     /**
-     * Updates the YautjaEntity's state during each tick. This includes refreshing air supply, calculating
-     * current health percentage, updating the entity based on its health, and managing equipment and armor statuses.
-     *
-     * Specifically, the method performs the following actions:
-     * - Calls the superclass's tick method.
-     * - Resets the air supply to its maximum value.
-     * - Calculates the current health percentage and updates the entity's state based on this value.
-     * - Checks if the entity's main hand item is empty and if it is aggressive to determine if it should have a blade.
-     * - Manages the entity's armor statuses based on its health percentage.
-     * - Heals the entity if its health percentage is below 100 and it is not aggressive.
+     * Updates the YautjaEntity's state during each tick. This includes refreshing air supply, calculating current
+     * health percentage, updating the entity based on its health, and managing equipment and armor statuses.
+     * Specifically, the method performs the following actions: - Calls the superclass's tick method. - Resets the air
+     * supply to its maximum value. - Calculates the current health percentage and updates the entity's state based on
+     * this value. - Checks if the entity's main hand item is empty and if it is aggressive to determine if it should
+     * have a blade. - Manages the entity's armor statuses based on its health percentage. - Heals the entity if its
+     * health percentage is below 100 and it is not aggressive.
      */
     @Override
     public void tick() {
