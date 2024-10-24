@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRItems;
 
 @Mixin(ServerPlayer.class)
@@ -40,9 +39,5 @@ public abstract class MixinServerPlayer extends Player {
         ) {
             self.setAirSupply(self.getMaxAirSupply());
         }
-        if (
-            self.getItemBySlot(EquipmentSlot.CHEST).is(AVPRItems.ARMOR_TACTICAL_CHESTPLATE.get())
-        )
-            self.level().addFreshEntity(AVPREntities.LIGHT_ENTITY.get().create(self.level()));
     }
 }
