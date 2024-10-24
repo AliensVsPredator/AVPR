@@ -39,6 +39,7 @@ repositories {
         name = 'Parchment'
         url = 'https://maven.parchmentmc.org'
     }
+    maven { url = 'https://jm.gserv.me/repository/maven-public/' }
 }
 
 dependencies {
