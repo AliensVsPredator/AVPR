@@ -194,15 +194,16 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     }
 
     /**
-     * Processes the periodic update for the `YautjaEntity`. This method performs several critical functions:
-     * <ol>
-     * <li>Invokes the superclass's tick method to ensure base functionality is processed.</li>
-     * <li>Resets the entity's air supply to its maximum value.</li>
-     * <li>Calculates the current health percentage of the entity.</li>
-     * <li>If the entity is wearing a mask and its health percentage drops to 85% or less, removes the mask.</li>
-     * <li>Updates the entity based on the current health percentage, which may trigger specific actions such as hiding
-     * bones.</li>
-     * </ol>
+     * Updates the YautjaEntity's state during each tick. This includes refreshing air supply, calculating
+     * current health percentage, updating the entity based on its health, and managing equipment and armor statuses.
+     *
+     * Specifically, the method performs the following actions:
+     * - Calls the superclass's tick method.
+     * - Resets the air supply to its maximum value.
+     * - Calculates the current health percentage and updates the entity's state based on this value.
+     * - Checks if the entity's main hand item is empty and if it is aggressive to determine if it should have a blade.
+     * - Manages the entity's armor statuses based on its health percentage.
+     * - Heals the entity if its health percentage is below 100 and it is not aggressive.
      */
     @Override
     public void tick() {
@@ -214,6 +215,18 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
             this.setHasBlade(true);
         if (!this.getMainHandItem().isEmpty())
             this.setHasBlade(false);
+        if (currentHealthPercentage == 100) {
+            this.setHasleftLegArmor(true);
+            this.setHasRightLegArmor(true);
+            this.setHasleftFootArmor(true);
+            this.setHasRightFootArmor(true);
+            this.setHasRightArmArmor(true);
+            this.setHasleftForearmArmor(true);
+            this.setHasRightForearmArmor(true);
+            this.setHasChestarmor(true);
+        }
+        if (currentHealthPercentage < 100 && !this.isAggressive())
+            this.heal(0.5F);
     }
 
     /**
