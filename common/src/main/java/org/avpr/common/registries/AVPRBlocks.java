@@ -3149,24 +3149,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_BLACK_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_black_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_BLACK_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_black_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_BLACK_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_BLACK_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_black_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_BLUE_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_blue_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3182,24 +3164,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_BLUE_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_blue_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_BLUE_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_blue_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_BLUE_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_blue_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_BLUE_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_BLUE_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_blue_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3221,24 +3185,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_BROWN_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_brown_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_BROWN_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_brown_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_BROWN_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_BROWN_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_brown_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_CYAN_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_cyan_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3254,24 +3200,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_CYAN_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_cyan_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_CYAN_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_cyan_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_CYAN_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_cyan_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_CYAN_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_CYAN_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_cyan_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3293,24 +3221,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_GRAY_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_gray_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_GRAY_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_gray_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_GRAY_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_GRAY_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_gray_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_GREEN_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_green_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3326,24 +3236,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_GREEN_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_green_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_GREEN_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_green_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_GREEN_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_green_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_GREEN_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_GREEN_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_green_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3365,24 +3257,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_LIGHT_BLUE_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_light_blue_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_LIGHT_BLUE_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_light_blue_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_LIGHT_BLUE_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_LIGHT_BLUE_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_light_blue_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_LIGHT_GRAY_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_light_gray_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3398,24 +3272,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_LIGHT_GRAY_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_light_gray_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_LIGHT_GRAY_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_light_gray_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_LIGHT_GRAY_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_light_gray_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_LIGHT_GRAY_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_LIGHT_GRAY_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_light_gray_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3437,24 +3293,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_LIME_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_lime_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_LIME_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_lime_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_LIME_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_LIME_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_lime_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_MAGENTA_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_magenta_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3470,24 +3308,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_MAGENTA_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_magenta_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_MAGENTA_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_magenta_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_MAGENTA_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_magenta_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_MAGENTA_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_MAGENTA_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_magenta_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3509,24 +3329,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_ORANGE_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_orange_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_ORANGE_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_orange_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_ORANGE_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_ORANGE_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_orange_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_PINK_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_pink_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3542,24 +3344,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_PINK_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_pink_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_PINK_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_pink_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_PINK_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_pink_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_PINK_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_PINK_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_pink_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3581,24 +3365,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_PURPLE_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_purple_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_PURPLE_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_purple_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_PURPLE_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_PURPLE_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_purple_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_RED_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_red_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3614,24 +3380,6 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> PADDING_RED_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_red_square_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_RED_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_red_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_RED_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_red_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_RED_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_RED_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_red_tiles_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
@@ -3653,24 +3401,6 @@ public record AVPRBlocks() {
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
     );
 
-    public static final Supplier<Block> PADDING_WHITE_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_white_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_WHITE_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_white_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_WHITE_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_WHITE_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_white_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
     public static final Supplier<Block> PADDING_YELLOW_SQUARE_SLAB = AVPRBlocks.registerBlock(
         "padding_yellow_square_slab",
         () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
@@ -3687,24 +3417,6 @@ public record AVPRBlocks() {
     public static final Supplier<Block> PADDING_YELLOW_SQUARE_WALL = AVPRBlocks.registerBlock(
         "padding_yellow_square_wall",
         () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_YELLOW_TILES_SLAB = AVPRBlocks.registerBlock(
-        "padding_yellow_tiles_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get()))
-    );
-
-    public static final Supplier<Block> PADDING_YELLOW_TILES_STAIRS = AVPRBlocks.registerBlock(
-        "padding_yellow_tiles_stairs",
-        () -> new AVPRStairBlock(
-            PADDING_YELLOW_TILES.get().defaultBlockState(),
-            BlockBehaviour.Properties.ofFullCopy(PADDING_WHITE_PANEL.get())
-        )
-    );
-
-    public static final Supplier<Block> PADDING_YELLOW_TILES_WALL = AVPRBlocks.registerBlock(
-        "padding_yellow_tiles_wall",
-        () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(steel_block.get()))
     );
 
     public static final Supplier<Block> STEEL_CUT_SLAB = AVPRBlocks.registerBlock(
@@ -5839,21 +5551,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_BLACK_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_BLACK_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_black_tiles_slab",
-        () -> new BlockItem(PADDING_BLACK_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BLACK_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_black_tiles_stairs",
-        () -> new BlockItem(PADDING_BLACK_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BLACK_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_black_tiles_wall",
-        () -> new BlockItem(PADDING_BLACK_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_BLUE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_blue_square_slab",
         () -> new BlockItem(PADDING_BLUE_SQUARE_SLAB.get(), new Item.Properties())
@@ -5867,21 +5564,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_BLUE_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_blue_square_wall",
         () -> new BlockItem(PADDING_BLUE_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BLUE_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_blue_tiles_slab",
-        () -> new BlockItem(PADDING_BLUE_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BLUE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_blue_tiles_stairs",
-        () -> new BlockItem(PADDING_BLUE_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BLUE_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_blue_tiles_wall",
-        () -> new BlockItem(PADDING_BLUE_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_BROWN_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -5899,21 +5581,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_BROWN_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_BROWN_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_brown_tiles_slab",
-        () -> new BlockItem(PADDING_BROWN_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BROWN_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_brown_tiles_stairs",
-        () -> new BlockItem(PADDING_BROWN_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_BROWN_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_brown_tiles_wall",
-        () -> new BlockItem(PADDING_BROWN_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_CYAN_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_cyan_square_slab",
         () -> new BlockItem(PADDING_CYAN_SQUARE_SLAB.get(), new Item.Properties())
@@ -5927,21 +5594,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_CYAN_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_cyan_square_wall",
         () -> new BlockItem(PADDING_CYAN_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_CYAN_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_cyan_tiles_slab",
-        () -> new BlockItem(PADDING_CYAN_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_CYAN_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_cyan_tiles_stairs",
-        () -> new BlockItem(PADDING_CYAN_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_CYAN_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_cyan_tiles_wall",
-        () -> new BlockItem(PADDING_CYAN_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_GRAY_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -5959,21 +5611,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_GRAY_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_GRAY_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_gray_tiles_slab",
-        () -> new BlockItem(PADDING_GRAY_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_GRAY_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_gray_tiles_stairs",
-        () -> new BlockItem(PADDING_GRAY_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_GRAY_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_gray_tiles_wall",
-        () -> new BlockItem(PADDING_GRAY_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_GREEN_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_green_square_slab",
         () -> new BlockItem(PADDING_GREEN_SQUARE_SLAB.get(), new Item.Properties())
@@ -5987,21 +5624,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_GREEN_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_green_square_wall",
         () -> new BlockItem(PADDING_GREEN_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_GREEN_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_green_tiles_slab",
-        () -> new BlockItem(PADDING_GREEN_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_GREEN_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_green_tiles_stairs",
-        () -> new BlockItem(PADDING_GREEN_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_GREEN_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_green_tiles_wall",
-        () -> new BlockItem(PADDING_GREEN_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -6019,21 +5641,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_LIGHT_BLUE_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_light_blue_tiles_slab",
-        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_light_blue_tiles_stairs",
-        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIGHT_BLUE_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_light_blue_tiles_wall",
-        () -> new BlockItem(PADDING_LIGHT_BLUE_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_light_gray_square_slab",
         () -> new BlockItem(PADDING_LIGHT_GRAY_SQUARE_SLAB.get(), new Item.Properties())
@@ -6047,21 +5654,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_light_gray_square_wall",
         () -> new BlockItem(PADDING_LIGHT_GRAY_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_light_gray_tiles_slab",
-        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_light_gray_tiles_stairs",
-        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIGHT_GRAY_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_light_gray_tiles_wall",
-        () -> new BlockItem(PADDING_LIGHT_GRAY_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_LIME_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -6079,21 +5671,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_LIME_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_LIME_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_lime_tiles_slab",
-        () -> new BlockItem(PADDING_LIME_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIME_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_lime_tiles_stairs",
-        () -> new BlockItem(PADDING_LIME_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_LIME_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_lime_tiles_wall",
-        () -> new BlockItem(PADDING_LIME_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_MAGENTA_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_magenta_square_slab",
         () -> new BlockItem(PADDING_MAGENTA_SQUARE_SLAB.get(), new Item.Properties())
@@ -6107,21 +5684,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_MAGENTA_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_magenta_square_wall",
         () -> new BlockItem(PADDING_MAGENTA_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_magenta_tiles_slab",
-        () -> new BlockItem(PADDING_MAGENTA_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_magenta_tiles_stairs",
-        () -> new BlockItem(PADDING_MAGENTA_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_MAGENTA_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_magenta_tiles_wall",
-        () -> new BlockItem(PADDING_MAGENTA_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_ORANGE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -6139,21 +5701,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_ORANGE_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_orange_tiles_slab",
-        () -> new BlockItem(PADDING_ORANGE_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_orange_tiles_stairs",
-        () -> new BlockItem(PADDING_ORANGE_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_ORANGE_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_orange_tiles_wall",
-        () -> new BlockItem(PADDING_ORANGE_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_PINK_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_pink_square_slab",
         () -> new BlockItem(PADDING_PINK_SQUARE_SLAB.get(), new Item.Properties())
@@ -6167,21 +5714,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_PINK_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_pink_square_wall",
         () -> new BlockItem(PADDING_PINK_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_PINK_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_pink_tiles_slab",
-        () -> new BlockItem(PADDING_PINK_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_PINK_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_pink_tiles_stairs",
-        () -> new BlockItem(PADDING_PINK_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_PINK_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_pink_tiles_wall",
-        () -> new BlockItem(PADDING_PINK_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_PURPLE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -6199,21 +5731,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_PURPLE_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_purple_tiles_slab",
-        () -> new BlockItem(PADDING_PURPLE_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_purple_tiles_stairs",
-        () -> new BlockItem(PADDING_PURPLE_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_PURPLE_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_purple_tiles_wall",
-        () -> new BlockItem(PADDING_PURPLE_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_RED_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_red_square_slab",
         () -> new BlockItem(PADDING_RED_SQUARE_SLAB.get(), new Item.Properties())
@@ -6227,21 +5744,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_RED_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_red_square_wall",
         () -> new BlockItem(PADDING_RED_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_RED_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_red_tiles_slab",
-        () -> new BlockItem(PADDING_RED_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_RED_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_red_tiles_stairs",
-        () -> new BlockItem(PADDING_RED_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_RED_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_red_tiles_wall",
-        () -> new BlockItem(PADDING_RED_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> PADDING_WHITE_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
@@ -6259,21 +5761,6 @@ public record AVPRBlocks() {
         () -> new BlockItem(PADDING_WHITE_SQUARE_WALL.get(), new Item.Properties())
     );
 
-    public static final Supplier<BlockItem> PADDING_WHITE_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_white_tiles_slab",
-        () -> new BlockItem(PADDING_WHITE_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_WHITE_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_white_tiles_stairs",
-        () -> new BlockItem(PADDING_WHITE_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_WHITE_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_white_tiles_wall",
-        () -> new BlockItem(PADDING_WHITE_TILES_WALL.get(), new Item.Properties())
-    );
-
     public static final Supplier<BlockItem> PADDING_YELLOW_SQUARE_SLAB_ITEM = AVPRItems.registerItem(
         "padding_yellow_square_slab",
         () -> new BlockItem(PADDING_YELLOW_SQUARE_SLAB.get(), new Item.Properties())
@@ -6287,21 +5774,6 @@ public record AVPRBlocks() {
     public static final Supplier<BlockItem> PADDING_YELLOW_SQUARE_WALL_ITEM = AVPRItems.registerItem(
         "padding_yellow_square_wall",
         () -> new BlockItem(PADDING_YELLOW_SQUARE_WALL.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_SLAB_ITEM = AVPRItems.registerItem(
-        "padding_yellow_tiles_slab",
-        () -> new BlockItem(PADDING_YELLOW_TILES_SLAB.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_STAIRS_ITEM = AVPRItems.registerItem(
-        "padding_yellow_tiles_stairs",
-        () -> new BlockItem(PADDING_YELLOW_TILES_STAIRS.get(), new Item.Properties())
-    );
-
-    public static final Supplier<BlockItem> PADDING_YELLOW_TILES_WALL_ITEM = AVPRItems.registerItem(
-        "padding_yellow_tiles_wall",
-        () -> new BlockItem(PADDING_YELLOW_TILES_WALL.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> STEEL_CUT_SLAB_ITEM = AVPRItems.registerItem(
