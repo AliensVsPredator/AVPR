@@ -1,8 +1,1 @@
-{
-    "parent": "minecraft:block/inner_stairs",
-    "textures": {
-        "bottom": "avpr:block/industrial_wall_lime",
-        "side": "avpr:block/industrial_wall_lime",
-        "top": "avpr:block/industrial_wall_lime_top"
-    }
-}
+{"parent":"minecraft:block/inner_stairs","textures":{"bottom":"avpr:block/industrial_wall_lime_top","side":"avpr:block/industrial_wall_lime","top":"avpr:block/industrial_wall_lime_top"}}

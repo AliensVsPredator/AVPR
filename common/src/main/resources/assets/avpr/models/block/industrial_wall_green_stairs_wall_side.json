@@ -1,6 +1,1 @@
-{
-    "parent": "minecraft:block/template_wall_side",
-    "textures": {
-        "wall": "avpr:block/industrial_wall_green"
-    }
-}
+{"parent":"minecraft:block/template_wall_side","textures":{"wall":"avpr:block/industrial_wall_green"}}

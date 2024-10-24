@@ -1,8 +1,1 @@
-{
-    "parent": "minecraft:block/slab",
-    "textures": {
-        "bottom": "avpr:block/industrial_wall_white",
-        "side": "avpr:block/industrial_wall_white",
-        "top": "avpr:block/industrial_wall_white_top"
-    }
-}
+{"parent":"minecraft:block/slab","textures":{"bottom":"avpr:block/industrial_wall_white_top","side":"avpr:block/industrial_wall_white","top":"avpr:block/industrial_wall_white_top"}}

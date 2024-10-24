@@ -1,6 +1,19 @@
-{
-    "parent": "minecraft:block/template_wall_side_tall",
-    "textures": {
-        "wall": "avpr:block/industrial_wall_blue"
-    }
+{"parent":"minecraft:block/template_wall_side_tall","textures": {
+		"1": "avpr:block/industrial_wall_blue",
+		"2": "avpr:block/industrial_wall_blue_top"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 0],
+			"to": [11, 16, 8],
+			"faces": {
+				"north": {"uv": [5, 0, 11, 16], "texture": "#1", "cullface": "north"},
+				"east": {"uv": [8, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [5, 0, 11, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 8, 16], "texture": "#1"},
+				"up": {"uv": [5, 0, 11, 8], "texture": "#2", "cullface": "up"},
+				"down": {"uv": [5, 8, 11, 16], "texture": "#2", "cullface": "down"}
+			}
+		}
+	]
 }

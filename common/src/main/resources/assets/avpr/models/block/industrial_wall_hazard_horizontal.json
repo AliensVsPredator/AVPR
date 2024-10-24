@@ -1,7 +1,1 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "avpr:block/industrial_wall_hazard_top",
-    "side": "avpr:block/industrial_wall_hazard"
-  }
-}
+{"parent":"minecraft:block/cube_column_horizontal","textures":{"end":"avpr:block/industrial_wall_hazard_top","side":"avpr:block/industrial_wall_hazard"}}

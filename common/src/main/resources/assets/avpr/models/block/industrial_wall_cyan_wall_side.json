@@ -1,6 +1,21 @@
-{
-    "parent": "minecraft:block/template_wall_side",
-    "textures": {
-        "wall": "avpr:block/industrial_wall_cyan"
-    }
+{"parent":"minecraft:block/template_wall_side","textures": {
+		"1": "avpr:block/industrial_wall_cyan",
+		"2": "avpr:block/industrial_wall_cyan_top",
+		"particle": "#wall"
+	},
+	"elements": [
+		{
+			"name": "wall",
+			"from": [5, 0, 0],
+			"to": [11, 14, 8],
+			"faces": {
+				"north": {"uv": [5, 2, 11, 16], "texture": "#1", "cullface": "north"},
+				"east": {"uv": [8, 2, 16, 16], "texture": "#1"},
+				"south": {"uv": [5, 2, 11, 16], "texture": "#1"},
+				"west": {"uv": [0, 2, 8, 16], "texture": "#1"},
+				"up": {"uv": [5, 0, 11, 8], "texture": "#2"},
+				"down": {"uv": [5, 8, 11, 16], "texture": "#2", "cullface": "down"}
+			}
+		}
+	]
 }

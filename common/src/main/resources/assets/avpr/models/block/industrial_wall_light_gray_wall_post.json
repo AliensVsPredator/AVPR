@@ -1,6 +1,1 @@
-{
-    "parent": "minecraft:block/template_wall_post",
-    "textures": {
-        "wall": "avpr:block/industrial_wall_light_gray"
-    }
-}
+{"parent":"minecraft:block/template_wall_post","textures":{"wall":"avpr:block/industrial_wall_light_gray_top"}}

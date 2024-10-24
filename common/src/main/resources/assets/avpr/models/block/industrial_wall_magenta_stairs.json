@@ -1,8 +1,1 @@
-{
-    "parent": "minecraft:block/stairs",
-    "textures": {
-        "bottom": "avpr:block/industrial_wall_magenta",
-        "side": "avpr:block/industrial_wall_magenta",
-        "top": "avpr:block/industrial_wall_magenta_top"
-    }
-}
+{"parent":"minecraft:block/stairs","textures":{"bottom":"avpr:block/industrial_wall_magenta_top","side":"avpr:block/industrial_wall_magenta","top":"avpr:block/industrial_wall_magenta_top"}}
