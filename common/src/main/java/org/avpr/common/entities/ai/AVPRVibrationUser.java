@@ -67,6 +67,8 @@ public class AVPRVibrationUser implements VibrationSystem.User {
 
         var entity = context.sourceEntity();
         if (entity != null) {
+            if (this.mob.isAggressive())
+                return false;
             if (entity instanceof Player player && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(player))
                 return false;
             return !entity.dampensVibrations();
