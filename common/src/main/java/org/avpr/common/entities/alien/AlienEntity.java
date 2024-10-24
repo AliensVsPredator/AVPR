@@ -2,6 +2,7 @@ package org.avpr.common.entities.alien;
 
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Dynamic;
+import mod.azure.azurelib.common.api.common.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -429,7 +430,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
      */
     @Override
     protected @NotNull PathNavigation createNavigation(@NotNull Level level) {
-        return new AmphibiousPathNavigation(this, level);
+        return this.isInWater() || this.wasTouchingWater ? new AmphibiousPathNavigation(this, level) : new AzureNavigation(this, level);
     }
 
     /**

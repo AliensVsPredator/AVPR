@@ -1,6 +1,7 @@
 package org.avpr.common.entities.engineer;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import mod.azure.azurelib.common.api.common.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
 import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
@@ -40,6 +41,8 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Creeper;
@@ -108,6 +111,14 @@ public class EngineerEntity extends WaterAnimal implements Enemy, GeoEntity, Sma
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    /**
+     * Handle Pathfinding
+     */
+    @Override
+    protected @NotNull PathNavigation createNavigation(@NotNull Level level) {
+        return this.isInWater() || this.wasTouchingWater ? new AmphibiousPathNavigation(this, level) : new AzureNavigation(this, level);
     }
 
     @Override
