@@ -1,23 +1,12 @@
-v0.0.2
+v0.0.3
 
-- Total rewrite for 1.21.1+
-- Slows swimming speed way the fuck down.
-- WIP system for smart gun bullet tracking setup.
-- Properly remove projectiles on entity hit.
-- Adds bullet breaking configuration.
-- Adds gun poses when being held in 3rd person.
-- Adds missing Industrial blocks.
-- Fixes Chestburster crash.
-- Fixes Royal/Octa crash.
-- All gun data filled in.
-- Nauticomorph now spawns in water.
-- Acid bleeding is working now.
-- Drones now grow into Warriors.
-- Sadar now fires rockets that explode.
-- Enables AzureLib keybinds.
-- Adds unused flashlight keybind.
-- Adds WIP Light entity for Tactical Armor.
-- Adds all missing english langs.
-- Adds Java docs to more of the code.
-- Adds missing langs.
-- Adds Configs for setting currently spawning mobs min y value to start spawning.
+- Fixes mask eyes on Yautja.
+- Fixes armor breaking on Yautja from appearing on all Yautja.
+- Yautja no longer targets not_worth_killing tagged mobs.
+- Yautja now have a chance to spawn with weapons and use them.
+- Yautja weapons drop loot pool larger, making some things more rarer
+- Yautja don't target entity if not alien, and if not alien, isn't it's last attacker or holding a threating weapon.
+- Shurikens can be charge up like bows to shoot further.
+- Smart Discs now return to the user.
+- Boilers now explode into acid when attacking the target.
+- Yautja now regain armor (but not mask) when healed up and will slowly when not aggressive and lower then 100% health.
