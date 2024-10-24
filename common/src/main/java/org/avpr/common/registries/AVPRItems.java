@@ -11,6 +11,7 @@ import org.avpr.common.items.GrenadeItem;
 import org.avpr.common.items.ShurikenItem;
 import org.avpr.common.items.SmartDiscItem;
 import org.avpr.common.items.armor.AVPRArmorItem;
+import org.avpr.common.items.armor.AVPRGeoArmorItem;
 import org.avpr.common.items.guns.BaseGunItem;
 import org.avpr.common.items.tools.AVPRToolMaterials;
 import org.avpr.common.platform.AVPRServices;
@@ -1376,7 +1377,8 @@ public record AVPRItems() {
 
     public static final Supplier<Item> ARMOR_TACTICAL_HELMET = AVPRItems.registerItem(
         "armor_tactical_helmet",
-        () -> new AVPRArmorItem(
+        () -> new AVPRGeoArmorItem(
+            "armor_tactical",
             AVPRServices.COMMON_REGISTRY.getTacticalMaterial(),
             ArmorItem.Type.HELMET,
             new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(26))
@@ -1385,7 +1387,8 @@ public record AVPRItems() {
 
     public static final Supplier<Item> ARMOR_TACTICAL_CHESTPLATE = AVPRItems.registerItem(
         "armor_tactical_body",
-        () -> new AVPRArmorItem(
+        () -> new AVPRGeoArmorItem(
+            "armor_tactical",
             AVPRServices.COMMON_REGISTRY.getTacticalMaterial(),
             ArmorItem.Type.CHESTPLATE,
             new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(26))
@@ -1394,7 +1397,8 @@ public record AVPRItems() {
 
     public static final Supplier<Item> ARMOR_TACTICAL_LEGGINGS = AVPRItems.registerItem(
         "armor_tactical_leggings",
-        () -> new AVPRArmorItem(
+        () -> new AVPRGeoArmorItem(
+            "armor_tactical",
             AVPRServices.COMMON_REGISTRY.getTacticalMaterial(),
             ArmorItem.Type.LEGGINGS,
             new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(26))
@@ -1403,7 +1407,8 @@ public record AVPRItems() {
 
     public static final Supplier<Item> ARMOR_TACTICAL_BOOTS = AVPRItems.registerItem(
         "armor_tactical_boots",
-        () -> new AVPRArmorItem(
+        () -> new AVPRGeoArmorItem(
+            "armor_tactical",
             AVPRServices.COMMON_REGISTRY.getTacticalMaterial(),
             ArmorItem.Type.BOOTS,
             new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(26))
