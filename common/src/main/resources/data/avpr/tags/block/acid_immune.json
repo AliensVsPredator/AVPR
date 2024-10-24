@@ -5,6 +5,10 @@
       "id": "#avpr:should_not_be_destroyed",
       "required": false
     },
+    {
+      "id": "#gigeresque:acid_resistant",
+      "required": false
+    },
     "avpr:plastic_white_slab",
     "avpr:plastic_yellow",
     "avpr:plastic_black_slab",

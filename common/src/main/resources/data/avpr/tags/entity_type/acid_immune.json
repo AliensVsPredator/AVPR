@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "#avpr:acid_bleeders"
+    "#avpr:acid_bleeders",
+    {
+      "id": "#gigeresque:gigeresquealiens",
+      "required": false
+    }
   ]
 }
