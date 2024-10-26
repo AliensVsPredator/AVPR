@@ -207,7 +207,7 @@ public record AVPRCreativeTabs() {
                 entries.accept(AVPRBlocks.ORIONITE_BLOCK.get());
                 entries.accept(AVPRBlocks.ORE_BAUXITE.get());
                 entries.accept(AVPRBlocks.ORE_TITANIUM.get());
-                entries.accept(AVPRBlocks.ORE_SILICA.get());
+                entries.accept(AVPRBlocks.ORE_SILICON.get());
                 entries.accept(AVPRBlocks.ORE_MONAZITE.get());
                 entries.accept(AVPRBlocks.ORE_LITHIUM.get());
                 entries.accept(AVPRBlocks.ORE_COBALT.get());
@@ -453,7 +453,7 @@ public record AVPRCreativeTabs() {
                 entries.accept(AVPRBlocks.NEODYMIUM_BLOCK.get());
                 entries.accept(AVPRBlocks.COBALT_BLOCK.get());
                 entries.accept(AVPRBlocks.LITHIUM_BLOCK.get());
-                entries.accept(AVPRBlocks.SILICA_BLOCK.get());
+                entries.accept(AVPRBlocks.SILICON_BLOCK.get());
                 entries.accept(AVPRBlocks.PLASTIC_WHITE.get());
                 entries.accept(AVPRBlocks.PLASTIC_WHITE_SLAB.get());
                 entries.accept(AVPRBlocks.PLASTIC_WHITE_STAIRS.get());
