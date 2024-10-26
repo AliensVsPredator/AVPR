@@ -12,7 +12,6 @@ import mod.azure.azurelib.sblforked.api.core.behaviour.OneRandomBehaviour;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.look.LookAtTarget;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.misc.Idle;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.MoveToWalkTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.StrafeTarget;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetRandomWalkTarget;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.InvalidateAttackTarget;
