@@ -151,7 +151,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         RandomSource random
     ) {
         return level.getDifficulty() != Difficulty.PEACEFUL
-            && MobSpawnType.ignoresLightRequirements(spawnType)
+            && MobSpawnType.ignoresLightRequirements(spawnType) && pos.getY() > CommonMod.config.yautjaConfigs.YAUTJA_MIN_SPAWN_Y
             && checkMobSpawnRules(type, level, spawnType, pos, random);
     }
 

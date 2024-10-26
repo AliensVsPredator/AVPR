@@ -796,5 +796,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float YAUTJA_SPEED = 0.48360001859664914F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float YAUTJA_MIN_SPAWN_Y = 63;
     }
 }
