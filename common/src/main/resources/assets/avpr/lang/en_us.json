@@ -248,7 +248,7 @@
   "block.avpr.ore_cobalt": "Cobalt Ore",
   "block.avpr.ore_lithium": "Lithium Ore",
   "block.avpr.ore_monazite": "Monazite Ore",
-  "block.avpr.ore_silica": "Silica Ore",
+  "block.avpr.ore_silicon": "Silicon Ore",
   "block.avpr.ore_titanium": "Titanium Ore",
 
   "block.avpr.orionite_block": "Block of Orionite",
@@ -547,7 +547,7 @@
   "block.avpr.resin": "Resin",
   "block.avpr.resin_vein": "Resin Vein",
   "block.avpr.resin_webbing": "Resin Webbing",
-  "block.avpr.silica_block": "Block of Silica",
+  "block.avpr.silicon_block": "Block of Silicon",
 
   "block.avpr.steel_block": "Block of Steel",
   "block.avpr.steel_cut": "Cut Steel",

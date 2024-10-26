@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avpr:silica_block"
+          "name": "avpr:silicon_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avpr:blocks/silica_block"
+  "random_sequence": "avpr:blocks/silicon_block"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "avpr:block/silica_block"
+    "all": "avpr:block/silicon_block"
   }
 }

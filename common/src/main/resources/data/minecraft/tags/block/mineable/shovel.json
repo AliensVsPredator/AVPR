@@ -5,6 +5,8 @@
     "avpr:engineer_ship_gravel",
     "avpr:unidentified_dirt",
     "avpr:unidentified_gravel",
-    "avpr:unidentified_sand"
+    "avpr:unidentified_sand",
+    "avpr:ore_silicon",
+    "avpr:silicon_block"
   ]
 }

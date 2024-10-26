@@ -3527,8 +3527,8 @@ public record AVPRBlocks() {
         )
     );
 
-    public static final Supplier<Block> ORE_SILICA = AVPRBlocks.registerBlock(
-        "ore_silica",
+    public static final Supplier<Block> ORE_SILICON = AVPRBlocks.registerBlock(
+        "ore_silicon",
         () -> new Block(
             BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                 .noOcclusion()
@@ -3683,8 +3683,8 @@ public record AVPRBlocks() {
         )
     );
 
-    public static final Supplier<Block> SILICA_BLOCK = AVPRBlocks.registerBlock(
-        "silica_block",
+    public static final Supplier<Block> SILICON_BLOCK = AVPRBlocks.registerBlock(
+        "silicon_block",
         () -> new Block(
             BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                 .strength(2.2F, 1.4F)
@@ -5876,9 +5876,9 @@ public record AVPRBlocks() {
         () -> new BlockItem(ORE_TITANIUM.get(), new Item.Properties())
     );
 
-    public static final Supplier<Item> ORE_SILICA_ITEM = AVPRItems.registerItem(
-        "ore_silica",
-        () -> new BlockItem(ORE_SILICA.get(), new Item.Properties())
+    public static final Supplier<Item> ORE_SILICON_ITEM = AVPRItems.registerItem(
+        "ore_silicon",
+        () -> new BlockItem(ORE_SILICON.get(), new Item.Properties())
     );
 
     public static final Supplier<Item> ORE_MONAZITE_ITEM = AVPRItems.registerItem(
@@ -6001,9 +6001,9 @@ public record AVPRBlocks() {
         () -> new BlockItem(LITHIUM_BLOCK.get(), new Item.Properties())
     );
 
-    public static final Supplier<Item> SILICA_BLOCK_ITEM = AVPRItems.registerItem(
-        "silica_block",
-        () -> new BlockItem(SILICA_BLOCK.get(), new Item.Properties())
+    public static final Supplier<Item> SILICON_BLOCK_ITEM = AVPRItems.registerItem(
+        "silicon_block",
+        () -> new BlockItem(SILICON_BLOCK.get(), new Item.Properties())
     );
 
     public static final Supplier<BlockItem> INDUSTRIAL_WALL_MAGENTA_ITEM = AVPRItems.registerItem(
