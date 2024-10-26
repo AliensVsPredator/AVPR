@@ -214,7 +214,11 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int DRONE_MIN_SPAWN_Y = 75;
+        public int DRONE_MAX_SPAWN_Y = 75;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int DRONE_MIN_SPAWN_Y = 30;
     }
 
     @Configurable
@@ -240,7 +244,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int WARRIOR_MIN_SPAWN_Y = 32;
+        public int WARRIOR_MAX_SPAWN_Y = 30;
     }
 
     @Configurable
@@ -266,7 +270,11 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int BOILER_MIN_SPAWN_Y = 75;
+        public int BOILER_MIN_SPAWN_Y = -20;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int BOILER_MAX_SPAWN_Y = -10;
     }
 
     @Configurable
@@ -292,7 +300,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int NAUTICOMORPH_MIN_SPAWN_Y = 63;
+        public int NAUTICOMORPH_MAX_SPAWN_Y = 63;
     }
 
     @Configurable
@@ -318,7 +326,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int PRAETORIAN_MIN_SPAWN_Y = 0;
+        public int PRAETORIAN_MAX_SPAWN_Y = -30;
     }
 
     @Configurable
@@ -344,7 +352,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int SPITTER_MIN_SPAWN_Y = 0;
+        public int SPITTER_MAX_SPAWN_Y = 30;
     }
 
     @Configurable
@@ -392,7 +400,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int QUEEN_MIN_SPAWN_Y = -24;
+        public int QUEEN_MAX_SPAWN_Y = -50;
     }
 
     @Configurable
@@ -669,7 +677,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int DRONERUNNER_MIN_SPAWN_Y = 75;
+        public int DRONERUNNER_MAX_SPAWN_Y = 75;
     }
 
     @Configurable
@@ -695,7 +703,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int WARRIOR_RUNNER_MIN_SPAWN_Y = 32;
+        public int WARRIOR_RUNNER_MAX_SPAWN_Y = 30;
     }
 
     @Configurable
@@ -721,7 +729,7 @@ public class AVPRConfig {
 
         @Configurable
         @Configurable.Synchronized
-        public int CRUSHER_MIN_SPAWN_Y = 0;
+        public int CRUSHER_MAX_SPAWN_Y = -30;
     }
 
     @Configurable

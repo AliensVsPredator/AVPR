@@ -87,7 +87,9 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
 
     protected String hostId = null;
 
-    protected static int spawnPos = 0;
+    protected static int spawnPosMax = 0;
+
+    protected static int spawnPosMin = -64;
 
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
@@ -122,7 +124,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     ) {
         return level.getDifficulty() != Difficulty.PEACEFUL
             && (MobSpawnType.ignoresLightRequirements(spawnType) || isDarkEnoughToSpawn(level, pos, random))
-            && checkMobSpawnRules(type, level, spawnType, pos, random) && pos.getY() <= spawnPos;
+            && checkMobSpawnRules(type, level, spawnType, pos, random) && (pos.getY() <= spawnPosMax && pos.getY() >= spawnPosMin);
     }
 
     /**

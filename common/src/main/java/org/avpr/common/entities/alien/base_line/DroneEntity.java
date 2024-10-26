@@ -56,7 +56,8 @@ public class DroneEntity extends AlienEntity implements SmartBrainOwner<DroneEnt
 
     public DroneEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = CommonMod.config.droneConfigs.DRONE_MIN_SPAWN_Y;
+        spawnPosMax = CommonMod.config.droneConfigs.DRONE_MAX_SPAWN_Y;
+        spawnPosMin = CommonMod.config.droneConfigs.DRONE_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

@@ -54,7 +54,8 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
 
     public BoilerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = CommonMod.config.boilerConfigs.BOILER_MIN_SPAWN_Y;
+        spawnPosMax = CommonMod.config.boilerConfigs.BOILER_MAX_SPAWN_Y;
+        spawnPosMin = CommonMod.config.boilerConfigs.BOILER_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

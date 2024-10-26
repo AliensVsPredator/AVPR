@@ -55,7 +55,7 @@ public class WarriorEntity extends AlienEntity implements SmartBrainOwner<Warrio
 
     public WarriorEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = CommonMod.config.warriorConfigs.WARRIOR_MIN_SPAWN_Y;
+        spawnPosMax = CommonMod.config.warriorConfigs.WARRIOR_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

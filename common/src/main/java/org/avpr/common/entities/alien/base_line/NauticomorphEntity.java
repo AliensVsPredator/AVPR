@@ -55,7 +55,7 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
 
     public NauticomorphEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPos = CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_MIN_SPAWN_Y;
+        spawnPosMax = CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
