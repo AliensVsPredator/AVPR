@@ -51,7 +51,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import org.avpr.common.api.util.Tick;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -60,6 +59,7 @@ import java.util.*;
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
+import org.avpr.common.api.util.Tick;
 import org.avpr.common.entities.ai.tasks.attack.UseItemTask;
 import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.registries.AVPRSounds;
