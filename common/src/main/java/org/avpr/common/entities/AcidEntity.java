@@ -146,12 +146,14 @@ public class AcidEntity extends Entity {
             blockState = level.getBlockState(blockPos);
         }
 
-        if (!blockState.is(AVPRBlockTags.ACID_IMMUNE))
-            BlockBreakProgressManager.damage(
-                level(),
-                blockPos,
-                (2F * getMultiplier()) / CommonMod.config.acidConfigs.ACID_BREAKSPEED_MODIFIER
-            );
+        if (!blockState.is(AVPRBlockTags.ACID_IMMUNE)) {
+            float hardness = blockState.getDestroySpeed(level(), blockPos);
+            // Determine a damage multiplier based on the block's hardness.
+            float damageMultiplier = (2F * getMultiplier()) / (CommonMod.config.acidConfigs.ACID_BREAKSPEED_MODIFIER * hardness);
+
+            // Apply damage to the block using the calculated multiplier.
+            BlockBreakProgressManager.damage(level(), blockPos, damageMultiplier);
+        }
     }
 
     /**
