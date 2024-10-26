@@ -44,7 +44,7 @@ public class ImpregnationStatusEffect extends MobEffect {
     public static void effectRemoval(LivingEntity entity, MobEffectInstance mobEffectInstance) {
         if (PredicatesUtil.IS_CREATIVEorSPECTATOR.test(entity))
             return;
-        if (!entity.getType().is(AVPREntityTags.HUMANIOD_HOSTS))
+        if (!entity.getType().is(AVPREntityTags.ALL_HOSTS))
             return;
         if (entity.level().isClientSide || !(mobEffectInstance.getEffect().value() instanceof ImpregnationStatusEffect))
             return;

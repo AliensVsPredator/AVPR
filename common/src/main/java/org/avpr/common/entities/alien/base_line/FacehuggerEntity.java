@@ -299,7 +299,7 @@ public class FacehuggerEntity extends AlienEntity implements SmartBrainOwner<Fac
                         EntityTypeTags.UNDEAD
                     ) && !target.getType().is(AVPREntityTags.ALIENS) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<FacehuggerEntity>().setRadius(7)

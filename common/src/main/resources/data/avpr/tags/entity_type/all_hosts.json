@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#avpr:humaniod_hosts",
+    "#avpr:runner_hosts",
+    "#avpr:crusher_hosts",
+    "#avpr:spitter_hosts",
+    "#avpr:draco_hosts",
+    "#avpr:deacon_hosts",
+    "#avpr:beluga_hosts"
+  ]
+}

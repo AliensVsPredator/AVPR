@@ -352,7 +352,7 @@ public class OvamorphDracoEntity extends AlienEntity {
                     if (
                         target.isAlive() && target.getType()
                             .is(
-                                AVPREntityTags.HUMANIOD_HOSTS
+                                AVPREntityTags.ALL_HOSTS
                             ) && this.level().random.nextFloat() < 0.2f && !target.isSteppingCarefully()
                             && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(
                                 target

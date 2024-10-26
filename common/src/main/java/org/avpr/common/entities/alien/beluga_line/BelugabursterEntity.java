@@ -111,7 +111,7 @@ public class BelugabursterEntity extends AlienEntity implements SmartBrainOwner<
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<BelugabursterEntity>().setRadius(7)

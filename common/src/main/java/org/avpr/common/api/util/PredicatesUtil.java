@@ -73,11 +73,11 @@ public record PredicatesUtil() {
      * predicate are: 1. The entity must be an instance of Mob and also must be a living entity. 2. The entity type must
      * be a host and not be categorized as an alien. 3. The entity must not already have a passenger of type
      * AlienEntity. 4. The entity must be within melee attack range. 5. The entity must not be categorized as undead.
-     * Example tags referenced: - {@link AVPREntityTags#HUMANIOD_HOSTS} - {@link AVPREntityTags#ALIENS} -
+     * Example tags referenced: - {@link AVPREntityTags#ALL_HOSTS} - {@link AVPREntityTags#ALIENS} -
      * {@link EntityTypeTags#UNDEAD}
      */
     public static Predicate<Mob> SHOULD_FACEHUG = entity -> entity instanceof Mob livingEntity
-        && livingEntity.getType().is(AVPREntityTags.HUMANIOD_HOSTS)
+        && livingEntity.getType().is(AVPREntityTags.ALL_HOSTS)
         && !livingEntity.getType().is(AVPREntityTags.ALIENS)
         && !livingEntity.hasPassenger(AlienEntity.class::isInstance)
         && entity.isWithinMeleeAttackRange(entity)

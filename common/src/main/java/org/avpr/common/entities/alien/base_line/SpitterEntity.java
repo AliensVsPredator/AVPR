@@ -109,7 +109,7 @@ public class SpitterEntity extends AlienEntity implements SmartBrainOwner<Spitte
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<SpitterEntity>().setRadius(7)

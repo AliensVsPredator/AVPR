@@ -149,13 +149,34 @@ public record EntityUtil() {
         // defaultBurster.setHostId("beluga");
         // return entity_type.create(entity.level());
         // }
-        // if (entity.getType().is(AVPREntityTags.RUNNER_HOSTS)) {
-        // entity_type = AVPREntities.CHESTBURSTER_RUNNER.get();
-        // defaultBurster.setHostId("runner");
-        // return entity_type.create(entity.level());
-        // }
+        if (entity.getType().is(AVPREntityTags.RUNNER_HOSTS)) {
+            entity_type = AVPREntities.CHESTBURSTER_RUNNER.get();
+            defaultBurster.setHostId("runner");
+            return entity_type.create(entity.level());
+        }
+        if (entity.getType().is(AVPREntityTags.CRUSHER_HOSTS)) {
+            defaultBurster.setHostId("crusher");
+        }
+        if (entity.getType().is(AVPREntityTags.SPITTER_HOSTS)) {
+            defaultBurster.setHostId("spitter");
+        }
         if (entity.getType().is(AVPREntityTags.PREDATORS))
             defaultBurster.setHostId("predalien");
+        if (entity.getType().is(AVPREntityTags.DRACO_HOSTS)) {
+            entity_type = AVPREntities.CHESTBURSTER_DRACO.get();
+            defaultBurster.setHostId("draco");
+            return entity_type.create(entity.level());
+        }
+        if (entity.getType().is(AVPREntityTags.BELUGA_HOSTS)) {
+            entity_type = AVPREntities.BELUGABURSTER.get();
+            defaultBurster.setHostId("beluga");
+            return entity_type.create(entity.level());
+        }
+        if (entity.getType().is(AVPREntityTags.DEACON_HOSTS)) {
+            entity_type = AVPREntities.TRIOLOBITE_BABY.get();
+            defaultBurster.setHostId(entity.getType().is(AVPREntityTags.HUMANIOD_HOSTS) ? "humanoid" : "engineer");
+            return entity_type.create(entity.level());
+        }
         return defaultBurster;
     }
 

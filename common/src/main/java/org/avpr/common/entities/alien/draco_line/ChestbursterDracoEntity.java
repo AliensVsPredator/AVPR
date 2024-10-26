@@ -108,7 +108,7 @@ public class ChestbursterDracoEntity extends AlienEntity implements SmartBrainOw
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<ChestbursterDracoEntity>().setRadius(7)

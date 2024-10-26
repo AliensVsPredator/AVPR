@@ -109,7 +109,7 @@ public class ChestbursterRunnerEntity extends AlienEntity implements SmartBrainO
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<ChestbursterRunnerEntity>().setRadius(7)

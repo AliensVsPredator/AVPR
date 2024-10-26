@@ -108,7 +108,7 @@ public class DracomorphEntity extends AlienEntity implements SmartBrainOwner<Dra
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<DracomorphEntity>().setRadius(7)

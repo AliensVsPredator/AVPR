@@ -109,7 +109,7 @@ public class CrusherEntity extends AlienEntity implements SmartBrainOwner<Crushe
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<CrusherEntity>().setRadius(7)

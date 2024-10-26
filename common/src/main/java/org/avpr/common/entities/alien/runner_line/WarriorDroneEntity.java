@@ -109,7 +109,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<WarriorDroneEntity>().setRadius(7)

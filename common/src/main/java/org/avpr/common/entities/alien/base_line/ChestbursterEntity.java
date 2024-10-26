@@ -85,6 +85,12 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
         EntityType<? extends AlienEntity> entity_type = AVPREntities.DRONE.get();
         if (getHostId().toLowerCase(Locale.ROOT).equals("predalien"))
             entity_type = AVPREntities.PREDALIEN.get();
+        if (getHostId().toLowerCase(Locale.ROOT).equals("crusher"))
+            entity_type = AVPREntities.CRUSHER.get();
+        if (getHostId().toLowerCase(Locale.ROOT).equals("spitter"))
+            entity_type = AVPREntities.SPITTER.get();
+        if (getHostId().toLowerCase(Locale.ROOT).equals("runner"))
+            entity_type = AVPREntities.DRONE_RUNNER.get();
         return entity_type.create(level());
     }
 

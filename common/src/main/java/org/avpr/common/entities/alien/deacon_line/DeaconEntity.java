@@ -37,9 +37,11 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
+import org.avpr.common.registries.AVPREntities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.PredicatesUtil;
@@ -74,12 +76,15 @@ public class DeaconEntity extends AlienEntity implements SmartBrainOwner<DeaconE
 
     @Override
     public float getMaxGrowth() {
-        return 0;
+        return 24000;
     }
 
     @Override
     public LivingEntity growInto() {
-        return null;
+        EntityType<? extends AlienEntity> entity_type = AVPREntities.DEACON_ADULT.get();
+        if (getHostId().toLowerCase(Locale.ROOT).equals("engineer"))
+            entity_type = AVPREntities.DEACON_ADULT_ENGINEER.get();
+        return entity_type.create(level());
     }
 
     @Override
@@ -108,7 +113,7 @@ public class DeaconEntity extends AlienEntity implements SmartBrainOwner<DeaconE
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<DeaconEntity>().setRadius(7)

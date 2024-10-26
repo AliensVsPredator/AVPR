@@ -108,7 +108,7 @@ public class TriolobiteBabyEntity extends AlienEntity implements SmartBrainOwner
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<TriolobiteBabyEntity>().setRadius(7)

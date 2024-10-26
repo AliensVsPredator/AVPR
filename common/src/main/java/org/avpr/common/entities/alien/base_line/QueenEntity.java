@@ -116,7 +116,7 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.ALL_HOSTS
                         )
             ),
             new NearbyBlocksSensor<QueenEntity>().setRadius(7)
