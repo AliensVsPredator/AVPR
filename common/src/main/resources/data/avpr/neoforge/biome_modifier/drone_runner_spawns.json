@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#avpr:runner_spawns",
   "spawners": {
     "type": "avpr:drone_runner",
     "maxCount": 3,

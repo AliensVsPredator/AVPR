@@ -13,4 +13,8 @@ import org.avpr.common.CommonMod;
 public record AVPRBiomeTags() {
 
     public static final TagKey<Biome> IS_WET = CommonMod.createTag(Registries.BIOME, "is_wet");
+
+    public static final TagKey<Biome> PREDATOR_SPAWNS = CommonMod.createTag(Registries.BIOME, "predator_spawns");
+
+    public static final TagKey<Biome> RUNNER_SPAWNS = CommonMod.createTag(Registries.BIOME, "runner_spawns");
 }

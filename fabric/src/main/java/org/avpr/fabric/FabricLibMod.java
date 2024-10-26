@@ -282,7 +282,7 @@ public final class FabricLibMod implements ModInitializer {
             1
         );
         BiomeModifications.addSpawn(
-            BiomeSelectors.foundInOverworld(),
+            BiomeSelectors.tag(AVPRBiomeTags.RUNNER_SPAWNS),
             MobCategory.MONSTER,
             AVPREntities.DRONE_RUNNER.get(),
             50,
@@ -330,7 +330,7 @@ public final class FabricLibMod implements ModInitializer {
             1
         );
         BiomeModifications.addSpawn(
-            BiomeSelectors.foundInOverworld(),
+            BiomeSelectors.tag(AVPRBiomeTags.RUNNER_SPAWNS),
             MobCategory.MONSTER,
             AVPREntities.WARRIOR_RUNNER.get(),
             25,
@@ -346,7 +346,7 @@ public final class FabricLibMod implements ModInitializer {
             1
         );
         BiomeModifications.addSpawn(
-            BiomeSelectors.foundInOverworld(),
+            BiomeSelectors.tag(AVPRBiomeTags.PREDATOR_SPAWNS),
             MobCategory.MONSTER,
             AVPREntities.YAUTJA.get(),
             30,
