@@ -116,7 +116,7 @@ public class PraetorianEntity extends AlienEntity implements SmartBrainOwner<Pra
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<PraetorianEntity>().setRadius(7)

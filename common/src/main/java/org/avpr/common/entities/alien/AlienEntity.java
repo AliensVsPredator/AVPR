@@ -537,7 +537,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
             return false;
         if (this.isAlliedTo(entity))
             return false;
-        if (!livingEntity.getType().is(AVPREntityTags.HOSTS))
+        if (!livingEntity.getType().is(AVPREntityTags.HUMANIOD_HOSTS))
             return false;
         if (livingEntity.getType().is(EntityTypeTags.UNDEAD))
             return false;

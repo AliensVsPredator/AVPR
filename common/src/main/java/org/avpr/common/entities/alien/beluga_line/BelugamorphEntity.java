@@ -108,7 +108,7 @@ public class BelugamorphEntity extends AlienEntity implements SmartBrainOwner<Be
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<BelugamorphEntity>().setRadius(7)

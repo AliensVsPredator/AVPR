@@ -108,7 +108,7 @@ public class DeaconAdultEngineerEntity extends AlienEntity implements SmartBrain
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<DeaconAdultEngineerEntity>().setRadius(7)

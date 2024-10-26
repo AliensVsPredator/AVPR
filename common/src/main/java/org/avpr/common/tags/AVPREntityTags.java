@@ -25,7 +25,7 @@ public record AVPREntityTags() {
 
     public static final TagKey<EntityType<?>> ALIENS = CommonMod.createTag(Registries.ENTITY_TYPE, "aliens");
 
-    public static final TagKey<EntityType<?>> HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "hosts");
+    public static final TagKey<EntityType<?>> HUMANIOD_HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "humaniod_hosts");
 
     public static final TagKey<EntityType<?>> RUNNER_HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "runner_hosts");
 

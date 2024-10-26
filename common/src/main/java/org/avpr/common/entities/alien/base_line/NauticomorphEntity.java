@@ -109,7 +109,7 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<NauticomorphEntity>().setRadius(7)

@@ -315,7 +315,7 @@ public class OctohuggerEntity extends AlienEntity implements SmartBrainOwner<Oct
                         EntityTypeTags.UNDEAD
                     ) && !target.getType().is(AVPREntityTags.ALIENS) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<OctohuggerEntity>().setRadius(7)

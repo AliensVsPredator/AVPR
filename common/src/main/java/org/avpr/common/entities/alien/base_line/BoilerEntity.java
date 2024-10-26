@@ -108,7 +108,7 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<BoilerEntity>().setRadius(7)

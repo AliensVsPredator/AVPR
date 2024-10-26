@@ -108,7 +108,7 @@ public class UltramorphEntity extends AlienEntity implements SmartBrainOwner<Ult
                         EntityTypeTags.UNDEAD
                     ) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<UltramorphEntity>().setRadius(7)

@@ -315,7 +315,7 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
                         EntityTypeTags.UNDEAD
                     ) && !target.getType().is(AVPREntityTags.ALIENS) && target.getType()
                         .is(
-                            AVPREntityTags.HOSTS
+                            AVPREntityTags.HUMANIOD_HOSTS
                         )
             ),
             new NearbyBlocksSensor<FacehuggerRoyalEntity>().setRadius(7)

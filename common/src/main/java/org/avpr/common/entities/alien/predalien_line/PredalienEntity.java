@@ -106,10 +106,7 @@ public class PredalienEntity extends AlienEntity implements SmartBrainOwner<Pred
                 (target, self) -> !(target instanceof Creeper || target instanceof IronGolem) && !target.getType()
                     .is(
                         EntityTypeTags.UNDEAD
-                    ) && target.getType()
-                        .is(
-                            AVPREntityTags.HOSTS
-                        )
+                    )
             ),
             new NearbyBlocksSensor<PredalienEntity>().setRadius(7)
                 .setPredicate(
