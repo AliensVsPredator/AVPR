@@ -8,7 +8,7 @@
   "mixins": [
     "server.MixinServerLevel",
     "server.MixinServerPlayer",
-    "LivingEntityMixin"
+    "common.LivingEntityMixin"
   ],
   "client": [
     "client.InGameOverlayRendererMixin",

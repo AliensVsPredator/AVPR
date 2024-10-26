@@ -1,4 +1,4 @@
-package org.avpr.common.mixins;
+package org.avpr.common.mixins.common;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
