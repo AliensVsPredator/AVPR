@@ -301,6 +301,10 @@ public class AVPRConfig {
         @Configurable
         @Configurable.Synchronized
         public int NAUTICOMORPH_MAX_SPAWN_Y = 63;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int NAUTICOMORPH_MIN_SPAWN_Y = 30;
     }
 
     @Configurable
@@ -674,6 +678,10 @@ public class AVPRConfig {
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
         public float DRONERUNNER_SPEED = 0.5370750206530094F;
+
+        @Configurable
+        @Configurable.Synchronized
+        public int DRONERUNNER_MIN_SPAWN_Y = 50;
 
         @Configurable
         @Configurable.Synchronized
