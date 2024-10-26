@@ -551,7 +551,7 @@ public class BaseGunItem extends Item implements GeoItem {
                 1.0F
             );
             CommonUtils.spawnLightSource(livingEntity, player.level().isWaterAt(player.blockPosition()));
-            bulletEntity.moveTo(livingEntity.getX(), livingEntity.getY(0.7D), livingEntity.getZ(), 0, 0);
+            bulletEntity.moveTo(livingEntity.getX(), livingEntity.getY(0.9D), livingEntity.getZ(), 0, 0);
             level.addFreshEntity(bulletEntity);
         }
     }

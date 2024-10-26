@@ -49,8 +49,8 @@ public record AVPREntities() {
         "bullet",
         BulletProjectile::new,
         MobCategory.MISC,
-        0.5F,
-        0.5F
+        0.25F,
+        0.25F
     );
 
     public static final Supplier<EntityType<ThrownGrenade>> GRENADE_THROWN = AVPREntities.registerEntity(
