@@ -32,3 +32,16 @@ jobs:
         name: NeoForge
         path: |
           neoforge/build/libs/*.jar
+    - name: Github Releases To Discord
+      uses: SethCohen/github-releases-to-discord@v1
+      with:
+        webhook_url: ${{ secrets.WEBHOOK_URL }}
+        color: "2105893"
+        username: "Release Changelog"
+        avatar_url: "https://cdn.discordapp.com/avatars/487431320314576937/bd64361e4ba6313d561d54e78c9e7171.png"
+        content: "@1226795048235176017 @1241497977495883948"
+        footer_title: "Changelog"
+        footer_icon_url: "https://cdn.discordapp.com/avatars/487431320314576937/bd64361e4ba6313d561d54e78c9e7171.png"
+        footer_timestamp: true
+        max_description: '4096'
+        reduce_headings: true
