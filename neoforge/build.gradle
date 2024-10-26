@@ -74,6 +74,9 @@ if (file('key.properties').exists()) {
             requires {
                 slug = "azurelib"
             }
+            requires {
+                slug = "common-network"
+            }
         }
         modrinth {
             projectId = project.modrinthID
@@ -81,6 +84,9 @@ if (file('key.properties').exists()) {
             minecraftVersions.add("${minecraft_version}")
             requires {
                 slug = "azurelib"
+            }
+            requires {
+                slug = "common-network"
             }
         }
     }
