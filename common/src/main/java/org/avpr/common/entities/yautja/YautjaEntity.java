@@ -69,6 +69,8 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
 
     private final Set<Float> triggeredThresholds = new HashSet<>();
 
+    private long lastHealTick = 0;
+
     private static final EntityDataAccessor<Boolean> HAS_MASK = SynchedEntityData.defineId(
         YautjaEntity.class,
         EntityDataSerializers.BOOLEAN
@@ -233,8 +235,10 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
             this.setHasRightForearmArmor(true);
             this.setHasChestarmor(true);
         }
-        if (currentHealthPercentage < 100 && !this.isAggressive())
+        if (currentHealthPercentage < 100 && !this.isAggressive() && (tickCount - lastHealTick >= 600)) {
             this.heal(0.5F);
+            lastHealTick = tickCount;
+        }
     }
 
     /**
