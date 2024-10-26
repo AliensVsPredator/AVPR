@@ -48,6 +48,7 @@ import org.avpr.common.entities.ai.tasks.attack.EatFoodTask;
 import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.registries.AVPREntities;
+import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
 
@@ -163,7 +164,11 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
     @Override
     public BrainActivityGroup<ChestbursterEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
-            new InvalidateAttackTarget<>(),
+            new InvalidateAttackTarget<>().invalidateIf(
+                (alienEntity, target) -> target.getType().is(AVPREntityTags.ALIENS) || target.isDeadOrDying() || target.hasPassenger(
+                    AlienEntity.class::isInstance
+                ) || target.hasEffect(AVPRStatusEffects.IMPREGNATION)
+            ),
             new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F)
         );
     }

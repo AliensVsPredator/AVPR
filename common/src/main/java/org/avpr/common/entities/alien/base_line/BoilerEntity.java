@@ -45,6 +45,7 @@ import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.entities.ai.tasks.attack.BoilerExplodeTask;
 import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
 import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
 
@@ -126,7 +127,6 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
         return BrainActivityGroup.coreTasks(
             new FleeFireTask<>(1.0f),
             new LookAtTarget<>(),
-            new StrafeTarget<>().stopStrafingWhen(entity -> entity.isWithinMeleeAttackRange(this)),
             new MoveToWalkTarget<>()
         );
     }
@@ -152,7 +152,11 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
     @Override
     public BrainActivityGroup<BoilerEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
-            new InvalidateAttackTarget<>(),
+            new InvalidateAttackTarget<>().invalidateIf(
+                (alienEntity, target) -> target.getType().is(AVPREntityTags.ALIENS) || target.isDeadOrDying() || target.hasPassenger(
+                    AlienEntity.class::isInstance
+                ) || target.hasEffect(AVPRStatusEffects.IMPREGNATION)
+            ),
             new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 1.85F),
             new BoilerExplodeTask<>(6)
         );
