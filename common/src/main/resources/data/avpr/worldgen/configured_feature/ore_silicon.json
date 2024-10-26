@@ -15,7 +15,7 @@
       },
       {
         "state": {
-          "Name": "avpr:ore_silica"
+          "Name": "avpr:ore_silicon"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
