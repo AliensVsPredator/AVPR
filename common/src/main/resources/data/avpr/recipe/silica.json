@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "avpr:silicon_ore"
+    "item": "avpr:ore_silicon"
   },
   "result": {
     "id": "avpr:silica"
