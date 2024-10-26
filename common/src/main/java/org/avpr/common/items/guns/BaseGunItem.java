@@ -301,6 +301,11 @@ public class BaseGunItem extends Item implements GeoItem {
         stack.getOrDefault(AVPRDataComponments.GUN_HAS_WINDUP.get(), false);
     }
 
+    @Override
+    public int getUseDuration(@NotNull ItemStack stack, @NotNull LivingEntity entity) {
+        return 72000;
+    }
+
     /**
      * Handles the behavior of an item when it is being used by a player, such as consuming ammunition, playing firing
      * sounds, triggering animations, and handling cooldowns.
