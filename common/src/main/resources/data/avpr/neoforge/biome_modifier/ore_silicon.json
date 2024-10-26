@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_features",
-  "features": "avpr:ore_silica",
+  "features": "avpr:ore_silicon",
   "biomes": "#minecraft:is_overworld",
   "step": "underground_ores"
 }
