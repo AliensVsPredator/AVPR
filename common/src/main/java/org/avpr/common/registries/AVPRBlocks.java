@@ -14,10 +14,7 @@ import net.minecraft.world.level.material.PushReaction;
 import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
-import org.avpr.common.blocks.AVPRStairBlock;
-import org.avpr.common.blocks.ColoredTransparentBlock;
-import org.avpr.common.blocks.ResinVeinBlock;
-import org.avpr.common.blocks.ResinWebbingBlock;
+import org.avpr.common.blocks.*;
 import org.avpr.common.platform.AVPRServices;
 
 public record AVPRBlocks() {
@@ -3529,8 +3526,8 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> ORE_SILICON = AVPRBlocks.registerBlock(
         "ore_silicon",
-        () -> new Block(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+        () -> new AVPRFallingBlock(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL)
                 .noOcclusion()
                 .strength(2.2F, 1.4F)
         )
