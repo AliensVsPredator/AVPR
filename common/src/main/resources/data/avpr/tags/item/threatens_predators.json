@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "#avpr:guns",
-    "#avpr:predator_weapons",
+    "#avpr:predator_range_weapons",
     {
       "id": "#minecraft:swords",
       "required": false
