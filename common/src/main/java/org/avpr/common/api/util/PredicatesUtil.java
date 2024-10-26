@@ -13,6 +13,7 @@ import java.util.function.Predicate;
 
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.FacehuggerEntity;
+import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPREntityTags;
 
@@ -76,12 +77,21 @@ public record PredicatesUtil() {
      * Example tags referenced: - {@link AVPREntityTags#ALL_HOSTS} - {@link AVPREntityTags#ALIENS} -
      * {@link EntityTypeTags#UNDEAD}
      */
-    public static Predicate<Mob> SHOULD_FACEHUG = entity -> entity instanceof Mob livingEntity
-        && livingEntity.getType().is(AVPREntityTags.ALL_HOSTS)
-        && !livingEntity.getType().is(AVPREntityTags.ALIENS)
-        && !livingEntity.hasPassenger(AlienEntity.class::isInstance)
-        && entity.isWithinMeleeAttackRange(entity)
-        && !entity.getType().is(EntityTypeTags.UNDEAD);
+    public static Predicate<Mob> SHOULD_FACEHUG = entity -> {
+        if (entity instanceof YautjaEntity yautjaEntity) {
+            return !yautjaEntity.hasMask()
+                && yautjaEntity.getType().is(AVPREntityTags.ALL_HOSTS)
+                && !yautjaEntity.getType().is(AVPREntityTags.ALIENS)
+                && !yautjaEntity.hasPassenger(AlienEntity.class::isInstance)
+                && yautjaEntity.isWithinMeleeAttackRange(entity)
+                && !yautjaEntity.getType().is(EntityTypeTags.UNDEAD);
+        }
+        return entity.getType().is(AVPREntityTags.ALL_HOSTS)
+            && !entity.getType().is(AVPREntityTags.ALIENS)
+            && !entity.hasPassenger(AlienEntity.class::isInstance)
+            && entity.isWithinMeleeAttackRange(entity)
+            && !entity.getType().is(EntityTypeTags.UNDEAD);
+    };
 
     /**
      * A predicate that determines whether an {@link Entity} should be removed as a target. This predicate evaluates the
