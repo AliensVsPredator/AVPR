@@ -438,6 +438,16 @@ public record AVPRItems() {
         () -> new Item(new Item.Properties())
     );
 
+    public static final Supplier<Item> AUTUNITE_CRYSTAL = AVPRItems.registerItem(
+        "autunite_crystal",
+        () -> new Item(new Item.Properties())
+    );
+
+    public static final Supplier<Item> AUTUNITE_DUST = AVPRItems.registerItem(
+        "autunite_dust",
+        () -> new Item(new Item.Properties())
+    );
+
     public static final Supplier<Item> SMART_DISC = AVPRItems.registerItem(
         "smart_disc",
         () -> new SmartDiscItem(new Item.Properties())

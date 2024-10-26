@@ -244,6 +244,7 @@
   "block.avpr.netherite_panel_wall": "Plated Stack Netherite Wall",
   "block.avpr.netherite_vent": "Netherite Vent",
 
+  "block.avpr.ore_autunite": "Autunite Ore",
   "block.avpr.ore_bauxite": "Bauxite Ore",
   "block.avpr.ore_cobalt": "Cobalt Ore",
   "block.avpr.ore_lithium": "Lithium Ore",
@@ -541,6 +542,7 @@
 
   "block.avpr.raw_bauxite_block": "Block of Raw Bauxite",
   "block.avpr.raw_titanium_block": "Block of Raw Titanium",
+  "block.avpr.autunite_block": "Block of Autunite",
   "block.avpr.cobalt_block": "Block of Cobalt",
   "block.avpr.lithium_block": "Block of Lithium",
   "block.avpr.neodymium_block": "Block of Neodymium",
@@ -783,6 +785,8 @@
   "item.avpr.doritos": "Doritos",
   "item.avpr.doritos_cool_ranch": "Doritos (Cool Ranch)",
   "item.avpr.dust_lithium": "Lithium Dust",
+  "item.avpr.autunite_dust": "Autunite Dust",
+  "item.avpr.autunite_crystal": "Autunite Crystal",
 
   "item.avpr.grenade_incendiary": "Incendiary Grenade",
   "item.avpr.grenade_m40": "M40 Grenade",

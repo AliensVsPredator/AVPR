@@ -3560,6 +3560,15 @@ public record AVPRBlocks() {
         )
     );
 
+    public static final Supplier<Block> ORE_AUTUNITE = AVPRBlocks.registerBlock(
+        "ore_autunite",
+        () -> new RadOreBlock(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .noOcclusion()
+                .strength(50.0F, 20.0F)
+        )
+    );
+
     public static final Supplier<Block> INDUSTRIAL_GLASS_WHITE = AVPRBlocks.registerBlock(
         "industrial_glass_white",
         () -> new ColoredTransparentBlock(DyeColor.WHITE, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
@@ -3666,6 +3675,14 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> COBALT_BLOCK = AVPRBlocks.registerBlock(
         "cobalt_block",
+        () -> new Block(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                .strength(3.2F, 2.6F)
+        )
+    );
+
+    public static final Supplier<Block> AUTUNITE_BLOCK = AVPRBlocks.registerBlock(
+        "autunite_block",
         () -> new Block(
             BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                 .strength(3.2F, 2.6F)
@@ -5893,6 +5910,11 @@ public record AVPRBlocks() {
         () -> new BlockItem(ORE_COBALT.get(), new Item.Properties())
     );
 
+    public static final Supplier<Item> ORE_AUTUNITE_ITEM = AVPRItems.registerItem(
+        "ore_autunite",
+        () -> new BlockItem(ORE_AUTUNITE.get(), new Item.Properties())
+    );
+
     public static final Supplier<Item> INDUSTRIAL_GLASS_WHITE_ITEM = AVPRItems.registerItem(
         "industrial_glass_white",
         () -> new BlockItem(INDUSTRIAL_GLASS_WHITE.get(), new Item.Properties())
@@ -5991,6 +6013,11 @@ public record AVPRBlocks() {
     public static final Supplier<Item> COBALT_BLOCK_ITEM = AVPRItems.registerItem(
         "cobalt_block",
         () -> new BlockItem(COBALT_BLOCK.get(), new Item.Properties())
+    );
+
+    public static final Supplier<Item> AUTUNITE_BLOCK_ITEM = AVPRItems.registerItem(
+        "autunite_block",
+        () -> new BlockItem(AUTUNITE_BLOCK.get(), new Item.Properties())
     );
 
     public static final Supplier<Item> LITHIUM_BLOCK_ITEM = AVPRItems.registerItem(

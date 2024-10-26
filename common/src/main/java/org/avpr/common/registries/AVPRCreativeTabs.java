@@ -159,6 +159,8 @@ public record AVPRCreativeTabs() {
                 entries.accept(AVPRItems.SHEET_ORIONITE.get());
                 entries.accept(AVPRItems.SHURIKEN.get());
                 entries.accept(AVPRItems.SILICA.get());
+                entries.accept(AVPRItems.AUTUNITE_CRYSTAL.get());
+                entries.accept(AVPRItems.AUTUNITE_DUST.get());
                 entries.accept(AVPRItems.SMART_DISC.get());
                 entries.accept(AVPRItems.YAUTJA_ARTIFCAT.get());
             })
@@ -211,6 +213,7 @@ public record AVPRCreativeTabs() {
                 entries.accept(AVPRBlocks.ORE_MONAZITE.get());
                 entries.accept(AVPRBlocks.ORE_LITHIUM.get());
                 entries.accept(AVPRBlocks.ORE_COBALT.get());
+                entries.accept(AVPRBlocks.ORE_AUTUNITE.get());
                 entries.accept(AVPRBlocks.INDUSTRIAL_GLASS.get());
                 entries.accept(AVPRBlocks.INDUSTRIAL_GLASS_WHITE.get());
                 entries.accept(AVPRBlocks.INDUSTRIAL_GLASS_ORANGE.get());
@@ -452,6 +455,7 @@ public record AVPRCreativeTabs() {
                 entries.accept(AVPRBlocks.RAW_TITANIUM_BLOCK.get());
                 entries.accept(AVPRBlocks.NEODYMIUM_BLOCK.get());
                 entries.accept(AVPRBlocks.COBALT_BLOCK.get());
+                entries.accept(AVPRBlocks.AUTUNITE_BLOCK.get());
                 entries.accept(AVPRBlocks.LITHIUM_BLOCK.get());
                 entries.accept(AVPRBlocks.SILICON_BLOCK.get());
                 entries.accept(AVPRBlocks.PLASTIC_WHITE.get());

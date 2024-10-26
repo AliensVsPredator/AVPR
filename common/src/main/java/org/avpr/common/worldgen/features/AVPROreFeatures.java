@@ -7,6 +7,8 @@ import org.avpr.common.CommonMod;
 
 public record AVPROreFeatures() {
 
+    public static final ResourceKey<PlacedFeature> AUTUNITE_ORE_PLACED_KEY = CommonMod.registerKey("ore_autunite");
+
     public static final ResourceKey<PlacedFeature> BAUXITE_ORE_PLACED_KEY = CommonMod.registerKey("ore_bauxite");
 
     public static final ResourceKey<PlacedFeature> COBALT_ORE_PLACED_KEY = CommonMod.registerKey("ore_cobalt");

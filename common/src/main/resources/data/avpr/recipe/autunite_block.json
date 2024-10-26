@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "avpr:autunite_crystal"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "avpr:autunite_block"
+  }
+}

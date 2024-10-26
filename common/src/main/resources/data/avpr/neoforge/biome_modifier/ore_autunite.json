@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "features": "avpr:ore_autunite",
+  "biomes": "#minecraft:is_overworld",
+  "step": "local_modifications"
+}
