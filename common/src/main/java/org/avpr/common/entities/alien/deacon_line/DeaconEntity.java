@@ -37,7 +37,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
-import org.avpr.common.registries.AVPREntities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -47,6 +46,7 @@ import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.entities.ai.tasks.movement.FleeFireTask;
 import org.avpr.common.entities.alien.AlienEntity;
+import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
