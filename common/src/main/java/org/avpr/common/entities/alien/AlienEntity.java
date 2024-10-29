@@ -87,9 +87,9 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
 
     protected String hostId = null;
 
-    protected static int spawnPosMax = 0;
+    protected static int spawnPosMax = 256;
 
-    protected static int spawnPosMin = -64;
+    protected static int spawnPosMin = -256;
 
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
