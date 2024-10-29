@@ -357,39 +357,39 @@ public final class FabricLibMod implements ModInitializer {
             1
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
-                GenerationStep.Decoration.LOCAL_MODIFICATIONS,
-                AVPROreFeatures.AUTUNITE_ORE_PLACED_KEY
+            BiomeSelectors.foundInOverworld(),
+            GenerationStep.Decoration.LOCAL_MODIFICATIONS,
+            AVPROreFeatures.AUTUNITE_ORE_PLACED_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
-                AVPROreFeatures.BAUXITE_ORE_PLACED_KEY
+            BiomeSelectors.foundInOverworld(),
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            AVPROreFeatures.BAUXITE_ORE_PLACED_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.tag(BiomeTags.IS_JUNGLE),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
-                AVPROreFeatures.COBALT_ORE_PLACED_KEY
+            BiomeSelectors.tag(BiomeTags.IS_JUNGLE),
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            AVPROreFeatures.COBALT_ORE_PLACED_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.tag(AVPRBiomeTags.IS_WET),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
-                AVPROreFeatures.LITHIUM_ORE_PLACED_KEY
+            BiomeSelectors.tag(AVPRBiomeTags.IS_WET),
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            AVPROreFeatures.LITHIUM_ORE_PLACED_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
-                AVPROreFeatures.MONAZITE_ORE_PLACED_KEY
+            BiomeSelectors.foundInOverworld(),
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            AVPROreFeatures.MONAZITE_ORE_PLACED_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
-                AVPROreFeatures.SILICON_ORE_PLACED_KEY
+            BiomeSelectors.foundInOverworld(),
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            AVPROreFeatures.SILICON_ORE_PLACED_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
-                AVPROreFeatures.TITANIUM_ORE_PLACED_KEY
+            BiomeSelectors.foundInOverworld(),
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            AVPROreFeatures.TITANIUM_ORE_PLACED_KEY
         );
     }
 }
