@@ -6,9 +6,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import org.avpr.common.CommonMod;
@@ -30,6 +32,7 @@ import org.avpr.common.entities.engineer.EngineerEntity;
 import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.tags.AVPRBiomeTags;
+import org.avpr.common.worldgen.features.AVPROreFeatures;
 
 public final class FabricLibMod implements ModInitializer {
 
@@ -352,6 +355,41 @@ public final class FabricLibMod implements ModInitializer {
             30,
             1,
             1
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Decoration.LOCAL_MODIFICATIONS,
+                AVPROreFeatures.AUTUNITE_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                AVPROreFeatures.BAUXITE_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_JUNGLE),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                AVPROreFeatures.COBALT_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(AVPRBiomeTags.IS_WET),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                AVPROreFeatures.LITHIUM_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                AVPROreFeatures.MONAZITE_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                AVPROreFeatures.SILICON_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                AVPROreFeatures.TITANIUM_ORE_PLACED_KEY
         );
     }
 }

@@ -17,7 +17,7 @@ public record AVPROreFeatures() {
 
     public static final ResourceKey<PlacedFeature> MONAZITE_ORE_PLACED_KEY = CommonMod.registerKey("ore_monazite");
 
-    public static final ResourceKey<PlacedFeature> SILICA_ORE_PLACED_KEY = CommonMod.registerKey("ore_silica");
+    public static final ResourceKey<PlacedFeature> SILICON_ORE_PLACED_KEY = CommonMod.registerKey("ore_silicon");
 
     public static final ResourceKey<PlacedFeature> TITANIUM_ORE_PLACED_KEY = CommonMod.registerKey("ore_titanium");
 
