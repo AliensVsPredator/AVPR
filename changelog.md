@@ -1,6 +1,5 @@
-v0.0.7
+v0.0.8
 
-- Silica -> Silicon changes
-- Updated Carbon texture
-- Fixed Industrial Gray Wall top texture.
-- Removed dead jsons.
+- Fabric ores fixed.
+- Mobs spawn again. (Math is fun)
+- Fixes guns breaking blocks that shouldn't be broken. (Fixes Acid as well actually)
