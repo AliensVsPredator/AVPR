@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.avpr.common.api.util.Tick;
+import org.avpr.common.tags.AVPRBlockTags;
 
 /**
  * Manages the progress of block breaking actions in the game world. This class is responsible for handling the addition
@@ -49,7 +50,9 @@ public class BlockBreakProgressManager {
      * @param damage   The amount of damage to apply to the block.
      */
     public static void damage(Level level, BlockPos blockPos, float damage) {
-        if (!level.isClientSide())
+        if (!level.isClientSide()) {
+            if (level.getBlockState(blockPos).is(AVPRBlockTags.SHOULD_NOT_BE_DESTROYED))
+                return;
             BlockBreakProgressManager.BLOCK_BREAK_PROGRESS_MAP.compute(blockPos, (key, entry) -> {
                 var blockState = level.getBlockState(blockPos);
                 var block = blockState.getBlock();
@@ -66,6 +69,7 @@ public class BlockBreakProgressManager {
                 }
                 return Map.entry(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5), newValue);
             });
+        }
     }
 
     private BlockBreakProgressManager() {
