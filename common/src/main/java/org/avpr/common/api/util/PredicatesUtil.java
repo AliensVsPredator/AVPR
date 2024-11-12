@@ -50,7 +50,7 @@ public record PredicatesUtil() {
      * entity is a living entity currently affected by the {@link AVPRStatusEffects#IMPREGNATION} status effect.
      * Otherwise, it evaluates to {@code false}.
      */
-    public static Predicate<Entity> HASE_IMPREGNATION_EFFECT = entity -> entity instanceof LivingEntity livingEntity && livingEntity
+    public static Predicate<Entity> HAS_IMPREGNATION_EFFECT = entity -> entity instanceof LivingEntity livingEntity && livingEntity
         .hasEffect(
             AVPRStatusEffects.IMPREGNATION
         );
@@ -63,7 +63,7 @@ public record PredicatesUtil() {
      * per second.
      */
     public static Predicate<Entity> SHOULD_APPLY_IMPREGNATION_EFFECT = entity -> entity instanceof LivingEntity livingEntity
-        && HASE_IMPREGNATION_EFFECT.test(
+        && HAS_IMPREGNATION_EFFECT.test(
             livingEntity
         ) && (livingEntity.getEffect(
             AVPRStatusEffects.IMPREGNATION
