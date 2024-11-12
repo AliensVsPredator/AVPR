@@ -420,7 +420,7 @@ public record AVPRItems() {
 
     public static final Supplier<Item> ROYAL_JELLY = AVPRItems.registerItem(
         "royal_jelly",
-        () -> new Item(new Item.Properties())
+        () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON))
     );
 
     public static final Supplier<Item> SHEET_ORIONITE = AVPRItems.registerItem(
