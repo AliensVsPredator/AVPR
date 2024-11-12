@@ -79,7 +79,7 @@ public class TriolobiteBabyEntity extends AlienEntity implements SmartBrainOwner
 
     @Override
     public LivingEntity growInto() {
-        return AVPREntities.TRIOLOBITE.get().create(level());
+        return AVPREntities.TRILOBITE.get().create(level());
     }
 
     @Override

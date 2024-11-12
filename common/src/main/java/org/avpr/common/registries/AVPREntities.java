@@ -61,7 +61,7 @@ public record AVPREntities() {
         0.25F
     );
 
-    public static final Supplier<EntityType<ShurikenItemEntity>> SHURKIEN_ENTITY = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<ShurikenItemEntity>> SHURIKEN_ENTITY = AVPREntities.registerEntity(
         "shuriken_entity",
         ShurikenItemEntity::new,
         MobCategory.MISC,
@@ -69,7 +69,7 @@ public record AVPREntities() {
         0.25F
     );
 
-    public static final Supplier<EntityType<SmartDiscItemEntity>> SMARTDISC_ENTITY = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<SmartDiscItemEntity>> SMART_DISC_ENTITY = AVPREntities.registerEntity(
         "smartdisc_entity",
         SmartDiscItemEntity::new,
         MobCategory.MISC,
@@ -245,7 +245,7 @@ public record AVPREntities() {
         1.98F
     );
 
-    public static final Supplier<EntityType<TriolobiteBabyEntity>> TRIOLOBITE_BABY = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<TriolobiteBabyEntity>> TRILOBITE_BABY = AVPREntities.registerEntity(
         "trilobite_baby",
         TriolobiteBabyEntity::new,
         MobCategory.MONSTER,
@@ -253,7 +253,7 @@ public record AVPREntities() {
         0.25F
     );
 
-    public static final Supplier<EntityType<TriolobiteEntity>> TRIOLOBITE = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<TriolobiteEntity>> TRILOBITE = AVPREntities.registerEntity(
         "trilobite",
         TriolobiteEntity::new,
         MobCategory.MONSTER,

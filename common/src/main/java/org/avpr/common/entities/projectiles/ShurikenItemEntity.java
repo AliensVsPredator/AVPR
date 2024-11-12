@@ -17,11 +17,11 @@ import org.avpr.common.registries.AVPRItems;
 public class ShurikenItemEntity extends ThrowableItemProjectile {
 
     public ShurikenItemEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
-        super(AVPREntities.SHURKIEN_ENTITY.get(), level);
+        super(AVPREntities.SHURIKEN_ENTITY.get(), level);
     }
 
     public ShurikenItemEntity(Level level, LivingEntity livingEntity) {
-        super(AVPREntities.SHURKIEN_ENTITY.get(), livingEntity, level);
+        super(AVPREntities.SHURIKEN_ENTITY.get(), livingEntity, level);
     }
 
     @Override

@@ -241,7 +241,7 @@ public record AVPRItems() {
     public static final Supplier<SpawnEggItem> TRIOLOBITE_BABY_SPAWN_EGG = AVPRItems.registerItem(
         "spawn_egg_trilobite_baby",
         AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
-            AVPREntities.TRIOLOBITE_BABY,
+            AVPREntities.TRILOBITE_BABY,
             0xCCC2A5,
             0x987379,
             new Item.Properties()
@@ -251,7 +251,7 @@ public record AVPRItems() {
     public static final Supplier<SpawnEggItem> TRIOLOBITE_SPAWN_EGG = AVPRItems.registerItem(
         "spawn_egg_trilobite",
         AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
-            AVPREntities.TRIOLOBITE,
+            AVPREntities.TRILOBITE,
             0xCCC2A5,
             0x987379,
             new Item.Properties()

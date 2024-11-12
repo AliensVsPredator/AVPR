@@ -173,7 +173,7 @@ public record EntityUtil() {
             return entity_type.create(entity.level());
         }
         if (entity.getType().is(AVPREntityTags.DEACON_HOSTS)) {
-            entity_type = AVPREntities.TRIOLOBITE_BABY.get();
+            entity_type = AVPREntities.TRILOBITE_BABY.get();
             defaultBurster.setHostId(entity.getType().is(AVPREntityTags.HUMANIOD_HOSTS) ? "humanoid" : "engineer");
             return entity_type.create(entity.level());
         }

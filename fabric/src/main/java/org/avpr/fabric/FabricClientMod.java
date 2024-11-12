@@ -65,8 +65,8 @@ public class FabricClientMod implements ClientModInitializer {
         EntityRenderers.register(AVPREntities.OCTOHUGGER.get(), OctohuggerRenderer::new);
         EntityRenderers.register(AVPREntities.BELUGABURSTER.get(), BelugabursterRenderer::new);
         EntityRenderers.register(AVPREntities.BELUGAMORPH.get(), BelugamorphRenderer::new);
-        EntityRenderers.register(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyRenderer::new);
-        EntityRenderers.register(AVPREntities.TRIOLOBITE.get(), TriolobiteRenderer::new);
+        EntityRenderers.register(AVPREntities.TRILOBITE_BABY.get(), TriolobiteBabyRenderer::new);
+        EntityRenderers.register(AVPREntities.TRILOBITE.get(), TriolobiteRenderer::new);
         EntityRenderers.register(AVPREntities.DEACON_ADULT.get(), DeaconAdultRenderer::new);
         EntityRenderers.register(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerRenderer::new);
         EntityRenderers.register(AVPREntities.DEACON.get(), DeaconRenderer::new);
@@ -81,8 +81,8 @@ public class FabricClientMod implements ClientModInitializer {
         EntityRenderers.register(AVPREntities.ENGINEER.get(), EngineerRenderer::new);
         EntityRenderers.register(AVPREntities.YAUTJA.get(), YautjaRenderer::new);
         EntityRenderers.register(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
-        EntityRenderers.register(AVPREntities.SHURKIEN_ENTITY.get(), SkurikenItemRenderer::new);
-        EntityRenderers.register(AVPREntities.SMARTDISC_ENTITY.get(), SkurikenItemRenderer::new);
+        EntityRenderers.register(AVPREntities.SHURIKEN_ENTITY.get(), SkurikenItemRenderer::new);
+        EntityRenderers.register(AVPREntities.SMART_DISC_ENTITY.get(), SkurikenItemRenderer::new);
         EntityRenderers.register(AVPREntities.BULLET.get(), EmptyRender::new);
         EntityRenderers.register(AVPREntities.ROCKET_ENTITY.get(), RocketRenderer::new);
         EntityRenderers.register(AVPREntities.FLAMETHROW_ENTITY.get(), EmptyRender::new);

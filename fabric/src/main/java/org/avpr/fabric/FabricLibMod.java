@@ -69,8 +69,8 @@ public final class FabricLibMod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(AVPREntities.DEACON_ADULT.get(), DeaconAdultEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DEACON.get(), DeaconEntity.createAttributes());
-        FabricDefaultAttributeRegistry.register(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes());
-        FabricDefaultAttributeRegistry.register(AVPREntities.TRIOLOBITE.get(), TriolobiteEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(AVPREntities.TRILOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(AVPREntities.TRILOBITE.get(), TriolobiteEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.CHESTBURSTER_DRACO.get(), ChestbursterDracoEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DRACOMORPH.get(), DracomorphEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.OVAMORPH_DRACO.get(), OvamorphDracoEntity.createAttributes());
@@ -199,13 +199,13 @@ public final class FabricLibMod implements ModInitializer {
             AlienEntity::checkMonsterSpawnRules
         );
         SpawnPlacements.register(
-            AVPREntities.TRIOLOBITE_BABY.get(),
+            AVPREntities.TRILOBITE_BABY.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             AlienEntity::checkMonsterSpawnRules
         );
         SpawnPlacements.register(
-            AVPREntities.TRIOLOBITE.get(),
+            AVPREntities.TRILOBITE.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             AlienEntity::checkMonsterSpawnRules

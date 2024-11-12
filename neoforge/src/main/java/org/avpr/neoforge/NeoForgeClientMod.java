@@ -101,8 +101,8 @@ public class NeoForgeClientMod {
         event.registerEntityRenderer(AVPREntities.OCTOHUGGER.get(), OctohuggerRenderer::new);
         event.registerEntityRenderer(AVPREntities.BELUGABURSTER.get(), BelugabursterRenderer::new);
         event.registerEntityRenderer(AVPREntities.BELUGAMORPH.get(), BelugamorphRenderer::new);
-        event.registerEntityRenderer(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyRenderer::new);//
-        event.registerEntityRenderer(AVPREntities.TRIOLOBITE.get(), TriolobiteRenderer::new);
+        event.registerEntityRenderer(AVPREntities.TRILOBITE_BABY.get(), TriolobiteBabyRenderer::new);//
+        event.registerEntityRenderer(AVPREntities.TRILOBITE.get(), TriolobiteRenderer::new);
         event.registerEntityRenderer(AVPREntities.DEACON_ADULT.get(), DeaconAdultRenderer::new);
         event.registerEntityRenderer(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerRenderer::new);
         event.registerEntityRenderer(AVPREntities.DEACON.get(), DeaconRenderer::new);
@@ -117,8 +117,8 @@ public class NeoForgeClientMod {
         event.registerEntityRenderer(AVPREntities.ENGINEER.get(), EngineerRenderer::new);
         event.registerEntityRenderer(AVPREntities.YAUTJA.get(), YautjaRenderer::new);
         event.registerEntityRenderer(AVPREntities.GRENADE_THROWN.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(AVPREntities.SHURKIEN_ENTITY.get(), SkurikenItemRenderer::new);
-        event.registerEntityRenderer(AVPREntities.SMARTDISC_ENTITY.get(), SkurikenItemRenderer::new);
+        event.registerEntityRenderer(AVPREntities.SHURIKEN_ENTITY.get(), SkurikenItemRenderer::new);
+        event.registerEntityRenderer(AVPREntities.SMART_DISC_ENTITY.get(), SkurikenItemRenderer::new);
         event.registerEntityRenderer(AVPREntities.BULLET.get(), EmptyRender::new);
         event.registerEntityRenderer(AVPREntities.ROCKET_ENTITY.get(), RocketRenderer::new);
         event.registerEntityRenderer(AVPREntities.FLAMETHROW_ENTITY.get(), EmptyRender::new);

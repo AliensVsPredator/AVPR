@@ -261,14 +261,14 @@ public final class NeoForgeMod {
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
-            AVPREntities.TRIOLOBITE_BABY.get(),
+            AVPREntities.TRILOBITE_BABY.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             AlienEntity::checkMonsterSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
-            AVPREntities.TRIOLOBITE.get(),
+            AVPREntities.TRILOBITE.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             AlienEntity::checkMonsterSpawnRules,
@@ -369,8 +369,8 @@ public final class NeoForgeMod {
         event.put(AVPREntities.DEACON_ADULT.get(), DeaconAdultEntity.createAttributes().build());
         event.put(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerEntity.createAttributes().build());
         event.put(AVPREntities.DEACON.get(), DeaconEntity.createAttributes().build());
-        event.put(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes().build());
-        event.put(AVPREntities.TRIOLOBITE.get(), TriolobiteEntity.createAttributes().build());
+        event.put(AVPREntities.TRILOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes().build());
+        event.put(AVPREntities.TRILOBITE.get(), TriolobiteEntity.createAttributes().build());
         event.put(AVPREntities.CHESTBURSTER_DRACO.get(), ChestbursterDracoEntity.createAttributes().build());
         event.put(AVPREntities.DRACOMORPH.get(), DracomorphEntity.createAttributes().build());
         event.put(AVPREntities.OVAMORPH_DRACO.get(), OvamorphDracoEntity.createAttributes().build());
