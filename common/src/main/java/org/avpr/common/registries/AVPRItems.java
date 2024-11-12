@@ -470,7 +470,7 @@ public record AVPRItems() {
         "tool_aluminum_hoe",
         () -> new HoeItem(
             AVPRToolMaterials.ALUMINUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, -3.0F, 0.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, -3.0F, 0.0F))
         )
     );
 
@@ -494,7 +494,7 @@ public record AVPRItems() {
         "tool_aluminum_sword",
         () -> new SwordItem(
             AVPRToolMaterials.ALUMINUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 3, -2.4F))
         )
     );
 
@@ -526,7 +526,7 @@ public record AVPRItems() {
         "tool_orionite_shovel",
         () -> new ShovelItem(
             AVPRToolMaterials.ORIONITE,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, 1.5F, -3.0F))
         )
     );
 
@@ -534,7 +534,7 @@ public record AVPRItems() {
         "tool_orionite_sword",
         () -> new SwordItem(
             AVPRToolMaterials.ORIONITE,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, 3, -2.4F))
         )
     );
 
@@ -566,7 +566,7 @@ public record AVPRItems() {
         "tool_titanium_shovel",
         () -> new ShovelItem(
             AVPRToolMaterials.TITANIUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 1.5F, -3.0F))
         )
     );
 
@@ -606,7 +606,7 @@ public record AVPRItems() {
         "tool_veritanium_shovel",
         () -> new ShovelItem(
             AVPRToolMaterials.VERITANIUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, 1.5F, -3.0F))
         )
     );
 
@@ -614,7 +614,7 @@ public record AVPRItems() {
         "tool_veritanium_sword",
         () -> new SwordItem(
             AVPRToolMaterials.VERITANIUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, 3, -2.4F))
         )
     );
 
