@@ -9,7 +9,7 @@ import org.avpr.common.CommonMod;
 
 public class ArmorModel<T extends Item & GeoItem> extends GeoModel<T> {
 
-    String armorName;
+    private final String armorName;
 
     public ArmorModel(String setArmorName) {
         armorName = setArmorName;
@@ -27,6 +27,7 @@ public class ArmorModel<T extends Item & GeoItem> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getAnimationResource(T animatable) {
+        // TODO: What's going on here?
         return CommonMod.modResource("animations/item/empty.animation.json");
     }
 }

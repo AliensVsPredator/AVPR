@@ -43,7 +43,7 @@ public class UseItemTask<E extends LivingEntity> extends AnimatableRangeTask<E> 
         if (entity.getMainHandItem().is(AVPRItems.SMART_DISC.get()))
             EntityUtil.shootSmartDisc(entity);
         if (entity.getMainHandItem().is(AVPRItems.SHURIKEN.get()))
-            EntityUtil.shootSkuriken(entity);
+            EntityUtil.shootShuriken(entity);
         BrainUtils.setForgettableMemory(entity, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.applyAsInt(entity));
     }
 }

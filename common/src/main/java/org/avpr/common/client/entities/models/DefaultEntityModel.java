@@ -13,6 +13,7 @@ public class DefaultEntityModel<T extends GeoAnimatable> extends DefaultedEntity
 
     @Override
     public RenderType getRenderType(T animatable, ResourceLocation texture) {
+        // TODO: Translucency should NOT be the default, this has (negative) performance implications.
         return RenderType.entityTranslucent(texture);
     }
 }

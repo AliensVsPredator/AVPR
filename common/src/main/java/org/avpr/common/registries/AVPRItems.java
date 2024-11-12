@@ -1111,7 +1111,7 @@ public record AVPRItems() {
         "weapon_f90_rifle",
         () -> new BaseGunItem(
             "weapon_f90_rifle",
-            GunEnum.F90RIFLE,
+            GunEnum.F90_RIFLE,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 32)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
@@ -1130,7 +1130,7 @@ public record AVPRItems() {
         "weapon_m4_carbine",
         () -> new BaseGunItem(
             "weapon_m4_carbine",
-            GunEnum.M4CARBINE,
+            GunEnum.M4_CARBINE,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 32)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
@@ -1149,7 +1149,7 @@ public record AVPRItems() {
         "weapon_m41a_pulse_rifle",
         () -> new BaseGunItem(
             "weapon_m41a_pulse_rifle",
-            GunEnum.M41APULSERIFLE,
+            GunEnum.M41A_PULSE_RIFLE,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 99)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
@@ -1225,7 +1225,7 @@ public record AVPRItems() {
         "weapon_old_painless",
         () -> new BaseGunItem(
             "weapon_old_painless",
-            GunEnum.OLDPAINLESS,
+            GunEnum.OLD_PAINLESS,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), Integer.MAX_VALUE)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)

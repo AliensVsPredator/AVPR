@@ -104,8 +104,5 @@ public record PredicatesUtil() {
         && (livingEntity.getType().is(AVPREntityTags.ALIENS)
             || livingEntity.getPassengers().stream().anyMatch(FacehuggerEntity.class::isInstance)
             || livingEntity.isDeadOrDying()
-            || livingEntity.getType()
-                .is(
-                    EntityTypeTags.UNDEAD
-                ));
+            || livingEntity.getType().is(EntityTypeTags.UNDEAD));
 }

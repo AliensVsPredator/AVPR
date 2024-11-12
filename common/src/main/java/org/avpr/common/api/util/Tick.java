@@ -7,6 +7,8 @@ package org.avpr.common.api.util;
  */
 public record Tick() {
 
+    // TODO: This is a utility class, this should not be a record.
+
     public static final int PER_SECOND = 20;
 
     public static final int PER_MINUTE = 60 * PER_SECOND;
