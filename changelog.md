@@ -1,5 +1,7 @@
-v0.0.8
+v0.0.9
 
-- Fabric ores fixed.
-- Mobs spawn again. (Math is fun)
-- Fixes guns breaking blocks that shouldn't be broken. (Fixes Acid as well actually)
+- Fixed Royal Jelly item having an incorrect rarity.
+- Fixed modded sword damage values not being consistent with 1.20.4.
+- Fixed spawn eggs not spawning from dispensers.
+- Fixed predator blade open/close sounds being heard from very far away.
+- Tweaked autunite geode generation.
