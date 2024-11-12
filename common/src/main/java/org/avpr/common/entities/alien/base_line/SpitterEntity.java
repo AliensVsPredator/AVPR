@@ -55,7 +55,7 @@ public class SpitterEntity extends AlienEntity implements SmartBrainOwner<Spitte
 
     public SpitterEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPosMax = CommonMod.config.spitterConfigs.SPITTER_MAX_SPAWN_Y;
+        SPAWN_HEIGHT_MAX = CommonMod.config.spitterConfigs.SPITTER_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

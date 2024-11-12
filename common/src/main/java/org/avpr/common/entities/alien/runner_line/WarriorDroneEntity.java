@@ -55,7 +55,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
 
     public WarriorDroneEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPosMax = CommonMod.config.warriorRunnerConfigs.WARRIOR_RUNNER_MAX_SPAWN_Y;
+        SPAWN_HEIGHT_MAX = CommonMod.config.warriorRunnerConfigs.WARRIOR_RUNNER_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

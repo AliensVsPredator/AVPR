@@ -57,7 +57,7 @@ public class PraetorianEntity extends AlienEntity implements SmartBrainOwner<Pra
 
     public PraetorianEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPosMax = CommonMod.config.praetorianConfigs.PRAETORIAN_MAX_SPAWN_Y;
+        SPAWN_HEIGHT_MAX = CommonMod.config.praetorianConfigs.PRAETORIAN_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

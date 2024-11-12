@@ -60,6 +60,8 @@ import org.avpr.common.tags.AVPREntityTags;
  */
 public abstract class AlienEntity extends WaterAnimal implements Enemy, VibrationSystem, GeoEntity, GrowableInterface {
 
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     protected static final EntityDataAccessor<Float> GROWTH = SynchedEntityData.defineId(
         AlienEntity.class,
         EntityDataSerializers.FLOAT
@@ -75,9 +77,11 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         EntityDataSerializers.INT
     );
 
-    protected AngerManagement angerManagement = new AngerManagement(this::canTargetEntity, Collections.emptyList());
+    protected static int SPAWN_HEIGHT_MAX = 256;
 
-    private static final Logger LOGGER = LogUtils.getLogger();
+    protected static int SPAWN_HEIGHT_MIN = -256;
+
+    protected AngerManagement angerManagement = new AngerManagement(this::canTargetEntity, Collections.emptyList());
 
     private final DynamicGameEventListener<Listener> dynamicGameEventListener;
 
@@ -86,10 +90,6 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     private Data vibrationData;
 
     protected String hostId = null;
-
-    protected static int spawnPosMax = 256;
-
-    protected static int spawnPosMin = -256;
 
     public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
@@ -124,7 +124,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     ) {
         return level.getDifficulty() != Difficulty.PEACEFUL
             && (MobSpawnType.ignoresLightRequirements(spawnType) || isDarkEnoughToSpawn(level, pos, random))
-            && checkMobSpawnRules(type, level, spawnType, pos, random) && (pos.getY() <= spawnPosMax && pos.getY() >= spawnPosMin);
+            && checkMobSpawnRules(type, level, spawnType, pos, random) && (pos.getY() <= SPAWN_HEIGHT_MAX && pos.getY() >= SPAWN_HEIGHT_MIN);
     }
 
     /**
