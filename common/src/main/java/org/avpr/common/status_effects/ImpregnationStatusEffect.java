@@ -42,7 +42,7 @@ public class ImpregnationStatusEffect extends MobEffect {
      * @param mobEffectInstance The {@code MobEffectInstance} being removed.
      */
     public static void effectRemoval(LivingEntity entity, MobEffectInstance mobEffectInstance) {
-        if (PredicatesUtil.IS_CREATIVEorSPECTATOR.test(entity))
+        if (PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(entity))
             return;
         if (!entity.getType().is(AVPREntityTags.ALL_HOSTS))
             return;
@@ -63,7 +63,7 @@ public class ImpregnationStatusEffect extends MobEffect {
                     2.0f,
                     1.0f
                 );
-            if (!PredicatesUtil.IS_CREATIVEorSPECTATOR.test(entity))
+            if (!PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(entity))
                 DamageUtil.damageArmor(entity.getItemBySlot(EquipmentSlot.CHEST), entity.getRandom(), 5, 10);
             entity.hurt(DamageUtil.of(entity.level(), AVPRDamageSources.CHESTBURST), Integer.MAX_VALUE);
         }

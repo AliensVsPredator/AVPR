@@ -229,7 +229,7 @@ public class AcidEntity extends Entity {
 
         if (isInWater() || tickCount % 10 != 0)
             return;
-        if (entity instanceof Player player && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(player))
+        if (entity instanceof Player player && PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(player))
             return;
 
         if (entity instanceof LivingEntity livingEntity) {

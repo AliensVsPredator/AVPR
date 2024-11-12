@@ -354,7 +354,7 @@ public class OvamorphDracoEntity extends AlienEntity {
                             .is(
                                 AVPREntityTags.ALL_HOSTS
                             ) && this.level().random.nextFloat() < 0.2f && !target.isSteppingCarefully()
-                            && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(
+                            && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(
                                 target
                             )
                     ) {
@@ -366,7 +366,7 @@ public class OvamorphDracoEntity extends AlienEntity {
             this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(3)).forEach(target -> {
                 if (
                     target.isAlive() && target.getType().is(AVPREntityTags.HUMANIOD_HOSTS) && this.level().random.nextFloat() < 0.8f
-                        && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                        && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(target)
                 ) {
                     this.setIsHatching(true);
                 }

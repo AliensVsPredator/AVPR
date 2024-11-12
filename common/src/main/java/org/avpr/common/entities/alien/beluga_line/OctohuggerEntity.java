@@ -207,7 +207,7 @@ public class OctohuggerEntity extends AlienEntity implements SmartBrainOwner<Oct
                 this.kill();
             }
 
-            if (PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity)) {
+            if (PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(livingEntity)) {
                 detachFromHost();
                 setIsInfertile(true);
                 this.kill();

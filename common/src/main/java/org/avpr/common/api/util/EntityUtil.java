@@ -98,7 +98,7 @@ public record EntityUtil() {
                 livingEntity -> !livingEntity.getType()
                     .is(
                         AVPREntityTags.PREDATORS
-                    ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity) && livingEntity != projectile.getOwner()
+                    ) && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(livingEntity) && livingEntity != projectile.getOwner()
             );
         if (!livingEntities.isEmpty()) {
             var first = livingEntities.getFirst(); // Get the first entity found.

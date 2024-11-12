@@ -27,7 +27,7 @@ public record PredicatesUtil() {
      * predicate returns true if the living entity is an instance of a player and the player is in either creative mode
      * or spectator mode.
      */
-    public static final Predicate<LivingEntity> IS_CREATIVEorSPECTATOR = livingEntity -> livingEntity instanceof Player player && (player
+    public static final Predicate<LivingEntity> IS_CREATIVE_OR_SPECTATOR = livingEntity -> livingEntity instanceof Player player && (player
         .isCreative()
         || player.isSpectator());
 
