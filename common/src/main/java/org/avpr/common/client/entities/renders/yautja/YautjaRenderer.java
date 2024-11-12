@@ -15,8 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
-
 import org.avpr.common.CommonMod;
 import org.avpr.common.client.entities.models.yautja.YautjaModel;
 import org.avpr.common.entities.yautja.YautjaEntity;
@@ -143,9 +141,9 @@ public class YautjaRenderer extends GeoEntityRenderer<YautjaEntity> {
         } else if (!animatable.hasRightArmArmor() && leftArmArmor.isPresent()) {
             leftArmArmor.get().setHidden(true);
         }
-        if (animatable.hasleftForearmArmor() && leftForearmArmor.isPresent()) {
+        if (animatable.hasLeftForearmArmor() && leftForearmArmor.isPresent()) {
             leftForearmArmor.get().setHidden(false);
-        } else if (!animatable.hasleftForearmArmor() && leftForearmArmor.isPresent()) {
+        } else if (!animatable.hasLeftForearmArmor() && leftForearmArmor.isPresent()) {
             leftForearmArmor.get().setHidden(true);
         }
         if (animatable.hasChestArmor() && chestArmor.isPresent()) {

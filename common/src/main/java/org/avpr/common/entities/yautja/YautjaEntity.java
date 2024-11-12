@@ -112,7 +112,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         EntityDataSerializers.BOOLEAN
     );
 
-    private static final EntityDataAccessor<Boolean> HAS_CHESTARMOR = SynchedEntityData.defineId(
+    private static final EntityDataAccessor<Boolean> HAS_CHEST_ARMOR = SynchedEntityData.defineId(
         YautjaEntity.class,
         EntityDataSerializers.BOOLEAN
     );
@@ -160,30 +160,17 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, Constants.LIVING_CONTROLLER, 0, event -> {
-            return event.getAnimatable().hasBlade()
-                ? event.setAndContinue(Constants.BLADE_OPEN)
-                : event.setAndContinue(Constants.BLADE_CLOSE);
-        }).setSoundKeyframeHandler(event -> {
+        controllers.add(new AnimationController<>(this, Constants.LIVING_CONTROLLER, 0, event -> event.getAnimatable().hasBlade()
+            ? event.setAndContinue(Constants.BLADE_OPEN)
+            : event.setAndContinue(Constants.BLADE_CLOSE)).setSoundKeyframeHandler(event -> {
             if (level().isClientSide()) {
-                if (event.getKeyframeData().getSound().matches("blade_closing"))
-                    level().playLocalSound(
-                        this.blockPosition(),
-                        AVPRSounds.ITEM_WEAPON_WRISTBLADE_CLOSE.get(),
-                        SoundSource.HOSTILE,
-                        1,
-                        1,
-                        true
-                    );
-                if (event.getKeyframeData().getSound().matches("blade_opening"))
-                    level().playLocalSound(
-                        this.blockPosition(),
-                        AVPRSounds.ITEM_WEAPON_WRISTBLADE_OPEN.get(),
-                        SoundSource.HOSTILE,
-                        1,
-                        1,
-                        true
-                    );
+                if (event.getKeyframeData().getSound().matches("blade_closing")) {
+                    level().playLocalSound(this, AVPRSounds.ITEM_WEAPON_WRISTBLADE_CLOSE.get(), SoundSource.HOSTILE, 1F, 1F);
+                }
+
+                if (event.getKeyframeData().getSound().matches("blade_opening")) {
+                    level().playLocalSound(this, AVPRSounds.ITEM_WEAPON_WRISTBLADE_OPEN.get(), SoundSource.HOSTILE, 1F, 1F);
+                }
             }
         }))
             .add(
@@ -232,9 +219,9 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
             this.setHasleftFootArmor(true);
             this.setHasRightFootArmor(true);
             this.setHasRightArmArmor(true);
-            this.setHasleftForearmArmor(true);
+            this.setHasLeftForearmArmor(true);
             this.setHasRightForearmArmor(true);
-            this.setHasChestarmor(true);
+            this.setHasChestArmor(true);
         }
         if (currentHealthPercentage < 100 && !this.isAggressive() && (tickCount - lastHealTick >= Tick.PER_MINUTE / 2)) {
             this.heal(0.5F);
@@ -266,9 +253,9 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         this.setHasleftFootArmor(true);
         this.setHasRightFootArmor(true);
         this.setHasRightArmArmor(true);
-        this.setHasleftForearmArmor(true);
+        this.setHasLeftForearmArmor(true);
         this.setHasRightForearmArmor(true);
-        this.setHasChestarmor(true);
+        this.setHasChestArmor(true);
         this.setHasBlade(true);
         if (this.getRandom().nextInt(10) >= 4)
             setItemSlot(EquipmentSlot.MAINHAND, makeInitialWeapon());
@@ -307,7 +294,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         builder.define(HAS_RIGHT_ARM_ARMOR, true);
         builder.define(HAS_lEFT_FOREARM_ARMOR, true);
         builder.define(HAS_RIGHT_FOREARM_ARMOR, true);
-        builder.define(HAS_CHESTARMOR, true);
+        builder.define(HAS_CHEST_ARMOR, true);
         builder.define(HAS_BLADE, true);
     }
 
@@ -320,7 +307,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         compound.putBoolean("hasLeftFootArmor", this.hasLeftFootArmor());
         compound.putBoolean("hasRightFootArmor", this.hasRightFootArmor());
         compound.putBoolean("hasRightArmArmor", this.hasRightArmArmor());
-        compound.putBoolean("hasLeftForearmArmor", this.hasleftForearmArmor());
+        compound.putBoolean("hasLeftForearmArmor", this.hasLeftForearmArmor());
         compound.putBoolean("hasRightForearmArmor", this.hasRightForearmArmor());
         compound.putBoolean("hasChestArmor", this.hasChestArmor());
         compound.putBoolean("hasBlade", this.hasBlade());
@@ -335,9 +322,9 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         this.setHasleftFootArmor(compound.getBoolean("hasLeftFootArmor"));
         this.setHasRightFootArmor(compound.getBoolean("hasRightFootArmor"));
         this.setHasRightArmArmor(compound.getBoolean("hasRightArmArmor"));
-        this.setHasleftForearmArmor(compound.getBoolean("hasLeftForearmArmor"));
+        this.setHasLeftForearmArmor(compound.getBoolean("hasLeftForearmArmor"));
         this.setHasRightForearmArmor(compound.getBoolean("hasRightForearmArmor"));
-        this.setHasChestarmor(compound.getBoolean("hasChestArmor"));
+        this.setHasChestArmor(compound.getBoolean("hasChestArmor"));
         this.setHasBlade(compound.getBoolean("hasBlade"));
     }
 
@@ -389,11 +376,11 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         return this.entityData.get(HAS_RIGHT_ARM_ARMOR);
     }
 
-    public void setHasleftForearmArmor(boolean hasleftForearmArmor) {
-        entityData.set(HAS_lEFT_FOREARM_ARMOR, hasleftForearmArmor);
+    public void setHasLeftForearmArmor(boolean hasLeftForearmArmor) {
+        entityData.set(HAS_lEFT_FOREARM_ARMOR, hasLeftForearmArmor);
     }
 
-    public boolean hasleftForearmArmor() {
+    public boolean hasLeftForearmArmor() {
         return this.entityData.get(HAS_lEFT_FOREARM_ARMOR);
     }
 
@@ -405,12 +392,12 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         return this.entityData.get(HAS_RIGHT_FOREARM_ARMOR);
     }
 
-    public void setHasChestarmor(boolean hasChestarmor) {
-        entityData.set(HAS_CHESTARMOR, hasChestarmor);
+    public void setHasChestArmor(boolean hasChestArmor) {
+        entityData.set(HAS_CHEST_ARMOR, hasChestArmor);
     }
 
     public boolean hasChestArmor() {
-        return this.entityData.get(HAS_CHESTARMOR);
+        return this.entityData.get(HAS_CHEST_ARMOR);
     }
 
     public void setHasBlade(boolean hasBlade) {
@@ -471,8 +458,8 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
         hideActions.add(() -> setHasleftFootArmor(false));
         hideActions.add(() -> setHasRightFootArmor(false));
         hideActions.add(() -> setHasRightArmArmor(false));
-        hideActions.add(() -> setHasleftForearmArmor(false));
-        hideActions.add(() -> setHasChestarmor(false));
+        hideActions.add(() -> setHasLeftForearmArmor(false));
+        hideActions.add(() -> setHasChestArmor(false));
         hideActions.add(() -> setMaskStatus(false));
         Collections.shuffle(hideActions);
         if (!hideActions.isEmpty()) {
