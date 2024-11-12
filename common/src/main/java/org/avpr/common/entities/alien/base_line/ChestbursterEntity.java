@@ -82,16 +82,20 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
 
     @Override
     public LivingEntity growInto() {
-        EntityType<? extends AlienEntity> entity_type = AVPREntities.DRONE.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("predalien"))
-            entity_type = AVPREntities.PREDALIEN.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("crusher"))
-            entity_type = AVPREntities.CRUSHER.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("spitter"))
-            entity_type = AVPREntities.SPITTER.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("runner"))
-            entity_type = AVPREntities.DRONE_RUNNER.get();
-        return entity_type.create(level());
+        var lowercaseHostIdOrNull = getHostId().map(hostId -> hostId.toLowerCase(Locale.ROOT)).orElse(null);
+
+        // TODO: This should be either exhaustive or automated.
+        var entityTypeSupplier = switch (lowercaseHostIdOrNull) {
+            case "predalien" -> AVPREntities.PREDALIEN;
+            case "crusher" -> AVPREntities.CRUSHER;
+            case "spitter" -> AVPREntities.SPITTER;
+            case "runner" -> AVPREntities.DRONE_RUNNER;
+            case null, default -> AVPREntities.DRONE;
+        };
+
+        var entityType = entityTypeSupplier.get();
+
+        return entityType.create(level());
     }
 
     @Override

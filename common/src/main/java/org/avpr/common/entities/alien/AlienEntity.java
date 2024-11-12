@@ -31,7 +31,6 @@ import net.minecraft.world.entity.monster.warden.AngerManagement;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.gameevent.DynamicGameEventListener;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
 import net.minecraft.world.level.material.Fluid;
@@ -44,6 +43,7 @@ import org.slf4j.Logger;
 
 import java.util.Collections;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.BiConsumer;
 
 import org.avpr.common.api.common.GrowableInterface;
@@ -140,18 +140,19 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         if (level.getBrightness(LightLayer.SKY, pos) > random.nextInt(32)) {
             return false;
         } else {
-            DimensionType dimensiontype = level.dimensionType();
-            int i = dimensiontype.monsterSpawnBlockLightLimit();
-            if (i < 15 && level.getBrightness(LightLayer.BLOCK, pos) > i) {
+            var dimensiontype = level.dimensionType();
+            var spawnBlockLightLimit = dimensiontype.monsterSpawnBlockLightLimit();
+
+            if (spawnBlockLightLimit < 15 && level.getBrightness(LightLayer.BLOCK, pos) > spawnBlockLightLimit) {
                 return false;
             } else {
-                int j = level.getLevel().isThundering()
+                var brightness = level.getLevel().isThundering()
                     ? level.getMaxLocalRawBrightness(
                         pos,
                         10
                     )
                     : level.getMaxLocalRawBrightness(pos);
-                return j <= dimensiontype.monsterSpawnLightTest().sample(random);
+                return brightness <= dimensiontype.monsterSpawnLightTest().sample(random);
             }
         }
     }
@@ -191,6 +192,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     protected void customServerAiStep() {
         var serverLevel = (ServerLevel) this.level();
         super.customServerAiStep();
+
         if (this.tickCount % 20 == 0) {
             this.angerManagement.tick(serverLevel, this::canTargetEntity);
             this.syncClientAngerLevel();
@@ -208,15 +210,23 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     public void tick() {
         super.tick();
         this.setAirSupply(this.getMaxAirSupply());
+
         if (level() instanceof ServerLevel serverLevel) {
-            if (this.isAlive())
+
+            if (this.isAlive()) {
                 this.grow(this, 1 * getGrowthMultiplier());
-            if (this.isVehicle())
+            }
+
+            if (this.isVehicle()) {
                 this.setAggressive(false);
+            }
+
             AVPRTicker.tick(serverLevel, this.vibrationData, this.vibrationUser);
         }
-        if (this.tickCount % 10 == 0)
+
+        if (this.tickCount % 10 == 0) {
             this.refreshDimensions();
+        }
     }
 
     /**
@@ -264,12 +274,15 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     @Override
     public void travel(@NotNull Vec3 travelVector) {
         if (this.isEffectiveAi() && this.isInWater()) {
+
             this.moveRelative(this.getSpeed(), travelVector);
             this.move(MoverType.SELF, this.getDeltaMovement());
             this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
+
             if (this.getTarget() == null) {
                 this.setDeltaMovement(this.getDeltaMovement().add(0.0, -0.005, 0.0));
             }
+
         } else {
             super.travel(travelVector);
         }
@@ -339,8 +352,8 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         this.entityData.set(FLEEING_FIRE, fleeing);
     }
 
-    public String getHostId() {
-        return hostId;
+    public Optional<String> getHostId() {
+        return Optional.ofNullable(hostId);
     }
 
     public void setHostId(String hostId) {
@@ -358,15 +371,20 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     @Override
     public void addAdditionalSaveData(@NotNull CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        if (hostId != null)
+
+        if (hostId != null) {
             compound.putString("hostId", hostId);
+        }
+
         compound.putFloat("growth", this.getGrowth());
         compound.putBoolean("isFleeing", this.isFleeing());
+
         Data.CODEC.encodeStart(NbtOps.INSTANCE, this.vibrationData)
             .resultOrPartial(
                 LOGGER::error
             )
             .ifPresent(tag -> compound.put("listener", tag));
+
         AngerManagement.codec(this::canTargetEntity)
             .encodeStart(NbtOps.INSTANCE, this.angerManagement)
             .resultOrPartial(
@@ -378,10 +396,14 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     @Override
     public void readAdditionalSaveData(@NotNull CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        if (compound.contains("hostId"))
+
+        if (compound.contains("hostId")) {
             hostId = compound.getString("hostId");
+        }
+
         this.setGrowth(compound.getFloat("growth"));
         this.setFleeingStatus(compound.getBoolean("growth"));
+
         if (compound.contains("anger")) {
             AngerManagement.codec(this::canTargetEntity)
                 .parse(
@@ -393,14 +415,16 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
                 );
             this.syncClientAngerLevel();
         }
-        if (compound.contains("listener", 10))
+
+        if (compound.contains("listener", 10)) {
             Data.CODEC.parse(
-                new Dynamic<>(NbtOps.INSTANCE, compound.getCompound("listener"))
-            )
+                    new Dynamic<>(NbtOps.INSTANCE, compound.getCompound("listener"))
+                )
                 .resultOrPartial(
                     LOGGER::error
                 )
                 .ifPresent(data -> this.vibrationData = data);
+        }
     }
 
     /**
@@ -412,9 +436,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
      */
     @Override
     public int calculateFallDamage(float fallDistance, float damageMultiplier) {
-        if (fallDistance <= 15)
-            return 0;
-        return super.calculateFallDamage(fallDistance, damageMultiplier);
+        return fallDistance <= 15 ? 0 : super.calculateFallDamage(fallDistance, damageMultiplier);
     }
 
     /**
@@ -469,10 +491,11 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
         }
 
         var damageCheck = !this.level().isClientSide && source != damageSources().genericKill() || source != damageSources().generic();
+
         if (damageCheck) {
-            if (getAcidDiameter() == 1)
+            if (getAcidDiameter() == 1) {
                 EntityUtil.generateAcidPool(this, this.blockPosition(), 0, 0, 20);
-            else {
+            } else {
                 var radius = (getAcidDiameter() - 1) / 2;
                 for (var i = 0; i < getAcidDiameter(); i++) {
                     var x = this.level().getRandom().nextInt(getAcidDiameter()) - radius;
@@ -482,6 +505,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
                 }
             }
         }
+
         super.die(source);
     }
 
