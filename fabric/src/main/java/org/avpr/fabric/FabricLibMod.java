@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import org.avpr.common.CommonMod;
+import org.avpr.common.blocks.behaviors.AVPRDispenserBlockBehaviors;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.*;
 import org.avpr.common.entities.alien.beluga_line.BelugabursterEntity;
@@ -42,6 +43,10 @@ public final class FabricLibMod implements ModInitializer {
         AzureLib.initialize();
         AzureLib.hasKeyBindsInitialized = true;
         CommonMod.initRegistries();
+
+        // Dispenser behavior registration.
+        AVPRDispenserBlockBehaviors.INSTANCE.registerAll();
+
         /*
          * Mob Attribute Registry
          */
