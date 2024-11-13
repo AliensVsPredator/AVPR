@@ -34,13 +34,8 @@ import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.entities.ai.tasks.attack.EatFoodTask;
@@ -50,12 +45,15 @@ import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class ChestbursterQueenEntity extends AlienEntity implements SmartBrainOwner<ChestbursterQueenEntity> {
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    public ChestbursterQueenEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
+    public ChestbursterQueenEntity(EntityType<? extends ChestbursterQueenEntity> entityType, Level level) {
         super(entityType, level);
     }
 

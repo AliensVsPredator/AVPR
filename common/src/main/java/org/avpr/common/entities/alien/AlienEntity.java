@@ -25,8 +25,8 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ambient.Bat;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.AngerManagement;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
@@ -54,11 +54,11 @@ import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPREntityTags;
 
 /**
- * Abstract class representing an alien entity that extends WaterAnimal and implements various interfaces such as Enemy,
+ * Abstract class representing an alien entity that extends Monster and implements various interfaces such as Enemy,
  * VibrationSystem, GeoEntity, and GrowableInterface. This class includes methods for handling data registration, growth
  * management, dynamic game event listening, AI behavior, vibration handling, and custom entity-specific mechanics.
  */
-public abstract class AlienEntity extends WaterAnimal implements Enemy, VibrationSystem, GeoEntity, GrowableInterface {
+public abstract class AlienEntity extends Monster implements Enemy, VibrationSystem, GeoEntity, GrowableInterface {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -91,7 +91,7 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
 
     protected String hostId = null;
 
-    public AlienEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
+    public AlienEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
         this.noCulling = true;
         this.vibrationUser = new AVPRVibrationUser(this, 1.2F);
@@ -108,15 +108,15 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     /**
      * Checks whether various conditions are met for a monster to spawn in the given level.
      *
-     * @param type      The type of water animal entity to spawn.
+     * @param type      The type of alien entity to spawn.
      * @param level     The server level accessor providing the environment context.
      * @param spawnType The type of spawning being attempted.
      * @param pos       The block position where the monster is attempting to spawn.
      * @param random    A source of randomness for checking spawn conditions.
      * @return true if the monster can spawn, false otherwise.
      */
-    public static boolean checkMonsterSpawnRules(
-        EntityType<? extends WaterAnimal> type,
+    public static boolean checkAlienSpawnRules(
+        EntityType<? extends AlienEntity> type,
         ServerLevelAccessor level,
         MobSpawnType spawnType,
         BlockPos pos,
@@ -164,12 +164,6 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     public float maxUpStep() {
         return 1.05f;
     }
-
-    /**
-     * Always has full air
-     */
-    @Override
-    protected void handleAirSupply(int airSupply) {}
 
     @Override
     public int getMaxAirSupply() {
@@ -464,21 +458,6 @@ public abstract class AlienEntity extends WaterAnimal implements Enemy, Vibratio
     protected boolean canRide(@NotNull Entity vehicle) {
         return false;
     }
-
-    /**
-     * Handle despawn rules
-     */
-    @Override
-    public boolean requiresCustomPersistence() {
-        return true;
-    }
-
-    /**
-     * Checks and handles the conditions under which the AlienEntity should be despawned. This method overrides the base
-     * entity's despawn logic and performs custom checks related to the AlienEntity's specific behaviors and states.
-     */
-    @Override
-    public void checkDespawn() {}
 
     /**
      * Handle acid spawning on death

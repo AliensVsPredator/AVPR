@@ -44,9 +44,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.NotNull;
@@ -57,7 +57,7 @@ import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.tags.AVPREntityTags;
 
-public class EngineerEntity extends WaterAnimal implements Enemy, GeoEntity, SmartBrainOwner<EngineerEntity> {
+public class EngineerEntity extends Monster implements Enemy, GeoEntity, SmartBrainOwner<EngineerEntity> {
 
     private static final EntityDataAccessor<Integer> ENGINEER_TYPE = SynchedEntityData.defineId(
         EngineerEntity.class,
@@ -71,7 +71,7 @@ public class EngineerEntity extends WaterAnimal implements Enemy, GeoEntity, Sma
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    public EngineerEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
+    public EngineerEntity(EntityType<? extends EngineerEntity> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -86,15 +86,15 @@ public class EngineerEntity extends WaterAnimal implements Enemy, GeoEntity, Sma
     /**
      * Checks whether various conditions are met for a monster to spawn in the given level.
      *
-     * @param type      The type of water animal entity to spawn.
+     * @param type      The type of engineer entity to spawn.
      * @param level     The server level accessor providing the environment context.
      * @param spawnType The type of spawning being attempted.
      * @param pos       The block position where the monster is attempting to spawn.
      * @param random    A source of randomness for checking spawn conditions.
      * @return true if the monster can spawn, false otherwise.
      */
-    public static boolean checkMonsterSpawnRules(
-        EntityType<? extends WaterAnimal> type,
+    public static boolean checkEngineerSpawnRules(
+        EntityType<? extends EngineerEntity> type,
         ServerLevelAccessor level,
         MobSpawnType spawnType,
         BlockPos pos,

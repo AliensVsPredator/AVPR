@@ -39,23 +39,22 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.*;
-
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.Constants;
 import org.avpr.common.api.util.PredicatesUtil;
@@ -65,8 +64,17 @@ import org.avpr.common.registries.AVPRItems;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 import org.avpr.common.tags.AVPRItemTags;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, SmartBrainOwner<YautjaEntity> {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class YautjaEntity extends Monster implements Enemy, GeoEntity, SmartBrainOwner<YautjaEntity> {
 
     private final Set<Float> triggeredThresholds = new HashSet<>();
 
@@ -124,7 +132,7 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    public YautjaEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
+    public YautjaEntity(EntityType<? extends YautjaEntity> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -139,15 +147,15 @@ public class YautjaEntity extends WaterAnimal implements Enemy, GeoEntity, Smart
     /**
      * Checks whether various conditions are met for a monster to spawn in the given level.
      *
-     * @param type      The type of water animal entity to spawn.
+     * @param type      The type of yautja entity to spawn.
      * @param level     The server level accessor providing the environment context.
      * @param spawnType The type of spawning being attempted.
      * @param pos       The block position where the monster is attempting to spawn.
      * @param random    A source of randomness for checking spawn conditions.
      * @return true if the monster can spawn, false otherwise.
      */
-    public static boolean checkMonsterSpawnRules(
-        EntityType<? extends WaterAnimal> type,
+    public static boolean checkYautjaSpawnRules(
+        EntityType<? extends YautjaEntity> type,
         ServerLevelAccessor level,
         MobSpawnType spawnType,
         BlockPos pos,
