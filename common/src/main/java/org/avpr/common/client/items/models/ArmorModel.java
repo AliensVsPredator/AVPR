@@ -9,20 +9,20 @@ import org.avpr.common.CommonMod;
 
 public class ArmorModel<T extends Item & GeoItem> extends GeoModel<T> {
 
-    private final String armorName;
+    private final String name;
 
-    public ArmorModel(String setArmorName) {
-        armorName = setArmorName;
+    public ArmorModel(String name) {
+        this.name = name;
     }
 
     @Override
     public ResourceLocation getModelResource(T animatable) {
-        return CommonMod.modResource("geo/item/" + armorName + ".geo.json");
+        return CommonMod.modResource("geo/item/" + name + ".geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(T animatable) {
-        return CommonMod.modResource("textures/item/" + armorName + ".png");
+        return CommonMod.modResource("textures/item/" + name + ".png");
     }
 
     @Override
