@@ -167,12 +167,8 @@ public abstract class AlienEntity extends Monster implements Enemy, VibrationSys
 
     @Override
     public int getMaxAirSupply() {
+        // TODO: Revisit
         return 4800;
-    }
-
-    @Override
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-        return false;
     }
 
     /**
@@ -488,38 +484,14 @@ public abstract class AlienEntity extends Monster implements Enemy, VibrationSys
         super.die(source);
     }
 
-    /**
-     *
-     */
     @Override
     protected @NotNull SoundEvent getSwimSplashSound() {
         return SoundEvents.DOLPHIN_SPLASH;
     }
 
-    /**
-     *
-     */
     @Override
     protected @NotNull SoundEvent getSwimSound() {
         return SoundEvents.DOLPHIN_SWIM;
-    }
-
-    /**
-     * Handle entity being pushable
-     */
-    @Override
-    public boolean canBeCollidedWith() {
-        return this.isAlive();
-    }
-
-    /**
-     * Determines if the AlienEntity is pushable.
-     *
-     * @return false, indicating that the AlienEntity is not pushable.
-     */
-    @Override
-    public boolean isPushable() {
-        return false;
     }
 
     /**
