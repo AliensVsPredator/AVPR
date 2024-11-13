@@ -297,8 +297,8 @@ public record AVPREntities() {
         "crusher",
         CrusherEntity::new,
         MobCategory.MONSTER,
-        0.75F,
-        0.3F
+        1.48F,
+        2.48F
     );
 
     public static final Supplier<EntityType<DroneRunnerEntity>> DRONE_RUNNER = AVPREntities.registerEntity(
