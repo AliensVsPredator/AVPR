@@ -514,7 +514,7 @@ public abstract class AlienEntity extends Monster implements Enemy, VibrationSys
             return false;
         if (this.isAlliedTo(entity))
             return false;
-        if (!livingEntity.getType().is(AVPREntityTags.HUMANIOD_HOSTS))
+        if (!livingEntity.getType().is(AVPREntityTags.HUMANOID_HOSTS))
             return false;
         if (livingEntity.getType().is(EntityTypeTags.UNDEAD))
             return false;

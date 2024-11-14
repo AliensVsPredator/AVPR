@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#avpr:humaniod_hosts",
+    "#avpr:humanoid_hosts",
     "#avpr:engineers"
   ]
 }

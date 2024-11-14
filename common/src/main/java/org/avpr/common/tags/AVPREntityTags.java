@@ -6,19 +6,6 @@ import net.minecraft.world.entity.EntityType;
 
 import org.avpr.common.CommonMod;
 
-/**
- * The {@code AVPREntityTags} class contains static definitions of tag keys for various entity types used in the AVPR
- * (Aliens versus Predator Requiem) mod. These tags categorize entities based on their characteristics and behaviors
- * within the mod. ACID_IMMUNE indicates entities that are immune to acid damage. ALIENS represents entities categorized
- * as aliens. HOSTS signifies entities that can host other entities. RUNNER_HOSTS are a specific type of host entities.
- * ENGINEERS designates entities that are classified as engineers. PREDATORS indicates entities classified as predators.
- * PARASITES represents entities that are parasitic in nature. NOT_WORTH_KILLING categorizes entities that are not
- * valuable targets. MONSTERS designates entities classified as monsters. MEDIUM_GUNS_IMMUNE indicates entities that are
- * immune to medium firearms. HIVE_ALIENS represents alien entities that are part of a hive. HEAVY_GUNS_IMMUNE indicates
- * entities that are immune to heavy firearms. EGGS represents entities categorized as eggs. ACID_BLEEDERS indicates
- * entities that bleed acid. SMALL_GUNS_IMMUNE signifies entities that are immune to small firearms. ROYAL_ALIENS
- * designates entities that are considered royal aliens. PRODUCES_RESIN represents entities that produce resin.
- */
 public record AVPREntityTags() {
 
     public static final TagKey<EntityType<?>> ACID_IMMUNE = CommonMod.createTag(Registries.ENTITY_TYPE, "acid_immune");
@@ -27,7 +14,7 @@ public record AVPREntityTags() {
 
     public static final TagKey<EntityType<?>> ALL_HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "all_hosts");
 
-    public static final TagKey<EntityType<?>> HUMANIOD_HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "humaniod_hosts");
+    public static final TagKey<EntityType<?>> HUMANOID_HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "humanoid_hosts");
 
     public static final TagKey<EntityType<?>> RUNNER_HOSTS = CommonMod.createTag(Registries.ENTITY_TYPE, "runner_hosts");
 
