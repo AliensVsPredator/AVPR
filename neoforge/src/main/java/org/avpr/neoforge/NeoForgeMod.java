@@ -37,7 +37,7 @@ import org.avpr.common.entities.alien.predalien_line.PredalienEntity;
 import org.avpr.common.entities.alien.runner_line.ChestbursterRunnerEntity;
 import org.avpr.common.entities.alien.runner_line.CrusherEntity;
 import org.avpr.common.entities.alien.runner_line.DroneRunnerEntity;
-import org.avpr.common.entities.alien.runner_line.WarriorDroneEntity;
+import org.avpr.common.entities.alien.runner_line.WarriorRunnerEntity;
 import org.avpr.common.entities.engineer.EngineerEntity;
 import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.registries.AVPREntities;
@@ -166,7 +166,7 @@ public final class NeoForgeMod {
             AVPREntities.FACEHUGGER_ROYAL.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            FacehuggerRoyalEntity::checkAlienSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
@@ -215,28 +215,28 @@ public final class NeoForgeMod {
             AVPREntities.WARRIOR.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            WarriorEntity::checkAlienSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.BELUGABURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugabursterEntity::checkAlienSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.BELUGAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugamorphEntity::checkAlienSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.OCTOHUGGER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            OctohuggerEntity::checkAlienSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
@@ -377,7 +377,7 @@ public final class NeoForgeMod {
         event.put(AVPREntities.CHESTBURSTER_RUNNER.get(), ChestbursterRunnerEntity.createAttributes().build());
         event.put(AVPREntities.CRUSHER.get(), CrusherEntity.createAttributes().build());
         event.put(AVPREntities.DRONE_RUNNER.get(), DroneRunnerEntity.createAttributes().build());
-        event.put(AVPREntities.WARRIOR_RUNNER.get(), WarriorDroneEntity.createAttributes().build());
+        event.put(AVPREntities.WARRIOR_RUNNER.get(), WarriorRunnerEntity.createAttributes().build());
         event.put(AVPREntities.PREDALIEN.get(), PredalienEntity.createAttributes().build());
         event.put(AVPREntities.ENGINEER.get(), EngineerEntity.createAttributes().build());
         event.put(AVPREntities.YAUTJA.get(), YautjaEntity.createAttributes().build());

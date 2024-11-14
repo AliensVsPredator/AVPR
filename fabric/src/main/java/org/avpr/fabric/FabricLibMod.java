@@ -28,7 +28,7 @@ import org.avpr.common.entities.alien.predalien_line.PredalienEntity;
 import org.avpr.common.entities.alien.runner_line.ChestbursterRunnerEntity;
 import org.avpr.common.entities.alien.runner_line.CrusherEntity;
 import org.avpr.common.entities.alien.runner_line.DroneRunnerEntity;
-import org.avpr.common.entities.alien.runner_line.WarriorDroneEntity;
+import org.avpr.common.entities.alien.runner_line.WarriorRunnerEntity;
 import org.avpr.common.entities.engineer.EngineerEntity;
 import org.avpr.common.entities.yautja.YautjaEntity;
 import org.avpr.common.registries.AVPREntities;
@@ -77,7 +77,7 @@ public final class FabricLibMod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(AVPREntities.CHESTBURSTER_RUNNER.get(), ChestbursterRunnerEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.CRUSHER.get(), CrusherEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DRONE_RUNNER.get(), DroneRunnerEntity.createAttributes());
-        FabricDefaultAttributeRegistry.register(AVPREntities.WARRIOR_RUNNER.get(), WarriorDroneEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(AVPREntities.WARRIOR_RUNNER.get(), WarriorRunnerEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.PREDALIEN.get(), PredalienEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.ENGINEER.get(), EngineerEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.YAUTJA.get(), YautjaEntity.createAttributes());
@@ -94,7 +94,7 @@ public final class FabricLibMod implements ModInitializer {
             AVPREntities.CHESTBURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            ChestbursterEntity::checkAlienSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.CHESTBURSTER_QUEEN.get(),
@@ -118,7 +118,7 @@ public final class FabricLibMod implements ModInitializer {
             AVPREntities.FACEHUGGER_ROYAL.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            FacehuggerRoyalEntity::checkAlienSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.NAUTICOMORPH.get(),
@@ -166,19 +166,19 @@ public final class FabricLibMod implements ModInitializer {
             AVPREntities.BELUGABURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugabursterEntity::checkAlienSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.BELUGAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugamorphEntity::checkAlienSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.OCTOHUGGER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            OctohuggerEntity::checkAlienSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DEACON_ADULT.get(),

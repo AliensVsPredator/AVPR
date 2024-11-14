@@ -49,13 +49,12 @@ import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
 
-public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<WarriorDroneEntity> {
+public class WarriorRunnerEntity extends AlienEntity implements SmartBrainOwner<WarriorRunnerEntity> {
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    public WarriorDroneEntity(EntityType<? extends AlienEntity> entityType, Level level) {
+    public WarriorRunnerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.warriorRunnerConfigs.WARRIOR_RUNNER_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -100,10 +99,10 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
     }
 
     @Override
-    public List<? extends ExtendedSensor<WarriorDroneEntity>> getSensors() {
+    public List<? extends ExtendedSensor<WarriorRunnerEntity>> getSensors() {
         return ObjectArrayList.of(
             new NearbyPlayersSensor<>(),
-            new NearbyLivingEntitySensor<WarriorDroneEntity>().setPredicate(
+            new NearbyLivingEntitySensor<WarriorRunnerEntity>().setPredicate(
                 (target, self) -> !(target instanceof Creeper || target instanceof IronGolem) && !target.getType()
                     .is(
                         EntityTypeTags.UNDEAD
@@ -112,7 +111,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
                             AVPREntityTags.ALL_HOSTS
                         )
             ),
-            new NearbyBlocksSensor<WarriorDroneEntity>().setRadius(7)
+            new NearbyBlocksSensor<WarriorRunnerEntity>().setRadius(7)
                 .setPredicate(
                     (block, entity) -> block.is(AVPRBlockTags.ALIEN_REPELLENTS)
                 ),
@@ -123,7 +122,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
     }
 
     @Override
-    public BrainActivityGroup<WarriorDroneEntity> getCoreTasks() {
+    public BrainActivityGroup<WarriorRunnerEntity> getCoreTasks() {
         return BrainActivityGroup.coreTasks(
             new FleeFireTask<>(1.0f),
             new LookAtTarget<>(),
@@ -134,7 +133,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
 
     @SuppressWarnings("unchecked")
     @Override
-    public BrainActivityGroup<WarriorDroneEntity> getIdleTasks() {
+    public BrainActivityGroup<WarriorRunnerEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(
             new FirstApplicableBehaviour<>(
                 new TargetOrRetaliate<>(),
@@ -151,7 +150,7 @@ public class WarriorDroneEntity extends AlienEntity implements SmartBrainOwner<W
     }
 
     @Override
-    public BrainActivityGroup<WarriorDroneEntity> getFightTasks() {
+    public BrainActivityGroup<WarriorRunnerEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
             new InvalidateAttackTarget<>().invalidateIf(
                 (alienEntity, target) -> target.getType().is(AVPREntityTags.ALIENS) || target.isDeadOrDying() || target.hasPassenger(

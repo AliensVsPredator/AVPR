@@ -57,7 +57,6 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
 
     public QueenEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.queenConfigs.QUEEN_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

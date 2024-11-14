@@ -55,7 +55,6 @@ public class WarriorEntity extends AlienEntity implements SmartBrainOwner<Warrio
 
     public WarriorEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.warriorConfigs.WARRIOR_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
