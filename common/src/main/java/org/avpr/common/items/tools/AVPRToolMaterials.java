@@ -19,7 +19,7 @@ import org.avpr.common.registries.AVPRItems;
  */
 public enum AVPRToolMaterials implements Tier {
 
-    ALUMINUM(BlockTags.INCORRECT_FOR_IRON_TOOL, 200, 5.0F, 4.0F, 10, () -> Ingredient.of(AVPRItems.INGOT_ALUMINUM.get())),
+    ALUMINUM(BlockTags.INCORRECT_FOR_IRON_TOOL, 200, 5.0F, 1.5F, 10, () -> Ingredient.of(AVPRItems.INGOT_ALUMINUM.get())),
     ORIONITE(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1750, 8.5F, 3.5F, 12, () -> Ingredient.of(AVPRItems.INGOT_ORIONITE.get())),
     TITANIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 1000, 7.0F, 2.5F, 12, () -> Ingredient.of(AVPRItems.INGOT_TITANIUM.get())),
     VERITANIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3000, 10.0F, 5.0F, 10, () -> Ingredient.of(AVPRItems.VERITANIUM_SHARD.get()));
@@ -88,7 +88,7 @@ public enum AVPRToolMaterials implements Tier {
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 }

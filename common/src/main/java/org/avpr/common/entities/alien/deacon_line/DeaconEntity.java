@@ -41,6 +41,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Supplier;
 
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.PredicatesUtil;
@@ -81,10 +82,14 @@ public class DeaconEntity extends AlienEntity implements SmartBrainOwner<DeaconE
 
     @Override
     public LivingEntity growInto() {
-        EntityType<? extends AlienEntity> entity_type = AVPREntities.DEACON_ADULT.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("engineer"))
-            entity_type = AVPREntities.DEACON_ADULT_ENGINEER.get();
-        return entity_type.create(level());
+        var entityTypeSupplier = getHostId()
+            .filter(hostId -> hostId.toLowerCase(Locale.ROOT).equals("engineer"))
+            .<Supplier<? extends EntityType<? extends AlienEntity>>>map(hostId -> AVPREntities.DEACON_ADULT_ENGINEER)
+            .orElse(AVPREntities.DEACON_ADULT);
+
+        var entityType = entityTypeSupplier.get();
+
+        return entityType.create(level());
     }
 
     @Override
@@ -143,7 +148,7 @@ public class DeaconEntity extends AlienEntity implements SmartBrainOwner<DeaconE
             new FirstApplicableBehaviour<>(
                 new TargetOrRetaliate<>(),
                 new SetPlayerLookTarget<>().predicate(
-                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(target)
                 ),
                 new SetRandomLookTarget<>()
             ),

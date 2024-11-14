@@ -241,7 +241,7 @@ public record AVPRItems() {
     public static final Supplier<SpawnEggItem> TRIOLOBITE_BABY_SPAWN_EGG = AVPRItems.registerItem(
         "spawn_egg_trilobite_baby",
         AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
-            AVPREntities.TRIOLOBITE_BABY,
+            AVPREntities.TRILOBITE_BABY,
             0xCCC2A5,
             0x987379,
             new Item.Properties()
@@ -251,7 +251,7 @@ public record AVPRItems() {
     public static final Supplier<SpawnEggItem> TRIOLOBITE_SPAWN_EGG = AVPRItems.registerItem(
         "spawn_egg_trilobite",
         AVPRServices.COMMON_REGISTRY.makeSpawnEggFor(
-            AVPREntities.TRIOLOBITE,
+            AVPREntities.TRILOBITE,
             0xCCC2A5,
             0x987379,
             new Item.Properties()
@@ -420,7 +420,7 @@ public record AVPRItems() {
 
     public static final Supplier<Item> ROYAL_JELLY = AVPRItems.registerItem(
         "royal_jelly",
-        () -> new Item(new Item.Properties())
+        () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON))
     );
 
     public static final Supplier<Item> SHEET_ORIONITE = AVPRItems.registerItem(
@@ -470,7 +470,7 @@ public record AVPRItems() {
         "tool_aluminum_hoe",
         () -> new HoeItem(
             AVPRToolMaterials.ALUMINUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, -3.0F, 0.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, -3.0F, 0.0F))
         )
     );
 
@@ -494,7 +494,7 @@ public record AVPRItems() {
         "tool_aluminum_sword",
         () -> new SwordItem(
             AVPRToolMaterials.ALUMINUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 3, -2.4F))
         )
     );
 
@@ -526,7 +526,7 @@ public record AVPRItems() {
         "tool_orionite_shovel",
         () -> new ShovelItem(
             AVPRToolMaterials.ORIONITE,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, 1.5F, -3.0F))
         )
     );
 
@@ -534,7 +534,7 @@ public record AVPRItems() {
         "tool_orionite_sword",
         () -> new SwordItem(
             AVPRToolMaterials.ORIONITE,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ORIONITE, 3, -2.4F))
         )
     );
 
@@ -566,7 +566,7 @@ public record AVPRItems() {
         "tool_titanium_shovel",
         () -> new ShovelItem(
             AVPRToolMaterials.TITANIUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 1.5F, -3.0F))
         )
     );
 
@@ -606,7 +606,7 @@ public record AVPRItems() {
         "tool_veritanium_shovel",
         () -> new ShovelItem(
             AVPRToolMaterials.VERITANIUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.ALUMINUM, 1.5F, -3.0F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, 1.5F, -3.0F))
         )
     );
 
@@ -614,7 +614,7 @@ public record AVPRItems() {
         "tool_veritanium_sword",
         () -> new SwordItem(
             AVPRToolMaterials.VERITANIUM,
-            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.TITANIUM, 3, -2.4F))
+            new Item.Properties().attributes(DiggerItem.createAttributes(AVPRToolMaterials.VERITANIUM, 3, -2.4F))
         )
     );
 
@@ -1111,7 +1111,7 @@ public record AVPRItems() {
         "weapon_f90_rifle",
         () -> new BaseGunItem(
             "weapon_f90_rifle",
-            GunEnum.F90RIFLE,
+            GunEnum.F90_RIFLE,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 32)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
@@ -1130,7 +1130,7 @@ public record AVPRItems() {
         "weapon_m4_carbine",
         () -> new BaseGunItem(
             "weapon_m4_carbine",
-            GunEnum.M4CARBINE,
+            GunEnum.M4_CARBINE,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 32)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
@@ -1149,7 +1149,7 @@ public record AVPRItems() {
         "weapon_m41a_pulse_rifle",
         () -> new BaseGunItem(
             "weapon_m41a_pulse_rifle",
-            GunEnum.M41APULSERIFLE,
+            GunEnum.M41A_PULSE_RIFLE,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), 99)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)
@@ -1225,7 +1225,7 @@ public record AVPRItems() {
         "weapon_old_painless",
         () -> new BaseGunItem(
             "weapon_old_painless",
-            GunEnum.OLDPAINLESS,
+            GunEnum.OLD_PAINLESS,
             new Item.Properties().component(AVPRDataComponments.MAX_AMMO.get(), Integer.MAX_VALUE)
                 .component(AVPRDataComponments.GUN_DAMAGE.get(), 4)
                 .component(AVPRDataComponments.GUN_ACCURACY.get(), 1)

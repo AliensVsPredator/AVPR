@@ -103,7 +103,7 @@ public class BaseGunItem extends Item implements GeoItem {
             )
         );
         GUN_ENUM_GUN_PROPERTIES_MAP.put(
-            GunEnum.F90RIFLE,
+            GunEnum.F90_RIFLE,
             new GunProperties(
                 AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
                 AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
@@ -111,7 +111,7 @@ public class BaseGunItem extends Item implements GeoItem {
             )
         );
         GUN_ENUM_GUN_PROPERTIES_MAP.put(
-            GunEnum.M4CARBINE,
+            GunEnum.M4_CARBINE,
             new GunProperties(
                 AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
                 AVPRSounds.ITEM_WEAPON_AK_47_SHOOT.get(),
@@ -119,7 +119,7 @@ public class BaseGunItem extends Item implements GeoItem {
             )
         );
         GUN_ENUM_GUN_PROPERTIES_MAP.put(
-            GunEnum.M41APULSERIFLE,
+            GunEnum.M41A_PULSE_RIFLE,
             new GunProperties(
                 AVPRSounds.ITEM_WEAPON_GENERIC_RELOAD.get(),
                 AVPRSounds.ITEM_WEAPON_PULSE_RIFLE_SHOOT.get(),
@@ -151,7 +151,7 @@ public class BaseGunItem extends Item implements GeoItem {
             )
         );
         GUN_ENUM_GUN_PROPERTIES_MAP.put(
-            GunEnum.OLDPAINLESS,
+            GunEnum.OLD_PAINLESS,
             new GunProperties(SoundEvents.LEVER_CLICK, AVPRSounds.ITEM_WEAPON_OLD_PAINLESS_SHOOT_LOOP.get(), List.of(GunFireMode.AUTOMATIC))
         );
     }

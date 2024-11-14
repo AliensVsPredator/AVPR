@@ -79,7 +79,7 @@ public class TriolobiteBabyEntity extends AlienEntity implements SmartBrainOwner
 
     @Override
     public LivingEntity growInto() {
-        return AVPREntities.TRIOLOBITE.get().create(level());
+        return AVPREntities.TRILOBITE.get().create(level());
     }
 
     @Override
@@ -144,7 +144,7 @@ public class TriolobiteBabyEntity extends AlienEntity implements SmartBrainOwner
             new FirstApplicableBehaviour<>(
                 new TargetOrRetaliate<>(),
                 new SetPlayerLookTarget<>().predicate(
-                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(target)
                 ),
                 new SetRandomLookTarget<>()
             ),

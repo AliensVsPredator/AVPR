@@ -69,6 +69,7 @@ public class EatFoodTask<E extends AlienEntity> extends DelayedBehaviour<E> {
             if (entity.distanceToSqr(foodItem.stream().findFirst().get()) < 1) {
                 entity.getNavigation().stop();
                 entity.swinging = true;
+                // TODO: String literals shouldn't be used like this. What if the anim name changes?
                 entity.triggerAnim(Constants.ATTACK_CONTROLLER, "animation.eat");
                 item.getItem().finishUsingItem(entity.level(), entity);
                 item.getItem().shrink(1);

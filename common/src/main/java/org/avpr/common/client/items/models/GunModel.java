@@ -9,26 +9,28 @@ import org.avpr.common.CommonMod;
 
 public class GunModel<T extends Item & GeoItem> extends GeoModel<T> {
 
-    String gunname;
+    private final String name;
 
-    public GunModel(String gunName) {
-        gunname = gunName;
+    public GunModel(String name) {
+        this.name = name;
     }
 
     @Override
     public ResourceLocation getModelResource(T animatable) {
-        return CommonMod.modResource("geo/item/" + gunname + ".geo.json");
+        return CommonMod.modResource("geo/item/" + name + ".geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(T animatable) {
-        return CommonMod.modResource("textures/item/" + gunname + ".png");
+        return CommonMod.modResource("textures/item/" + name + ".png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(T animatable) {
-        if (gunname.equals("weapon_old_painless"))
-            return CommonMod.modResource("animations/item/" + gunname + ".animation.json");
+        if (name.equals("weapon_old_painless")) {
+            return CommonMod.modResource("animations/item/" + name + ".animation.json");
+        }
+
         return CommonMod.modResource("animations/item/empty.animation.json");
     }
 }

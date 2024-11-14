@@ -32,11 +32,23 @@ import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRSounds;
 import org.avpr.common.tags.AVPREntityTags;
 
+import java.util.Arrays;
+
 /**
  * The OvamorphEntity class represents an entity in the game that simulates an ovamorph (egg) from the Alien franchise.
  * This entity is responsible for hatching and potentially spawning a Facehugger entity.
  */
 public class OvamorphEntity extends AlienEntity {
+
+    // Define the relative positions of all blocks surrounding the egg
+    private static final BlockPos[] ENCASING_OFFSETS = {
+        new BlockPos(1, 0, 0),   // East
+        new BlockPos(-1, 0, 0),  // West
+        new BlockPos(0, 1, 0),   // Above
+        new BlockPos(0, -1, 0),  // Below
+        new BlockPos(0, 0, 1),   // South
+        new BlockPos(0, 0, -1)   // North
+    };
 
     private static final EntityDataAccessor<Boolean> IS_HATCHING = SynchedEntityData.defineId(
         OvamorphEntity.class,
@@ -356,7 +368,7 @@ public class OvamorphEntity extends AlienEntity {
                             .is(
                                 AVPREntityTags.ALL_HOSTS
                             ) && this.level().random.nextFloat() < 0.2f && !target.isSteppingCarefully()
-                            && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(
+                            && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(
                                 target
                             )
                     ) {
@@ -368,99 +380,31 @@ public class OvamorphEntity extends AlienEntity {
             this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(3)).forEach(target -> {
                 if (
                     target.isAlive() && target.getType().is(AVPREntityTags.HUMANIOD_HOSTS) && this.level().random.nextFloat() < 0.8f
-                        && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                        && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(target)
                 ) {
                     this.setIsHatching(true);
                 }
             });
         }
 
-        if (this.getLastHurtMob() == null)
-            // Loop through nearby blocks in different directions (this logic remains the same)
-            for (var testPos : BlockPos.betweenClosed(this.blockPosition().above(1), this.blockPosition().above(1))) {
-                for (
-                    var testPos1 : BlockPos.betweenClosed(
-                        this.blockPosition().below(1),
-                        this.blockPosition().below(1)
-                    )
-                ) {
-                    for (
-                        var testPos2 : BlockPos.betweenClosed(
-                            this.blockPosition().east(1),
-                            this.blockPosition().east(1)
-                        )
-                    ) {
-                        for (
-                            var testPos3 : BlockPos.betweenClosed(
-                                this.blockPosition().west(1),
-                                this.blockPosition().west(1)
-                            )
-                        ) {
-                            for (
-                                var testPos4 : BlockPos.betweenClosed(
-                                    this.blockPosition().south(1),
-                                    this.blockPosition().south(1)
-                                )
-                            ) {
-                                for (
-                                    var testPos5 : BlockPos.betweenClosed(
-                                        this.blockPosition().north(1),
-                                        this.blockPosition().north(1)
-                                    )
-                                ) {
-                                    // Check if any nearby blocks are not air
-                                    boolean isAnyBlockNotAir = !this.level().getBlockState(testPos).isAir() &&
-                                        !this.level().getBlockState(testPos1).isAir() &&
-                                        !this.level().getBlockState(testPos2).isAir() &&
-                                        !this.level().getBlockState(testPos3).isAir() &&
-                                        !this.level().getBlockState(testPos4).isAir() &&
-                                        !this.level().getBlockState(testPos5).isAir();
+        runEncasingChecks();
+    }
 
-                                    // Check if any nearby blocks are solid
-                                    boolean isAnyBlockSolid = !this.level()
-                                        .getBlockState(
-                                            testPos
-                                        )
-                                        .isCollisionShapeFullBlock(level(), testPos) &&
-                                        !this.level()
-                                            .getBlockState(testPos1)
-                                            .isCollisionShapeFullBlock(
-                                                level(),
-                                                testPos1
-                                            ) &&
-                                        !this.level()
-                                            .getBlockState(testPos2)
-                                            .isCollisionShapeFullBlock(
-                                                level(),
-                                                testPos2
-                                            ) &&
-                                        !this.level()
-                                            .getBlockState(testPos3)
-                                            .isCollisionShapeFullBlock(
-                                                level(),
-                                                testPos3
-                                            ) &&
-                                        !this.level()
-                                            .getBlockState(testPos4)
-                                            .isCollisionShapeFullBlock(
-                                                level(),
-                                                testPos4
-                                            ) &&
-                                        !this.level()
-                                            .getBlockState(testPos5)
-                                            .isCollisionShapeFullBlock(
-                                                level(),
-                                                testPos5
-                                            );
+    private void runEncasingChecks() {
+        if (this.getLastHurtMob() != null) {
+            return;
+        }
 
-                                    // Set isHatching to false if conditions are met
-                                    if (isAnyBlockSolid || isAnyBlockNotAir)
-                                        this.setIsHatching(false);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        // Loop through nearby blocks in different directions (this logic remains the same)
+        // Check all surrounding blocks
+        var isFullyEncased = Arrays.stream(ENCASING_OFFSETS).allMatch(offset -> {
+            var checkPos = this.blockPosition().offset(offset);
+            var blockState = this.level().getBlockState(checkPos);
+            return !blockState.isAir() && blockState.isCollisionShapeFullBlock(this.level(), checkPos);
+        });
+
+        if (isFullyEncased) {
+            this.setIsHatching(false);
+        }
     }
 }

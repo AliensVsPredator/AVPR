@@ -56,8 +56,8 @@ public class DroneEntity extends AlienEntity implements SmartBrainOwner<DroneEnt
 
     public DroneEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        spawnPosMax = CommonMod.config.droneConfigs.DRONE_MAX_SPAWN_Y;
-        spawnPosMin = CommonMod.config.droneConfigs.DRONE_MIN_SPAWN_Y;
+        SPAWN_HEIGHT_MAX = CommonMod.config.droneConfigs.DRONE_MAX_SPAWN_Y;
+        SPAWN_HEIGHT_MIN = CommonMod.config.droneConfigs.DRONE_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -141,7 +141,7 @@ public class DroneEntity extends AlienEntity implements SmartBrainOwner<DroneEnt
             new FirstApplicableBehaviour<>(
                 new TargetOrRetaliate<>(),
                 new SetPlayerLookTarget<>().predicate(
-                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(target)
                 ),
                 new SetRandomLookTarget<>()
             ),

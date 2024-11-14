@@ -30,7 +30,7 @@ public record EntityUtil() {
      * @param entity The {@code LivingEntity} that is shooting the shuriken. This entity will be used as the source and
      *               owner of the shuriken.
      */
-    public static void shootSkuriken(LivingEntity entity) {
+    public static void shootShuriken(LivingEntity entity) {
         // TODO: Change sound effect here.
         entity.level()
             .playSound(
@@ -98,7 +98,7 @@ public record EntityUtil() {
                 livingEntity -> !livingEntity.getType()
                     .is(
                         AVPREntityTags.PREDATORS
-                    ) && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity) && livingEntity != projectile.getOwner()
+                    ) && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(livingEntity) && livingEntity != projectile.getOwner()
             );
         if (!livingEntities.isEmpty()) {
             var first = livingEntities.getFirst(); // Get the first entity found.
@@ -149,6 +149,7 @@ public record EntityUtil() {
         // defaultBurster.setHostId("beluga");
         // return entity_type.create(entity.level());
         // }
+        // TODO: What's going on here with string literal host IDs?
         if (entity.getType().is(AVPREntityTags.RUNNER_HOSTS)) {
             entity_type = AVPREntities.CHESTBURSTER_RUNNER.get();
             defaultBurster.setHostId("runner");
@@ -173,7 +174,7 @@ public record EntityUtil() {
             return entity_type.create(entity.level());
         }
         if (entity.getType().is(AVPREntityTags.DEACON_HOSTS)) {
-            entity_type = AVPREntities.TRIOLOBITE_BABY.get();
+            entity_type = AVPREntities.TRILOBITE_BABY.get();
             defaultBurster.setHostId(entity.getType().is(AVPREntityTags.HUMANIOD_HOSTS) ? "humanoid" : "engineer");
             return entity_type.create(entity.level());
         }

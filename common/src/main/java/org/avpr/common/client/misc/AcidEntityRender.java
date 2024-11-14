@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class AcidEntityRender extends EntityRenderer<Entity> {
 
+    // TODO: HUH? WUT DUH?
     private static final ResourceLocation TEXTURE = ResourceLocation.parse("textures/entity/allay/allay.png");
 
     public AcidEntityRender(EntityRendererProvider.Context context) {

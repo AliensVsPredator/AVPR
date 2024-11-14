@@ -35,7 +35,7 @@ public class InGameOverlayRendererMixin {
     @Inject(method = { "renderScreenEffect" }, at = { @At("RETURN") })
     private static void renderOverlays(Minecraft client, PoseStack matrices, CallbackInfo ci) {
         if (
-            client.player != null && !client.player.isSpectator() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(client.player)
+            client.player != null && !client.player.isSpectator() && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(client.player)
                 && client.player.level()
                     .getBlockState(client.player.blockPosition())
                     .is(AVPRBlocks.RESIN_WEBBING_BLOCK.get())

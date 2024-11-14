@@ -48,7 +48,7 @@ public class ResinWebbingBlock extends Block {
     public void entityInside(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Entity entity) {
         if (entity.getType().is(AVPREntityTags.ALIENS))
             return;
-        if (entity instanceof LivingEntity livingEntity && PredicatesUtil.IS_CREATIVEorSPECTATOR.test(livingEntity))
+        if (entity instanceof LivingEntity livingEntity && PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(livingEntity))
             return;
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.makeStuckInBlock(state, new Vec3(0.25, 0.05F, 0.25));

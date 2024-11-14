@@ -34,14 +34,8 @@ import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-import java.util.Locale;
-
 import org.avpr.common.CommonMod;
 import org.avpr.common.api.util.PredicatesUtil;
 import org.avpr.common.entities.ai.tasks.attack.EatFoodTask;
@@ -51,12 +45,16 @@ import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.registries.AVPRStatusEffects;
 import org.avpr.common.tags.AVPRBlockTags;
 import org.avpr.common.tags.AVPREntityTags;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+import java.util.Locale;
 
 public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<ChestbursterEntity> {
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
-    public ChestbursterEntity(EntityType<? extends WaterAnimal> entityType, Level level) {
+    public ChestbursterEntity(EntityType<? extends ChestbursterEntity> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -82,16 +80,20 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
 
     @Override
     public LivingEntity growInto() {
-        EntityType<? extends AlienEntity> entity_type = AVPREntities.DRONE.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("predalien"))
-            entity_type = AVPREntities.PREDALIEN.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("crusher"))
-            entity_type = AVPREntities.CRUSHER.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("spitter"))
-            entity_type = AVPREntities.SPITTER.get();
-        if (getHostId().toLowerCase(Locale.ROOT).equals("runner"))
-            entity_type = AVPREntities.DRONE_RUNNER.get();
-        return entity_type.create(level());
+        var lowercaseHostIdOrNull = getHostId().map(hostId -> hostId.toLowerCase(Locale.ROOT)).orElse(null);
+
+        // TODO: This should be either exhaustive or automated.
+        var entityTypeSupplier = switch (lowercaseHostIdOrNull) {
+            case "predalien" -> AVPREntities.PREDALIEN;
+            case "crusher" -> AVPREntities.CRUSHER;
+            case "spitter" -> AVPREntities.SPITTER;
+            case "runner" -> AVPREntities.DRONE_RUNNER;
+            case null, default -> AVPREntities.DRONE;
+        };
+
+        var entityType = entityTypeSupplier.get();
+
+        return entityType.create(level());
     }
 
     @Override
@@ -156,7 +158,7 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
             new FirstApplicableBehaviour<>(
                 new TargetOrRetaliate<>(),
                 new SetPlayerLookTarget<>().predicate(
-                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVEorSPECTATOR.test(target)
+                    target -> target.isAlive() && !PredicatesUtil.IS_CREATIVE_OR_SPECTATOR.test(target)
                 ),
                 new SetRandomLookTarget<>()
             ),

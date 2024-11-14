@@ -27,7 +27,7 @@ public record PredicatesUtil() {
      * predicate returns true if the living entity is an instance of a player and the player is in either creative mode
      * or spectator mode.
      */
-    public static final Predicate<LivingEntity> IS_CREATIVEorSPECTATOR = livingEntity -> livingEntity instanceof Player player && (player
+    public static final Predicate<LivingEntity> IS_CREATIVE_OR_SPECTATOR = livingEntity -> livingEntity instanceof Player player && (player
         .isCreative()
         || player.isSpectator());
 
@@ -50,7 +50,7 @@ public record PredicatesUtil() {
      * entity is a living entity currently affected by the {@link AVPRStatusEffects#IMPREGNATION} status effect.
      * Otherwise, it evaluates to {@code false}.
      */
-    public static Predicate<Entity> HASE_IMPREGNATION_EFFECT = entity -> entity instanceof LivingEntity livingEntity && livingEntity
+    public static Predicate<Entity> HAS_IMPREGNATION_EFFECT = entity -> entity instanceof LivingEntity livingEntity && livingEntity
         .hasEffect(
             AVPRStatusEffects.IMPREGNATION
         );
@@ -63,7 +63,7 @@ public record PredicatesUtil() {
      * per second.
      */
     public static Predicate<Entity> SHOULD_APPLY_IMPREGNATION_EFFECT = entity -> entity instanceof LivingEntity livingEntity
-        && HASE_IMPREGNATION_EFFECT.test(
+        && HAS_IMPREGNATION_EFFECT.test(
             livingEntity
         ) && (livingEntity.getEffect(
             AVPRStatusEffects.IMPREGNATION
@@ -104,8 +104,5 @@ public record PredicatesUtil() {
         && (livingEntity.getType().is(AVPREntityTags.ALIENS)
             || livingEntity.getPassengers().stream().anyMatch(FacehuggerEntity.class::isInstance)
             || livingEntity.isDeadOrDying()
-            || livingEntity.getType()
-                .is(
-                    EntityTypeTags.UNDEAD
-                ));
+            || livingEntity.getType().is(EntityTypeTags.UNDEAD));
 }

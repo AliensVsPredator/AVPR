@@ -14,6 +14,8 @@ import org.avpr.common.CommonMod;
 @Config(id = CommonMod.MOD_ID)
 public class AVPRConfig {
 
+    // TODO: If everything is synchronized, why should they all be marked as such? Why is it not just a annotation arg?
+
     @Configurable
     @Configurable.Synchronized
     public AcidConfigs acidConfigs = new AcidConfigs();

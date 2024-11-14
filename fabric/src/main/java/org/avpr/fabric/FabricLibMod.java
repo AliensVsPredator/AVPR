@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import org.avpr.common.CommonMod;
+import org.avpr.common.blocks.behaviors.AVPRDispenserBlockBehaviors;
 import org.avpr.common.entities.alien.AlienEntity;
 import org.avpr.common.entities.alien.base_line.*;
 import org.avpr.common.entities.alien.beluga_line.BelugabursterEntity;
@@ -42,6 +43,10 @@ public final class FabricLibMod implements ModInitializer {
         AzureLib.initialize();
         AzureLib.hasKeyBindsInitialized = true;
         CommonMod.initRegistries();
+
+        // Dispenser behavior registration.
+        AVPRDispenserBlockBehaviors.INSTANCE.registerAll();
+
         /*
          * Mob Attribute Registry
          */
@@ -64,8 +69,8 @@ public final class FabricLibMod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(AVPREntities.DEACON_ADULT.get(), DeaconAdultEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DEACON.get(), DeaconEntity.createAttributes());
-        FabricDefaultAttributeRegistry.register(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes());
-        FabricDefaultAttributeRegistry.register(AVPREntities.TRIOLOBITE.get(), TriolobiteEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(AVPREntities.TRILOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(AVPREntities.TRILOBITE.get(), TriolobiteEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.CHESTBURSTER_DRACO.get(), ChestbursterDracoEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.DRACOMORPH.get(), DracomorphEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(AVPREntities.OVAMORPH_DRACO.get(), OvamorphDracoEntity.createAttributes());
@@ -83,187 +88,187 @@ public final class FabricLibMod implements ModInitializer {
             AVPREntities.BOILER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.CHESTBURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            ChestbursterEntity::checkMonsterSpawnRules
+            ChestbursterEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.CHESTBURSTER_QUEEN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DRONE.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.FACEHUGGER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.FACEHUGGER_ROYAL.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            FacehuggerRoyalEntity::checkMonsterSpawnRules
+            FacehuggerRoyalEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.NAUTICOMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.OVAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.PRAETORIAN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.QUEEN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.SPITTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.ULTRAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.WARRIOR.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.BELUGABURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugabursterEntity::checkMonsterSpawnRules
+            BelugabursterEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.BELUGAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugamorphEntity::checkMonsterSpawnRules
+            BelugamorphEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.OCTOHUGGER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            OctohuggerEntity::checkMonsterSpawnRules
+            OctohuggerEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DEACON_ADULT.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DEACON_ADULT_ENGINEER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DEACON.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
-            AVPREntities.TRIOLOBITE_BABY.get(),
+            AVPREntities.TRILOBITE_BABY.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
-            AVPREntities.TRIOLOBITE.get(),
+            AVPREntities.TRILOBITE.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.CHESTBURSTER_DRACO.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DRACOMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.OVAMORPH_DRACO.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.CHESTBURSTER_RUNNER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.CRUSHER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.DRONE_RUNNER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.WARRIOR_RUNNER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.PREDALIEN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules
+            AlienEntity::checkAlienSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.ENGINEER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            EngineerEntity::checkMonsterSpawnRules
+            EngineerEntity::checkEngineerSpawnRules
         );
         SpawnPlacements.register(
             AVPREntities.YAUTJA.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            YautjaEntity::checkMonsterSpawnRules
+            YautjaEntity::checkYautjaSpawnRules
         );
         /*
          * Mob Spawns

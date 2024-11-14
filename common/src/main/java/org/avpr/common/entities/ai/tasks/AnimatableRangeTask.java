@@ -78,7 +78,7 @@ public class AnimatableRangeTask<E extends LivingEntity> extends DelayedBehaviou
     @Override
     protected boolean checkExtraStartConditions(ServerLevel level, E entity) {
         this.target = BrainUtils.getTargetOfEntity(entity);
-
+        // TODO: What if target is null?
         return BrainUtils.canSee(entity, this.target) && entity.distanceToSqr(this.target) <= this.attackRadius;
     }
 
@@ -90,6 +90,7 @@ public class AnimatableRangeTask<E extends LivingEntity> extends DelayedBehaviou
     @Override
     protected void start(E entity) {
         entity.swing(InteractionHand.MAIN_HAND);
+        // TODO: What if target is null?
         BehaviorUtils.lookAtEntity(entity, this.target);
     }
 

@@ -2,8 +2,8 @@
   "feature": "avpr:ore_autunite",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 2
+      "type": "minecraft:rarity_filter",
+      "chance": 60
     },
     {
       "type": "minecraft:in_square"
@@ -11,8 +11,17 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "below_top": 63
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "above_bottom": 6
+        },
+        "max_inclusive": {
+          "absolute": 30
+        }
       }
+    },
+    {
+      "type": "minecraft:biome"
     }
   ]
 }

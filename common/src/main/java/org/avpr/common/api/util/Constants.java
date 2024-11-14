@@ -5,6 +5,7 @@ import mod.azure.azurelib.core.animation.RawAnimation;
 /**
  * A utility class that holds common constants and static methods used across multiple classes.
  */
+// TODO: This class is way too broadly named, should be refactored.
 public record Constants() {
 
     public static final String ATTACK_CONTROLLER = "attackController";

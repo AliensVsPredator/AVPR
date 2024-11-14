@@ -8,5 +8,7 @@ import net.minecraft.client.KeyMapping;
  */
 public record Keybinds() {
 
+    // TODO: This is a utility class, it should not be a record.
+
     public static KeyMapping FLASHLIGHT;
 }

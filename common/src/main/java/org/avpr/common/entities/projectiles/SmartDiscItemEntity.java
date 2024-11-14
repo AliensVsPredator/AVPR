@@ -25,7 +25,7 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
     }
 
     public SmartDiscItemEntity(Level level, LivingEntity livingEntity) {
-        super(AVPREntities.SHURKIEN_ENTITY.get(), livingEntity, level);
+        super(AVPREntities.SHURIKEN_ENTITY.get(), livingEntity, level);
     }
 
     @Override

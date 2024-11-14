@@ -131,217 +131,217 @@ public final class NeoForgeMod {
             AVPREntities.BOILER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.CHESTBURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.CHESTBURSTER_QUEEN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.DRONE.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.FACEHUGGER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.FACEHUGGER_ROYAL.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            FacehuggerRoyalEntity::checkMonsterSpawnRules,
+            FacehuggerRoyalEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.NAUTICOMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.OVAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.PRAETORIAN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.QUEEN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.SPITTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.ULTRAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.WARRIOR.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            WarriorEntity::checkMonsterSpawnRules,
+            WarriorEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.BELUGABURSTER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugabursterEntity::checkMonsterSpawnRules,
+            BelugabursterEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.BELUGAMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            BelugamorphEntity::checkMonsterSpawnRules,
+            BelugamorphEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.OCTOHUGGER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            OctohuggerEntity::checkMonsterSpawnRules,
+            OctohuggerEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.DEACON_ADULT.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.DEACON_ADULT_ENGINEER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.DEACON.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
-            AVPREntities.TRIOLOBITE_BABY.get(),
+            AVPREntities.TRILOBITE_BABY.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
-            AVPREntities.TRIOLOBITE.get(),
+            AVPREntities.TRILOBITE.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.CHESTBURSTER_DRACO.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.DRACOMORPH.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.OVAMORPH_DRACO.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.CHESTBURSTER_RUNNER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.CRUSHER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.DRONE_RUNNER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.WARRIOR_RUNNER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.PREDALIEN.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            AlienEntity::checkMonsterSpawnRules,
+            AlienEntity::checkAlienSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.ENGINEER.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            EngineerEntity::checkMonsterSpawnRules,
+            EngineerEntity::checkEngineerSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
         event.register(
             AVPREntities.YAUTJA.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            YautjaEntity::checkMonsterSpawnRules,
+            YautjaEntity::checkYautjaSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.AND
         );
     }
@@ -369,8 +369,8 @@ public final class NeoForgeMod {
         event.put(AVPREntities.DEACON_ADULT.get(), DeaconAdultEntity.createAttributes().build());
         event.put(AVPREntities.DEACON_ADULT_ENGINEER.get(), DeaconAdultEngineerEntity.createAttributes().build());
         event.put(AVPREntities.DEACON.get(), DeaconEntity.createAttributes().build());
-        event.put(AVPREntities.TRIOLOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes().build());
-        event.put(AVPREntities.TRIOLOBITE.get(), TriolobiteEntity.createAttributes().build());
+        event.put(AVPREntities.TRILOBITE_BABY.get(), TriolobiteBabyEntity.createAttributes().build());
+        event.put(AVPREntities.TRILOBITE.get(), TriolobiteEntity.createAttributes().build());
         event.put(AVPREntities.CHESTBURSTER_DRACO.get(), ChestbursterDracoEntity.createAttributes().build());
         event.put(AVPREntities.DRACOMORPH.get(), DracomorphEntity.createAttributes().build());
         event.put(AVPREntities.OVAMORPH_DRACO.get(), OvamorphDracoEntity.createAttributes().build());
