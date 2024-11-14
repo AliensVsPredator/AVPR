@@ -59,9 +59,9 @@ public class UltramorphEntity extends AlienEntity implements SmartBrainOwner<Ult
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.ultramorphConfigs.ULTRAMORPH_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.ultramorphConfigs.ULTRAMORPH_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.ultramorphConfigs.ULTRAMORPH_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.ultramorph.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.ultramorph.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.ultramorph.moveSpeed);
     }
 
     @Override

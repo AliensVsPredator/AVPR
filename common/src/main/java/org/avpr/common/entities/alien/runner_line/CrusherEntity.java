@@ -59,9 +59,9 @@ public class CrusherEntity extends AlienEntity implements SmartBrainOwner<Crushe
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.crusherConfigs.CRUSHER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.crusherConfigs.CRUSHER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.crusherConfigs.CRUSHER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.crusher.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.crusher.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.crusher.moveSpeed);
     }
 
     @Override

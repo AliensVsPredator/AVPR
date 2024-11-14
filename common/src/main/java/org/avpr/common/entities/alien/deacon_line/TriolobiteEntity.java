@@ -58,9 +58,9 @@ public class TriolobiteEntity extends AlienEntity implements SmartBrainOwner<Tri
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.trilobiteConfigs.TRILOBITE_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.trilobiteConfigs.TRILOBITE_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.trilobiteConfigs.TRILOBITE_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.trilobite.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.trilobite.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.trilobite.moveSpeed);
     }
 
     @Override

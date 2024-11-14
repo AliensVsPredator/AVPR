@@ -60,8 +60,8 @@ public class ChestbursterDracoEntity extends AlienEntity implements SmartBrainOw
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
             .add(Attributes.ATTACK_DAMAGE, 0.5)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.chestbursterDracoConfigs.CHESTBURSTERDRACO_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestbursterDracoConfigs.CHESTBURSTERDRACO_SPEED);
+            .add(Attributes.MAX_HEALTH, CommonMod.config.dracoChestburster.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.dracoChestburster.moveSpeed);
     }
 
     @Override

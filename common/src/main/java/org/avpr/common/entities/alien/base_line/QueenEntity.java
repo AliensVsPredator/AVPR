@@ -61,9 +61,9 @@ public class QueenEntity extends AlienEntity implements SmartBrainOwner<QueenEnt
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.queenConfigs.QUEEN_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.queenConfigs.QUEEN_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.queenConfigs.QUEEN_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.queen.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.queen.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.queen.moveSpeed);
     }
 
     @Override

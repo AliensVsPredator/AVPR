@@ -58,9 +58,9 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.boilerConfigs.BOILER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.boilerConfigs.BOILER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.boilerConfigs.BOILER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.boiler.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.boiler.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.boiler.moveSpeed);
     }
 
     @Override

@@ -77,10 +77,10 @@ public class EngineerEntity extends Monster implements Enemy, GeoEntity, SmartBr
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.engineerConfigs.ENGINEER_ATTACK)
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.engineer.damage)
             .add(Attributes.KNOCKBACK_RESISTANCE, 0.85)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.engineerConfigs.ENGINEER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.engineerConfigs.ENGINEER_SPEED);
+            .add(Attributes.MAX_HEALTH, CommonMod.config.engineer.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.engineer.moveSpeed);
     }
 
     /**

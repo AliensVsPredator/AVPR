@@ -191,7 +191,7 @@ public class BulletProjectile extends AbstractArrow {
         BlockBreakProgressManager.damage(
             level(),
             blockResult.getBlockPos(),
-            CommonMod.config.itemConfigs.BULLET_BREAKSPEED_MODIFIER * 2.0F
+            CommonMod.config.items.bulletBreakSpeedMultiplier * 2.0F
         );
         var speed = getDeltaMovement().length();
 

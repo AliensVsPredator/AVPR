@@ -59,9 +59,9 @@ public class WarriorRunnerEntity extends AlienEntity implements SmartBrainOwner<
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.warriorRunnerConfigs.WARRIOR_RUNNER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.warriorRunnerConfigs.WARRIOR_RUNNER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.warriorRunnerConfigs.WARRIOR_RUNNER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.warriorRunner.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.warriorRunner.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.warriorRunner.moveSpeed);
     }
 
     @Override

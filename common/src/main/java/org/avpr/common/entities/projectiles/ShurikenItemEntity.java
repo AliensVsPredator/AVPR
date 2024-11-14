@@ -41,7 +41,7 @@ public class ShurikenItemEntity extends ThrowableItemProjectile {
         BlockBreakProgressManager.damage(
             level(),
             result.getBlockPos(),
-            CommonMod.config.itemConfigs.SKURIKEN_BREAKSPEED_MODIFIER * 2.0F
+            CommonMod.config.items.shurikenBreakSpeedMultiplier * 2.0F
         );
         super.onHitBlock(result);
     }
@@ -49,7 +49,7 @@ public class ShurikenItemEntity extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(@NotNull EntityHitResult result) {
         if (result.getEntity() instanceof LivingEntity livingEntity && getOwner() != null)
-            livingEntity.hurt(damageSources().thrown(getOwner(), livingEntity), CommonMod.config.itemConfigs.SKURIKEN_DAMAGE);
+            livingEntity.hurt(damageSources().thrown(getOwner(), livingEntity), CommonMod.config.items.shurikenDamage);
         super.onHitEntity(result);
     }
 }

@@ -59,9 +59,9 @@ public class DroneEntity extends AlienEntity implements SmartBrainOwner<DroneEnt
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.droneConfigs.DRONE_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.droneConfigs.DRONE_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.droneConfigs.DRONE_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.drone.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.drone.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.drone.moveSpeed);
     }
 
     @Override

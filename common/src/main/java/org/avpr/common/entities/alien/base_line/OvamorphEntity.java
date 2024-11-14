@@ -91,7 +91,7 @@ public class OvamorphEntity extends AlienEntity {
         return Mob.createMobAttributes()
             .add(
                 Attributes.MAX_HEALTH,
-                CommonMod.config.ovamorphConfigs.OVAMORPH_HEALTH
+                CommonMod.config.ovamorph.health
             )
             .add(
                 Attributes.ARMOR,
@@ -248,17 +248,12 @@ public class OvamorphEntity extends AlienEntity {
     @Override
     public void knockback(double strength, double x, double z) {}
 
-    /**
-     * Handles the entity receiving damage, triggering hatching if certain conditions are met.
-     *
-     * @param source The source of the damage being inflicted.
-     * @param amount The amount of damage being inflicted.
-     * @return A boolean indicating whether the damage was successfully inflicted.
-     */
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
-        if (source != damageSources().genericKill() && source.getDirectEntity() != null && !this.isHatched())
+        if (source != damageSources().genericKill() && source.getDirectEntity() != null && !this.isHatched()) {
             setIsHatching(true);
+        }
+
         return source != damageSources().inWall() && super.hurt(source, amount);
     }
 
@@ -281,17 +276,6 @@ public class OvamorphEntity extends AlienEntity {
         return false;
     }
 
-    /**
-     * Handles the per-tick behavior of the `OvamorphEntity`. This includes managing the hatching process, playing
-     * specific sounds when hatching, and spawning a facehugger once hatched. The method extends its parent `tick`
-     * method and introduces additional logic specific to the `OvamorphEntity`: - Increments hatch progress if the
-     * entity is in the hatching state. - Plays a sound when hatch progress reaches a specific point. - Updates the
-     * hatching and hatched states based on progress. - Manages the spawning and movement of a facehugger if the entity
-     * has hatched. Exit conditions in the method: - Returns immediately if the entity has no AI. - Progress updates and
-     * related actions occur only if the entity is hatching and hatch progress has not yet reached the maximum. -
-     * Facehugger spawning logic executes only if the entity is on the server side, has a facehugger, and is not dead or
-     * dying.
-     */
     @Override
     public void tick() {
         super.tick();
@@ -335,12 +319,6 @@ public class OvamorphEntity extends AlienEntity {
         }
     }
 
-    /**
-     * Handles the base tick behavior of the `OvamorphEntity`. This method manages the following tasks: - Increments the
-     * hatch check timer on each tick. - Initiates the hatching process if the entity has recently hurt another mob. -
-     * Performs hatching checks every second (20 ticks), analyzing nearby entities to determine if hatching conditions
-     * are met. - Checks blocks in the immediate vicinity and modifies the hatching state based on their properties.
-     */
     @Override
     public void baseTick() {
         super.baseTick();
@@ -348,18 +326,19 @@ public class OvamorphEntity extends AlienEntity {
         // Increment the hatch check timer
         this.hatchCheckTimer++;
 
-        if (this.getLastHurtMob() != null)
+        if (this.getLastHurtMob() != null) {
             this.setIsHatching(true);
+        }
 
         // Perform hatching check once every second (20 ticks)
-        if (this.hatchCheckTimer >= 20) {
+        if (this.hatchCheckTimer >= Tick.PER_SECOND) {
             this.hatchCheckTimer = 0; // Reset the timer
 
             // Get nearby entities within normal hatch range
             this.level()
                 .getEntitiesOfClass(
                     LivingEntity.class,
-                    this.getBoundingBox().inflate(CommonMod.config.ovamorphConfigs.OVAMORPH_HATCH_RANGE)
+                    this.getBoundingBox().inflate(CommonMod.config.ovamorph.hatchRange)
                 )
                 .forEach(target -> {
                     // If the entity is alive and can be facehugged

@@ -59,9 +59,9 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.nauticomorph.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.nauticomorph.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.nauticomorph.moveSpeed);
     }
 
     @Override

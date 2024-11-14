@@ -59,9 +59,9 @@ public class SpitterEntity extends AlienEntity implements SmartBrainOwner<Spitte
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.spitterConfigs.SPITTER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.spitterConfigs.SPITTER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.spitterConfigs.SPITTER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.spitter.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.spitter.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.spitter.moveSpeed);
     }
 
     @Override

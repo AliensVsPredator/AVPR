@@ -24,23 +24,19 @@ public class AVPRSpawnTesting {
 
     public void init(AVPRConfig config) {
         // Aliens
-        add(AVPREntities.BOILER, pos -> pos.getY() <= config.boilerConfigs.BOILER_MAX_SPAWN_Y &&
-            pos.getY() >= config.boilerConfigs.BOILER_MIN_SPAWN_Y);
-        add(AVPREntities.CRUSHER, pos -> pos.getY() <= config.crusherConfigs.CRUSHER_MAX_SPAWN_Y);
-        add(AVPREntities.DRONE, pos -> pos.getY() <= config.droneConfigs.DRONE_MAX_SPAWN_Y &&
-            pos.getY() >= config.droneConfigs.DRONE_MIN_SPAWN_Y);
-        add(AVPREntities.DRONE_RUNNER, pos -> pos.getY() <= config.droneRunnerConfigs.DRONERUNNER_MAX_SPAWN_Y &&
-            pos.getY() >= config.droneRunnerConfigs.DRONERUNNER_MIN_SPAWN_Y);
-        add(AVPREntities.NAUTICOMORPH, pos -> pos.getY() <= config.nauticomorphConfigs.NAUTICOMORPH_MAX_SPAWN_Y &&
-            pos.getY() >= config.nauticomorphConfigs.NAUTICOMORPH_MIN_SPAWN_Y);
-        add(AVPREntities.PRAETORIAN, pos -> pos.getY() <= config.praetorianConfigs.PRAETORIAN_MAX_SPAWN_Y);
-        add(AVPREntities.QUEEN, pos -> pos.getY() <= config.queenConfigs.QUEEN_MAX_SPAWN_Y);
-        add(AVPREntities.SPITTER, pos -> pos.getY() <= config.spitterConfigs.SPITTER_MAX_SPAWN_Y);
-        add(AVPREntities.WARRIOR, pos -> pos.getY() <= config.warriorConfigs.WARRIOR_MAX_SPAWN_Y);
-        add(AVPREntities.WARRIOR_RUNNER, pos -> pos.getY() <= config.warriorRunnerConfigs.WARRIOR_RUNNER_MAX_SPAWN_Y);
+        add(AVPREntities.BOILER, pos -> pos.getY() <= config.boiler.maxSpawnY && pos.getY() >= config.boiler.minSpawnY);
+        add(AVPREntities.CRUSHER, pos -> pos.getY() <= config.crusher.maxSpawnY);
+        add(AVPREntities.DRONE, pos -> pos.getY() <= config.drone.maxSpawnY && pos.getY() >= config.drone.minSpawnY);
+        add(AVPREntities.DRONE_RUNNER, pos -> pos.getY() <= config.droneRunner.maxSpawnY && pos.getY() >= config.droneRunner.minSpawnY);
+        add(AVPREntities.NAUTICOMORPH, pos -> pos.getY() <= config.nauticomorph.maxSpawnY && pos.getY() >= config.nauticomorph.minSpawnY);
+        add(AVPREntities.PRAETORIAN, pos -> pos.getY() <= config.praetorian.maxSpawnY);
+        add(AVPREntities.QUEEN, pos -> pos.getY() <= config.queen.maxSpawnY);
+        add(AVPREntities.SPITTER, pos -> pos.getY() <= config.spitter.maxSpawnY);
+        add(AVPREntities.WARRIOR, pos -> pos.getY() <= config.warrior.maxSpawnY);
+        add(AVPREntities.WARRIOR_RUNNER, pos -> pos.getY() <= config.warriorRunner.maxSpawnY);
 
         // Predators
-        add(AVPREntities.YAUTJA, pos -> pos.getY() > config.yautjaConfigs.YAUTJA_MIN_SPAWN_Y);
+        add(AVPREntities.YAUTJA, pos -> pos.getY() > config.yautja.minSpawnY);
     }
 
     public boolean test(EntityType<?> entityType, BlockPos pos) {

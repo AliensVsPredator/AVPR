@@ -61,8 +61,8 @@ public class ChestbursterRunnerEntity extends AlienEntity implements SmartBrainO
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
             .add(Attributes.ATTACK_DAMAGE, 0.5)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.chestbursterRunnerConfigs.CHESTBURSTERRUNNER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestbursterRunnerConfigs.CHESTBURSTERRUNNER_SPEED);
+            .add(Attributes.MAX_HEALTH, CommonMod.config.chestbursterRunner.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestbursterRunner.moveSpeed);
     }
 
     @Override

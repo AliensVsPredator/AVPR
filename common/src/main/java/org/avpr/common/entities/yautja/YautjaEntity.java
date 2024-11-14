@@ -137,10 +137,10 @@ public class YautjaEntity extends Monster implements Enemy, GeoEntity, SmartBrai
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.yautjaConfigs.YAUTJA_ATTACK)
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.yautja.damage)
             .add(Attributes.KNOCKBACK_RESISTANCE, 0.75F)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.yautjaConfigs.YAUTJA_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.yautjaConfigs.YAUTJA_SPEED);
+            .add(Attributes.MAX_HEALTH, CommonMod.config.yautja.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.yautja.moveSpeed);
     }
 
     public static boolean checkYautjaSpawnRules(EntityType<? extends YautjaEntity> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {

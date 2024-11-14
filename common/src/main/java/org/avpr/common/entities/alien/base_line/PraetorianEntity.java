@@ -61,9 +61,9 @@ public class PraetorianEntity extends AlienEntity implements SmartBrainOwner<Pra
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.praetorianConfigs.PRAETORIAN_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.praetorianConfigs.PRAETORIAN_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.praetorianConfigs.PRAETORIAN_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.praetorian.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.praetorian.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.praetorian.moveSpeed);
     }
 
     @Override

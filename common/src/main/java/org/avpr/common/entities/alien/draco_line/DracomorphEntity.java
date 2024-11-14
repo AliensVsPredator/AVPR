@@ -59,9 +59,9 @@ public class DracomorphEntity extends AlienEntity implements SmartBrainOwner<Dra
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.dracomorpthConfigs.DRACOMORPTH_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.dracomorpthConfigs.DRACOMORPTH_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.dracomorpthConfigs.DRACOMORPTH_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.dracomorph.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.dracomorph.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.dracomorph.moveSpeed);
     }
 
     @Override
