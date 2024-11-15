@@ -16,7 +16,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
@@ -29,13 +28,13 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.AngerManagement;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.gameevent.DynamicGameEventListener;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import org.avpr.common.CommonMod;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -77,10 +76,6 @@ public abstract class AlienEntity extends Monster implements Enemy, VibrationSys
         EntityDataSerializers.INT
     );
 
-    protected static int SPAWN_HEIGHT_MAX = 256;
-
-    protected static int SPAWN_HEIGHT_MIN = -256;
-
     protected AngerManagement angerManagement = new AngerManagement(this::canTargetEntity, Collections.emptyList());
 
     private final DynamicGameEventListener<Listener> dynamicGameEventListener;
@@ -105,56 +100,8 @@ public abstract class AlienEntity extends Monster implements Enemy, VibrationSys
     @Override
     protected void registerGoals() {}
 
-    /**
-     * Checks whether various conditions are met for a monster to spawn in the given level.
-     *
-     * @param type      The type of alien entity to spawn.
-     * @param level     The server level accessor providing the environment context.
-     * @param spawnType The type of spawning being attempted.
-     * @param pos       The block position where the monster is attempting to spawn.
-     * @param random    A source of randomness for checking spawn conditions.
-     * @return true if the monster can spawn, false otherwise.
-     */
-    public static boolean checkAlienSpawnRules(
-        EntityType<? extends AlienEntity> type,
-        ServerLevelAccessor level,
-        MobSpawnType spawnType,
-        BlockPos pos,
-        RandomSource random
-    ) {
-        return level.getDifficulty() != Difficulty.PEACEFUL
-            && (MobSpawnType.ignoresLightRequirements(spawnType) || isDarkEnoughToSpawn(level, pos, random))
-            && checkMobSpawnRules(type, level, spawnType, pos, random) && (pos.getY() <= SPAWN_HEIGHT_MAX && pos.getY() >= SPAWN_HEIGHT_MIN);
-    }
-
-    /**
-     * Determines if the lighting conditions at a specified position in the given level are dark enough for a monster to
-     * spawn.
-     *
-     * @param level  The server level accessor providing the environment context.
-     * @param pos    The block position where the monster is attempting to spawn.
-     * @param random A source of randomness for checking light conditions.
-     * @return true if the lighting conditions are dark enough for a monster to spawn, false otherwise.
-     */
-    public static boolean isDarkEnoughToSpawn(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        if (level.getBrightness(LightLayer.SKY, pos) > random.nextInt(32)) {
-            return false;
-        } else {
-            var dimensiontype = level.dimensionType();
-            var spawnBlockLightLimit = dimensiontype.monsterSpawnBlockLightLimit();
-
-            if (spawnBlockLightLimit < 15 && level.getBrightness(LightLayer.BLOCK, pos) > spawnBlockLightLimit) {
-                return false;
-            } else {
-                var brightness = level.getLevel().isThundering()
-                    ? level.getMaxLocalRawBrightness(
-                        pos,
-                        10
-                    )
-                    : level.getMaxLocalRawBrightness(pos);
-                return brightness <= dimensiontype.monsterSpawnLightTest().sample(random);
-            }
-        }
+    public static boolean checkAlienSpawnRules(EntityType<? extends AlienEntity> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        return checkMonsterSpawnRules(type, level, spawnType, pos, random) && CommonMod.SPAWN_TESTING.test(type, pos);
     }
 
     @Override
@@ -514,7 +461,7 @@ public abstract class AlienEntity extends Monster implements Enemy, VibrationSys
             return false;
         if (this.isAlliedTo(entity))
             return false;
-        if (!livingEntity.getType().is(AVPREntityTags.HUMANIOD_HOSTS))
+        if (!livingEntity.getType().is(AVPREntityTags.HUMANOID_HOSTS))
             return false;
         if (livingEntity.getType().is(EntityTypeTags.UNDEAD))
             return false;

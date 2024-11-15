@@ -59,9 +59,9 @@ public class ChestbursterQueenEntity extends AlienEntity implements SmartBrainOw
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.chestbursterQueenConfigs.CHESTBURSTER_QUEEN_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.chestbursterQueenConfigs.CHESTBURSTER_QUEEN_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestbursterQueenConfigs.CHESTBURSTER_QUEEN_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.chestbursterQueen.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.chestbursterQueen.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestbursterQueen.moveSpeed);
     }
 
     @Override

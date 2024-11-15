@@ -63,8 +63,8 @@ public class BelugabursterEntity extends AlienEntity implements SmartBrainOwner<
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
             .add(Attributes.ATTACK_DAMAGE, 0.5)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.belugabursterConfigs.BELUGABURSTER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.belugabursterConfigs.BELUGABURSTER_SPEED);
+            .add(Attributes.MAX_HEALTH, CommonMod.config.belugaburster.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.belugaburster.moveSpeed);
     }
 
     @Override

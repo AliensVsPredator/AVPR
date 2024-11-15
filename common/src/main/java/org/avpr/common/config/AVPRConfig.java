@@ -5,12 +5,6 @@ import mod.azure.azurelib.common.internal.common.config.Configurable;
 
 import org.avpr.common.CommonMod;
 
-/**
- * The AVPRConfig class holds various nested static classes representing the configuration settings for different
- * entities and items within the AVPR (Aliens versus Predator Requiem) mod. These settings include customizable
- * parameters for entities such as acid, items, ovamorph, facehugger, chestburster, and many other game elements,
- * allowing fine-tuned control over their properties and behaviors.
- */
 @Config(id = CommonMod.MOD_ID)
 public class AVPRConfig {
 
@@ -18,798 +12,798 @@ public class AVPRConfig {
 
     @Configurable
     @Configurable.Synchronized
-    public AcidConfigs acidConfigs = new AcidConfigs();
+    public AcidConfigs acid = new AcidConfigs();
 
     public static class AcidConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ACID_BREAKSPEED_MODIFIER = 40.0f;
+        public float breakSpeedModifier = 40.0f;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ACID_DAMAGE = 2F;
+        public float damage = 2F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public ItemConfigs itemConfigs = new ItemConfigs();
+    public ItemConfigs items = new ItemConfigs();
 
     public static class ItemConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BULLET_BREAKSPEED_MODIFIER = 1.0f;
+        public float bulletBreakSpeedMultiplier = 1.0f;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SKURIKEN_BREAKSPEED_MODIFIER = 1.0f;
+        public float shurikenBreakSpeedMultiplier = 1.0f;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SKURIKEN_DAMAGE = 5F;
+        public float shurikenDamage = 5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SMARTDISC_BREAKSPEED_MODIFIER = 4.0f;
+        public float smartDiscBreakSpeedModifier = 4.0f;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SMARTDISC_DAMAGE = 5F;
+        public float smartDiscDamage = 5F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public OvamorphConfigs ovamorphConfigs = new OvamorphConfigs();
+    public OvamorphConfigs ovamorph = new OvamorphConfigs();
 
     public static class OvamorphConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float OVAMORPH_HEALTH = 8F;
+        public float health = 8F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float OVAMORPH_HATCH_RANGE = 7F;
+        public float hatchRange = 7F;
 
     }
 
     @Configurable
     @Configurable.Synchronized
-    public FacehuggerConfigs facehuggerConfigs = new FacehuggerConfigs();
+    public FacehuggerConfigs facehugger = new FacehuggerConfigs();
 
     public static class FacehuggerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float FACEHUGGER_HEALTH = 5F;
+        public float health = 5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float FACEHUGGER_SPEED = 0.3300000041723251F;
+        public float moveSpeed = 0.3300000041723251F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 1)
-        public float FACEHUGGER_ATTACH_TIME_IN_TICKS = 1200F;
+        public float attachTimeInTicks = 1200F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.Range(min = 1)
-        public int FACEHUGGER_IMPREG_TIMER = 1200;
+        public int impregnationDelayInTicks = 1200;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public boolean FACEHUGGER_GIVE_BLINDNESS = true;
+        public boolean blindHostWhileHugging = true;
 
     }
 
     @Configurable
     @Configurable.Synchronized
-    public FacehuggerRoyalConfigs facehuggerRoyalConfigs = new FacehuggerRoyalConfigs();
+    public FacehuggerRoyalConfigs royalFacehugger = new FacehuggerRoyalConfigs();
 
     public static class FacehuggerRoyalConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float FACEHUGGER_ROYAL_HEALTH = 5F;
+        public float health = 5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float FACEHUGGER_QUEEN_SPEED = 0.3300000041723251F;
+        public float moveSpeed = 0.3300000041723251F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 1)
-        public float FACEHUGGER_ROYAL_ATTACH_TIME_IN_TICKS = 1200F;
+        public float attachTimeInTicks = 1200F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.Range(min = 1)
-        public int FACEHUGGER_ROYAL_IMPREG_TIMER = 1200;
+        public int impregnationDelayInTicks = 1200;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public boolean FACEHUGGER_ROYAL_GIVE_BLINDNESS = true;
+        public boolean blindHostWhileHugging = true;
 
     }
 
     @Configurable
     @Configurable.Synchronized
-    public ChestbursterConfigs chestbursterConfigs = new ChestbursterConfigs();
+    public ChestbursterConfigs chestburster = new ChestbursterConfigs();
 
     public static class ChestbursterConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTER_HEALTH = 14.0F;
+        public float health = 14.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTER_ATTACK = 0.5F;
+        public float damage = 0.5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTER_SPEED = 0.42315001627206805F;
+        public float moveSpeed = 0.42315001627206805F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public ChestbursterQueenConfigs chestbursterQueenConfigs = new ChestbursterQueenConfigs();
+    public ChestbursterQueenConfigs chestbursterQueen = new ChestbursterQueenConfigs();
 
     public static class ChestbursterQueenConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTER_QUEEN_HEALTH = 14.0F;
+        public float health = 14.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTER_QUEEN_ATTACK = 0.5F;
+        public float damage = 0.5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTER_QUEEN_SPEED = 0.42315001627206805F;
+        public float moveSpeed = 0.42315001627206805F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public DroneConfigs droneConfigs = new DroneConfigs();
+    public DroneConfigs drone = new DroneConfigs();
 
     public static class DroneConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRONE_HEALTH = 40.0F;
+        public float health = 40.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRONE_ATTACK = 7.0F;
+        public float damage = 7.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRONE_SPEED = 0.5239000201463699F;
+        public float moveSpeed = 0.5239000201463699F;
 
         @Configurable
         @Configurable.Synchronized
-        public int DRONE_MAX_SPAWN_Y = 75;
+        public int maxSpawnY = 75;
 
         @Configurable
         @Configurable.Synchronized
-        public int DRONE_MIN_SPAWN_Y = 30;
+        public int minSpawnY = 30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public WarriorConfigs warriorConfigs = new WarriorConfigs();
+    public WarriorConfigs warrior = new WarriorConfigs();
 
     public static class WarriorConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float WARRIOR_HEALTH = 50.0F;
+        public float health = 50.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float WARRIOR_ATTACK = 9.0F;
+        public float damage = 9.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float WARRIOR_SPEED = 0.40300001549720765F;
+        public float moveSpeed = 0.40300001549720765F;
 
         @Configurable
         @Configurable.Synchronized
-        public int WARRIOR_MAX_SPAWN_Y = 30;
+        public int maxSpawnY = 30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public BoilerConfigs boilerConfigs = new BoilerConfigs();
+    public BoilerConfigs boiler = new BoilerConfigs();
 
     public static class BoilerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BOILER_HEALTH = 30.0F;
+        public float health = 30.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BOILER_ATTACK = 4.0F;
+        public float damage = 4.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BOILER_SPEED = 0.3627000139474869F;
+        public float moveSpeed = 0.3627000139474869F;
 
         @Configurable
         @Configurable.Synchronized
-        public int BOILER_MIN_SPAWN_Y = -20;
+        public int minSpawnY = -20;
 
         @Configurable
         @Configurable.Synchronized
-        public int BOILER_MAX_SPAWN_Y = -10;
+        public int maxSpawnY = -10;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public NauticomorphConfigs nauticomorphConfigs = new NauticomorphConfigs();
+    public NauticomorphConfigs nauticomorph = new NauticomorphConfigs();
 
     public static class NauticomorphConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float NAUTICOMORPH_HEALTH = 40.0F;
+        public float health = 40.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float NAUTICOMORPH_ATTACK = 7.0F;
+        public float damage = 7.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float NAUTICOMORPH_SPEED = 0.5239000201463699F;
+        public float moveSpeed = 0.5239000201463699F;
 
         @Configurable
         @Configurable.Synchronized
-        public int NAUTICOMORPH_MAX_SPAWN_Y = 63;
+        public int maxSpawnY = 63;
 
         @Configurable
         @Configurable.Synchronized
-        public int NAUTICOMORPH_MIN_SPAWN_Y = 30;
+        public int minSpawnY = 30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public PraetorianConfigs praetorianConfigs = new PraetorianConfigs();
+    public PraetorianConfigs praetorian = new PraetorianConfigs();
 
     public static class PraetorianConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float PRAETORIAN_HEALTH = 100.0F;
+        public float health = 100.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float PRAETORIAN_ATTACK = 12.0F;
+        public float damage = 12.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float PRAETORIAN_SPEED = 0.38285001472234725F;
+        public float moveSpeed = 0.38285001472234725F;
 
         @Configurable
         @Configurable.Synchronized
-        public int PRAETORIAN_MAX_SPAWN_Y = -30;
+        public int maxSpawnY = -30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public SpitterConfigs spitterConfigs = new SpitterConfigs();
+    public SpitterConfigs spitter = new SpitterConfigs();
 
     public static class SpitterConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SPITTER_HEALTH = 30.0F;
+        public float health = 30.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SPITTER_ATTACK = 4.0F;
+        public float damage = 4.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float SPITTER_SPEED = 0.3627000139474869F;
+        public float moveSpeed = 0.3627000139474869F;
 
         @Configurable
         @Configurable.Synchronized
-        public int SPITTER_MAX_SPAWN_Y = 30;
+        public int maxSpawnY = 30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public UltramorphConfigs ultramorphConfigs = new UltramorphConfigs();
+    public UltramorphConfigs ultramorph = new UltramorphConfigs();
 
     public static class UltramorphConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ULTRAMORPH_HEALTH = 230.0F;
+        public float health = 230.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ULTRAMORPH_ATTACK = 5.5F;
+        public float damage = 5.5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ULTRAMORPH_SPEED = 0.5239000201463699F;
+        public float moveSpeed = 0.5239000201463699F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public QueenConfigs queenConfigs = new QueenConfigs();
+    public QueenConfigs queen = new QueenConfigs();
 
     public static class QueenConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float QUEEN_HEALTH = 300.0F;
+        public float health = 300.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float QUEEN_ATTACK = 24.0F;
+        public float damage = 24.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float QUEEN_SPEED = 0.3627000139474869F;
+        public float moveSpeed = 0.3627000139474869F;
 
         @Configurable
         @Configurable.Synchronized
-        public int QUEEN_MAX_SPAWN_Y = -50;
+        public int maxSpawnY = -50;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public BelugabursterConfigs belugabursterConfigs = new BelugabursterConfigs();
+    public BelugabursterConfigs belugaburster = new BelugabursterConfigs();
 
     public static class BelugabursterConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BELUGABURSTER_HEALTH = 14.0F;
+        public float health = 14.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BELUGABURSTER_SPEED = 0.42315001627206805F;
+        public float moveSpeed = 0.42315001627206805F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public BelugamorphConfigs belugamorphConfigs = new BelugamorphConfigs();
+    public BelugamorphConfigs belugamorph = new BelugamorphConfigs();
 
     public static class BelugamorphConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BELUGAMORPH_HEALTH = 180.0F;
+        public float health = 180.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BELUGAMORPH_ATTACK = 4.5F;
+        public float damage = 4.5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float BELUGAMORPH_SPEED = 0.40300001549720765F;
+        public float moveSpeed = 0.40300001549720765F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public OctohuggerConfigs octohuggerConfigs = new OctohuggerConfigs();
+    public OctohuggerConfigs octohugger = new OctohuggerConfigs();
 
     public static class OctohuggerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float OCTOHUGGER_HEALTH = 14F;
+        public float health = 14F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float OCTOHUGGER_SPEED = 0.2945000113248825F;
+        public float moveSpeed = 0.2945000113248825F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 1)
-        public float OCTOHUGGER_ATTACH_TIME_IN_TICKS = 1200F;
+        public float attachTimeInTicks = 1200F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.Range(min = 1)
-        public int OCTOHUGGER_IMPREG_TIMER = 1200;
+        public int impregnationDelayInTicks = 1200;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public boolean OCTOHUGGER_GIVE_BLINDNESS = true;
+        public boolean blindHostWhileHugging = true;
 
     }
 
     @Configurable
     @Configurable.Synchronized
-    public TrilobiteBabyConfigs trilobiteBabyConfigs = new TrilobiteBabyConfigs();
+    public TrilobiteBabyConfigs trilobiteBaby = new TrilobiteBabyConfigs();
 
     public static class TrilobiteBabyConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float TRILOBITE_BABY_HEALTH = 16.0F;
+        public float health = 16.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float TRILOBITE_BABY_SPEED = 0.2945000113248825F;
+        public float moveSpeed = 0.2945000113248825F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public TrilobiteConfigs trilobiteConfigs = new TrilobiteConfigs();
+    public TrilobiteConfigs trilobite = new TrilobiteConfigs();
 
     public static class TrilobiteConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float TRILOBITE_HEALTH = 44.0F;
+        public float health = 44.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float TRILOBITE_ATTACK = 4.0F;
+        public float damage = 4.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float TRILOBITE_SPEED = 0.42315001627206805F;
+        public float moveSpeed = 0.42315001627206805F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public DeaconAdultConfigs deaconAdultConfigs = new DeaconAdultConfigs();
+    public DeaconAdultConfigs deaconAdult = new DeaconAdultConfigs();
 
     public static class DeaconAdultConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_ADULT_HEALTH = 120.0F;
+        public float health = 120.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_ADULT_ATTACK = 3.0F;
+        public float damage = 3.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_ADULT_SPEED = 0.44330001704692845F;
+        public float moveSpeed = 0.44330001704692845F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public DeaconAdultEnineerConfigs deaconAdultEnineerConfigs = new DeaconAdultEnineerConfigs();
+    public DeaconAdultEngineerConfigs deaconAdultEngineer = new DeaconAdultEngineerConfigs();
 
-    public static class DeaconAdultEnineerConfigs {
-
-        @Configurable
-        @Configurable.Synchronized
-        @Configurable.DecimalRange(min = 0)
-        public float DEACON_ADULT_ENGINEER_HEALTH = 150.0F;
+    public static class DeaconAdultEngineerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_ADULT_ENGINEER_ATTACK = 4.0F;
+        public float health = 150.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_ADULT_ENGINEER_SPEED = 0.48360001859664914F;
+        public float damage = 4.0F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float moveSpeed = 0.48360001859664914F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public DeaconConfigs deaconConfigs = new DeaconConfigs();
+    public DeaconConfigs deacon = new DeaconConfigs();
 
     public static class DeaconConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_HEALTH = 120.0F;
+        public float health = 120.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_ATTACK = 3.0F;
+        public float damage = 3.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DEACON_SPEED = 0.44330001704692845F;
+        public float moveSpeed = 0.44330001704692845F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public ChestbursterDracoConfigs chestbursterDracoConfigs = new ChestbursterDracoConfigs();
+    public ChestbursterDracoConfigs dracoChestburster = new ChestbursterDracoConfigs();
 
     public static class ChestbursterDracoConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTERDRACO_HEALTH = 25.0F;
+        public float health = 25.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTERDRACO_SPEED = 0.42315001627206805F;
+        public float moveSpeed = 0.42315001627206805F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public DracomorpthConfigs dracomorpthConfigs = new DracomorpthConfigs();
+    public DracomorphConfigs dracomorph = new DracomorphConfigs();
 
-    public static class DracomorpthConfigs {
-
-        @Configurable
-        @Configurable.Synchronized
-        @Configurable.DecimalRange(min = 0)
-        public float DRACOMORPTH_HEALTH = 400.0F;
+    public static class DracomorphConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRACOMORPTH_ATTACK = 8F;
+        public float health = 400.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRACOMORPTH_SPEED = 0.38285001472234725F;
+        public float damage = 8F;
+
+        @Configurable
+        @Configurable.Synchronized
+        @Configurable.DecimalRange(min = 0)
+        public float moveSpeed = 0.38285001472234725F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public OvamorphDracoConfigs ovamorphDracoConfigs = new OvamorphDracoConfigs();
+    public OvamorphDracoConfigs dracoOvamorph = new OvamorphDracoConfigs();
 
     public static class OvamorphDracoConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float OVAMORPHDRACO_HEALTH = 16F;
+        public float health = 16F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float OVAMORPHDRACO_HATCH_RANGE = 7F;
+        public float hatchRange = 7F;
 
     }
 
     @Configurable
     @Configurable.Synchronized
-    public ChestbursterRunnerConfigs chestbursterRunnerConfigs = new ChestbursterRunnerConfigs();
+    public ChestbursterRunnerConfigs chestbursterRunner = new ChestbursterRunnerConfigs();
 
     public static class ChestbursterRunnerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTERRUNNER_HEALTH = 14.0F;
+        public float health = 14.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CHESTBURSTERRUNNER_SPEED = 0.42315001627206805F;
+        public float moveSpeed = 0.42315001627206805F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public DroneRunnerConfigs droneRunnerConfigs = new DroneRunnerConfigs();
+    public DroneRunnerConfigs droneRunner = new DroneRunnerConfigs();
 
     public static class DroneRunnerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRONERUNNER_HEALTH = 30.0F;
+        public float health = 30.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRONERUNNER_ATTACK = 7.0F;
+        public float damage = 7.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float DRONERUNNER_SPEED = 0.5370750206530094F;
+        public float moveSpeed = 0.5370750206530094F;
 
         @Configurable
         @Configurable.Synchronized
-        public int DRONERUNNER_MIN_SPAWN_Y = 50;
+        public int minSpawnY = 50;
 
         @Configurable
         @Configurable.Synchronized
-        public int DRONERUNNER_MAX_SPAWN_Y = 75;
+        public int maxSpawnY = 75;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public WarriorRunnerConfigs warriorRunnerConfigs = new WarriorRunnerConfigs();
+    public WarriorRunnerConfigs warriorRunner = new WarriorRunnerConfigs();
 
     public static class WarriorRunnerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float WARRIOR_RUNNER_HEALTH = 40.0F;
+        public float health = 40.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float WARRIOR_RUNNER_ATTACK = 9.0F;
+        public float damage = 9.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float WARRIOR_RUNNER_SPEED = 0.562650021636486F;
+        public float moveSpeed = 0.562650021636486F;
 
         @Configurable
         @Configurable.Synchronized
-        public int WARRIOR_RUNNER_MAX_SPAWN_Y = 30;
+        public int maxSpawnY = 30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public CrusherConfigs crusherConfigs = new CrusherConfigs();
+    public CrusherConfigs crusher = new CrusherConfigs();
 
     public static class CrusherConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CRUSHER_HEALTH = 90.0F;
+        public float health = 90.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CRUSHER_ATTACK = 12.0F;
+        public float damage = 12.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float CRUSHER_SPEED = 0.46345001782178874F;
+        public float moveSpeed = 0.46345001782178874F;
 
         @Configurable
         @Configurable.Synchronized
-        public int CRUSHER_MAX_SPAWN_Y = -30;
+        public int maxSpawnY = -30;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public PredalienConfigs predalienConfigs = new PredalienConfigs();
+    public PredalienConfigs predalien = new PredalienConfigs();
 
     public static class PredalienConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float PREDALIEN_HEALTH = 230.0F;
+        public float health = 230.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float PREDALIEN_ATTACK = 5.5F;
+        public float damage = 5.5F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float PREDALIEN_SPEED = 0.46345001782178874F;
+        public float moveSpeed = 0.46345001782178874F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public EngineerConfigs engineerConfigs = new EngineerConfigs();
+    public EngineerConfigs engineer = new EngineerConfigs();
 
     public static class EngineerConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ENGINEER_HEALTH = 160.0F;
+        public float health = 160.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ENGINEER_ATTACK = 8.0F;
+        public float damage = 8.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float ENGINEER_SPEED = 0.5115000196695327F;
+        public float moveSpeed = 0.5115000196695327F;
     }
 
     @Configurable
     @Configurable.Synchronized
-    public YautjaConfigs yautjaConfigs = new YautjaConfigs();
+    public YautjaConfigs yautja = new YautjaConfigs();
 
     public static class YautjaConfigs {
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float YAUTJA_HEALTH = 80.0F;
+        public float health = 80.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float YAUTJA_ATTACK = 12.0F;
+        public float damage = 12.0F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float YAUTJA_SPEED = 0.48360001859664914F;
+        public float moveSpeed = 0.48360001859664914F;
 
         @Configurable
         @Configurable.Synchronized
         @Configurable.DecimalRange(min = 0)
-        public float YAUTJA_MIN_SPAWN_Y = 63;
+        public float minSpawnY = 63;
     }
 }

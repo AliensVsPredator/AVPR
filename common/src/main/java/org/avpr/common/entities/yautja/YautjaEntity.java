@@ -37,7 +37,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -138,32 +137,14 @@ public class YautjaEntity extends Monster implements Enemy, GeoEntity, SmartBrai
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.yautjaConfigs.YAUTJA_ATTACK)
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.yautja.damage)
             .add(Attributes.KNOCKBACK_RESISTANCE, 0.75F)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.yautjaConfigs.YAUTJA_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.yautjaConfigs.YAUTJA_SPEED);
+            .add(Attributes.MAX_HEALTH, CommonMod.config.yautja.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.yautja.moveSpeed);
     }
 
-    /**
-     * Checks whether various conditions are met for a monster to spawn in the given level.
-     *
-     * @param type      The type of yautja entity to spawn.
-     * @param level     The server level accessor providing the environment context.
-     * @param spawnType The type of spawning being attempted.
-     * @param pos       The block position where the monster is attempting to spawn.
-     * @param random    A source of randomness for checking spawn conditions.
-     * @return true if the monster can spawn, false otherwise.
-     */
-    public static boolean checkYautjaSpawnRules(
-        EntityType<? extends YautjaEntity> type,
-        ServerLevelAccessor level,
-        MobSpawnType spawnType,
-        BlockPos pos,
-        RandomSource random
-    ) {
-        return level.getDifficulty() != Difficulty.PEACEFUL
-            && MobSpawnType.ignoresLightRequirements(spawnType) && pos.getY() > CommonMod.config.yautjaConfigs.YAUTJA_MIN_SPAWN_Y
-            && checkMobSpawnRules(type, level, spawnType, pos, random);
+    public static boolean checkYautjaSpawnRules(EntityType<? extends YautjaEntity> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        return checkMonsterSpawnRules(type, level, spawnType, pos, random) && CommonMod.SPAWN_TESTING.test(type, pos);
     }
 
     @Override

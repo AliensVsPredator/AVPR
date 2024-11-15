@@ -1,13 +1,9 @@
-v0.0.9
+v0.0.10
 
-- Tweaked autunite geode generation.
-- Fixed Royal Jelly item having an incorrect rarity.
-- Fixed modded sword damage values not being consistent with 1.20.4.
-- Fixed spawn eggs not spawning from dispensers.
-- Fixed predator blade open/close sounds being heard from very far away.
-- Fixed crash occurring when aliens spawned via spawn eggs try to access a null host ID.
-- Fixed aliens having collision and not being pushable.
-- Fixed aliens, predators and engineers not despawning when difficulty is set to peaceful.
-- Fixed crushers having an incorrect hitbox size.
-- Fixed facehug positioning for cows being too high.
-- Fixed blocks not dropping loot.
+- Completely refactored config naming conventions.
+- Fixed cats producing belugabursters.
+- Fixed cats being huggable when they shouldn't be.
+- Fixed facehuggers not facehugging dogs/wolves.
+- Fixed industrial glass not being classified as a transparent block.
+- Fixed aliens, predators spawning at y levels they shouldn't be.
+- Fixed adult deacon engineer variants having their max health set to their damage.

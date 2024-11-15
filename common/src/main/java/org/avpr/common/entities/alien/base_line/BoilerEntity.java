@@ -54,15 +54,13 @@ public class BoilerEntity extends AlienEntity implements SmartBrainOwner<BoilerE
 
     public BoilerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.boilerConfigs.BOILER_MAX_SPAWN_Y;
-        SPAWN_HEIGHT_MIN = CommonMod.config.boilerConfigs.BOILER_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.boilerConfigs.BOILER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.boilerConfigs.BOILER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.boilerConfigs.BOILER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.boiler.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.boiler.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.boiler.moveSpeed);
     }
 
     @Override

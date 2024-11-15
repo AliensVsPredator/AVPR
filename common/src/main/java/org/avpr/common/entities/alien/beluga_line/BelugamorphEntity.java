@@ -59,9 +59,9 @@ public class BelugamorphEntity extends AlienEntity implements SmartBrainOwner<Be
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.belugamorphConfigs.BELUGAMORPH_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.belugamorphConfigs.BELUGAMORPH_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.belugamorphConfigs.BELUGAMORPH_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.belugamorph.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.belugamorph.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.belugamorph.moveSpeed);
     }
 
     @Override

@@ -59,9 +59,9 @@ public class PredalienEntity extends AlienEntity implements SmartBrainOwner<Pred
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.predalienConfigs.PREDALIEN_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.predalienConfigs.PREDALIEN_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.predalienConfigs.PREDALIEN_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.predalien.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.predalien.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.predalien.moveSpeed);
     }
 
     @Override

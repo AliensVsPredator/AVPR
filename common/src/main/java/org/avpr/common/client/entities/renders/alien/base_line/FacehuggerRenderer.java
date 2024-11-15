@@ -185,8 +185,8 @@ public class FacehuggerRenderer extends GeoEntityRenderer<FacehuggerEntity> {
             EntityType.WOLF,
             (facehugger, host) -> new TransformData(
                 0.0,
-                (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.4,
-                host.getBbWidth() - (facehugger.getBbHeight()) - 0.2,
+                (host.getEyeHeight(host.getPose())) - this.getPassengersRidingOffset(host) - facehugger.getBbWidth() + 0.1,
+                host.getBbWidth() - (facehugger.getBbHeight()) - 0.225,
                 0.44,
                 calcStandardOffsetY((FacehuggerEntity) facehugger) + 0.92
             )

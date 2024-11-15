@@ -55,14 +55,13 @@ public class WarriorEntity extends AlienEntity implements SmartBrainOwner<Warrio
 
     public WarriorEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.warriorConfigs.WARRIOR_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.warriorConfigs.WARRIOR_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.warriorConfigs.WARRIOR_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.warriorConfigs.WARRIOR_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.warrior.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.warrior.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.warrior.moveSpeed);
     }
 
     @Override

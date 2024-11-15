@@ -56,15 +56,13 @@ public class DroneRunnerEntity extends AlienEntity implements SmartBrainOwner<Dr
 
     public DroneRunnerEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.droneRunnerConfigs.DRONERUNNER_MAX_SPAWN_Y;
-        SPAWN_HEIGHT_MIN = CommonMod.config.droneRunnerConfigs.DRONERUNNER_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.droneRunnerConfigs.DRONERUNNER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.droneRunnerConfigs.DRONERUNNER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.droneRunnerConfigs.DRONERUNNER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.droneRunner.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.droneRunner.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.droneRunner.moveSpeed);
     }
 
     @Override

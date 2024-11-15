@@ -62,9 +62,9 @@ public class DeaconEntity extends AlienEntity implements SmartBrainOwner<DeaconE
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.deaconConfigs.DEACON_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.deaconConfigs.DEACON_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.deaconConfigs.DEACON_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.deacon.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.deacon.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.deacon.moveSpeed);
     }
 
     @Override

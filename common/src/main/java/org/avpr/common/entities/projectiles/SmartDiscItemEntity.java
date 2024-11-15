@@ -61,7 +61,7 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
         BlockBreakProgressManager.damage(
             level(),
             result.getBlockPos(),
-            CommonMod.config.itemConfigs.SMARTDISC_BREAKSPEED_MODIFIER * 2.0F
+            CommonMod.config.items.smartDiscBreakSpeedModifier * 2.0F
         );
         this.dealtDamage = true;
         super.onHitBlock(result);
@@ -72,7 +72,7 @@ public class SmartDiscItemEntity extends ThrowableItemProjectile {
         if (result.getEntity() instanceof LivingEntity livingEntity && getOwner() != null && livingEntity != getOwner()) {
             livingEntity.hurt(
                 damageSources().thrown(getOwner(), livingEntity),
-                CommonMod.config.itemConfigs.SMARTDISC_DAMAGE
+                CommonMod.config.items.smartDiscDamage
             );
             this.dealtDamage = true;
         }

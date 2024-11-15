@@ -240,7 +240,7 @@ public record AVPRBlocks() {
 
     public static final Supplier<Block> INDUSTRIAL_GLASS = AVPRBlocks.registerBlock(
         "industrial_glass",
-        () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
+        () -> new CustomTransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS))
     );
 
     public static final Supplier<Block> TEMPLE_WALL_BASE = AVPRBlocks.registerBlock(

@@ -59,9 +59,9 @@ public class DeaconAdultEngineerEntity extends AlienEntity implements SmartBrain
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.deaconAdultEnineerConfigs.DEACON_ADULT_ENGINEER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.deaconAdultEnineerConfigs.DEACON_ADULT_ENGINEER_ATTACK)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.deaconAdultEnineerConfigs.DEACON_ADULT_ENGINEER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.deaconAdultEngineer.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.deaconAdultEngineer.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.deaconAdultEngineer.moveSpeed);
     }
 
     @Override

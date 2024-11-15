@@ -60,9 +60,9 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.chestbursterConfigs.CHESTBURSTER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.chestbursterConfigs.CHESTBURSTER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestbursterConfigs.CHESTBURSTER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.chestburster.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.chestburster.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.chestburster.moveSpeed);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class ChestbursterEntity extends AlienEntity implements SmartBrainOwner<C
                         EntityTypeTags.UNDEAD
                     ) && !target.getType().is(AVPREntityTags.ALIENS) && target.getType()
                         .is(
-                            AVPREntityTags.HUMANIOD_HOSTS
+                            AVPREntityTags.HUMANOID_HOSTS
                         )
             ),
             new NearbyBlocksSensor<ChestbursterEntity>().setRadius(7)

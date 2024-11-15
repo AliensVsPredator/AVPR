@@ -21,15 +21,10 @@ import org.avpr.common.entities.projectiles.SmartDiscItemEntity;
 import org.avpr.common.registries.AVPREntities;
 import org.avpr.common.tags.AVPREntityTags;
 
+import java.util.Optional;
+
 public record EntityUtil() {
 
-    /**
-     * Shoots a shuriken from the specified living entity, playing a sound effect and spawning a
-     * {@code ShurikenItemEntity} in the game world.
-     *
-     * @param entity The {@code LivingEntity} that is shooting the shuriken. This entity will be used as the source and
-     *               owner of the shuriken.
-     */
     public static void shootShuriken(LivingEntity entity) {
         // TODO: Change sound effect here.
         entity.level()
@@ -134,51 +129,51 @@ public record EntityUtil() {
         }
     }
 
-    /**
-     * Spawns a new burster entity based on the type of the given host entity. The spawned burster's type or host ID may
-     * vary depending on the host entity's characteristics.
-     *
-     * @param entity The host living entity from which the burster will emerge.
-     * @return The newly spawned burster entity.
-     */
-    public static LivingEntity spawnBurster(LivingEntity entity) {
-        EntityType<? extends AlienEntity> entity_type = AVPREntities.CHESTBURSTER.get();
-        AlienEntity defaultBurster = entity_type.create(entity.level());
-        // if (SET_CAUSE_FLAG) {
-        // entity_type = AVPREntities.CHESTBURSTER_DRACO.get();
-        // defaultBurster.setHostId("beluga");
-        // return entity_type.create(entity.level());
-        // }
-        // TODO: What's going on here with string literal host IDs?
-        if (entity.getType().is(AVPREntityTags.RUNNER_HOSTS)) {
-            entity_type = AVPREntities.CHESTBURSTER_RUNNER.get();
-            defaultBurster.setHostId("runner");
-            return entity_type.create(entity.level());
+    public static String getHostIdForHost(LivingEntity host) {
+        // TODO: Will not scale long-term, this has to be completely redone.
+        if (host.getType().is(AVPREntityTags.RUNNER_HOSTS)) {
+            return "runner";
+        } else if (host.getType().is(AVPREntityTags.CRUSHER_HOSTS)) {
+            return "crusher";
+        } else if (host.getType().is(AVPREntityTags.SPITTER_HOSTS)) {
+            return "spitter";
+        } else if (host.getType().is(AVPREntityTags.PREDATORS)) {
+            return "predalien";
+        } else if (host.getType().is(AVPREntityTags.DRACO_HOSTS)) {
+            return "draco";
+        } else if (host.getType().is(AVPREntityTags.BELUGA_HOSTS)) {
+            return "beluga";
+        } else if (host.getType().is(AVPREntityTags.HUMANOID_HOSTS)) {
+            return "humanoid";
+        } else if (host.getType().is(AVPREntityTags.DEACON_HOSTS)) {
+            return "engineer";
         }
-        if (entity.getType().is(AVPREntityTags.CRUSHER_HOSTS)) {
-            defaultBurster.setHostId("crusher");
-        }
-        if (entity.getType().is(AVPREntityTags.SPITTER_HOSTS)) {
-            defaultBurster.setHostId("spitter");
-        }
-        if (entity.getType().is(AVPREntityTags.PREDATORS))
-            defaultBurster.setHostId("predalien");
-        if (entity.getType().is(AVPREntityTags.DRACO_HOSTS)) {
-            entity_type = AVPREntities.CHESTBURSTER_DRACO.get();
-            defaultBurster.setHostId("draco");
-            return entity_type.create(entity.level());
-        }
-        if (entity.getType().is(AVPREntityTags.BELUGA_HOSTS)) {
-            entity_type = AVPREntities.BELUGABURSTER.get();
-            defaultBurster.setHostId("beluga");
-            return entity_type.create(entity.level());
-        }
-        if (entity.getType().is(AVPREntityTags.DEACON_HOSTS)) {
-            entity_type = AVPREntities.TRILOBITE_BABY.get();
-            defaultBurster.setHostId(entity.getType().is(AVPREntityTags.HUMANIOD_HOSTS) ? "humanoid" : "engineer");
-            return entity_type.create(entity.level());
-        }
-        return defaultBurster;
+
+        return "humanoid";
+    }
+
+    private static EntityType<? extends AlienEntity> getEntityTypeForHostId(String hostId) {
+        // TODO: Will not scale long-term, this has to be completely redone.
+        return switch (hostId) {
+            case "runner", "crusher" -> AVPREntities.CHESTBURSTER_RUNNER.get();
+            case "humanoid", "predalien", "spitter" -> AVPREntities.CHESTBURSTER.get();
+            case "draco" -> AVPREntities.CHESTBURSTER_DRACO.get();
+            case "beluga" -> AVPREntities.BELUGABURSTER.get();
+            case "engineer" -> AVPREntities.TRILOBITE_BABY.get();
+            default -> AVPREntities.CHESTBURSTER.get();
+        };
+    }
+
+    public static Optional<LivingEntity> createBurster(LivingEntity host) {
+        // TODO: Will not scale long-term, this has to be completely redone.
+        var level = host.level();
+        var hostId = getHostIdForHost(host);
+        var bursterType = getEntityTypeForHostId(hostId);
+
+        return Optional.ofNullable(bursterType.create(level)).map(burster -> {
+            burster.setHostId(hostId);
+            return burster;
+        });
     }
 
     /**
@@ -237,13 +232,20 @@ public record EntityUtil() {
      * @param alienEntity The alien entity that will perform the hugging action on the target.
      */
     public static void hugTarget(LivingEntity target, AlienEntity alienEntity) {
-        if (!target.getUseItem().is(Items.SHIELD)) {
-            if (alienEntity instanceof FacehuggerEntity facehugger)
-                facehugger.grabTarget(target);
-            if (alienEntity instanceof FacehuggerRoyalEntity facehuggerRoyalEntity)
-                facehuggerRoyalEntity.grabTarget(target);
-            if (alienEntity instanceof OctohuggerEntity octohuggerEntity)
-                octohuggerEntity.grabTarget(target);
+        if (target.getUseItem().is(Items.SHIELD)) {
+            return;
+        }
+
+        if (alienEntity instanceof FacehuggerEntity facehugger) {
+            facehugger.grabTarget(target);
+        }
+
+        if (alienEntity instanceof FacehuggerRoyalEntity facehuggerRoyalEntity) {
+            facehuggerRoyalEntity.grabTarget(target);
+        }
+
+        if (alienEntity instanceof OctohuggerEntity octohuggerEntity) {
+            octohuggerEntity.grabTarget(target);
         }
     }
 }

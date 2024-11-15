@@ -21,7 +21,7 @@ import org.avpr.common.entities.alien.predalien_line.PredalienEntity;
 import org.avpr.common.entities.alien.runner_line.ChestbursterRunnerEntity;
 import org.avpr.common.entities.alien.runner_line.CrusherEntity;
 import org.avpr.common.entities.alien.runner_line.DroneRunnerEntity;
-import org.avpr.common.entities.alien.runner_line.WarriorDroneEntity;
+import org.avpr.common.entities.alien.runner_line.WarriorRunnerEntity;
 import org.avpr.common.entities.engineer.EngineerEntity;
 import org.avpr.common.entities.projectiles.*;
 import org.avpr.common.entities.yautja.YautjaEntity;
@@ -309,9 +309,9 @@ public record AVPREntities() {
         1.98F
     );
 
-    public static final Supplier<EntityType<WarriorDroneEntity>> WARRIOR_RUNNER = AVPREntities.registerEntity(
+    public static final Supplier<EntityType<WarriorRunnerEntity>> WARRIOR_RUNNER = AVPREntities.registerEntity(
         "warrior_runner",
-        WarriorDroneEntity::new,
+        WarriorRunnerEntity::new,
         MobCategory.MONSTER,
         0.98F,
         1.98F

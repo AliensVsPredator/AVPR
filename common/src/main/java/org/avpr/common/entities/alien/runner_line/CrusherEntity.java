@@ -55,14 +55,13 @@ public class CrusherEntity extends AlienEntity implements SmartBrainOwner<Crushe
 
     public CrusherEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.crusherConfigs.CRUSHER_MAX_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.crusherConfigs.CRUSHER_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.crusherConfigs.CRUSHER_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.crusherConfigs.CRUSHER_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.crusher.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.crusher.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.crusher.moveSpeed);
     }
 
     @Override

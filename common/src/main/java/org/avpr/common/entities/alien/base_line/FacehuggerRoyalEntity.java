@@ -86,7 +86,7 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.MAX_HEALTH, CommonMod.config.facehuggerRoyalConfigs.FACEHUGGER_ROYAL_HEALTH)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.royalFacehugger.health)
             .add(
                 Attributes.ARMOR,
                 1.0
@@ -102,7 +102,7 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
                 Attributes.FOLLOW_RANGE,
                 32.0
             )
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.facehuggerRoyalConfigs.FACEHUGGER_QUEEN_SPEED);
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.royalFacehugger.moveSpeed);
     }
 
     @Override
@@ -170,7 +170,7 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
                 livingEntity.heal(6);
             if (getVehicle() instanceof Player player && player.getFoodData().needsFood())
                 player.getFoodData().setFoodLevel(20);
-            if (ticksAttachedToHost > CommonMod.config.facehuggerRoyalConfigs.FACEHUGGER_ROYAL_ATTACH_TIME_IN_TICKS) {
+            if (ticksAttachedToHost > CommonMod.config.royalFacehugger.attachTimeInTicks) {
                 // if (getVehicle() instanceof Player player && player instanceof ServerPlayer serverPlayer) {
                 // var advancement = serverPlayer.server.getAdvancements().get(CommonMod.modResource("facehugged"));
                 // if (advancement != null && !serverPlayer.getAdvancements().getOrStartProgress(advancement).isDone())
@@ -186,7 +186,7 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
                     livingEntity.addEffect(
                         new MobEffectInstance(
                             AVPRStatusEffects.IMPREGNATION,
-                            CommonMod.config.facehuggerRoyalConfigs.FACEHUGGER_ROYAL_IMPREG_TIMER,
+                            CommonMod.config.royalFacehugger.impregnationDelayInTicks,
                             0,
                             false,
                             true
@@ -234,11 +234,11 @@ public class FacehuggerRoyalEntity extends AlienEntity implements SmartBrainOwne
         entity.yya = 0;
         entity.yBodyRot = 0;
         entity.setSpeed(0.0f);
-        if (CommonMod.config.facehuggerRoyalConfigs.FACEHUGGER_ROYAL_GIVE_BLINDNESS)
+        if (CommonMod.config.royalFacehugger.blindHostWhileHugging)
             entity.addEffect(
                 new MobEffectInstance(
                     MobEffects.BLINDNESS,
-                    (int) CommonMod.config.facehuggerRoyalConfigs.FACEHUGGER_ROYAL_ATTACH_TIME_IN_TICKS,
+                    (int) CommonMod.config.royalFacehugger.attachTimeInTicks,
                     0
                 )
             );

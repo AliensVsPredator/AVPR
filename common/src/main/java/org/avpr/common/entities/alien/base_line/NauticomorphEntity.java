@@ -55,15 +55,13 @@ public class NauticomorphEntity extends AlienEntity implements SmartBrainOwner<N
 
     public NauticomorphEntity(EntityType<? extends AlienEntity> entityType, Level level) {
         super(entityType, level);
-        SPAWN_HEIGHT_MAX = CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_MAX_SPAWN_Y;
-        SPAWN_HEIGHT_MIN = CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_MIN_SPAWN_Y;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_ATTACK)
-            .add(Attributes.MAX_HEALTH, CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_HEALTH)
-            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.nauticomorphConfigs.NAUTICOMORPH_SPEED);
+            .add(Attributes.ATTACK_DAMAGE, CommonMod.config.nauticomorph.damage)
+            .add(Attributes.MAX_HEALTH, CommonMod.config.nauticomorph.health)
+            .add(Attributes.MOVEMENT_SPEED, CommonMod.config.nauticomorph.moveSpeed);
     }
 
     @Override
